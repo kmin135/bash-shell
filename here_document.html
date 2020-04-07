@@ -1717,13 +1717,13 @@ $ <span class="hljs-built_in">echo</span> $?
 </code></pre>
 <p>&#xD30C;&#xC77C;&#xC758; &#xD2B9;&#xC815; offset &#xC5D0;&#xC11C;&#xBD80;&#xD130; N &#xBC14;&#xC774;&#xD2B8; hex &#xCD94;&#xCD9C;</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># offset 2 &#xC5D0;&#xC11C;&#xBD80;&#xD130; 4 &#xBC14;&#xC774;&#xD2B8; hex &#xCD94;&#xCD9C; ( od &#xBA85;&#xB839;&#xC740; &#xC635;&#xC158; &#xAC12;&#xC73C;&#xB85C; 8, 16 &#xC9C4;&#xC218; &#xBAA8;&#xB450; &#xC0AC;&#xC6A9; &#xAC00;&#xB2A5; )</span>
-$ <span class="hljs-built_in">echo</span> <span class="hljs-number">1234567890</span> | od -j2 -N4 -tx1z
-<span class="hljs-number">0000002</span> <span class="hljs-number">33</span> <span class="hljs-number">34</span> <span class="hljs-number">35</span> <span class="hljs-number">36</span>                                &gt;<span class="hljs-number">3456</span>&lt;
-<span class="hljs-number">0000010</span>
+$ <span class="hljs-built_in">echo</span> ABCDEFGHIJK | od -j2 -N4 -tx1z
+<span class="hljs-number">0000002</span> <span class="hljs-number">43</span> <span class="hljs-number">44</span> <span class="hljs-number">45</span> <span class="hljs-number">46</span>                                      &gt;CDEF&lt;
+<span class="hljs-number">0000006</span>
 
-$ <span class="hljs-built_in">echo</span> <span class="hljs-number">1234567890</span> | hd <span class="hljs-operator">-s</span>2 -n4
-<span class="hljs-number">00000002</span>  <span class="hljs-number">33</span> <span class="hljs-number">34</span> <span class="hljs-number">35</span> <span class="hljs-number">36</span>                                |<span class="hljs-number">3456</span>|
-<span class="hljs-number">00000008</span>
+$ <span class="hljs-built_in">echo</span> ABCDEFGHIJK | hd <span class="hljs-operator">-s</span>2 -n4
+<span class="hljs-number">00000002</span>  <span class="hljs-number">43</span> <span class="hljs-number">44</span> <span class="hljs-number">45</span> <span class="hljs-number">46</span>                                     |CDEF|
+<span class="hljs-number">00000006</span>
 </code></pre>
 <p>hex &#xAC12;&#xC774; &#xC544;&#xB2CC; &#xC815;&#xC218;&#xB098; float &#xAC12;&#xC73C;&#xB85C; &#xCD94;&#xCD9C;&#xD558;&#xACE0; &#xC2F6;&#xC73C;&#xBA74;</p>
 <p><img src="images/here_document_ex.png" alt=""></p>
