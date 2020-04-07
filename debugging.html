@@ -1355,7 +1355,18 @@ rm -rf ~/Workspace/<span class="hljs-variable">$Testdir</span>           <span c
 <span class="hljs-comment"># 2. command1, command2 &#xB458; &#xB2E4; &#xC624;&#xB958;&#xB85C; &#xC885;&#xB8CC;&#xD558;&#xAC8C; &#xB418;&#xBA74; exit &#xB429;&#xB2C8;&#xB2E4;.</span>
 <span class="hljs-built_in">command</span>1 ... || <span class="hljs-built_in">command</span>2 ...
 </code></pre>
-<p>&#xB530;&#xB77C;&#xC11C; &#xD2B9;&#xC815; &#xBA85;&#xB839;&#xC774; &#xC624;&#xB958;&#xB85C; &#xC885;&#xB8CC;&#xD560; &#xACBD;&#xC6B0; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xAC00; &#xC885;&#xB8CC;&#xB418;&#xC9C0; &#xC54A;&#xAC8C; &#xD558;&#xB824;&#xBA74; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xD558;&#xBA74; &#xB429;&#xB2C8;&#xB2E4;.
+<p>&#xC5EC;&#xB7EC; &#xAC1C;&#xC758; &#xBA85;&#xB839;&#xC774; <code>&amp;&amp;</code> &#xC5F0;&#xC0B0;&#xC790;&#xB85C; &#xC5F0;&#xACB0;&#xB418;&#xC5B4; &#xC788;&#xC744; &#xACBD;&#xC6B0; &#xC911;&#xAC04;&#xC5D0; &#xD558;&#xB098;&#xB77C;&#xB3C4; &#xC624;&#xB958;&#xAC00; &#xBC1C;&#xC0DD;&#xD558;&#xBA74;
+&#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC740; &#xC624;&#xB958;&#xAC00; &#xB418;&#xC9C0;&#xB9CC; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB294; &#xC885;&#xB8CC;&#xB418;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xC774;&#xB54C;&#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xCC98;&#xB9AC;&#xB97C; &#xD574;&#xC8FC;&#xBA74; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB97C; &#xC885;&#xB8CC;&#xC2DC;&#xD0AC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># &apos;cd&apos; &#xBA85;&#xB839;&#xC774;&#xB098; &apos;git init&apos; &#xBA85;&#xB839;&#xC5D0;&#xC11C; &#xC624;&#xB958;&#xAC00; &#xBC1C;&#xC0DD;&#xD574;&#xB3C4; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB294; &#xC885;&#xB8CC;&#xB418;&#xC9C0; &#xC54A;&#xB294;&#xB2E4;.</span>
+<span class="hljs-built_in">cd</span> <span class="hljs-string">&quot;<span class="hljs-variable">$GITHUB_DIR</span>&quot;</span> &amp;&amp; git init &amp;&amp; <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$git_config</span>&quot;</span> &gt; .git/config
+
+<span class="hljs-comment"># &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xCC98;&#xB9AC;&#xB97C; &#xD574;&#xC8FC;&#xBA74; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xAC00; &#xC885;&#xB8CC;&#xB429;&#xB2C8;&#xB2E4;.</span>
+<span class="hljs-built_in">cd</span> <span class="hljs-string">&quot;<span class="hljs-variable">$GITHUB_DIR</span>&quot;</span> &amp;&amp; git init &amp;&amp; <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$git_config</span>&quot;</span> &gt; .git/config || <span class="hljs-literal">false</span>
+
+<span class="hljs-built_in">cd</span> <span class="hljs-string">&quot;<span class="hljs-variable">$GITHUB_DIR</span>&quot;</span> &amp;&amp; git init &amp;&amp; <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$git_config</span>&quot;</span> &gt; .git/config || <span class="hljs-built_in">exit</span>
+</code></pre>
+<p>&#xBC18;&#xB300;&#xB85C; &#xD2B9;&#xC815; &#xBA85;&#xB839;&#xC774; &#xC624;&#xB958;&#xB85C; &#xC885;&#xB8CC;&#xD560; &#xACBD;&#xC6B0; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xAC00; &#xC885;&#xB8CC;&#xB418;&#xC9C0; &#xC54A;&#xAC8C; &#xD558;&#xB824;&#xBA74; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xD558;&#xBA74; &#xB429;&#xB2C8;&#xB2E4;.
 &#xC774;&#xAC83;&#xC740; &#xD2B9;&#xD788; shell &#xD568;&#xC218;&#xB97C; &#xC791;&#xC131;&#xD560;&#xB54C; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xCC98;&#xB9AC;&#xB97C; &#xD574;&#xC8FC;&#xC5B4;&#xC57C; &#xD574;&#xB2F9; &#xD568;&#xC218;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xAC00;
 &#xC885;&#xB8CC;&#xB418;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">error_<span class="hljs-built_in">command</span> ... || <span class="hljs-literal">true</span>
