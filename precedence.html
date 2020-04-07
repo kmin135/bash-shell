@@ -1315,11 +1315,19 @@ $ <span class="hljs-literal">true</span> || ( <span class="hljs-literal">true</s
 </code></pre>
 <h3 id="&#xD30C;&#xC774;&#xD504;&#xC640;--">&#xD30C;&#xC774;&#xD504;&#xC640; &amp;&amp;, ||</h3>
 <p>&#xD30C;&#xC774;&#xD504;&#xB294; &#xADF8;&#xB8F9;&#xC73C;&#xB85C; &#xD558;&#xB098;&#xC758; &#xBA85;&#xB839;&#xCC98;&#xB7FC; &#xC2E4;&#xD589;&#xB418;&#xBBC0;&#xB85C; <code>&amp;&amp;</code>, <code>||</code> &#xBCF4;&#xB2E4; &#xC6B0;&#xC120;&#xC21C;&#xC704;&#xAC00; &#xB192;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
-<pre><code class="lang-bash"><span class="hljs-comment"># &#xBA3C;&#xC800; sleep 3 &#xAC00; &#xC2E4;&#xD589;&#xC744; &#xC644;&#xB8CC;&#xD558;&#xBA74; &#xC774;&#xD6C4;&#xC5D0; sleep 4 &#xC640; sleep 5 &#xC774; &#xB3D9;&#xC2DC;&#xC5D0; &#xC2E4;&#xD589;&#xB429;&#xB2C8;&#xB2E4;.</span>
-$ sleep <span class="hljs-number">3</span> &amp;&amp; sleep <span class="hljs-number">4</span> | sleep <span class="hljs-number">5</span>
+<pre><code class="lang-bash"><span class="hljs-comment"># &#xBA3C;&#xC800; sleep 1 &#xC774; &#xC2E4;&#xD589;&#xC744; &#xC644;&#xB8CC;&#xD558;&#xBA74; &#xC774;&#xD6C4;&#xC5D0; sleep 2 &#xC640; sleep 3 &#xC774; &#xB3D9;&#xC2DC;&#xC5D0; &#xC2E4;&#xD589;&#xB429;&#xB2C8;&#xB2E4;.</span>
+$ time { sleep <span class="hljs-number">1</span> &amp;&amp; sleep <span class="hljs-number">2</span> | sleep <span class="hljs-number">3</span> ;}
+real    <span class="hljs-number">0</span>m4.<span class="hljs-number">009</span>s
 
-<span class="hljs-comment"># sleep 5 &#xC640; sleep 4 &#xAC00; &#xB3D9;&#xC2DC;&#xC5D0; &#xC2E4;&#xD589;&#xB418;&#xACE0; &#xC644;&#xB8CC;&#xB418;&#xBA74; &#xB9C8;&#xC9C0;&#xB9C9;&#xC73C;&#xB85C; sleep 3 &#xC774; &#xC2E4;&#xD589;&#xB429;&#xB2C8;&#xB2E4;.</span>
-$ sleep <span class="hljs-number">5</span> | sleep <span class="hljs-number">4</span> &amp;&amp; sleep <span class="hljs-number">3</span>
+$ time { { sleep <span class="hljs-number">1</span> &amp;&amp; sleep <span class="hljs-number">2</span> ;} | sleep <span class="hljs-number">3</span> ;}
+real    <span class="hljs-number">0</span>m3.<span class="hljs-number">009</span>s
+
+<span class="hljs-comment"># sleep 3 &#xACFC; sleep 2 &#xAC00; &#xB3D9;&#xC2DC;&#xC5D0; &#xC2E4;&#xD589;&#xB418;&#xACE0; &#xC644;&#xB8CC;&#xB418;&#xBA74; &#xB9C8;&#xC9C0;&#xB9C9;&#xC73C;&#xB85C; sleep 1 &#xC774; &#xC2E4;&#xD589;&#xB429;&#xB2C8;&#xB2E4;.</span>
+$ time { sleep <span class="hljs-number">3</span> | sleep <span class="hljs-number">2</span> &amp;&amp; sleep <span class="hljs-number">1</span> ;}
+real    <span class="hljs-number">0</span>m4.<span class="hljs-number">010</span>s
+
+$ time { sleep <span class="hljs-number">3</span> | { sleep <span class="hljs-number">2</span> &amp;&amp; sleep <span class="hljs-number">1</span> ;} ;}
+real    <span class="hljs-number">0</span>m3.<span class="hljs-number">009</span>s
 </code></pre>
 <h3 id="&#xD30C;&#xC774;&#xD504;-&#xBCF4;&#xB2E4;&#xB294;-redirection-&#xC774;-&#xC6B0;&#xC120;&#xC21C;&#xC704;&#xAC00;-&#xB192;&#xB2E4;">&#xD30C;&#xC774;&#xD504; &#xBCF4;&#xB2E4;&#xB294; redirection &#xC774; &#xC6B0;&#xC120;&#xC21C;&#xC704;&#xAC00; &#xB192;&#xB2E4;.</h3>
 <p>&#xD30C;&#xC774;&#xD504; &#xBCF4;&#xB2E4; redirection &#xC774; &#xC6B0;&#xC120;&#xC21C;&#xC704;&#xAC00; &#xB192;&#xC73C;&#xBBC0;&#xB85C; 
