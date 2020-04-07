@@ -1303,10 +1303,17 @@ $ <span class="hljs-built_in">echo</span> $(( <span class="hljs-number">0</span>
 $ AA=<span class="hljs-number">032</span>; <span class="hljs-built_in">echo</span> $(( <span class="hljs-number">10</span><span class="hljs-comment">#$AA ))        # 10 &#xC9C4;&#xC218; ( 0 &#xC774; &#xC81C;&#xAC70;&#xB41C;&#xB2E4; )</span>
 <span class="hljs-number">32</span>
 
-$ <span class="hljs-built_in">echo</span> $(( <span class="hljs-number">010</span> + <span class="hljs-number">0</span>x10 ))            <span class="hljs-comment"># 8&#xC9C4;&#xC218; + 16&#xC9C4;&#xC218;</span>
+$ <span class="hljs-built_in">echo</span> $(( <span class="hljs-number">010</span> + <span class="hljs-number">0</span>x10 ))            <span class="hljs-comment"># 8 &#xC9C4;&#xC218; + 16 &#xC9C4;&#xC218;</span>
 <span class="hljs-number">24</span>
-$ <span class="hljs-built_in">echo</span> $(( <span class="hljs-number">010</span> + <span class="hljs-number">0</span>x10 + <span class="hljs-number">10</span> ))       <span class="hljs-comment"># 8&#xC9C4;&#xC218; + 16&#xC9C4;&#xC218; + 10&#xC9C4;&#xC218;</span>
+$ <span class="hljs-built_in">echo</span> $(( <span class="hljs-number">010</span> + <span class="hljs-number">0</span>x10 + <span class="hljs-number">10</span> ))       <span class="hljs-comment"># 8 &#xC9C4;&#xC218; + 16 &#xC9C4;&#xC218; + 10 &#xC9C4;&#xC218;</span>
 <span class="hljs-number">34</span>
+</code></pre>
+<p>8 &#xC9C4;&#xC218;&#xB098; 16 &#xC9C4;&#xC218;&#xB85C; &#xBCC0;&#xACBD;&#xD558;&#xB824;&#xBA74; printf &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; &#xB429;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ <span class="hljs-built_in">printf</span> %x $(( <span class="hljs-number">0135</span> ))             <span class="hljs-comment"># 8 &#xC9C4;&#xC218;&#xB97C; 16 &#xC9C4;&#xC218;&#xB85C; &#xBCC0;&#xACBD;</span>
+<span class="hljs-number">5</span>d
+
+$ <span class="hljs-built_in">printf</span> %o $(( <span class="hljs-number">0</span>x5d ))             <span class="hljs-comment"># 16 &#xC9C4;&#xC218;&#xB97C; 8 &#xC9C4;&#xC218;&#xB85C; &#xBCC0;&#xACBD;</span>
+<span class="hljs-number">135</span>
 </code></pre>
 <h3 id="bitwise-&#xC5F0;&#xC0B0;">Bitwise &#xC5F0;&#xC0B0;</h3>
 <ul>

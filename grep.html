@@ -1552,12 +1552,10 @@ hello   world
 $ <span class="hljs-built_in">echo</span> <span class="hljs-operator">-e</span> <span class="hljs-string">&apos;hello\tworld&apos;</span> | grep -P <span class="hljs-string">&apos;\t&apos;</span>
 hello   world
 
-$ sudo ldconfig -v <span class="hljs-number">2</span>&gt;/dev/null | grep -P <span class="hljs-string">&apos;^\t&apos;</span>
-/usr/lib/x86_64-linux-gnu/libfakeroot:
-/lib/i386-linux-gnu:
-/usr/lib/i386-linux-gnu:
-. . .
-. . .
+$ grep -P -abo <span class="hljs-string">&apos;\135\0\0\0&apos;</span> vmlinuz-<span class="hljs-number">5.3</span>.<span class="hljs-number">0</span>-<span class="hljs-number">45</span>-generic 
+<span class="hljs-number">6974861</span>:]
+<span class="hljs-number">9128654</span>:]
+<span class="hljs-number">9130253</span>:]
 </code></pre>
 <h4 id="grep-&#xC740;-binary-&#xD30C;&#xC77C;&#xB3C4;-&#xB9E4;&#xCE6D;&#xC5D0;-&#xC0AC;&#xC6A9;&#xD560;-&#xC218;-&#xC788;&#xC2B5;&#xB2C8;&#xB2E4;">grep &#xC740; binary &#xD30C;&#xC77C;&#xB3C4; &#xB9E4;&#xCE6D;&#xC5D0; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</h4>
 <p>grep &#xC774; binary &#xD30C;&#xC77C;&#xC744; &#xB2E4;&#xB8E8;&#xB294; 3 &#xAC00;&#xC9C0; &#xBC29;&#xBC95;</p>
