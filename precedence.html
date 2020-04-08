@@ -1426,10 +1426,12 @@ tmpfile=`mktemp`
 
 <span class="hljs-function"><span class="hljs-title">try_decompress</span></span>()
 {
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;check <span class="hljs-variable">$2</span>&quot;</span> &gt;&amp;<span class="hljs-number">2</span>
     <span class="hljs-comment"># magic number &#xB97C; &#xC774;&#xC6A9;&#xD574; &#xC555;&#xCD95;&#xD30C;&#xC77C;&#xC758; &#xC704;&#xCE58;&#xB97C; &#xCC3E;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
-    <span class="hljs-keyword">for</span> pos <span class="hljs-keyword">in</span> `grep -P -abo <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$vmlinuz</span>&quot;</span>`
+    <span class="hljs-keyword">for</span> pos <span class="hljs-keyword">in</span> `LANG=C grep -P -abo <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$vmlinuz</span>&quot;</span>`
     <span class="hljs-keyword">do</span>
         pos=<span class="hljs-variable">${pos%%:*}</span> pos=$((pos + <span class="hljs-number">1</span>))  <span class="hljs-comment"># grep &#xC73C;&#xB85C; &#xB098;&#xC628; &#xAC12;&#xC5D0; +1 &#xC744; &#xD574;&#xC57C;&#xD568;</span>
+        <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;pos : <span class="hljs-variable">$pos</span>&quot;</span> &gt;&amp;<span class="hljs-number">2</span>
         <span class="hljs-comment"># $pos &#xC774;&#xD6C4;&#xC758; &#xD30C;&#xC77C;&#xB0B4;&#xC6A9;&#xC744; &#xD30C;&#xC774;&#xD504;&#xB97C; &#xD1B5;&#xD574; &#xC555;&#xCD95;&#xD574;&#xC81C; &#xBA85;&#xB839;&#xC73C;&#xB85C; &#xC804;&#xB2EC;&#xD569;&#xB2C8;&#xB2E4;.</span>
         tail -c +<span class="hljs-variable">$pos</span> <span class="hljs-string">&quot;<span class="hljs-variable">$vmlinuz</span>&quot;</span> | <span class="hljs-variable">$2</span> &gt; <span class="hljs-string">&quot;<span class="hljs-variable">$tmpfile</span>&quot;</span> <span class="hljs-number">2</span>&gt; /dev/null
         <span class="hljs-comment"># &#xC555;&#xCD95;&#xD574;&#xC81C;&#xB41C; &#xD30C;&#xC77C;&#xC774; elf &#xD30C;&#xC77C;&#xC774; &#xB9DE;&#xC744; &#xACBD;&#xC6B0; cat &#xBA85;&#xB839;&#xC744; &#xC774;&#xC6A9;&#xD574; stdout &#xC73C;&#xB85C; &#xCD9C;&#xB825;&#xD569;&#xB2C8;&#xB2E4;.</span>
@@ -1444,7 +1446,7 @@ try_decompress <span class="hljs-string">&apos;BZh&apos;</span>           bunzip
 try_decompress <span class="hljs-string">&apos;\135\0\0\0&apos;</span>    unlzma
 try_decompress <span class="hljs-string">&apos;\211\114\132&apos;</span>  <span class="hljs-string">&apos;lzop -d&apos;</span>
 try_decompress <span class="hljs-string">&apos;\002!L\030&apos;</span>    <span class="hljs-string">&apos;lz4 -d&apos;</span>
-try_decompress <span class="hljs-string">&apos;(\265/\375&apos;</span>    unzstd
+try_decompress <span class="hljs-string">&apos;\050\265/\375&apos;</span> unzstd
 
 <span class="hljs-built_in">echo</span> &gt;&amp;<span class="hljs-number">2</span> <span class="hljs-string">&quot;Cannot find vmlinux.&quot;</span>
 
