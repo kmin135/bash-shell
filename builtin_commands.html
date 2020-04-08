@@ -1437,7 +1437,24 @@ $ ( <span class="hljs-built_in">exec</span> <span class="hljs-operator">-l</span
 <blockquote>
 <p>readonly [-aAf] [name[=value] ...] or readonly -p</p>
 </blockquote>
-<p> &#xBCC0;&#xC218;&#xB098; &#xD568;&#xC218;&#xB97C; &#xBCC0;&#xACBD;&#xD560;&#xC218; &#xC5C6;&#xAC8C; &#xD569;&#xB2C8;&#xB2E4;. &#xC124;&#xC815;&#xD6C4; &#xBCC0;&#xACBD;&#xC744; &#xC2DC;&#xB3C4;&#xD558;&#xBA74; &#xC624;&#xB958;&#xBA54;&#xC2DC;&#xC9C0;&#xC640; <code>1</code> &#xC744; &#xB9AC;&#xD134;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<p> readonly &#xBCC0;&#xC218;&#xB098; &#xD568;&#xC218;&#xB97C; &#xC124;&#xC815;&#xD560; &#xB54C; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.<br> &#xC124;&#xC815; &#xD6C4; &#xBCC0;&#xACBD;&#xC744; &#xC2DC;&#xB3C4;&#xD558;&#xBA74; &#xC624;&#xB958;&#xBA54;&#xC2DC;&#xC9C0;&#xC640; &#xD568;&#xAED8; &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC73C;&#xB85C;<code>1</code> &#xC744; &#xB9AC;&#xD134;&#xD569;&#xB2C8;&#xB2E4;.   </p>
+<blockquote>
+<p><code>sh</code> &#xC5D0;&#xC11C;&#xB294; readonly &#xBCC0;&#xC218;&#xB9CC; &#xC124;&#xC815;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+</blockquote>
+<pre><code class="lang-bash">      <span class="hljs-operator">-a</span>        indexed array &#xBCC0;&#xC218;
+      -A        associative array &#xBCC0;&#xC218;
+      <span class="hljs-operator">-f</span>        shell <span class="hljs-built_in">functions</span>
+      -p        <span class="hljs-built_in">readonly</span> &#xBCC0;&#xC218;&#xB4E4;&#xC744; &#xCD9C;&#xB825; ( <span class="hljs-operator">-f</span> &#xB97C; &#xCD94;&#xAC00;&#xD558;&#xBA74; &#xD568;&#xC218;&#xB9CC; &#xCD9C;&#xB825; )
+----------------------------------------------------------------------
+
+$ <span class="hljs-built_in">readonly</span> AA=<span class="hljs-number">100</span>                          $ <span class="hljs-built_in">readonly</span> -A arr=( [aa]=<span class="hljs-number">100</span> [bb]=<span class="hljs-number">200</span> )
+
+$ AA=<span class="hljs-number">200</span>                                   $ arr=( [aa]=<span class="hljs-number">100</span> [bb]=<span class="hljs-number">200</span> [cc]=<span class="hljs-number">300</span> )
+bash: AA: <span class="hljs-built_in">readonly</span> variable                bash: arr: <span class="hljs-built_in">readonly</span> variable
+
+$ <span class="hljs-built_in">echo</span> $?                                  $ <span class="hljs-built_in">echo</span> $?
+<span class="hljs-number">1</span>                                          <span class="hljs-number">1</span>
+</code></pre>
 <h3 id="return">return</h3>
 <blockquote>
 <p>return [n]</p>
