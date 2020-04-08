@@ -1440,13 +1440,13 @@ tmpfile=`mktemp`
 }
 
 <span class="hljs-comment"># &#xCCAB; &#xBC88;&#xC9F8; &#xC778;&#xC218;&#xAC12;&#xC740; &#xD574;&#xB2F9; &#xC555;&#xCD95;&#xD30C;&#xC77C;&#xC758; magic number &#xC785;&#xB2C8;&#xB2E4;.</span>
-try_decompress <span class="hljs-string">&apos;\037\213\010&apos;</span>  gunzip
-try_decompress <span class="hljs-string">&apos;\3757zXZ\000&apos;</span>  unxz
-try_decompress <span class="hljs-string">&apos;BZh&apos;</span>           bunzip2
-try_decompress <span class="hljs-string">&apos;\135\0\0\0&apos;</span>    unlzma
-try_decompress <span class="hljs-string">&apos;\211\114\132&apos;</span>  <span class="hljs-string">&apos;lzop -d&apos;</span>
-try_decompress <span class="hljs-string">&apos;\002!L\030&apos;</span>    <span class="hljs-string">&apos;lz4 -d&apos;</span>
-try_decompress <span class="hljs-string">&apos;\050\265/\375&apos;</span> unzstd
+try_decompress <span class="hljs-string">&apos;\037\213\010&apos;</span>   gunzip
+try_decompress <span class="hljs-string">&apos;\3757zXZ\000&apos;</span>   unxz
+try_decompress <span class="hljs-string">&apos;BZh&apos;</span>            bunzip2
+try_decompress <span class="hljs-string">&apos;\135\0\0\0&apos;</span>     unlzma
+try_decompress <span class="hljs-string">&apos;\211\114\132&apos;</span>   <span class="hljs-string">&apos;lzop -d&apos;</span>
+try_decompress <span class="hljs-string">&apos;\002!L\030&apos;</span>     <span class="hljs-string">&apos;lz4 -d&apos;</span>
+try_decompress <span class="hljs-string">&apos;\050\265/\375&apos;</span>  unzstd
 
 <span class="hljs-built_in">echo</span> &gt;&amp;<span class="hljs-number">2</span> <span class="hljs-string">&quot;Cannot find vmlinux.&quot;</span>
 
