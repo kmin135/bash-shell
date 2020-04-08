@@ -1434,24 +1434,26 @@ PS1+=<span class="hljs-string">&apos;$(
 
 
 <h4 id="command-line-history-expansion">Command line history expansion</h4>
-<p>&#xD604;&#xC7AC; &#xC791;&#xC131;&#xC911;&#xC778; &#xBA85;&#xB839;&#xD589;&#xC0C1;&#xC5D0;&#xC11C; &#xC55E;&#xC11C; &#xD0C0;&#xC785;&#xD55C; &#xC778;&#xC218;&#xB97C; &#xB2E4;&#xC2DC; &#xC785;&#xB825;&#xD558;&#xACE0; &#xC2F6;&#xC744;&#xB54C;&#xAC00; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+<p>&#xD604;&#xC7AC; &#xC791;&#xC131; &#xC911;&#xC778; &#xBA85;&#xB839; &#xD589;&#xC0C1;&#xC5D0;&#xC11C; &#xC55E;&#xC11C; &#xD0C0;&#xC785;&#xD55C; &#xC778;&#xC218;&#xB97C; &#xB2E4;&#xC2DC; &#xC785;&#xB825;&#xD558;&#xACE0; &#xC2F6;&#xC744; &#xB54C;&#xAC00; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
 readline &#xD568;&#xC218;&#xC778; history-expand-line &#xACFC; <code>!#:$</code> <code>!#:0</code> <code>!#:1</code> ...  command history &#xAE30;&#xB2A5;&#xC744; &#xC774;&#xC6A9;&#xD574;
-<code>Alt-h &#xC22B;&#xC790;</code> &#xD0A4;&#xC870;&#xD569;&#xC5D0; &#xBC14;&#xC778;&#xB529; &#xD574;&#xBCF4;&#xACA0;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<code>Alt-&#xC22B;&#xC790; Alt-,</code> &#xD0A4;&#xC870;&#xD569;&#xC5D0; &#xBC14;&#xC778;&#xB529; &#xD574;&#xBCF4;&#xACA0;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xD55C;&#xAC00;&#xC9C0; &#xC0AC;&#xC6A9;&#xC2DC; &#xC8FC;&#xC758;&#xD560; &#xC810;&#xC740; &#xC774; &#xD0A4;&#xC870;&#xD569;&#xC740; &#xC55E;&#xC11C; <code>Alt-&#xC22B;&#xC790; Alt-.</code> &#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xB418;&#xB294; <code>Alt-&#xC22B;&#xC790;</code> &#xC640;
+&#xC911;&#xBCF5;&#xB418;&#xBBC0;&#xB85C; &#xC880; &#xBE60;&#xB974;&#xAC8C; &#xB20C;&#xB7EC;&#xC57C; &#xB429;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># ~/.inputrc &#xC5D0; &#xCD94;&#xAC00;&#xD560; &#xB0B4;&#xC6A9;</span>
 <span class="hljs-comment"># &quot;Alt-,&quot; &#xC5D0;&#xB294; !#:$ &#xC744; &#xBC14;&#xC778;&#xB529; &#xD558;&#xACE0;</span>
-<span class="hljs-comment"># &quot;Alt-h 1&quot; &#xC5D0;&#xB294; !#:1 &#xC744; &quot;Alt-h 2&quot; &#xC5D0;&#xB294; !#:2 ... &#xC744; &#xAC01;&#xAC01; &#xBC14;&#xC778;&#xB529; &#xD569;&#xB2C8;&#xB2E4;.</span>
+<span class="hljs-comment"># &quot;Alt-1 Alt-,&quot; &#xC5D0;&#xB294; !#:1 &#xC744; &quot;Alt-2 Alt-,&quot; &#xC5D0;&#xB294; !#:2 ... &#xC744; &#xAC01;&#xAC01; &#xBC14;&#xC778;&#xB529; &#xD569;&#xB2C8;&#xB2E4;.</span>
 <span class="hljs-comment"># &quot;\e^&quot; &#xB294; history-expand-line &#xD568;&#xC218;&#xC785;&#xB2C8;&#xB2E4;. &#xC55E;&#xC11C; &#xC785;&#xB825;&#xD55C; !#:1 &#xBD80;&#xBD84;&#xC774; &#xD655;&#xC7A5;&#xB429;&#xB2C8;&#xB2E4;.</span>
 
-<span class="hljs-string">&quot;\eh\e1&quot;</span>: <span class="hljs-string">&quot;!#:1\e^&quot;</span> 
-<span class="hljs-string">&quot;\eh\e2&quot;</span>: <span class="hljs-string">&quot;!#:2\e^&quot;</span> 
-<span class="hljs-string">&quot;\eh\e3&quot;</span>: <span class="hljs-string">&quot;!#:3\e^&quot;</span> 
-<span class="hljs-string">&quot;\eh\e4&quot;</span>: <span class="hljs-string">&quot;!#:4\e^&quot;</span> 
-<span class="hljs-string">&quot;\eh\e5&quot;</span>: <span class="hljs-string">&quot;!#:5\e^&quot;</span> 
-<span class="hljs-string">&quot;\eh\e6&quot;</span>: <span class="hljs-string">&quot;!#:6\e^&quot;</span> 
-<span class="hljs-string">&quot;\eh\e7&quot;</span>: <span class="hljs-string">&quot;!#:7\e^&quot;</span> 
-<span class="hljs-string">&quot;\eh\e8&quot;</span>: <span class="hljs-string">&quot;!#:8\e^&quot;</span> 
-<span class="hljs-string">&quot;\eh\e9&quot;</span>: <span class="hljs-string">&quot;!#:9\e^&quot;</span> 
-<span class="hljs-string">&quot;\eh\e0&quot;</span>: <span class="hljs-string">&quot;!#:0\e^&quot;</span> 
+<span class="hljs-string">&quot;\e1\e,&quot;</span>: <span class="hljs-string">&quot;!#:1\e^&quot;</span> 
+<span class="hljs-string">&quot;\e2\e,&quot;</span>: <span class="hljs-string">&quot;!#:2\e^&quot;</span> 
+<span class="hljs-string">&quot;\e3\e,&quot;</span>: <span class="hljs-string">&quot;!#:3\e^&quot;</span> 
+<span class="hljs-string">&quot;\e4\e,&quot;</span>: <span class="hljs-string">&quot;!#:4\e^&quot;</span> 
+<span class="hljs-string">&quot;\e5\e,&quot;</span>: <span class="hljs-string">&quot;!#:5\e^&quot;</span> 
+<span class="hljs-string">&quot;\e6\e,&quot;</span>: <span class="hljs-string">&quot;!#:6\e^&quot;</span> 
+<span class="hljs-string">&quot;\e7\e,&quot;</span>: <span class="hljs-string">&quot;!#:7\e^&quot;</span> 
+<span class="hljs-string">&quot;\e8\e,&quot;</span>: <span class="hljs-string">&quot;!#:8\e^&quot;</span> 
+<span class="hljs-string">&quot;\e9\e,&quot;</span>: <span class="hljs-string">&quot;!#:9\e^&quot;</span> 
+<span class="hljs-string">&quot;\e0\e,&quot;</span>: <span class="hljs-string">&quot;!#:0\e^&quot;</span> 
 <span class="hljs-string">&quot;\e,&quot;</span>: <span class="hljs-string">&quot;!#:$\e^&quot;</span>
 </code></pre>
 <video width="748" height="200" controls preload="auto">
