@@ -1653,17 +1653,21 @@ shell &#xC740; &#xBA85;&#xB839;&#xC744; &#xB2E4;&#xB8E8;&#xAE30; &#xB54C;&#xBB38
 $ time tr -dc <span class="hljs-string">&apos;[:graph:]&apos;</span> &lt; /dev/urandom | 
     <span class="hljs-keyword">for</span> (( i=<span class="hljs-number">0</span>; i&lt;<span class="hljs-number">10000</span>; i++)) <span class="hljs-keyword">do</span> head -c <span class="hljs-number">20</span>; <span class="hljs-built_in">echo</span>; <span class="hljs-keyword">done</span> &gt; x1
 
-real  <span class="hljs-number">0</span>m29.<span class="hljs-number">273</span>s      <span class="hljs-comment"># &#xC57D; 30 &#xCD08;</span>
-user  <span class="hljs-number">0</span>m16.<span class="hljs-number">639</span>s
-sys <span class="hljs-number">0</span>m15.<span class="hljs-number">361</span>s
+real    <span class="hljs-number">0</span>m19.<span class="hljs-number">095</span>s    <span class="hljs-comment"># &#xC57D; 20 &#xCD08;</span>
+user    <span class="hljs-number">0</span>m11.<span class="hljs-number">640</span>s
+sys     <span class="hljs-number">0</span>m8.<span class="hljs-number">586</span>s
 
 <span class="hljs-comment"># awk &#xB2E8;&#xC77C; &#xD504;&#xB85C;&#xC138;&#xC2A4; &#xC5D0;&#xC11C;&#xC758; loop</span>
 $ time tr -dc <span class="hljs-string">&apos;[:graph:]&apos;</span> &lt; /dev/urandom | 
     awk -v RS=<span class="hljs-string">&apos;.{20}&apos;</span> <span class="hljs-string">&apos;{ print RT } NR==10000{ exit }&apos;</span> &gt; x2
 
-real  <span class="hljs-number">0</span>m0.<span class="hljs-number">020</span>s       <span class="hljs-comment"># 1 &#xCD08;&#xB3C4; &#xC548; &#xAC78;&#xB9B0;&#xB2E4;.</span>
-user  <span class="hljs-number">0</span>m0.<span class="hljs-number">027</span>s
-sys <span class="hljs-number">0</span>m0.<span class="hljs-number">007</span>s
+real    <span class="hljs-number">0</span>m0.<span class="hljs-number">017</span>s     <span class="hljs-comment"># 1 &#xCD08;&#xB3C4; &#xC548; &#xAC78;&#xB9B0;&#xB2E4;.</span>
+user    <span class="hljs-number">0</span>m0.<span class="hljs-number">018</span>s
+sys     <span class="hljs-number">0</span>m0.<span class="hljs-number">012</span>s
+
+$ ls <span class="hljs-operator">-l</span> x1 x2
+-rw-rw-r-- <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">210000</span> <span class="hljs-number">2020</span>-<span class="hljs-number">04</span>-<span class="hljs-number">08</span> <span class="hljs-number">13</span>:<span class="hljs-number">17</span> x1
+-rw-rw-r-- <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">210000</span> <span class="hljs-number">2020</span>-<span class="hljs-number">04</span>-<span class="hljs-number">08</span> <span class="hljs-number">13</span>:<span class="hljs-number">17</span> x2
 </code></pre>
 <p>&#xB2E4;&#xC74C;&#xC740; /usr/bin &#xB514;&#xB809;&#xD1A0;&#xB9AC; &#xC5D0;&#xC11C; &#xD30C;&#xC77C; &#xC0AC;&#xC774;&#xC988;&#xB97C; stat &#xBA85;&#xB839;&#xC73C;&#xB85C; &#xAD6C;&#xD574; &#xCD1D;&#xD569;&#xC744; &#xACC4;&#xC0B0;&#xD558;&#xB294; &#xC608;&#xC785;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># find &#xBA85;&#xB839;&#xC758; {} \; &#xB294; &#xD30C;&#xC77C; &#xAC1C;&#xC218;&#xB9CC;&#xD07C; stat &#xBA85;&#xB839;&#xC774; &#xC2E4;&#xD589;&#xB3FC;&#xC57C; &#xD55C;&#xB2E4;.</span>
