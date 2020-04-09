@@ -1644,6 +1644,7 @@ tmpfs                <span class="hljs-number">5.0</span>MiB      <span class="h
 tmpfs                <span class="hljs-number">7.8</span>GiB          <span class="hljs-number">0</span>B       <span class="hljs-number">7.8</span>GiB   <span class="hljs-number">0</span>% /sys/fs/cgroup
 tmpfs                <span class="hljs-number">1.6</span>GiB      <span class="hljs-number">108</span>KiB       <span class="hljs-number">1.6</span>GiB   <span class="hljs-number">1</span>% /run/user/<span class="hljs-number">1000</span>
 </code></pre>
+<p><a name="quiz"></a></p>
 <h1 id="quiz">Quiz</h1>
 <p>cat &#xBA85;&#xB839;&#xC758; &#xBC18;&#xB300;&#xB294; &#xBB34;&#xC5C7;&#xC77C;&#xAE4C;&#xC694;?</p>
 <blockquote>
@@ -1666,6 +1667,7 @@ $ seq <span class="hljs-number">5</span> | tac
 
 <span class="hljs-comment"># &#xB2E4;&#xC74C;&#xC740; deb &#xD328;&#xD0A4;&#xC9C0;&#xAC00; &#xC2DC;&#xC2A4;&#xD15C;&#xC5D0; install, remove, upgrade &#xB418;&#xB294; &#xAE30;&#xB85D;&#xC744;</span>
 <span class="hljs-comment"># /var/log/dpkg.log &#xB85C;&#xADF8; &#xD30C;&#xC77C;&#xACFC; tac &#xBA85;&#xB839;&#xC744; &#xC774;&#xC6A9;&#xD574; &#xCD5C;&#xADFC; &#xC21C;&#xC73C;&#xB85C; &#xBCF4;&#xC5EC;&#xC90D;&#xB2C8;&#xB2E4;.</span>
+<span class="hljs-comment"># case &#xBB38;&#xC5D0; ;;&amp; ( next-matching ) &#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xC600;&#xC73C;&#xBBC0;&#xB85C; -i, -ir, -rui &#xC640;&#xAC19;&#xC774; &#xC0AC;&#xC6A9;&#xD560;&#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
 $ cat dpkg-history.sh
 
 <span class="hljs-shebang">#!/bin/bash
@@ -1675,22 +1677,23 @@ GREP=<span class="hljs-string">&quot;grep -E --color=always&quot;</span>
 <span class="hljs-built_in">export</span> LESS=<span class="hljs-string">&quot;-FRSXi&quot;</span>
 
 <span class="hljs-keyword">case</span> <span class="hljs-variable">$1</span> <span class="hljs-keyword">in</span>
-    i | install)
-        tac <span class="hljs-variable">$FILE</span> | <span class="hljs-variable">$GREP</span> <span class="hljs-string">&apos; install &apos;</span> | less
-        ;;
-    u | upgrade)
-        tac <span class="hljs-variable">$FILE</span> | <span class="hljs-variable">$GREP</span> <span class="hljs-string">&apos; upgrade &apos;</span> | less
-        ;;
-    r | remove)
-        tac <span class="hljs-variable">$FILE</span> | <span class="hljs-variable">$GREP</span> <span class="hljs-string">&apos; remove &apos;</span> | less
-        ;;
-    p | purge)
-        tac <span class="hljs-variable">$FILE</span> | <span class="hljs-variable">$GREP</span> <span class="hljs-string">&apos; purge &apos;</span> | less
-        ;;
-    *)
-        tac <span class="hljs-variable">$FILE</span> | <span class="hljs-variable">$GREP</span> <span class="hljs-string">&apos; install | remove | upgrade | purge &apos;</span> | less
+    -*i* )
+        str+=<span class="hljs-string">&quot; install &quot;</span>
+        ;;&amp;                         <span class="hljs-comment"># ;;&amp; ( next-matching )</span>
+    -*u* )
+        [ -n <span class="hljs-string">&quot;<span class="hljs-variable">$str</span>&quot;</span> ] &amp;&amp; str+=<span class="hljs-string">&quot;|&quot;</span>; str+=<span class="hljs-string">&quot; upgrade &quot;</span>
+        ;;&amp;
+    -*r* )
+        [ -n <span class="hljs-string">&quot;<span class="hljs-variable">$str</span>&quot;</span> ] &amp;&amp; str+=<span class="hljs-string">&quot;|&quot;</span>; str+=<span class="hljs-string">&quot; remove &quot;</span>
+        ;;&amp;
+    -*p* )
+        [ -n <span class="hljs-string">&quot;<span class="hljs-variable">$str</span>&quot;</span> ] &amp;&amp; str+=<span class="hljs-string">&quot;|&quot;</span>; str+=<span class="hljs-string">&quot; purge &quot;</span>
         ;;
 <span class="hljs-keyword">esac</span>
+
+[ -z <span class="hljs-string">&quot;<span class="hljs-variable">$str</span>&quot;</span> ] &amp;&amp; str=<span class="hljs-string">&quot; install | upgrade | remove | purge &quot;</span>
+
+tac <span class="hljs-variable">$FILE</span> | <span class="hljs-variable">$GREP</span> <span class="hljs-string">&quot;<span class="hljs-variable">$str</span>&quot;</span> | less
 </code></pre>
 
                     

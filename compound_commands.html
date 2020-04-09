@@ -1563,28 +1563,32 @@ NO
 <p>bash &#xC758; &#xACBD;&#xC6B0; pattern) &#xC885;&#xB8CC; &#xBB38;&#xC790;&#xB85C; <code>;;</code> &#xB300;&#xC2E0;&#xC5D0; <code>;&amp;</code>( fall-through ) &#xC640; <code>;;&amp;</code>( next-matching )
 &#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
 <code>;&amp;</code> &#xB294; &#xB2E4;&#xC74C; &#xD328;&#xD134;&#xC774; &#xB9E4;&#xCE6D;&#xC774; &#xB418;&#xB358; &#xC0C1;&#xAD00;&#xC5C6;&#xC774; &#xBB34;&#xC870;&#xAC74; &#xC2E4;&#xD589;&#xD558;&#xACE0;
-<code>;;&amp;</code> &#xB294; &#xB9E4;&#xCE6D;&#xC774; &#xB418;&#xB294; &#xB2E4;&#xC74C; &#xD328;&#xD134;&#xC744; &#xCC3E;&#xC544; &#xC2E4;&#xD589;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<code>;;&amp;</code> &#xB294; &#xB9E4;&#xCE6D;&#xC774; &#xB418;&#xB294; &#xB2E4;&#xC74C; &#xD328;&#xD134;&#xC744; &#xCC3E;&#xC544; &#xC2E4;&#xD589;&#xD569;&#xB2C8;&#xB2E4;.
+&#xB530;&#xB77C;&#xC11C; <code>;;&amp;</code> &#xB97C; &#xC0AC;&#xC6A9;&#xD560; &#xB550;  &#xB514;&#xD3F4;&#xD2B8; &#xB9E4;&#xCE6D;&#xC778; <code>*)</code> &#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xAE30; &#xC5B4;&#xB835;&#xACA0;&#xC8E0; ( &#xD56D;&#xC0C1; &#xB9E4;&#xCE6D;&#xC774; &#xB418;&#xBBC0;&#xB85C; )</p>
+<blockquote>
+<p><code>;;&amp;</code>( next-matching ) &#xD65C;&#xC6A9; &#xC608;&#xB294; <a href="tips.html#quiz">&#xC5EC;&#xAE30;</a> &#xB97C; &#xCC38;&#xACE0;&#xD558;&#xC138;&#xC694;</p>
+</blockquote>
 <pre><code class="lang-bash"><span class="hljs-shebang">#!/bin/bash                              #!/bin/bash
 </span>
-<span class="hljs-keyword">case</span> AAA <span class="hljs-keyword">in</span>                              <span class="hljs-keyword">case</span> ACD <span class="hljs-keyword">in</span>
+<span class="hljs-keyword">case</span> BBB <span class="hljs-keyword">in</span>                              <span class="hljs-keyword">case</span> ACD <span class="hljs-keyword">in</span>
     AAA)                                     *A*)
         <span class="hljs-built_in">echo</span> AAA                                 <span class="hljs-built_in">echo</span> AAA
-        ;&amp;      <span class="hljs-comment"># fall-through                   ;;&amp;       # next-matching</span>
+        ;;                                       ;;&amp;       <span class="hljs-comment"># next-matching</span>
     BBB)                                     *X*)
         <span class="hljs-built_in">echo</span> BBB                                 <span class="hljs-built_in">echo</span> XXX
         ;&amp;      <span class="hljs-comment"># fall-through                   ;;&amp;</span>
     CCC)                                     *C*)
         <span class="hljs-built_in">echo</span> CCC                                 <span class="hljs-built_in">echo</span> CCC
         ;;                                       ;;&amp;       <span class="hljs-comment"># next-matching</span>
-    DDD)                                     *D*)
-        <span class="hljs-built_in">echo</span> DDD                                 <span class="hljs-built_in">echo</span> DDD
+    *)                                       *D*)
+        <span class="hljs-built_in">echo</span> DEFAULT                             <span class="hljs-built_in">echo</span> DDD
 <span class="hljs-keyword">esac</span>                                     <span class="hljs-keyword">esac</span>
 ----------------                         -------------------
 
 <span class="hljs-comment"># &#xC2E4;&#xD589; &#xACB0;&#xACFC;                              # &#xC2E4;&#xD589; &#xACB0;&#xACFC;</span>
-AAA                                      AAA
-BBB                                      CCC
-CCC                                      DDD
+BBB                                      AAA
+CCC                                      CCC
+                                         DDD
 </code></pre>
 <h3 id="select">select</h3>
 <blockquote>
