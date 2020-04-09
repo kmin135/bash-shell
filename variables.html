@@ -1311,26 +1311,26 @@ $ <span class="hljs-built_in">export</span> -p                      <span class=
 <pre><code class="lang-bash">AA=<span class="hljs-string">&quot; &quot;</span>  AA=<span class="hljs-string">&quot;hello&quot;</span>  AA=<span class="hljs-number">123</span>
 </code></pre>
 <h3 id="&#xAC12;&#xC744;-&#xAD6C;&#xBD84;&#xD558;&#xAE30;">&#xAC12;&#xC744; &#xAD6C;&#xBD84;&#xD558;&#xAE30;</h3>
-<p>3&#xBC88; &#xBB34;&#xC5C7;&#xC774;&#xB4E0; &#xAC12;&#xC744; &#xAC00;&#xC9C0;&#xACE0; &#xC788;&#xB294; &#xC0C1;&#xD0DC;&#xC640; &#xADF8;&#xB807;&#xC9C0; &#xC54A;&#xC740; &#xC0C1;&#xD0DC; ( 1, 2&#xBC88; ) &#xC740; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xAD6C;&#xBD84;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p>3 &#xBC88; &#xBB34;&#xC5C7;&#xC774;&#xB4E0; &#xAC12;&#xC744; &#xAC00;&#xC9C0;&#xACE0; &#xC788;&#xB294; &#xC0C1;&#xD0DC;&#xC640; &#xADF8;&#xB807;&#xC9C0; &#xC54A;&#xC740; &#xC0C1;&#xD0DC; ( 1, 2 &#xBC88; ) &#xC740; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xAD6C;&#xBD84;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># $var &#xAC00; 1, 2 &#xBC88; &#xC0C1;&#xD0DC;&#xC77C; &#xB54C; &#xCC38;</span>
 <span class="hljs-keyword">if</span> [ -z <span class="hljs-string">&quot;<span class="hljs-variable">$var</span>&quot;</span> ]; <span class="hljs-keyword">then</span> ...  
 
 <span class="hljs-comment"># $var &#xAC00; 3 &#xBC88; &#xC0C1;&#xD0DC;&#xC77C; &#xB54C; &#xCC38;</span>
 <span class="hljs-keyword">if</span> [ -n <span class="hljs-string">&quot;<span class="hljs-variable">$var</span>&quot;</span> ]; <span class="hljs-keyword">then</span> ...
 </code></pre>
-<p>&#xBCC0;&#xC218;&#xAC00; &#xC874;&#xC7AC;&#xD558;&#xC9C0; &#xC54A;&#xB294; 1&#xBC88; unset &#xC0C1;&#xD0DC;&#xC640; 2&#xBC88; null &#xAC12; &#xC0C1;&#xD0DC;&#xB294; &#xB2E4;&#xC74C; &#xBA85;&#xB839;&#xC73C;&#xB85C; &#xAD6C;&#xBD84;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.<br>unset &#xC0C1;&#xD0DC;&#xC77C; &#xACBD;&#xC6B0;&#xB294; <code>1</code> &#xC744; &#xADF8;&#xC678;&#xB294; <code>0</code> &#xC744; &#xB9AC;&#xD134;&#xD569;&#xB2C8;&#xB2E4;.</p>
-<pre><code class="lang-bash">$ [ -v asdfgh ]; <span class="hljs-built_in">echo</span> $?   <span class="hljs-comment"># &#xD604;&#xC7AC; asdfgh &#xBCC0;&#xC218;&#xB294; &#xC874;&#xC7AC;&#xD558;&#xC9C0; &#xC54A;&#xB294; &#xC0C1;&#xD0DC; ( 1&#xBC88; &#xC0C1;&#xD0DC; )</span>
+<p>&#xBCC0;&#xC218;&#xAC00; &#xC874;&#xC7AC;&#xD558;&#xC9C0; &#xC54A;&#xB294; 1 &#xBC88; unset &#xC0C1;&#xD0DC;&#xC640; 2 &#xBC88; null &#xAC12; &#xC0C1;&#xD0DC;&#xB294; &#xB2E4;&#xC74C; &#xBA85;&#xB839;&#xC73C;&#xB85C; &#xAD6C;&#xBD84;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.<br>unset &#xC0C1;&#xD0DC;&#xC77C; &#xACBD;&#xC6B0;&#xB294; <code>1</code> &#xC744; &#xADF8;&#xC678;&#xB294; <code>0</code> &#xC744; &#xB9AC;&#xD134;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ [ -v asdfgh ]; <span class="hljs-built_in">echo</span> $?   <span class="hljs-comment"># &#xD604;&#xC7AC; asdfgh &#xBCC0;&#xC218;&#xB294; &#xC874;&#xC7AC;&#xD558;&#xC9C0; &#xC54A;&#xB294; &#xC0C1;&#xD0DC; (1 &#xBC88; &#xC0C1;&#xD0DC;)</span>
 <span class="hljs-number">1</span> 
 
-$ asdfgh=<span class="hljs-string">&quot;&quot;</span>                <span class="hljs-comment"># &#xBCC0;&#xC218;&#xB294; &#xC874;&#xC7AC;&#xD558;&#xB098; null &#xAC12;&#xC778; &#xC0C1;&#xD0DC; ( 2&#xBC88; &#xC0C1;&#xD0DC; )</span>
+$ asdfgh=<span class="hljs-string">&quot;&quot;</span>                <span class="hljs-comment"># &#xBCC0;&#xC218;&#xB294; &#xC874;&#xC7AC;&#xD558;&#xB098; null &#xAC12;&#xC778; &#xC0C1;&#xD0DC; (2 &#xBC88; &#xC0C1;&#xD0DC;)</span>
 $ [ -v asdfgh ]; <span class="hljs-built_in">echo</span> $?
 <span class="hljs-number">0</span>
 
-$ asdfgh=<span class="hljs-number">123</span>               <span class="hljs-comment"># 3&#xBC88; &#xC0C1;&#xD0DC;</span>
+$ asdfgh=<span class="hljs-number">123</span>               <span class="hljs-comment"># 3 &#xBC88; &#xC0C1;&#xD0DC;</span>
 $ [ -v asdfgh ]; <span class="hljs-built_in">echo</span> $?
 <span class="hljs-number">0</span>
 
-$ <span class="hljs-built_in">unset</span> asdfgh             <span class="hljs-comment"># unset &#xD588;&#xC73C;&#xBBC0;&#xB85C; &#xB2E4;&#xC2DC; 1&#xBC88; &#xC0C1;&#xD0DC;&#xAC00; &#xB429;&#xB2C8;&#xB2E4;.</span>
+$ <span class="hljs-built_in">unset</span> asdfgh             <span class="hljs-comment"># unset &#xD588;&#xC73C;&#xBBC0;&#xB85C; &#xB2E4;&#xC2DC; 1 &#xBC88; &#xC0C1;&#xD0DC;&#xAC00; &#xB429;&#xB2C8;&#xB2E4;.</span>
 $ [ -v asdfgh ]; <span class="hljs-built_in">echo</span> $?
 <span class="hljs-number">1</span>
 </code></pre>
@@ -1338,7 +1338,7 @@ $ [ -v asdfgh ]; <span class="hljs-built_in">echo</span> $?
 &#xD558;&#xC9C0;&#xB9CC; <a href="exp_and_sub/parameter_expansion.html#use_a_default_value">&#xB9E4;&#xAC1C;&#xBCC0;&#xC218; &#xD655;&#xC7A5;</a>
 &#xAE30;&#xB2A5;&#xC744; &#xD65C;&#xC6A9;&#xD558;&#xBA74; &#xC27D;&#xAC8C; &#xCCB4;&#xD06C;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
 &#xB610;&#xB294; <code>set -u</code> ( nounset ) &#xC635;&#xC158;&#xC744; &#xD65C;&#xC6A9;&#xD558;&#xC5EC; &#xD14C;&#xC2A4;&#xD2B8; &#xD560;&#xC218;&#xB3C4; &#xC788;&#xB294;&#xB370;
-&#xC774; &#xC635;&#xC158;&#xC744; &#xC124;&#xC815;&#xD558;&#xBA74; 1&#xBC88; &#xC874;&#xC7AC;&#xD558;&#xC9C0; &#xC54A;&#xB294; &#xBCC0;&#xC218; &#xC0AC;&#xC6A9;&#xC2DC; &#xC624;&#xB958;&#xB97C; &#xBC18;&#xD658;&#xD558;&#xACE0; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xAC00; &#xC885;&#xB8CC;&#xB429;&#xB2C8;&#xB2E4;.</p>
+&#xC774; &#xC635;&#xC158;&#xC744; &#xC124;&#xC815;&#xD558;&#xBA74; 1 &#xBC88; &#xC874;&#xC7AC;&#xD558;&#xC9C0; &#xC54A;&#xB294; &#xBCC0;&#xC218; &#xC0AC;&#xC6A9;&#xC2DC; &#xC624;&#xB958;&#xB97C; &#xBC18;&#xD658;&#xD558;&#xACE0; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xAC00; &#xC885;&#xB8CC;&#xB429;&#xB2C8;&#xB2E4;.</p>
 <blockquote>
 <p>&#xD14C;&#xC2A4;&#xD2B8;&#xB97C; &#xC704;&#xD574; subshell &#xB97C; &#xC0AC;&#xC6A9;&#xD568;&#xC73C;&#xB85C;&#xC368; &#xC885;&#xB8CC;&#xC2DC; subshell &#xB9CC; &#xC885;&#xB8CC;&#xB418;&#xAC8C; &#xD560; &#xC218; &#xC788;&#xACE0; &#xC635;&#xC158; &#xC124;&#xC815; &#xB610;&#xD55C;
 subshell &#xC5D0; &#xAD6D;&#xD55C;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
@@ -1350,7 +1350,7 @@ $ <span class="hljs-built_in">echo</span> $?           <span class="hljs-comment
 <span class="hljs-number">1</span>
 ............................................
 
-$ asdfgh=<span class="hljs-string">&quot;&quot;</span>         <span class="hljs-comment"># 2&#xBC88; &#xC0C1;&#xD0DC;&#xB294; &#xC815;&#xC0C1;&#xC801;&#xC73C;&#xB85C; &#xC2E4;&#xD589;</span>
+$ asdfgh=<span class="hljs-string">&quot;&quot;</span>         <span class="hljs-comment"># 2 &#xBC88; &#xC0C1;&#xD0DC;&#xB294; &#xC815;&#xC0C1;&#xC801;&#xC73C;&#xB85C; &#xC2E4;&#xD589;</span>
 $ ( <span class="hljs-built_in">set</span> -u; <span class="hljs-built_in">echo</span> <span class="hljs-number">111</span> <span class="hljs-variable">$asdfgh</span>; <span class="hljs-built_in">echo</span> end... )
 <span class="hljs-number">111</span>
 end...
@@ -1371,7 +1371,7 @@ sh$ <span class="hljs-built_in">unset</span> asdfgh
 sh$ ( <span class="hljs-built_in">set</span> -u; : <span class="hljs-variable">$asdfgh</span> ) <span class="hljs-number">2</span>&gt; /dev/null; <span class="hljs-built_in">echo</span> $?
 <span class="hljs-number">2</span>
 </code></pre>
-<p>1&#xBC88; &#xC0C1;&#xD0DC;&#xC640; 2&#xBC88; &#xC0C1;&#xD0DC;&#xB97C; &#xB530;&#xB85C; &#xAD6C;&#xBD84;&#xD558;&#xB294; &#xAC83;&#xC740; &#xD544;&#xC694; &#xC5C6;&#xC744; &#xAC83; &#xAC19;&#xC9C0;&#xB9CC;
+<p>1 &#xBC88; &#xC0C1;&#xD0DC;&#xC640; 2 &#xBC88; &#xC0C1;&#xD0DC;&#xB97C; &#xB530;&#xB85C; &#xAD6C;&#xBD84;&#xD558;&#xB294; &#xAC83;&#xC740; &#xD544;&#xC694; &#xC5C6;&#xC744; &#xAC83; &#xAC19;&#xC9C0;&#xB9CC;
 &#xBCC0;&#xC218;&#xAC00; &#xAC00;&#xC9C0;&#xACE0; &#xC788;&#xB294; &#xAC12;&#xC5D0; &#xC0C1;&#xAD00;&#xC5C6;&#xC774; &#xBCC0;&#xC218;&#xC758; &#xC874;&#xC7AC; &#xC5EC;&#xBD80;&#xB97C; &#xD310;&#xB2E8;&#xC5D0; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xACBD;&#xC6B0;&#xAC00; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># LD_TRACE_LOADED_OBJECTS &#xBCC0;&#xC218;&#xC5D0; &#xD2B9;&#xC815; &#xAC12;&#xC744; &#xB300;&#xC785;&#xD558;&#xC9C0; &#xC54A;&#xC544;&#xB3C4; &#xB41C;&#xB2E4;.</span>
 $ LD_TRACE_LOADED_OBJECTS= /bin/date
