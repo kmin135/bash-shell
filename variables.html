@@ -1380,9 +1380,14 @@ $ LD_TRACE_LOADED_OBJECTS= /bin/date
         /lib64/ld-linux-x86-<span class="hljs-number">64</span>.so.<span class="hljs-number">2</span> (<span class="hljs-number">0</span>x00007f393dece000)
 </code></pre>
 <h3 id="--&#xB97C;-&#xC774;&#xC6A9;&#xD55C;-&#xBCC0;&#xC218;&#xAC12;-&#xC124;&#xC815;">&amp;&amp; , || &#xB97C; &#xC774;&#xC6A9;&#xD55C; &#xBCC0;&#xC218;&#xAC12; &#xC124;&#xC815;</h3>
-<p>Command line &#xC5D0;&#xB294; &#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; &#xBA85;&#xB839;&#xBB38; &#xC678;&#xC5D0; &#xB300;&#xC785; &#xC5F0;&#xC0B0;&#xC774; &#xC62C; &#xC218;&#xB3C4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
-( &#xB610;&#xD55C; &#xBA85;&#xB839;&#xBB38;&#xC5D0; &#xC120;&#xD589;&#xD574;&#xC11C; &#xB300;&#xC785; &#xC5F0;&#xC0B0;&#xC774; &#xC62C; &#xC218;&#xB3C4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4; ).
-<code>|</code> &#xD30C;&#xC774;&#xD504;&#xC640; &#xB2EC;&#xB9AC; <code>&amp;&amp;</code> , <code>||</code> &#xC5D0; &#xC5F0;&#xACB0;&#xB41C; &#xBA85;&#xB839;&#xC740; &#xD604;&#xC7AC; shell &#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xB418;&#xBBC0;&#xB85C;
+<p>Command line &#xC5D0;&#xB294; &#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; &#xBA85;&#xB839;&#xBB38; &#xC678;&#xC5D0; &#xB300;&#xC785; &#xC5F0;&#xC0B0;&#xC774; &#xC62C; &#xC218;&#xB3C4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<ol>
+<li>&#xBA85;&#xB839;&#xBB38;</li>
+<li>&#xB300;&#xC785;&#xC5F0;&#xC0B0;</li>
+<li>&#xB300;&#xC785;&#xC5F0;&#xC0B0; + &#xBA85;&#xB839;&#xBB38; ( <a href="tips.html#assignment">&#xBA85;&#xB839;&#xC5D0; &#xC120;&#xD589;&#xD558;&#xB294; &#xB300;&#xC785;&#xC5F0;&#xC0B0;</a> )</li>
+</ol>
+<p>&#xADF8;&#xB9AC;&#xACE0; &#xB300;&#xC785; &#xC5F0;&#xC0B0;&#xC740; &#xACF5;&#xBC31;&#xC73C;&#xB85C; &#xBD84;&#xB9AC;&#xD558;&#xC5EC; &#xD55C;&#xBC88;&#xC5D0; &#xC5EC;&#xB7EC; &#xAC1C;&#xB97C; &#xC815;&#xC758;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+<code>|</code> &#xD30C;&#xC774;&#xD504;&#xC640; &#xB2EC;&#xB9AC; <code>&amp;&amp;</code> , <code>||</code> &#xC5F0;&#xC0B0;&#xC790;&#xB85C; &#xC5F0;&#xACB0;&#xB41C; &#xBA85;&#xB839; &#xB77C;&#xC778;&#xC740; &#xD604;&#xC7AC; shell &#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xB418;&#xBBC0;&#xB85C;
  &#xBCC0;&#xC218;&#xAC12;&#xC744; &#xC124;&#xC815;&#xD558;&#xB294;&#xB370; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># &#xBA85;&#xB839;&#xC774; &#xC131;&#xACF5;&#xD558;&#xBA74; myvar &#xBCC0;&#xC218;&#xAC12;&#xC744; 100 &#xC73C;&#xB85C; &#xC124;&#xC815;</span>
 $ <span class="hljs-built_in">command</span> ... &amp;&amp; myvar=<span class="hljs-number">100</span>
@@ -1390,14 +1395,14 @@ $ <span class="hljs-built_in">command</span> ... &amp;&amp; myvar=<span class="h
 <span class="hljs-comment"># &#xBA85;&#xB839;&#xC774; &#xC2E4;&#xD328;&#xD558;&#xBA74; myvar &#xBCC0;&#xC218;&#xAC12;&#xC744; 100 &#xC73C;&#xB85C; &#xC124;&#xC815;</span>
 $ <span class="hljs-built_in">command</span> ... || myvar=<span class="hljs-number">100</span>
 
-<span class="hljs-comment"># &#xBA85;&#xB839;&#xC774; &#xC131;&#xACF5;&#xD558;&#xBA74; 100 &#xC73C;&#xB85C; &#xC124;&#xC815;, &#xC2E4;&#xD328;&#xD558;&#xBA74; 200 &#xC73C;&#xB85C; &#xC124;&#xC815;</span>
-$ <span class="hljs-built_in">command</span> ... &amp;&amp; myvar=<span class="hljs-number">100</span> || myvar=<span class="hljs-number">200</span>
+<span class="hljs-comment"># &#xBA85;&#xB839;&#xC774; &#xC131;&#xACF5;&#xD558;&#xBA74; AA=100 BB=200 &#xC73C;&#xB85C; &#xC124;&#xC815;, &#xC2E4;&#xD328;&#xD558;&#xBA74; AA=300 BB=400 &#xC73C;&#xB85C; &#xC124;&#xC815;</span>
+$ <span class="hljs-built_in">command</span> ... &amp;&amp; AA=<span class="hljs-number">100</span> BB=<span class="hljs-number">200</span> || AA=<span class="hljs-number">300</span> BB=<span class="hljs-number">400</span>
 
-$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$myvar</span> 
-<span class="hljs-number">100</span>
+$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$AA</span> <span class="hljs-variable">$BB</span>
+<span class="hljs-number">100</span> <span class="hljs-number">200</span>
 -----------------------------------------------------
 
-<span class="hljs-comment"># &apos;|&apos; &#xD30C;&#xC774;&#xD504;&#xC5D0; &#xC5F0;&#xACB0;&#xB41C; &#xBA85;&#xB839;&#xC740; subshell &#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xB418;&#xBBC0;&#xB85C; </span>
+<span class="hljs-comment"># &apos;|&apos; &#xD30C;&#xC774;&#xD504;&#xB85C; &#xC5F0;&#xACB0;&#xB41C; &#xBA85;&#xB839; &#xB77C;&#xC778;&#xC740; subshell &#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xB418;&#xBBC0;&#xB85C; </span>
 <span class="hljs-comment"># &#xC124;&#xC815;&#xD55C; &#xBCC0;&#xC218;&#xAC12;&#xC744; &#xC774;&#xD6C4;&#xC758; &#xBA85;&#xB839;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
 $ <span class="hljs-built_in">command</span> ... | myvar=<span class="hljs-number">100</span>
 
