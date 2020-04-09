@@ -1682,7 +1682,7 @@ cursor_invisible=`tput civis`
 <span class="hljs-keyword">for</span> ((i=<span class="hljs-number">1</span>; i&lt;=<span class="hljs-variable">$num_of_files</span>; i++)) <span class="hljs-keyword">do</span> 
 (
     <span class="hljs-built_in">declare</span> -i cur_pos=<span class="hljs-number">0</span> pre_pos=<span class="hljs-number">0</span>
-    fname=$(<span class="hljs-built_in">eval</span> <span class="hljs-built_in">echo</span> \<span class="hljs-variable">${file$i}</span>); fname=<span class="hljs-variable">${fname%=*}</span>  <span class="hljs-comment"># fname &#xC740; random &#xD568;&#xC218;&#xBA85;</span>
+    fname=$(<span class="hljs-built_in">eval</span> <span class="hljs-built_in">echo</span> \<span class="hljs-variable">${file$i}</span>) fname=<span class="hljs-variable">${fname%=*}</span>  <span class="hljs-comment"># fname &#xC740; random &#xD568;&#xC218;&#xBA85;</span>
     <span class="hljs-keyword">while</span> :; <span class="hljs-keyword">do</span>
         cur_pos+=$(( RANDOM % <span class="hljs-number">5</span> ))
         [ <span class="hljs-variable">$cur_pos</span> <span class="hljs-operator">-gt</span> <span class="hljs-variable">$progress_bar</span> ] &amp;&amp; cur_pos=<span class="hljs-variable">$progress_bar</span>
