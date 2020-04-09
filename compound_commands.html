@@ -1570,13 +1570,13 @@ NO
 </blockquote>
 <pre><code class="lang-bash"><span class="hljs-shebang">#!/bin/bash                              #!/bin/bash
 </span>
-<span class="hljs-keyword">case</span> BBB <span class="hljs-keyword">in</span>                              <span class="hljs-keyword">case</span> ACD <span class="hljs-keyword">in</span>
+<span class="hljs-keyword">case</span> AAA <span class="hljs-keyword">in</span>                              <span class="hljs-keyword">case</span> ACD <span class="hljs-keyword">in</span>
     AAA)                                     *A*)
         <span class="hljs-built_in">echo</span> AAA                                 <span class="hljs-built_in">echo</span> AAA
-        ;;                                       ;;&amp;       <span class="hljs-comment"># next-matching</span>
+        ;&amp;      <span class="hljs-comment"># fall-through                   ;;&amp;       # next-matching</span>
     BBB)                                     *X*)
         <span class="hljs-built_in">echo</span> BBB                                 <span class="hljs-built_in">echo</span> XXX
-        ;&amp;      <span class="hljs-comment"># fall-through                   ;;&amp;</span>
+        ;;                                       ;;&amp;
     CCC)                                     *C*)
         <span class="hljs-built_in">echo</span> CCC                                 <span class="hljs-built_in">echo</span> CCC
         ;;                                       ;;&amp;       <span class="hljs-comment"># next-matching</span>
@@ -1586,8 +1586,8 @@ NO
 ----------------                         -------------------
 
 <span class="hljs-comment"># &#xC2E4;&#xD589; &#xACB0;&#xACFC;                              # &#xC2E4;&#xD589; &#xACB0;&#xACFC;</span>
-BBB                                      AAA
-CCC                                      CCC
+AAA                                      AAA
+BBB                                      CCC
                                          DDD
 </code></pre>
 <h3 id="select">select</h3>
