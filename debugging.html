@@ -1534,8 +1534,8 @@ trap &#xC774; &#xB418;&#xC9C0; &#xC54A;&#xC744; &#xACBD;&#xC6B0;&#xB294; &#xB2E4
 error_<span class="hljs-built_in">command</span> ...
 <span class="hljs-keyword">if</span> [ $? = <span class="hljs-number">0</span> ]; <span class="hljs-keyword">then</span> ...
 </code></pre>
-<h2 id="xtrace">Xtrace</h2>
-<p>Xtrace &#xC758; &#xAC00;&#xC7A5; &#xD070; &#xC7A5;&#xC810;&#xC740; &#xB9E4;&#xAC1C;&#xBCC0;&#xC218;&#xD655;&#xC7A5;, &#xBA85;&#xB839;&#xCE58;&#xD658;, &#xC0B0;&#xC220;&#xD655;&#xC7A5;&#xC774; &#xC644;&#xB8CC;&#xB41C; &#xBA85;&#xB839;&#xBB38;&#xC744; &#xBCF4;&#xC5EC;&#xC8FC;&#xACE0; &#xC2E4;&#xD589;&#xD55C;&#xB2E4;&#xB294; &#xC810;&#xC785;&#xB2C8;&#xB2E4;.
+<h2 id="xtrace">xtrace</h2>
+<p>xtrace &#xC758; &#xAC00;&#xC7A5; &#xD070; &#xC7A5;&#xC810;&#xC740; &#xB9E4;&#xAC1C;&#xBCC0;&#xC218;&#xD655;&#xC7A5;, &#xBA85;&#xB839;&#xCE58;&#xD658;, &#xC0B0;&#xC220;&#xD655;&#xC7A5;&#xC774; &#xC644;&#xB8CC;&#xB41C; &#xBA85;&#xB839;&#xBB38;&#xC744; &#xBCF4;&#xC5EC;&#xC8FC;&#xACE0; &#xC2E4;&#xD589;&#xD55C;&#xB2E4;&#xB294; &#xC810;&#xC785;&#xB2C8;&#xB2E4;.
 &#xADF8;&#xB7EC;&#xBBC0;&#xB85C; &#xBA85;&#xB839; &#xC2E4;&#xD589;&#xC2DC; &#xBCC0;&#xC218;&#xAC12;&#xC5D0; &#xB300;&#xD55C; &#xC815;&#xBCF4;&#xB97C; &#xC54C; &#xC218; &#xC788;&#xACE0;, <code>:</code> &#xBA85;&#xB839;&#xC744; &#xD65C;&#xC6A9;&#xD558;&#xBA74; &#xC778;&#xC218; &#xBD80;&#xBD84;&#xC5D0;&#xC11C; &#xD544;&#xC694;&#xD55C; &#xC5F0;&#xC0B0; &#xACB0;&#xACFC;&#xB97C; &#xC5BB;&#xC5B4; &#xB0BC;&#xC218;&#xB3C4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <p><code>set -x</code> | <code>set -o xtrace</code> &#xC635;&#xC158;&#xC73C;&#xB85C; &#xC124;&#xC815;&#xD558;&#xACE0; <code>set -</code> | <code>set +o xtrace</code> &#xC73C;&#xB85C; &#xD574;&#xC81C;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <p>&#xB2E4;&#xC74C;&#xC740; xtrace &#xB97C; &#xC774;&#xC6A9;&#xD574; <code>[</code> &#xBA85;&#xB839;&#xC758; &quot;too many arguments&quot; &#xC624;&#xB958;&#xB97C; trace &#xD558;&#xB294; &#xC608;&#xC785;&#xB2C8;&#xB2E4;.</p>
@@ -1602,8 +1602,8 @@ same !!!                                    <span class="hljs-comment"># &#xACB0
 + : i = <span class="hljs-number">3444</span>, i / <span class="hljs-number">2</span> = <span class="hljs-number">1722</span>
 + <span class="hljs-built_in">set</span> -
 </code></pre>
-<h3 id="xtrace-&#xC5D0;&#xC11C;-stepping-&#xC744;-&#xD558;&#xC790;">Xtrace &#xC5D0;&#xC11C; stepping &#xC744; &#xD558;&#xC790;</h3>
-<p>Xtrace &#xB294; &#xD504;&#xB85C;&#xADF8;&#xB798;&#xBC0D; &#xC5B8;&#xC5B4;&#xC5D0;&#xC11C; &#xB514;&#xBC84;&#xAE45; &#xD560;&#xB54C;&#xCC98;&#xB7FC; break point &#xB97C; &#xC124;&#xC815;&#xD558;&#xAC70;&#xB098; &#xBA85;&#xB839;&#xC744; &#xD558;&#xB098;&#xC529; stepping &#xD560;&#xC218;&#xAC00; &#xC5C6;&#xB294;&#xB370;&#xC694;. DEBUG trap &#xACFC; job control &#xC744; &#xC774;&#xC6A9;&#xD558;&#xBA74; &#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<h3 id="xtrace-&#xC5D0;&#xC11C;-stepping-&#xC744;-&#xD558;&#xAE30;">xtrace &#xC5D0;&#xC11C; stepping &#xC744; &#xD558;&#xAE30;</h3>
+<p>xtrace &#xB294; &#xD504;&#xB85C;&#xADF8;&#xB798;&#xBC0D; &#xC5B8;&#xC5B4;&#xC5D0;&#xC11C; &#xB514;&#xBC84;&#xAE45; &#xD560;&#xB54C;&#xCC98;&#xB7FC; break point &#xB97C; &#xC124;&#xC815;&#xD558;&#xAC70;&#xB098; &#xBA85;&#xB839;&#xC744; &#xD558;&#xB098;&#xC529; stepping &#xD560;&#xC218;&#xAC00; &#xC5C6;&#xB294;&#xB370;&#xC694;. DEBUG trap &#xACFC; job control &#xC744; &#xC774;&#xC6A9;&#xD558;&#xBA74; &#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <p><a href="https://github.com/mug896/bash-stepping-xtrace" target="_blank">https://github.com/mug896/bash-stepping-xtrace</a></p>
 <p><a href="https://youtu.be/GiBrChzc7UE" target="_blank"><img src="images/bash_stepping_xtrace.png" alt=""></a></p>
 
