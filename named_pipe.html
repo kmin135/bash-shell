@@ -1709,7 +1709,7 @@ $ tar cvz ./dir1 &gt; /dev/tcp/<span class="hljs-number">12.34</span>.<span clas
 <pre><code class="lang-bash">$ cat &lt; /dev/tcp/time.nist.gov/<span class="hljs-number">13</span>
 <span class="hljs-number">57752</span> <span class="hljs-number">16</span>-<span class="hljs-number">12</span>-<span class="hljs-number">30</span> <span class="hljs-number">15</span>:<span class="hljs-number">11</span>:<span class="hljs-number">41</span> <span class="hljs-number">00</span> <span class="hljs-number">1</span> <span class="hljs-number">0</span> <span class="hljs-number">602.7</span> UTC(NIST) *
 
-$ <span class="hljs-built_in">exec</span> <span class="hljs-number">3</span>&lt;&gt; /dev/tcp/www.naver.com/<span class="hljs-number">80</span>
+$ <span class="hljs-built_in">exec</span> <span class="hljs-number">3</span>&lt;&gt; /dev/tcp/www.google.com/<span class="hljs-number">80</span>
 
 $ ls <span class="hljs-operator">-l</span> /dev/fd/
 total <span class="hljs-number">0</span>
@@ -1721,13 +1721,13 @@ lr-x------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-nu
 
 $ <span class="hljs-built_in">echo</span> hello &gt;&amp; <span class="hljs-number">3</span>
 $ cat &lt;&amp; <span class="hljs-number">3</span>
-&lt;!DOCTYPE html PUBLIC <span class="hljs-string">&quot;-//W3C//DTD XHTML ...
-&lt;html xmlns=&quot;</span>http://www.w3.org/<span class="hljs-number">1999</span>/xhtml<span class="hljs-string">&quot;&gt;
-&lt;head&gt;
+HTTP/<span class="hljs-number">1.0</span> <span class="hljs-number">400</span> Bad Request
+Content-Type: text/html; charset=UTF-<span class="hljs-number">8</span>
+Referrer-Policy: no-referrer
 ...
 ...
-$ exec 3&gt;&amp;-
-</span></code></pre>
+$ <span class="hljs-built_in">exec</span> <span class="hljs-number">3</span>&gt;&amp;-
+</code></pre>
 <hr>
 <p>Job Control &#xBA54;&#xB274;&#xC5D0; &#xBCF4;&#xBA74; wait &#xBA85;&#xB839;&#xACFC; &#xD30C;&#xC77C;&#xC744; &#xC774;&#xC6A9;&#xD574;&#xC11C; background job &#xB4E4;&#xC758; exit &#xAC12;&#xC744; &#xAD6C;&#xD558;&#xB294; &#xC608;&#xAC00; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xADF8;&#xAC83;&#xC744; named pipe &#xB97C; &#xC774;&#xC6A9;&#xD574; &#xBC14;&#xAFBC; &#xAC83;&#xC778;&#xB370;&#xC694;. &#xC5EC;&#xAE30;&#xC11C; &#xB208;&#xC5EC;&#xACA8;&#xBCFC; &#xC810;&#xC740; FD &#xB97C; named pipe &#xC5D0; &#xC5F0;&#xACB0;&#xD574; &#xC0AC;&#xC6A9;&#xD558;&#xC9C0; &#xC54A;&#xC73C;&#xBA74; <code>while read -r res</code> &#xBB38;&#xC5D0;&#xC11C; &#xC77D;&#xC744; &#xB370;&#xC774;&#xD130;&#xAC00; &#xC5C6;&#xC744;&#xACBD;&#xC6B0; &#xBC14;&#xB85C; &#xC885;&#xB8CC;&#xAC00; &#xB429;&#xB2C8;&#xB2E4;. &#xC774; &#xBC29;&#xBC95;&#xC758; &#xC7A5;&#xC810;&#xC740;  &#xC885;&#xB8CC;&#xC0C1;&#xD0DC; &#xAC12;&#xC744; &#xAD6C;&#xD558;&#xAE30; &#xC704;&#xD574; 10 &#xAC1C;&#xC758; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; &#xBAA8;&#xB450;  &#xC885;&#xB8CC;&#xB420; &#xB54C;&#xAE4C;&#xC9C0; &#xAE30;&#xB2E4;&#xB9AC;&#xC9C0; &#xC54A;&#xC544;&#xB3C4; &#xB41C;&#xB2E4;&#xB294; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash"><span class="hljs-shebang">#!/bin/bash
