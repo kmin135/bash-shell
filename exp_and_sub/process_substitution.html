@@ -1268,16 +1268,21 @@
 <p>&#xD504;&#xB85C;&#xC138;&#xC2A4; &#xCE58;&#xD658;&#xC740; <code>sh</code> &#xC5D0;&#xC11C;&#xB294; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 </blockquote>
 <pre><code class="lang-bash"><span class="hljs-comment"># &apos;&gt;( )&apos; &#xD45C;&#xD604;&#xC2DD; &#xB0B4;&#xC758; &#xBA85;&#xB839;&#xC740; subshell &#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xB418;&#xBBC0;&#xB85C; &apos;$$&apos; &#xAC12;&#xC774; &#xAC19;&#xAC8C;&#xB098;&#xC628;&#xB2E4;.</span>
-$ { <span class="hljs-built_in">echo</span> <span class="hljs-string">&apos;$$&apos;</span> : $$ &gt;&amp;<span class="hljs-number">2</span> ;} &gt; &gt;( <span class="hljs-built_in">echo</span> <span class="hljs-string">&apos;$$&apos;</span> : $$ )
-$$ : <span class="hljs-number">504</span>
-$$ : <span class="hljs-number">504</span>
+$ { <span class="hljs-built_in">echo</span> <span class="hljs-string">&apos;$$1&apos;</span> : $$ &gt;&amp;<span class="hljs-number">2</span> ;} &gt; &gt;( <span class="hljs-built_in">echo</span> <span class="hljs-string">&apos;$$2&apos;</span> : $$ )
+$<span class="hljs-variable">$1</span> : <span class="hljs-number">504</span>
+$<span class="hljs-variable">$2</span> : <span class="hljs-number">504</span>
 
 <span class="hljs-comment"># &#xD558;&#xC9C0;&#xB9CC; &apos;$BASHPID&apos; &#xB294; &#xB2E4;&#xB974;&#xAC8C; &#xB098;&#xC628;&#xB2E4;.</span>
-$ { <span class="hljs-built_in">echo</span> <span class="hljs-string">&apos;$BASHPID&apos;</span> : <span class="hljs-variable">$BASHPID</span> &gt;&amp;<span class="hljs-number">2</span> ;} &gt; &gt;( <span class="hljs-built_in">echo</span> <span class="hljs-string">&apos;$BASHPID&apos;</span> : <span class="hljs-variable">$BASHPID</span> )
-<span class="hljs-variable">$BASHPID</span> : <span class="hljs-number">504</span>
-<span class="hljs-variable">$BASHPID</span> : <span class="hljs-number">22037</span>
+$ { <span class="hljs-built_in">echo</span> <span class="hljs-string">&apos;$BASHPID1&apos;</span> : <span class="hljs-variable">$BASHPID</span> &gt;&amp;<span class="hljs-number">2</span> ;} &gt; &gt;( <span class="hljs-built_in">echo</span> <span class="hljs-string">&apos;$BASHPID2&apos;</span> : <span class="hljs-variable">$BASHPID</span> )
+<span class="hljs-variable">$BASHPID1</span> : <span class="hljs-number">504</span>
+<span class="hljs-variable">$BASHPID2</span> : <span class="hljs-number">22037</span>
+........................................................
 
----------------------------------------------------------------------------
+$ args.sh &lt;( <span class="hljs-built_in">echo</span> <span class="hljs-number">111</span> ) &lt;( <span class="hljs-built_in">echo</span> <span class="hljs-number">222</span> ) &lt;( <span class="hljs-built_in">echo</span> <span class="hljs-number">222</span> )
+<span class="hljs-variable">$0</span> : /home/mug896/bin/args.sh
+<span class="hljs-variable">$1</span> : /dev/fd/<span class="hljs-number">63</span>
+<span class="hljs-variable">$2</span> : /dev/fd/<span class="hljs-number">62</span>
+<span class="hljs-variable">$3</span> : /dev/fd/<span class="hljs-number">61</span>
 
 $ ls <span class="hljs-operator">-l</span> &lt;( : ) 
 lr-x------ <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">64</span> <span class="hljs-number">02.07</span>.<span class="hljs-number">2015</span> <span class="hljs-number">22</span>:<span class="hljs-number">29</span> /dev/fd/<span class="hljs-number">63</span> -&gt; pipe:[<span class="hljs-number">681827</span>]
@@ -1318,7 +1323,6 @@ $ diff ulimit.Sa.out ulimit.Ha.out
 </code></pre>
 <p>&#xD504;&#xB85C;&#xC138;&#xC2A4; &#xCE58;&#xD658;&#xC744; &#xC0AC;&#xC6A9;&#xD574; &#xBE44;&#xAD50;</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># &#xC784;&#xC2DC;&#xD30C;&#xC77C;&#xC744; &#xB9CC;&#xB4E4; &#xD544;&#xC694;&#xAC00; &#xC5C6;&#xB2E4;</span>
-
 $ diff &lt;( <span class="hljs-built_in">ulimit</span> -Sa ) &lt;( <span class="hljs-built_in">ulimit</span> -Ha )   
 <span class="hljs-number">1</span>c1
 &lt; core file size          (blocks, -c) <span class="hljs-number">0</span>
@@ -1332,6 +1336,14 @@ $ diff &lt;( <span class="hljs-built_in">ulimit</span> -Sa ) &lt;( <span class="
 &lt; stack size              (kbytes, <span class="hljs-operator">-s</span>) <span class="hljs-number">8192</span>
 ---
 &gt; stack size              (kbytes, <span class="hljs-operator">-s</span>) unlimited
+
+................................................
+
+$ diff &lt;(gcc -Q -O2 --help=optimizers) &lt;(gcc -Q -O3 --help=optimizers) | grep enabled
+&gt;   -fgcse-after-reload                         [enabled]
+&gt;   -finline-functions                          [enabled]
+&gt;   -fipa-cp-clone                              [enabled]
+. . . .
 </code></pre>
 <p>&#xC704;&#xC758; &#xD504;&#xB85C;&#xC138;&#xC2A4; &#xCE58;&#xD658;&#xC744; &#xC774;&#xC6A9;&#xD55C; &#xBE44;&#xAD50;&#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xB3D9;&#xC77C;&#xD558;&#xB2E4;&#xACE0; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. </p>
 <pre><code class="lang-bash"> mkfifo fifo1
