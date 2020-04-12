@@ -1327,7 +1327,9 @@ buffering &#xC740; shell &#xC5D0;&#xC11C; &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6
 dd, cat &#xBA85;&#xB839;&#xAC19;&#xC774; i/o &#xC5D0; stream &#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xC9C0; &#xC54A;&#xB294; &#xACBD;&#xC6B0;&#xC5D0;&#xB294; &#xC801;&#xC6A9;&#xB418;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.  </p>
 </blockquote>
 <h3 id="&#xCD9C;&#xB825;-&#xBC84;&#xD37C;&#xB9C1;-&#xBB38;&#xC81C;">&#xCD9C;&#xB825; &#xBC84;&#xD37C;&#xB9C1; &#xBB38;&#xC81C;</h3>
-<p>&#xB2E4;&#xC74C;&#xC740; <a href="keyword_commands.html#coproc">coprocess</a> &#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xC608;&#xC778;&#xB370; sed, awk &#xBA85;&#xB839;&#xC774; background &#xB85C; &#xC2E4;&#xD589;&#xC744; &#xC9C0;&#xC18D;&#xD558;&#xBA74;&#xC11C; stdout &#xC774; &#xD30C;&#xC774;&#xD504;&#xC5D0; &#xC5F0;&#xACB0;&#xB418;&#xC5B4; &#xCD9C;&#xB825;&#xC774; &#xBC84;&#xD37C;&#xB9C1; &#xB418;&#xACE0; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xADF8;&#xB7EC;&#xBBC0;&#xB85C; read &#xBA85;&#xB839;&#xC73C;&#xB85C; &#xC5F0;&#xC0B0; &#xACB0;&#xACFC;&#xB97C; &#xC77D;&#xC744; &#xC218;&#xAC00; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p>&#xB2E4;&#xC74C;&#xC740; <a href="keyword_commands.html#coproc">coprocess</a> &#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xC608;&#xC778;&#xB370; sed, awk &#xBA85;&#xB839;&#xC758;
+stdout &#xC774; &#xD30C;&#xC774;&#xD504;&#xC5D0; &#xC5F0;&#xACB0;&#xB418;&#xC5B4; &#xC788;&#xC5B4; &#xCD9C;&#xB825;&#xC774; &#xBC84;&#xD37C;&#xB9C1; &#xB418;&#xACE0; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xADF8;&#xB7EC;&#xBBC0;&#xB85C; read &#xBA85;&#xB839;&#xC73C;&#xB85C; &#xC5F0;&#xC0B0; &#xACB0;&#xACFC;&#xB97C; &#xC77D;&#xC744; &#xC218;&#xAC00; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ coproc sed <span class="hljs-string">&apos;s/^/foo/&apos;</span>
 [<span class="hljs-number">1</span>] <span class="hljs-number">5907</span>
 
@@ -1345,8 +1347,8 @@ $ <span class="hljs-built_in">echo</span> <span class="hljs-number">1</span> <sp
 $ <span class="hljs-built_in">read</span> res &lt;&amp; <span class="hljs-variable">${COPROC[0]}</span>
 ^C
 </code></pre>
-<p>&#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; <code>-u | --unbuffered</code> &#xC635;&#xC158;, <code>fflush()</code> &#xD568;&#xC218;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xC5EC; &#xD574;&#xACB0;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
-<pre><code class="lang-bash">$ coproc sed --unbuffered <span class="hljs-string">&apos;s/^/foo/&apos;</span>
+<p>&#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; <code>--unbuffered</code> &#xC635;&#xC158;, <code>fflush()</code> &#xD568;&#xC218;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xC5EC; &#xB77C;&#xC778;&#xB2E8;&#xC704; &#xCD9C;&#xB825;&#xC744; &#xD558;&#xBA74; &#xD574;&#xACB0;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ coproc sed --unbuffered <span class="hljs-string">&apos;s/^/foo/&apos;</span>     <span class="hljs-comment"># &#xCD9C;&#xB825;&#xC740; line buffered</span>
 [<span class="hljs-number">1</span>] <span class="hljs-number">5993</span>
 
 $ <span class="hljs-built_in">echo</span> bar &gt;&amp; <span class="hljs-variable">${COPROC[1]}</span>
@@ -1369,7 +1371,8 @@ $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$res</span
 </code></pre>
 <h3 id="&#xC785;&#xB825;-&#xBC84;&#xD37C;&#xB9C1;-&#xBB38;&#xC81C;">&#xC785;&#xB825; &#xBC84;&#xD37C;&#xB9C1; &#xBB38;&#xC81C;</h3>
 <p><code>sed 1q</code> &#xB294; &#xC785;&#xB825;&#xBC1B;&#xC740; &#xB370;&#xC774;&#xD130;&#xC5D0;&#xC11C; &#xCCAB;&#xBC88;&#xC9F8; &#xB77C;&#xC778;&#xC744; &#xCD9C;&#xB825;&#xD558;&#xACE0; &#xC885;&#xB8CC;&#xD558;&#xB294; &#xBA85;&#xB839;&#xC785;&#xB2C8;&#xB2E4;.
-echo &#xBA85;&#xB839;&#xC73C;&#xB85C; 3 &#xAC1C;&#xC758; &#xB77C;&#xC778;&#xC744; &#xD30C;&#xC774;&#xD504;&#xB97C; &#xD1B5;&#xD574; &#xC804;&#xB2EC;&#xD558;&#xC600;&#xC73C;&#xBBC0;&#xB85C; &#xAC01; sed &#xBA85;&#xB839;&#xC5D0;&#xC11C; &#xD55C; &#xB77C;&#xC778;&#xC529; &#xD504;&#xB9B0;&#xD2B8;&#xD560;&#xAC83; &#xAC19;&#xC9C0;&#xB9CC; &#xC2E4;&#xC81C; &#xACB0;&#xACFC;&#xB294; &#xCCAB;&#xBC88;&#xC9F8; &#xB77C;&#xC778;&#xB9CC; &#xCD9C;&#xB825;&#xB418;&#xACE0; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+echo &#xBA85;&#xB839;&#xC73C;&#xB85C; 3 &#xAC1C;&#xC758; &#xB77C;&#xC778;&#xC744; &#xD30C;&#xC774;&#xD504;&#xB97C; &#xD1B5;&#xD574; &#xC804;&#xB2EC;&#xD558;&#xC600;&#xC73C;&#xBBC0;&#xB85C; &#xAC01; sed &#xBA85;&#xB839;&#xC5D0;&#xC11C;
+&#xD55C; &#xB77C;&#xC778;&#xC529; &#xD504;&#xB9B0;&#xD2B8;&#xB420;&#xAC83; &#xAC19;&#xC9C0;&#xB9CC; &#xC2E4;&#xC81C; &#xACB0;&#xACFC;&#xB294; &#xCCAB;&#xBC88;&#xC9F8; &#xB77C;&#xC778;&#xB9CC; &#xCD9C;&#xB825;&#xB418;&#xACE0; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
 &#xC6D0;&#xC778;&#xC740; &#xCCAB;&#xBC88;&#xC9F8; sed &#xBA85;&#xB839;&#xC758; input &#xBC84;&#xD37C;&#xB85C; 3 &#xAC1C;&#xC758; &#xB77C;&#xC778;&#xC774; &#xBAA8;&#xB450; &#xC800;&#xC7A5;&#xB418;&#xC5C8;&#xAE30; &#xB54C;&#xBB38;&#xC785;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ <span class="hljs-built_in">echo</span> <span class="hljs-operator">-e</span> <span class="hljs-string">&quot;ONE\nTWO\nTHREE&quot;</span> | { sed <span class="hljs-number">1</span>q ; sed <span class="hljs-number">1</span>q ; sed <span class="hljs-number">1</span>q ;}
 ONE
