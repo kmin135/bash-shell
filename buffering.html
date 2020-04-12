@@ -1291,8 +1291,8 @@ buffering &#xC740; shell &#xC5D0;&#xC11C; &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6
 &#xC774;&#xB7F0; &#xC5B8;&#xC5B4;&#xB4E4;&#xC740; &#xBCF4;&#xD1B5; &#xB0B4;&#xBD80;&#xC801;&#xC73C;&#xB85C; &#xBC84;&#xD37C;&#xB9C1;&#xC744; &#xCEE8;&#xD2B8;&#xB864;&#xD560; &#xC218; &#xC788;&#xB294; &#xD568;&#xC218;&#xB97C; &#xC81C;&#xACF5;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <ul>
 <li>tail : -f</li>
-<li>grep : --line-buffered</li>
-<li>sed : -u,--unbuffered</li>
+<li>grep : --line-buffered ( read &#xB294; full buffered )</li>
+<li>sed : -u,--unbuffered ( write &#xB294; line buffered )</li>
 <li>gawk :  fflush(), close() </li>
 <li>perl : flush(), close(), $|</li>
 <li>tcpdump : -l</li>
@@ -1457,8 +1457,8 @@ read &#xB294; &#xC774;&#xC804;&#xACFC; &#xAC19;&#xC774; &#xD30C;&#xC774;&#xD504;
 write &#xD560; &#xB54C;&#xB294; &#xB77C;&#xC778; &#xB2E8;&#xC704;&#xB85C; &#xD558;&#xB294; &#xAC83;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <p><img src="images/buffering_strace2.png" alt=""></p>
 <p>&#xB9C8;&#xC9C0;&#xB9C9;&#xC73C;&#xB85C; &#xC138; &#xBC88;&#xC9F8;&#xB294; sed &#xBA85;&#xB839;&#xC758; <code>--unbuffered</code> &#xC635;&#xC158;&#xC744; &#xC0AC;&#xC6A9;&#xD55C; &#xACBD;&#xC6B0;&#xC785;&#xB2C8;&#xB2E4;.
-stdin, stdout &#xC774; &#xBAA8;&#xB450; &#xD30C;&#xC774;&#xD504;&#xC5D0; &#xC5F0;&#xACB0;&#xB418;&#xC5B4; &#xC788;&#xC9C0;&#xB9CC; read &#xB294; 1 &#xBC14;&#xC774;&#xD2B8;&#xC529; &#xC77D;&#xACE0; &#xC788;&#xACE0; 
-write &#xB610;&#xD55C; full buffered &#xAC00; &#xC544;&#xB2CC; &#xAC83;&#xC744; &#xC54C; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+stdin, stdout &#xC774; &#xBAA8;&#xB450; &#xD30C;&#xC774;&#xD504;&#xC5D0; &#xC5F0;&#xACB0;&#xB418;&#xC5B4; &#xC788;&#xC9C0;&#xB9CC; read &#xB294; 1 &#xBC14;&#xC774;&#xD2B8;&#xC529; &#xC77D;&#xACE0; &#xC788;&#xACE0; ( unbuffered ),
+write &#xC740; &#xB77C;&#xC778; &#xB2E8;&#xC704;&#xB85C; &#xD558;&#xB294; &#xAC83;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <p><img src="images/buffering_strace3.png" alt=""></p>
 <h2 id="&#xC65C;-&#xBC84;&#xD37C;&#xB9C1;&#xC744;-&#xC0AC;&#xC6A9;&#xD558;&#xB098;">&#xC65C; &#xBC84;&#xD37C;&#xB9C1;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xB098;?</h2>
 <h5 id="&#xC0C1;&#xB300;&#xC801;&#xC73C;&#xB85C;-&#xC18D;&#xB3C4;&#xAC00;-&#xB290;&#xB9B0;-&#xC7A5;&#xCE58;&#xC5D0;-&#xC811;&#xADFC;-&#xD69F;&#xC218;&#xB97C;-&#xC904;&#xC77C;-&#xC218;-&#xC788;&#xC2B5;&#xB2C8;&#xB2E4;">&#xC0C1;&#xB300;&#xC801;&#xC73C;&#xB85C; &#xC18D;&#xB3C4;&#xAC00; &#xB290;&#xB9B0; &#xC7A5;&#xCE58;&#xC5D0; &#xC811;&#xADFC; &#xD69F;&#xC218;&#xB97C; &#xC904;&#xC77C; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</h5>
