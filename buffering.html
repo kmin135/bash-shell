@@ -1563,16 +1563,16 @@ $ <span class="hljs-built_in">echo</span> $?
 <span class="hljs-number">0</span>
 </code></pre>
 <p>&#xB9CC;&#xC57D;&#xC5D0; <code>stdbuf</code> &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xC744; &#xACBD;&#xC6B0;&#xC5D0;&#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; shell &#xC5D0;&#xC11C; read &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6A9;&#xD574; 
-&#xB77C;&#xC778; &#xB2E8;&#xC704;&#xB85C; &#xC77D;&#xACE0;, &#xC4F0;&#xAE30;&#xB97C; &#xD558;&#xBA74; &#xB429;&#xB2C8;&#xB2E4;.</p>
-<pre><code class="lang-bash">$ <span class="hljs-keyword">function</span> <span class="hljs-function"><span class="hljs-title">readline</span></span> () { <span class="hljs-keyword">while</span> IFS= <span class="hljs-built_in">read</span> -r line; <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$line</span>&quot;</span>; <span class="hljs-keyword">done</span> ;}
+&#xB77C;&#xC778; &#xB2E8;&#xC704;&#xB85C; &#xC4F0;&#xAE30;&#xB97C; &#xD558;&#xBA74; &#xB429;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ <span class="hljs-keyword">function</span> <span class="hljs-function"><span class="hljs-title">writeline</span></span> () { <span class="hljs-keyword">while</span> IFS= <span class="hljs-built_in">read</span> -r line; <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$line</span>&quot;</span>; <span class="hljs-keyword">done</span> ;}
 
-$ ( man gcc | sed -n <span class="hljs-string">&apos;/Option Summary/,/Machine-Dependent Options/p&apos;</span> | readline &amp;
-/usr/lib/gcc/x86_64-linux-gnu/<span class="hljs-number">9</span>/cc1 --help | readline &amp;
-gcc --help=warnings | readline &amp; ) | sort &gt; A1
+$ ( man gcc | sed -n <span class="hljs-string">&apos;/Option Summary/,/Machine-Dependent Options/p&apos;</span> | writeline &amp;
+/usr/lib/gcc/x86_64-linux-gnu/<span class="hljs-number">9</span>/cc1 --help | writeline &amp;
+gcc --help=warnings | writeline &amp; ) | sort &gt; A1
 
-$ ( man gcc | sed -n <span class="hljs-string">&apos;/Option Summary/,/Machine-Dependent Options/p&apos;</span> | readline &amp;
-/usr/lib/gcc/x86_64-linux-gnu/<span class="hljs-number">9</span>/cc1 --help | readline &amp;
-gcc --help=warnings | readline &amp; ) | sort &gt; A2
+$ ( man gcc | sed -n <span class="hljs-string">&apos;/Option Summary/,/Machine-Dependent Options/p&apos;</span> | writeline &amp;
+/usr/lib/gcc/x86_64-linux-gnu/<span class="hljs-number">9</span>/cc1 --help | writeline &amp;
+gcc --help=warnings | writeline &amp; ) | sort &gt; A2
 
 $ ls -al A1 A2
 -rw-rw-r-- <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">126402</span> <span class="hljs-number">2020</span>-<span class="hljs-number">04</span>-<span class="hljs-number">12</span> <span class="hljs-number">10</span>:<span class="hljs-number">52</span> A1
