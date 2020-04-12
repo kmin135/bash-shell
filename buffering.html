@@ -1562,8 +1562,8 @@ $ diff A1 A2
 $ <span class="hljs-built_in">echo</span> $?
 <span class="hljs-number">0</span>
 </code></pre>
-<p><code>stdbuf</code> &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xC744; &#xACBD;&#xC6B0;&#xC5D0;&#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; shell &#xC5D0;&#xC11C; read &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xC5EC; &#xB77C;&#xC778; &#xB2E8;&#xC704;&#xB85C;
-&#xC77D;&#xACE0;, &#xC4F0;&#xAE30;&#xB97C; &#xD558;&#xBA74; &#xB429;&#xB2C8;&#xB2E4;.</p>
+<p>&#xB9CC;&#xC57D;&#xC5D0; <code>stdbuf</code> &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xC744; &#xACBD;&#xC6B0;&#xC5D0;&#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; shell &#xC5D0;&#xC11C; read &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6A9;&#xD574; 
+&#xB77C;&#xC778; &#xB2E8;&#xC704;&#xB85C; &#xC77D;&#xACE0;, &#xC4F0;&#xAE30;&#xB97C; &#xD558;&#xBA74; &#xB429;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ <span class="hljs-keyword">function</span> <span class="hljs-function"><span class="hljs-title">readline</span></span> () { <span class="hljs-keyword">while</span> IFS= <span class="hljs-built_in">read</span> -r line; <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$line</span>&quot;</span>; <span class="hljs-keyword">done</span> ;}
 
 $ ( man gcc | sed -n <span class="hljs-string">&apos;/Option Summary/,/Machine-Dependent Options/p&apos;</span> | readline &amp;
