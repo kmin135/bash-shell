@@ -1294,16 +1294,15 @@ $ <span class="hljs-built_in">echo</span> X{apple,banana,orange,melon}Y
 XappleY XbananaY XorangeY XmelonY
 
 <span class="hljs-comment"># &apos;/home/bash/test/&apos; &#xAC00; prefix &#xC5D0; &#xD574;&#xB2F9;</span>
-$ mkdir /home/bash/<span class="hljs-built_in">test</span>/{foo,bar,baz,cat,dog}
+$ mkdir /home/bash/<span class="hljs-built_in">test</span>/{foo,bar,zoo}
 $ ls /home/bash/<span class="hljs-built_in">test</span>/
-bar/  baz/  cat/  dog/  foo/
+bar/  foo/  zoo/
 
-
-$ <span class="hljs-built_in">echo</span> --exclude={./public_html/cache,./public_html/compiled,./public_html/images}
---exclude=./public_html/cache --exclude=./public_html/compiled --exclude=./public_html/images
+$ <span class="hljs-built_in">echo</span> --exclude={./public_html/cache,./public_html/images}
+--exclude=./public_html/cache --exclude=./public_html/images
 
 $ tar -czvf backup-`date +%m-%d-%Y-%H%M`.tar.gz \
-     --exclude={./public_html/cache,./public_html/compiled,./public_html/images} \
+     --exclude={./public_html/cache,./public_html/images} \
      ./public_html
 
 <span class="hljs-comment"># &apos;http://docs.example.com/slides_part&apos; &#xB294; prefix &apos;.html&apos; &#xB294; suffix &#xC5D0; &#xD574;&#xB2F9;</span>
@@ -1316,14 +1315,11 @@ slides_part1.html slides_part2.html slides_part3.html slides_part4.html
 $ mv *.{avi,mp4,mkv} ~/Videos/
 </code></pre>
 <p>null &#xAC12;&#xC758; &#xD65C;&#xC6A9;</p>
-<pre><code class="lang-bash">$ <span class="hljs-built_in">echo</span> aa{,}<span class="hljs-number">11</span>
-aa11 aa11
+<pre><code class="lang-bash">$ <span class="hljs-built_in">echo</span> foo{,}<span class="hljs-number">1</span>
+foo1 foo1
 
-$ <span class="hljs-built_in">echo</span> aa{,,}<span class="hljs-number">11</span>
-aa11 aa11 aa11
-
-$ <span class="hljs-built_in">echo</span> b{,,,A}a
-ba ba ba bAa
+$ <span class="hljs-built_in">echo</span> foo{,,}<span class="hljs-number">1</span>
+foo1 foo1 foo1
 
 $ cp test.sh{,.bak}
 $ ls
@@ -1486,6 +1482,24 @@ $ <span class="hljs-built_in">echo</span> {a..c\}
 {a..c}
 </code></pre>
 <h1 id="quiz">Quiz</h1>
+<p>brace &#xD655;&#xC7A5;&#xC744; &#xD65C;&#xC6A9;&#xD558;&#xBA74; &#xB3D9;&#xC77C;&#xD55C; &#xBA85;&#xB839;&#xC744; &#xC778;&#xC218;&#xB97C; &#xBC14;&#xAFD4;&#xAC00;&#xBA70; &#xC5EC;&#xB7EC;&#xBC88; &#xC2E4;&#xD589;&#xC2DC;&#xD0A4;&#xB294; &#xAC83;&#xC744; &#xAC04;&#xB2E8;&#xD788; &#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&apos;grep -c &apos;</span>{foo,bar,zoo}<span class="hljs-string">&apos; &apos;</span>{data1,data2,data3}<span class="hljs-string">&apos;;&apos;</span>
+grep -c foo data1; grep -c foo data2; grep -c foo data3; 
+grep -c bar data1; grep -c bar data2; grep -c bar data3; 
+grep -c zoo data1; grep -c zoo data2; grep -c zoo data3;
+
+$ <span class="hljs-built_in">eval</span> <span class="hljs-string">&apos;grep -H -c &apos;</span>{foo,bar,zoo}<span class="hljs-string">&apos; &apos;</span>{data1,data2,data3}<span class="hljs-string">&apos;;&apos;</span>
+data1:<span class="hljs-number">12</span>
+data2:<span class="hljs-number">3</span>
+data3:<span class="hljs-number">15</span>
+data1:<span class="hljs-number">0</span>
+data2:<span class="hljs-number">5</span>
+data3:<span class="hljs-number">9</span>
+data1:<span class="hljs-number">7</span>
+data2:<span class="hljs-number">19</span>
+data3:<span class="hljs-number">2</span>
+</code></pre>
+<h1 id="2-">2 .</h1>
 <p>&#xB2E4;&#xC74C; &#xBA85;&#xB839; &#xC2E4;&#xD589; &#xACB0;&#xACFC;&#xB294; &#xC5B4;&#xB5BB;&#xAC8C; &#xB420;&#xAE4C;&#xC694;?</p>
 <pre><code class="lang-bash">$ <span class="hljs-built_in">echo</span> bash{,e{d,s},ful{,ly,ness},ing}
 
