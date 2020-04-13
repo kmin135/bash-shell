@@ -1306,20 +1306,19 @@ $ <span class="hljs-built_in">cd</span> /lib/modules/`uname -r`
 </code></pre>
 <p>backtick &#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xB54C; &#xD55C;&#xAC00;&#xC9C0; &#xC8FC;&#xC758;&#xD560; &#xC810;&#xC740; escape sequence &#xAC00; &#xB2E4;&#xB974;&#xAC8C; &#xCC98;&#xB9AC;&#xB429;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># &#xC6D0;&#xBCF8; &#xBA85;&#xB839;</span>
-$ grep -lr --include=<span class="hljs-string">&apos;*.md&apos;</span> <span class="hljs-string">&apos; \\t\\n&apos;</span>
-filename_expansion.md
-word_splitting.md
+$ <span class="hljs-built_in">printf</span> %.s\\<span class="hljs-number">101</span> {<span class="hljs-number">1</span>..<span class="hljs-number">10</span>}
+AAAAAAAAAA
 
 <span class="hljs-comment"># &#xAD04;&#xD638;&#xD615;&#xC740; &#xC6D0;&#xBCF8; &#xBA85;&#xB839; &#xADF8;&#xB300;&#xB85C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xB2E4;.</span>
-$ <span class="hljs-built_in">echo</span> $( grep -lr --include=<span class="hljs-string">&apos;*.md&apos;</span> <span class="hljs-string">&apos; \\t\\n&apos;</span> )
-filename_expansion.md word_splitting.md
---------------------------------------------------
+$ <span class="hljs-built_in">echo</span> $( <span class="hljs-built_in">printf</span> %.s\\<span class="hljs-number">101</span> {<span class="hljs-number">1</span>..<span class="hljs-number">10</span>} )
+AAAAAAAAAA
 
-<span class="hljs-comment"># backtick &#xC740; escape sequence &#xAC00; &#xB2E4;&#xB974;&#xAC8C; &#xCC98;&#xB9AC;&#xB418;&#xC5B4; &#xAC12;&#xC774; &#xCD9C;&#xB825;&#xB418;&#xC9C0; &#xC54A;&#xB294;&#xB2E4;.</span>
-$ <span class="hljs-built_in">echo</span> `grep -lr --include=<span class="hljs-string">&apos;*.md&apos;</span> <span class="hljs-string">&apos; \\t\\n&apos;</span>`
-$
-$ <span class="hljs-built_in">echo</span> `grep -lr --include=<span class="hljs-string">&apos;*.md&apos;</span> <span class="hljs-string">&apos; \\\\t\\\\n&apos;</span>`
-filename_expansion.md word_splitting.md
+<span class="hljs-comment"># backtick &#xC740; escape sequence &#xAC00; &#xB2E4;&#xB974;&#xAC8C; &#xCC98;&#xB9AC;&#xB41C;&#xB2E4;.</span>
+$ <span class="hljs-built_in">echo</span> `<span class="hljs-built_in">printf</span> %.s\\<span class="hljs-number">101</span> {<span class="hljs-number">1</span>..<span class="hljs-number">10</span>}`
+<span class="hljs-number">101101101101101101101101101101</span>
+
+$ <span class="hljs-built_in">echo</span> `<span class="hljs-built_in">printf</span> %.s\\\\<span class="hljs-number">101</span> {<span class="hljs-number">1</span>..<span class="hljs-number">10</span>}`
+AAAAAAAAAA
 </code></pre>
 <h3 id="parent-&#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC758;-&#xBCC0;&#xC218;&#xAC12;&#xC744;-&#xBCC0;&#xACBD;&#xD560;-&#xC218;-&#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;">Parent &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC758; &#xBCC0;&#xC218;&#xAC12;&#xC744; &#xBCC0;&#xACBD;&#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.</h3>
 <p>subshell &#xC740; main &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC758; child &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC5D0; &#xD574;&#xB2F9;&#xD569;&#xB2C8;&#xB2E4;.
