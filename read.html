@@ -1548,7 +1548,7 @@ $ ls <span class="hljs-operator">-l</span> tmp
 -rw-rw-r-- <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">232</span> <span class="hljs-number">2020</span>-<span class="hljs-number">04</span>-<span class="hljs-number">13</span> <span class="hljs-number">19</span>:<span class="hljs-number">40</span> tmp
 ....................................................
 
-$ dd bs=<span class="hljs-number">1</span> count=<span class="hljs-number">108920</span> status=none &lt; /bin/date | cat &gt; tmp
+$ dd bs=<span class="hljs-number">108920</span> count=<span class="hljs-number">1</span> status=none &lt; /bin/date | cat &gt; tmp
 
 $ ls <span class="hljs-operator">-l</span> tmp
 -rw-rw-r-- <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">108920</span> <span class="hljs-number">2020</span>-<span class="hljs-number">04</span>-<span class="hljs-number">13</span> <span class="hljs-number">19</span>:<span class="hljs-number">42</span> tmp
