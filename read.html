@@ -1536,6 +1536,28 @@ $ <span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span
 <span class="hljs-comment"># sh &#xC5D0;&#xC11C;&#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xD558;&#xBA74; &#xB429;&#xB2C8;&#xB2E4;.</span>
 <span class="hljs-built_in">read</span> -r line &lt;&amp;<span class="hljs-number">3</span>
 </code></pre>
+<h4 id="binary-&#xD30C;&#xC77C;&#xC740;-&#xB2E4;&#xB8F0;-&#xC218;-&#xC5C6;&#xB2E4;">binary &#xD30C;&#xC77C;&#xC740; &#xB2E4;&#xB8F0; &#xC218; &#xC5C6;&#xB2E4;</h4>
+<pre><code class="lang-bash">$ <span class="hljs-built_in">stat</span> -c %s /bin/date
+<span class="hljs-number">108920</span>
+
+$ <span class="hljs-built_in">read</span> -r -N <span class="hljs-number">108920</span> whole &lt; /bin/date
+
+$ <span class="hljs-built_in">printf</span> %s <span class="hljs-string">&quot;<span class="hljs-variable">$whole</span>&quot;</span> &gt; tmp
+
+$ ls <span class="hljs-operator">-l</span> tmp
+-rw-rw-r-- <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">232</span> <span class="hljs-number">2020</span>-<span class="hljs-number">04</span>-<span class="hljs-number">13</span> <span class="hljs-number">19</span>:<span class="hljs-number">40</span> tmp
+....................................................
+
+$ dd bs=<span class="hljs-number">1</span> count=<span class="hljs-number">108920</span> status=none &lt; /bin/date | cat &gt; tmp
+
+$ ls <span class="hljs-operator">-l</span> tmp
+-rw-rw-r-- <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">108920</span> <span class="hljs-number">2020</span>-<span class="hljs-number">04</span>-<span class="hljs-number">13</span> <span class="hljs-number">19</span>:<span class="hljs-number">42</span> tmp
+
+$ cmp /bin/date tmp
+
+$ <span class="hljs-built_in">echo</span> $?
+<span class="hljs-number">0</span>
+</code></pre>
 <h2 id="&#xC885;&#xB8CC;-&#xC0C1;&#xD0DC;-&#xAC12;">&#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;</h2>
 <p>&#xB2E4;&#xC74C;&#xC758; &#xACBD;&#xC6B0;&#xB294; &#xC624;&#xB958;&#xC5D0; &#xD574;&#xB2F9;&#xD558;&#xACE0; 0 &#xC774; &#xC544;&#xB2CC;&#xAC12;&#xC744; &#xB9AC;&#xD134;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <ul>
