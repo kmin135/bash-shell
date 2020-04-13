@@ -1587,6 +1587,92 @@ $ diff A1 A2
 $ <span class="hljs-built_in">echo</span> $?
 <span class="hljs-number">0</span>
 </code></pre>
+<h1 id="2-">2 .</h1>
+<p>&#xB9AC;&#xB205;&#xC2A4;&#xB294; &#xD30C;&#xC774;&#xD504;&#xB098; &#xD30C;&#xC77C;&#xB85C; &#xC4F0;&#xAE30;&#xB97C; &#xD560; &#xB54C; atomic &#xD558;&#xAC8C; &#xC4F8; &#xC218; &#xC788;&#xB294; &#xBC84;&#xD37C; &#xC0AC;&#xC774;&#xC988;&#xAC00; 4096 &#xC778;&#xB370;&#xC694;.
+&#xB9CC;&#xC57D;&#xC5D0; &#xC774; &#xD06C;&#xAE30;&#xB97C; &#xB118;&#xC5B4;&#xC11C;&#xB294; &#xB77C;&#xC778;&#xC744; &#xC4F0;&#xAC8C; &#xB418;&#xBA74; &#xC5B4;&#xB5BB;&#xAC8C; &#xB420;&#xAE4C;&#xC694;?</p>
+<p>shell &#xC5D0;&#xC11C; &#xCD9C;&#xB825;&#xC5D0; &#xC0AC;&#xC6A9;&#xB418;&#xB294; <code>echo</code>, <code>printf</code> &#xBA85;&#xB839;&#xC740; &#xC77C;&#xC885;&#xC758; write &#xC2DC;&#xC2A4;&#xD15C;&#xCF5C; &#xD568;&#xC218;&#xC758; wrapper &#xB85C;&#xC11C;
+strace &#xB97C; &#xD574;&#xBCF4;&#xBA74; &#xCD9C;&#xB825;&#xC5D0; &#xC0AC;&#xC6A9;&#xB41C; &#xBB38;&#xC790; &#xC218;&#xC5D0; &#xB9DE;&#xCD94;&#xC5B4; write &#xC2DC;&#xC2A4;&#xD15C;&#xCF5C; &#xD568;&#xC218;&#xAC00; &#xC2E4;&#xD589;&#xB429;&#xB2C8;&#xB2E4;.</p>
+<p><img src="images/strace/strace_echo.png" alt=""></p>
+<p>&#xB9CC;&#xC57D;&#xC5D0; &#xBC84;&#xD37C; &#xC0AC;&#xC774;&#xC988;&#xB97C; &#xB118;&#xC5B4;&#xC11C;&#xB294; 4097 bytes &#xAE38;&#xC774;&#xC758; &#xB77C;&#xC778;&#xC744; &#xC4F0;&#xAC8C; &#xB418;&#xBA74; &#xC544;&#xB798; &#xB450; &#xBC88;&#xC9F8; strace &#xC5D0;&#xC11C;
+&#xBCFC; &#xC218; &#xC788;&#xB4EF;&#xC774; write &#xC2DC;&#xC2A4;&#xD15C;&#xCF5C; &#xD568;&#xC218;&#xAC00; 2 &#xBC88; &#xB098;&#xB258;&#xC5B4;&#xC11C; &#xC2E4;&#xD589;&#xB418;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.
+&#xC774;&#xAC83;&#xC740; &#xB2E8;&#xC77C; &#xD504;&#xB85C;&#xC138;&#xC2A4; &#xC2E4;&#xD589;&#xC5D0;&#xC11C;&#xB294; &#xBB38;&#xC81C;&#xAC00; &#xC5C6;&#xC9C0;&#xB9CC; &#xB9CC;&#xC57D;&#xC5D0; &#xC5EC;&#xB7EC; &#xAC1C;&#xC758; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00;
+&#xB3D9;&#xC2DC;&#xC5D0; &#xD558;&#xB098;&#xC758; &#xD30C;&#xC774;&#xD504;&#xB098; &#xD30C;&#xC77C;&#xB85C; &#xC4F0;&#xAE30;&#xB97C; &#xD55C;&#xB2E4;&#xBA74; &#xBB38;&#xC81C;&#xAC00; &#xB418;&#xACA0;&#xC8E0;.</p>
+<blockquote>
+<p>newline &#xC744; &#xB354;&#xD558;&#xBA74; &#xC544;&#xB798; &#xCCAB; &#xBC88;&#xC9F8;&#xB294; 4096 bytes &#xAC00; &#xB418;&#xACE0;, &#xB450; &#xBC88;&#xC9F8;&#xB294; 4098 bytes &#xAC00; &#xB41C;&#xB2E4;.</p>
+</blockquote>
+<p><img src="images/strace/strace_buffer_size.png" alt=""></p>
+<p>&#xB2E4;&#xC74C;&#xC740; &#xC2E4;&#xC81C; &#xC5EC;&#xB7EC; &#xAC1C;&#xC758; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; &#xBC84;&#xD37C; &#xC0AC;&#xC774;&#xC988;&#xB97C; &#xB118;&#xC5B4;&#xC11C;&#xB294; &#xB77C;&#xC778;&#xC744; &#xB3D9;&#xC2DC;&#xC5D0; &#xD558;&#xB098;&#xC758; &#xD30C;&#xC774;&#xD504;&#xB098; 
+&#xD30C;&#xC77C;&#xB85C; &#xC4F8; &#xACBD;&#xC6B0;&#xB97C; &#xD14C;&#xC2A4;&#xD2B8;&#xD574;&#xBCF4;&#xB294; &#xAC83;&#xC778;&#xB370;
+&#xACB0;&#xACFC;&#xB97C; &#xBCF4;&#xBA74; &#xC54C; &#xC218; &#xC788;&#xB4EF;&#xC774; &#xC2E4;&#xC81C; &#xC4F0;&#xAE30;&#xB97C; &#xD55C; &#xB77C;&#xC778; &#xAC1C;&#xC218;&#xBCF4;&#xB2E4; &#xB9CE;&#xC774; &#xCD9C;&#xB825;&#xB418;&#xB294; &#xAC83;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p>5 &#xAC1C;&#xC758; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; &#xB3D9;&#xC2DC;&#xC5D0; &#xD558;&#xB098;&#xC758; &#xD30C;&#xC774;&#xD504;&#xB85C; 1000 &#xB77C;&#xC778;&#xC529; &#xC4F0;&#xAE30; &#xD14C;&#xC2A4;&#xD2B8;</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># \101 &#xC740; 8 &#xC9C4;&#xC218;&#xB85C; + 1 &#xC744; 2 &#xB85C; &#xBCC0;&#xACBD;&#xD558;&#xBA74; BBB..., 3 &#xC73C;&#xB85C; &#xBCC0;&#xACBD;&#xD558;&#xBA74; CCC... &#xAC00; &#xB41C;&#xB2E4;.</span>
+$ <span class="hljs-built_in">printf</span> %.s\\$((<span class="hljs-number">100</span> + <span class="hljs-number">1</span>)) {<span class="hljs-number">1</span>..<span class="hljs-number">10</span>}
+AAAAAAAAAA
+
+<span class="hljs-comment"># process 1 &#xC740; 4096 bytes &#xC758; AAA... &#xB77C;&#xC778;&#xC744; 1000 &#xAC1C;, process 2 &#xB294; BBB... &#xB77C;&#xC778;&#xC744; 1000 &#xAC1C; ... </span>
+<span class="hljs-comment"># &#xD574;&#xC11C; &#xBAA8;&#xB450; 5 &#xAC1C;&#xC758; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; A &#xBD80;&#xD130; E &#xAE4C;&#xC9C0; 5000 &#xAC1C;&#xC758; &#xB77C;&#xC778;&#xC744; &#xB3D9;&#xC2DC;&#xC5D0; &#xD30C;&#xC774;&#xD504;&#xB85C; &#xC4F0;&#xAE30;&#xB97C; &#xD569;&#xB2C8;&#xB2E4;.</span>
+$ <span class="hljs-keyword">for</span> (( i=<span class="hljs-number">1</span>; i&lt;=<span class="hljs-number">5</span>; i++ )) {
+    <span class="hljs-keyword">for</span> (( j=<span class="hljs-number">0</span>; j&lt;<span class="hljs-number">1000</span>; j++)) { <span class="hljs-built_in">echo</span> $(<span class="hljs-built_in">printf</span> %.s\\$((<span class="hljs-number">100</span> + i)) {<span class="hljs-number">1</span>..<span class="hljs-number">4095</span>}) ;} &amp;
+} | cat &gt; xxx
+
+<span class="hljs-comment"># grep -c &#xC635;&#xC158;&#xC740; &#xB9E4;&#xCE6D;&#xB418;&#xB294; &#xB77C;&#xC778;&#xC758; count &#xB97C; &#xCD9C;&#xB825;&#xD558;&#xB294;&#xB370; &#xC815;&#xD655;&#xD788; 5000 &#xB77C;&#xC778;&#xC774; &#xCD9C;&#xB825;&#xB41C;&#xB2E4;.</span>
+$ <span class="hljs-built_in">eval</span> <span class="hljs-string">&apos;grep -c &apos;</span>{A..E}<span class="hljs-string">&apos; xxx;&apos;</span>
+<span class="hljs-number">1000</span>
+<span class="hljs-number">1000</span>
+<span class="hljs-number">1000</span>
+<span class="hljs-number">1000</span>
+<span class="hljs-number">1000</span>
+
+<span class="hljs-comment"># &#xC774;&#xBC88;&#xC5D0;&#xB294; 4096 bytes &#xB300;&#xC2E0;&#xC5D0; &#xBC84;&#xD37C; &#xC0AC;&#xC774;&#xC988;&#xB97C; &#xB118;&#xC5B4;&#xC11C;&#xB294; 4098 bytes &#xC4F0;&#xAE30;&#xB97C; &#xD574;&#xBD05;&#xB2C8;&#xB2E4;.</span>
+$ <span class="hljs-keyword">for</span> (( i=<span class="hljs-number">1</span>; i&lt;=<span class="hljs-number">5</span>; i++ )) {
+    <span class="hljs-keyword">for</span> (( j=<span class="hljs-number">0</span>; j&lt;<span class="hljs-number">1000</span>; j++)) { <span class="hljs-built_in">echo</span> $(<span class="hljs-built_in">printf</span> %.s\\$((<span class="hljs-number">100</span> + i)) {<span class="hljs-number">1</span>..<span class="hljs-number">4097</span>}) ;} &amp; 
+} | cat &gt; yyy
+
+<span class="hljs-comment"># &#xC774;&#xC804;&#xACFC; &#xAC19;&#xC774; &#xBAA8;&#xB450; 5000 &#xAC1C;&#xC758; &#xB77C;&#xC778;&#xC744; &#xC4F0;&#xAE30;&#xB97C; &#xD588;&#xC9C0;&#xB9CC; &#xC2E4;&#xC81C; &#xB9E4;&#xCE6D;&#xB418;&#xB294; &#xB77C;&#xC778;&#xC740; &#xADF8; &#xC774;&#xC0C1;&#xC774; &#xB41C;&#xB2E4;.</span>
+$ <span class="hljs-built_in">eval</span> <span class="hljs-string">&apos;grep -c &apos;</span>{A..E}<span class="hljs-string">&apos; yyy;&apos;</span>
+<span class="hljs-number">1043</span>
+<span class="hljs-number">1045</span>
+<span class="hljs-number">1031</span>
+<span class="hljs-number">1021</span>
+<span class="hljs-number">1032</span>
+
+<span class="hljs-comment"># 4098 bytes &#xB97C; &#xC4F0;&#xB354;&#xB77C;&#xB3C4; &#xB2E8;&#xC77C; &#xD504;&#xB85C;&#xC138;&#xC2A4; &#xC5D0;&#xC11C;&#xB294; &#xBB38;&#xC81C;&#xAC00; &#xC5C6;&#xB2E4;.</span>
+$ <span class="hljs-keyword">for</span> (( j=<span class="hljs-number">0</span>; j&lt;<span class="hljs-number">1000</span>; j++)) { <span class="hljs-built_in">echo</span> $(<span class="hljs-built_in">printf</span> %.s\\$((<span class="hljs-number">100</span> + <span class="hljs-number">1</span>)) {<span class="hljs-number">1</span>..<span class="hljs-number">4097</span>}) ;} | cat &gt; xxx
+
+$ grep -c A xxx
+<span class="hljs-number">1000</span>
+</code></pre>
+<p>&#xC774;&#xBC88;&#xC5D0;&#xB294; &#xD30C;&#xC774;&#xD504; &#xB300;&#xC2E0;&#xC5D0; &#xD30C;&#xC77C;&#xB85C; &#xC4F0;&#xAE30; &#xD14C;&#xC2A4;&#xD2B8;&#xC778;&#xB370; &#xB3D9;&#xC77C;&#xD55C; &#xACB0;&#xACFC;&#xB97C; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ rm <span class="hljs-operator">-f</span> xxx yyy
+
+$ <span class="hljs-keyword">for</span> (( i=<span class="hljs-number">1</span>; i&lt;=<span class="hljs-number">5</span>; i++ )) {  
+    <span class="hljs-keyword">for</span> (( j=<span class="hljs-number">0</span>; j&lt;<span class="hljs-number">1000</span>; j++)) { <span class="hljs-built_in">echo</span> $(<span class="hljs-built_in">printf</span> %.s\\$((<span class="hljs-number">100</span> + i)) {<span class="hljs-number">1</span>..<span class="hljs-number">4095</span>}) ;} &gt;&gt; xxx &amp;
+} 
+
+$ <span class="hljs-built_in">eval</span> <span class="hljs-string">&apos;grep -c &apos;</span>{A..E}<span class="hljs-string">&apos; xxx;&apos;</span>
+<span class="hljs-number">1000</span>
+<span class="hljs-number">1000</span>
+<span class="hljs-number">1000</span>
+<span class="hljs-number">1000</span>
+<span class="hljs-number">1000</span>
+
+$ <span class="hljs-keyword">for</span> (( i=<span class="hljs-number">1</span>; i&lt;=<span class="hljs-number">5</span>; i++ )) {
+    <span class="hljs-keyword">for</span> (( j=<span class="hljs-number">0</span>; j&lt;<span class="hljs-number">1000</span>; j++)) { <span class="hljs-built_in">echo</span> $(<span class="hljs-built_in">printf</span> %.s\\$((<span class="hljs-number">100</span> + i)) {<span class="hljs-number">1</span>..<span class="hljs-number">4097</span>}) ;} &gt;&gt; yyy &amp; 
+} 
+
+$ <span class="hljs-built_in">eval</span> <span class="hljs-string">&apos;grep -c &apos;</span>{A..E}<span class="hljs-string">&apos; yyy;&apos;</span>
+<span class="hljs-number">1054</span>
+<span class="hljs-number">1055</span>
+<span class="hljs-number">1070</span>
+<span class="hljs-number">1070</span>
+<span class="hljs-number">1069</span>
+
+<span class="hljs-comment"># &#xB2E8;&#xC77C; &#xD504;&#xB85C;&#xC138;&#xC2A4; &#xC5D0;&#xC11C;&#xB294; &#xBB38;&#xC81C;&#xAC00; &#xC5C6;&#xB2E4;.</span>
+$ <span class="hljs-keyword">for</span> (( j=<span class="hljs-number">0</span>; j&lt;<span class="hljs-number">1000</span>; j++)) { <span class="hljs-built_in">echo</span> $(<span class="hljs-built_in">printf</span> %.s\\$((<span class="hljs-number">100</span> + <span class="hljs-number">1</span>)) {<span class="hljs-number">1</span>..<span class="hljs-number">4097</span>}) ;} &gt; xxx
+
+$ grep -c A xxx
+<span class="hljs-number">1000</span>
+</code></pre>
 
                     
                     </section>
