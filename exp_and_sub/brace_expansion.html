@@ -1325,11 +1325,11 @@ $ cp test.sh{,.bak}
 $ ls
 test.sh test.sh.bak
 
-$ ls  shell/{,BB/}rc.d
-shell/rc.d
-...
-shell/BB/rc.d
-...
+$ ls /usr/<span class="hljs-built_in">local</span>/{,foo/}bar
+/usr/<span class="hljs-built_in">local</span>/bar 
+. . .
+/usr/<span class="hljs-built_in">local</span>/foo/bar
+. . .
 
 $ paste &lt;( shuf -n5 -i <span class="hljs-number">1</span>-<span class="hljs-number">99</span> ){,}
 <span class="hljs-number">57</span>      <span class="hljs-number">79</span>
