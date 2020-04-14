@@ -1380,6 +1380,9 @@ c d e f g h i j k
 $ <span class="hljs-built_in">echo</span> {<span class="hljs-number">5</span>..k}          <span class="hljs-comment"># &#xC22B;&#xC790;&#xC640; &#xC54C;&#xD30C;&#xBCB3;&#xC744; &#xC11E;&#xC5B4;&#xC11C; &#xC0AC;&#xC6A9;&#xD560;&#xC218;&#xB294; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
 {<span class="hljs-number">5</span>..k}
 
+$ <span class="hljs-built_in">echo</span> {<span class="hljs-number">1</span>..<span class="hljs-number">5</span>}{<span class="hljs-number">0</span>,<span class="hljs-number">5</span>}%
+<span class="hljs-number">10</span>% <span class="hljs-number">15</span>% <span class="hljs-number">20</span>% <span class="hljs-number">25</span>% <span class="hljs-number">30</span>% <span class="hljs-number">35</span>% <span class="hljs-number">40</span>% <span class="hljs-number">45</span>% <span class="hljs-number">50</span>% <span class="hljs-number">55</span>%
+
 <span class="hljs-comment">######## Increment ########</span>
 
 $ <span class="hljs-built_in">echo</span> {<span class="hljs-number">1</span>..<span class="hljs-number">10</span>..<span class="hljs-number">2</span>}
@@ -1463,9 +1466,6 @@ $ <span class="hljs-built_in">echo</span> {{A..D}{<span class="hljs-number">1</s
 
 $ <span class="hljs-built_in">echo</span> {{<span class="hljs-number">0</span>..<span class="hljs-number">5</span>},{<span class="hljs-number">0</span>..<span class="hljs-number">5</span>}{<span class="hljs-number">0</span>..<span class="hljs-number">6</span>..<span class="hljs-number">5</span>},{<span class="hljs-number">6</span>..<span class="hljs-number">10</span>}}
 <span class="hljs-number">0</span> <span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-number">4</span> <span class="hljs-number">5</span> <span class="hljs-number">00</span> <span class="hljs-number">05</span> <span class="hljs-number">10</span> <span class="hljs-number">15</span> <span class="hljs-number">20</span> <span class="hljs-number">25</span> <span class="hljs-number">30</span> <span class="hljs-number">35</span> <span class="hljs-number">40</span> <span class="hljs-number">45</span> <span class="hljs-number">50</span> <span class="hljs-number">55</span> <span class="hljs-number">6</span> <span class="hljs-number">7</span> <span class="hljs-number">8</span> <span class="hljs-number">9</span> <span class="hljs-number">10</span>
-
-$ <span class="hljs-built_in">echo</span> {<span class="hljs-number">1</span>..<span class="hljs-number">5</span>}{<span class="hljs-number">0</span>,<span class="hljs-number">5</span>}%
-<span class="hljs-number">10</span>% <span class="hljs-number">15</span>% <span class="hljs-number">20</span>% <span class="hljs-number">25</span>% <span class="hljs-number">30</span>% <span class="hljs-number">35</span>% <span class="hljs-number">40</span>% <span class="hljs-number">45</span>% <span class="hljs-number">50</span>% <span class="hljs-number">55</span>%
 </code></pre>
 <h3 id="range-&#xAC12;&#xC73C;&#xB85C;-&#xBCC0;&#xC218;&#xB97C;-&#xC0AC;&#xC6A9;&#xD558;&#xB824;&#xBA74;">Range &#xAC12;&#xC73C;&#xB85C; &#xBCC0;&#xC218;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xB824;&#xBA74;?</h3>
 <p>eval &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; range &#xAC12;&#xC73C;&#xB85C; &#xBCC0;&#xC218;&#xB97C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
