@@ -1557,7 +1557,7 @@ $ ( man gcc | stdbuf -oL sed -n <span class="hljs-string">&apos;/Option Summary/
 stdbuf -oL /usr/lib/gcc/x86_64-linux-gnu/<span class="hljs-number">9</span>/cc1 --help &amp;
 stdbuf -oL gcc --help=warnings &amp; ) | sort &gt; A2
 
-$ ls -al A1 A2
+$ ls <span class="hljs-operator">-l</span> A1 A2
 -rw-rw-r-- <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">126402</span> <span class="hljs-number">2020</span>-<span class="hljs-number">04</span>-<span class="hljs-number">12</span> <span class="hljs-number">09</span>:<span class="hljs-number">58</span> A1
 -rw-rw-r-- <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">126402</span> <span class="hljs-number">2020</span>-<span class="hljs-number">04</span>-<span class="hljs-number">12</span> <span class="hljs-number">09</span>:<span class="hljs-number">58</span> A2
 
@@ -1578,7 +1578,7 @@ $ ( man gcc | sed -n <span class="hljs-string">&apos;/Option Summary/,/Machine-D
 /usr/lib/gcc/x86_64-linux-gnu/<span class="hljs-number">9</span>/cc1 --help | writeline &amp;
 gcc --help=warnings | writeline &amp; ) | sort &gt; A2
 
-$ ls -al A1 A2
+$ ls <span class="hljs-operator">-l</span> A1 A2
 -rw-rw-r-- <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">126402</span> <span class="hljs-number">2020</span>-<span class="hljs-number">04</span>-<span class="hljs-number">12</span> <span class="hljs-number">10</span>:<span class="hljs-number">52</span> A1
 -rw-rw-r-- <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">126402</span> <span class="hljs-number">2020</span>-<span class="hljs-number">04</span>-<span class="hljs-number">12</span> <span class="hljs-number">10</span>:<span class="hljs-number">52</span> A2
 
