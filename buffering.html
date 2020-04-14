@@ -1612,7 +1612,7 @@ AAAAAAAAAA
 <span class="hljs-comment"># process 1 &#xC740; 4096 bytes &#xC758; AAA... &#xB77C;&#xC778;&#xC744; 1000 &#xAC1C;, process 2 &#xB294; BBB... &#xB77C;&#xC778;&#xC744; 1000 &#xAC1C; ... </span>
 <span class="hljs-comment"># &#xD574;&#xC11C; &#xBAA8;&#xB450; 5 &#xAC1C;&#xC758; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; A &#xBD80;&#xD130; E &#xAE4C;&#xC9C0; 5000 &#xAC1C;&#xC758; &#xB77C;&#xC778;&#xC744; &#xB3D9;&#xC2DC;&#xC5D0; &#xD30C;&#xC774;&#xD504;&#xB85C; &#xC4F0;&#xAE30;&#xB97C; &#xD569;&#xB2C8;&#xB2E4;.</span>
 $ <span class="hljs-keyword">for</span> (( i=<span class="hljs-number">1</span>; i&lt;=<span class="hljs-number">5</span>; i++ )) {
-    str=$(<span class="hljs-built_in">printf</span> %.s\\$((<span class="hljs-number">100</span> + i)) {<span class="hljs-number">1</span>..<span class="hljs-number">4095</span>})
+    str=$( <span class="hljs-built_in">printf</span> %.s\\$((<span class="hljs-number">100</span> + i)) {<span class="hljs-number">1</span>..<span class="hljs-number">4095</span>} )
     <span class="hljs-keyword">for</span> (( j=<span class="hljs-number">0</span>; j&lt;<span class="hljs-number">1000</span>; j++)) { <span class="hljs-built_in">echo</span> <span class="hljs-variable">$str</span> ;} &amp;
 } | cat &gt; xxx
 
@@ -1626,7 +1626,7 @@ $ <span class="hljs-built_in">eval</span> <span class="hljs-string">&apos;grep -
 
 <span class="hljs-comment"># &#xC774;&#xBC88;&#xC5D0;&#xB294; 4096 bytes &#xB300;&#xC2E0;&#xC5D0; &#xBC84;&#xD37C; &#xC0AC;&#xC774;&#xC988;&#xB97C; &#xB118;&#xC5B4;&#xC11C;&#xB294; 4098 bytes &#xC4F0;&#xAE30;&#xB97C; &#xD574;&#xBD05;&#xB2C8;&#xB2E4;.</span>
 $ <span class="hljs-keyword">for</span> (( i=<span class="hljs-number">1</span>; i&lt;=<span class="hljs-number">5</span>; i++ )) {
-    str=$(<span class="hljs-built_in">printf</span> %.s\\$((<span class="hljs-number">100</span> + i)) {<span class="hljs-number">1</span>..<span class="hljs-number">4097</span>})
+    str=$( <span class="hljs-built_in">printf</span> %.s\\$((<span class="hljs-number">100</span> + i)) {<span class="hljs-number">1</span>..<span class="hljs-number">4097</span>} )
     <span class="hljs-keyword">for</span> (( j=<span class="hljs-number">0</span>; j&lt;<span class="hljs-number">1000</span>; j++)) { <span class="hljs-built_in">echo</span> <span class="hljs-variable">$str</span> ;} &amp;
 } | cat &gt; yyy
 
@@ -1646,7 +1646,7 @@ $ grep -c A xxx
 </code></pre>
 <p>&#xC774;&#xBC88;&#xC5D0;&#xB294; &#xD30C;&#xC774;&#xD504; &#xB300;&#xC2E0;&#xC5D0; &#xD30C;&#xC77C;&#xB85C; &#xC4F0;&#xAE30; &#xD14C;&#xC2A4;&#xD2B8;&#xC778;&#xB370; &#xB3D9;&#xC77C;&#xD55C; &#xACB0;&#xACFC;&#xB97C; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ <span class="hljs-keyword">for</span> (( i=<span class="hljs-number">1</span>; i&lt;=<span class="hljs-number">5</span>; i++ )) {    <span class="hljs-comment"># 4096 bytes &#xC4F0;&#xAE30;</span>
-    str=$(<span class="hljs-built_in">printf</span> %.s\\$((<span class="hljs-number">100</span> + i)) {<span class="hljs-number">1</span>..<span class="hljs-number">4095</span>})
+    str=$( <span class="hljs-built_in">printf</span> %.s\\$((<span class="hljs-number">100</span> + i)) {<span class="hljs-number">1</span>..<span class="hljs-number">4095</span>} )
     <span class="hljs-keyword">for</span> (( j=<span class="hljs-number">0</span>; j&lt;<span class="hljs-number">1000</span>; j++)) { <span class="hljs-built_in">echo</span> <span class="hljs-variable">$str</span> ;} &amp;
 } &gt; xxx
 
@@ -1658,7 +1658,7 @@ $ <span class="hljs-built_in">eval</span> <span class="hljs-string">&apos;grep -
 <span class="hljs-number">1000</span>
 
 $ <span class="hljs-keyword">for</span> (( i=<span class="hljs-number">1</span>; i&lt;=<span class="hljs-number">5</span>; i++ )) {    <span class="hljs-comment"># 4098 bytes &#xC4F0;&#xAE30;</span>
-    str=$(<span class="hljs-built_in">printf</span> %.s\\$((<span class="hljs-number">100</span> + i)) {<span class="hljs-number">1</span>..<span class="hljs-number">4097</span>})
+    str=$( <span class="hljs-built_in">printf</span> %.s\\$((<span class="hljs-number">100</span> + i)) {<span class="hljs-number">1</span>..<span class="hljs-number">4097</span>} )
     <span class="hljs-keyword">for</span> (( j=<span class="hljs-number">0</span>; j&lt;<span class="hljs-number">1000</span>; j++)) { <span class="hljs-built_in">echo</span> <span class="hljs-variable">$str</span> ;} &amp;
 } &gt; yyy
 
