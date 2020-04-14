@@ -1827,6 +1827,31 @@ $ awk <span class="hljs-string">&apos;BEGIN{
     print &quot;pause mouse close&quot;
 }&apos;</span> | gnuplot
 </code></pre>
+<h4 id="read-&#xBA85;&#xB839;&#xC774;-condition-&#xBD80;&#xBD84;&#xC5D0;&#xC11C;-&#xC0AC;&#xC6A9;&#xB420;-&#xACBD;&#xC6B0;">read &#xBA85;&#xB839;&#xC774; condition &#xBD80;&#xBD84;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xB420; &#xACBD;&#xC6B0;</h4>
+<p><code>read</code> &#xBA85;&#xB839;&#xC774; <code>while ... do</code> &#xB610;&#xB294; <code>until ... do</code> &#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xB41C; &#xD6C4;&#xC5D0;&#xB294;
+&#xD574;&#xB2F9; &#xBCC0;&#xC218;&#xAC12;&#xC774; empty &#xB85C; &#xC124;&#xC815;&#xB429;&#xB2C8;&#xB2E4;. ( read &#xC5D0; &#xC2E4;&#xD328;&#xD574; &#xC885;&#xB8CC;&#xB410;&#xC73C;&#xBBC0;&#xB85C; )</p>
+<pre><code class="lang-bash">$ line=<span class="hljs-number">100</span>
+
+$ <span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span> line; <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> <span class="hljs-variable">$line</span>; <span class="hljs-keyword">done</span> &lt;&lt;END
+<span class="hljs-number">111</span>
+<span class="hljs-number">222</span>
+END
+<span class="hljs-number">111</span>
+<span class="hljs-number">222</span>
+
+$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$line</span>    <span class="hljs-comment"># while &#xBB38; &#xC885;&#xB8CC; &#xD6C4;&#xC5D0;&#xB294; &#xBCC0;&#xC218;&#xAC12;&#xC774; empty &#xB85C; &#xB41C;&#xB2E4;.</span>
+$
+----------------------------------------
+
+$ var=<span class="hljs-number">100</span>
+
+$ <span class="hljs-keyword">for</span> var <span class="hljs-keyword">in</span> <span class="hljs-number">111</span> <span class="hljs-number">222</span>; <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> <span class="hljs-variable">$var</span>; <span class="hljs-keyword">done</span>     <span class="hljs-comment"># for &#xBB38;&#xC758; &#xACBD;&#xC6B0;</span>
+<span class="hljs-number">111</span>
+<span class="hljs-number">222</span>
+
+$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$var</span>
+<span class="hljs-number">222</span>
+</code></pre>
 
                     
                     </section>
