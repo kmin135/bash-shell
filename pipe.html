@@ -1446,6 +1446,33 @@ What is the date today?
 <span class="hljs-comment"># &#xB610;&#xB294;</span>
 <span class="hljs-built_in">command</span> ... | { <span class="hljs-built_in">read</span> -p <span class="hljs-string">&apos;enter: &apos;</span> var &lt;&amp;<span class="hljs-number">2</span>; <span class="hljs-built_in">command</span> ... ;}
 </code></pre>
+<h3 id="background-&#xD504;&#xB85C;&#xC138;&#xC2A4;-&#xC640;-&#xD30C;&#xC774;&#xD504;">background &#xD504;&#xB85C;&#xC138;&#xC2A4; &#xC640; &#xD30C;&#xC774;&#xD504;</h3>
+<p>&#xCCAB; &#xBC88;&#xC9F8;&#xB85C; background &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC758; &#xD2B9;&#xC9D5;&#xC740; parent &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; &#xC885;&#xB8CC;&#xB420; &#xB54C;&#xAE4C;&#xC9C0; &#xAE30;&#xB2E4;&#xB9AC;&#xC9C0; &#xC54A;&#xB294;&#xB2E4;&#xB294; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.
+&#xB530;&#xB77C;&#xC11C; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xCF54;&#xB4DC;&#xAC00; &#xC2E4;&#xD589;&#xB420; &#xACBD;&#xC6B0; &#xBA54;&#xC778; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB294; &#xCC28;&#xB840;&#xB85C; 3 &#xAC1C;&#xC758; &#xBA85;&#xB839;&#xC744; background &#xB85C;
+&#xC2E4;&#xD589; &#xC2DC;&#xD0A8; &#xD6C4;&#xC5D0; &#xBC14;&#xB85C; &#xC885;&#xB8CC;&#xD558;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.
+background &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB4E4;&#xC740; parent &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC758; &#xC124;&#xC815;&#xC5D0; &#xB530;&#xB77C; stdout &#xC774; &#xBAA8;&#xB450; outfile &#xD30C;&#xC77C;&#xB85C;
+&#xC5F0;&#xACB0;&#xB418;&#xC5B4; &#xBA85;&#xB839; &#xC2E4;&#xD589; &#xACB0;&#xACFC;&#xB97C; &#xCD9C;&#xB825;&#xD558;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">{
+    <span class="hljs-built_in">command</span>1 &amp;
+    <span class="hljs-built_in">command</span>2 &amp;
+    <span class="hljs-built_in">command</span>3 &amp;
+} &gt; outfile
+</code></pre>
+<p>&#xB450; &#xBC88;&#xC9F8;&#xB85C; &#xD30C;&#xC774;&#xD504;&#xC758; &#xD2B9;&#xC9D5;&#xC740; &#xD30C;&#xC774;&#xD504; &#xC591;&#xCABD;&#xC758; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB4E4;&#xC774; &#xC11C;&#xB85C; &#xC5F0;&#xACB0;&#xB41C; &#xC0C1;&#xD0DC;&#xC5D0;&#xC11C; 
+&#xADF8;&#xB8F9;&#xC73C;&#xB85C; &#xD558;&#xB098;&#xC758; &#xBA85;&#xB839;&#xCC98;&#xB7FC; &#xC2E4;&#xD589;&#xB429;&#xB2C8;&#xB2E4;.
+&#xB530;&#xB77C;&#xC11C; &#xCF54;&#xB4DC;&#xB97C; &#xC870;&#xAE08; &#xBC14;&#xAFB8;&#xC5B4; &#xC544;&#xB798;&#xC640; &#xAC19;&#xC774; &#xC2E4;&#xD589;&#xD558;&#xAC8C; &#xB418;&#xBA74;
+3 &#xAC1C;&#xC758; background &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB4E4;&#xACFC; cat &#xBA85;&#xB839;&#xC740; &#xC11C;&#xB85C; &#xD30C;&#xC774;&#xD504;&#xB85C; &#xC5F0;&#xACB0;&#xB41C; &#xC0C1;&#xD0DC;&#xAC00; &#xB418;&#xACE0;
+cat &#xBA85;&#xB839;&#xC740; &#xD604;&#xC7AC; &#xBA54;&#xC778; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; &#xC2E4;&#xD589;&#xC911;&#xC5D0; &#xC788;&#xC73C;&#xBBC0;&#xB85C; &#xACB0;&#xACFC;&#xC801;&#xC73C;&#xB85C;
+background &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB4E4;&#xC774; &#xBAA8;&#xB450; &#xC885;&#xB8CC;&#xB420; &#xB54C;&#xAE4C;&#xC9C0; &#xBA54;&#xC778; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB3C4; &#xC885;&#xB8CC;&#xB418;&#xC9C0; &#xC54A;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.</p>
+<blockquote>
+<p>&#xC2E4;&#xC81C; &#xD65C;&#xC6A9; &#xC608;&#xB294; <a href="buffering.html#quiz-2">&#xC5EC;&#xAE30;</a> &#xB97C; &#xCC38;&#xACE0;&#xD558;&#xC138;&#xC694;</p>
+</blockquote>
+<pre><code class="lang-bash">{
+    <span class="hljs-built_in">command</span>1 &amp;
+    <span class="hljs-built_in">command</span>2 &amp;
+    <span class="hljs-built_in">command</span>3 &amp;
+} | cat &gt; outfile
+</code></pre>
 <p><a name="command_line"></a></p>
 <h3 id="command-line-&#xAC1C;&#xB150;">Command line &#xAC1C;&#xB150;</h3>
 <p>find &#xBA85;&#xB839;&#xC758; -exec &#xC561;&#xC158;&#xC774;&#xB098;, xargs, &#xB610;&#xB294; sudo &#xAC19;&#xC740; &#xBA85;&#xB839;&#xB4E4;&#xC740;
