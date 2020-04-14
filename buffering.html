@@ -1645,7 +1645,7 @@ $ grep -c A xxx
 <p>&#xC774;&#xBC88;&#xC5D0;&#xB294; &#xD30C;&#xC774;&#xD504; &#xB300;&#xC2E0;&#xC5D0; &#xD30C;&#xC77C;&#xB85C; &#xC4F0;&#xAE30; &#xD14C;&#xC2A4;&#xD2B8;&#xC778;&#xB370; &#xB3D9;&#xC77C;&#xD55C; &#xACB0;&#xACFC;&#xB97C; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ rm <span class="hljs-operator">-f</span> xxx yyy
 
-$ <span class="hljs-keyword">for</span> (( i=<span class="hljs-number">1</span>; i&lt;=<span class="hljs-number">5</span>; i++ )) {  
+$ <span class="hljs-keyword">for</span> (( i=<span class="hljs-number">1</span>; i&lt;=<span class="hljs-number">5</span>; i++ )) {    <span class="hljs-comment"># 4096 bytes &#xC4F0;&#xAE30;</span>
     <span class="hljs-keyword">for</span> (( j=<span class="hljs-number">0</span>; j&lt;<span class="hljs-number">1000</span>; j++)) { <span class="hljs-built_in">echo</span> $(<span class="hljs-built_in">printf</span> %.s\\$((<span class="hljs-number">100</span> + i)) {<span class="hljs-number">1</span>..<span class="hljs-number">4095</span>}) ;} &gt;&gt; xxx &amp;
 } 
 
@@ -1656,7 +1656,7 @@ $ <span class="hljs-built_in">eval</span> <span class="hljs-string">&apos;grep -
 <span class="hljs-number">1000</span>
 <span class="hljs-number">1000</span>
 
-$ <span class="hljs-keyword">for</span> (( i=<span class="hljs-number">1</span>; i&lt;=<span class="hljs-number">5</span>; i++ )) {
+$ <span class="hljs-keyword">for</span> (( i=<span class="hljs-number">1</span>; i&lt;=<span class="hljs-number">5</span>; i++ )) {    <span class="hljs-comment"># 4098 bytes &#xC4F0;&#xAE30;</span>
     <span class="hljs-keyword">for</span> (( j=<span class="hljs-number">0</span>; j&lt;<span class="hljs-number">1000</span>; j++)) { <span class="hljs-built_in">echo</span> $(<span class="hljs-built_in">printf</span> %.s\\$((<span class="hljs-number">100</span> + i)) {<span class="hljs-number">1</span>..<span class="hljs-number">4097</span>}) ;} &gt;&gt; yyy &amp; 
 } 
 
