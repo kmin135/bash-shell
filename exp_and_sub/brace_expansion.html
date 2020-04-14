@@ -1346,17 +1346,17 @@ $ paste &lt;( shuf -n5 -i <span class="hljs-number">1</span>-<span class="hljs-n
 <span class="hljs-number">44</span>      <span class="hljs-number">8</span>       <span class="hljs-number">55</span>
 </code></pre>
 <p>&#xBCC0;&#xC218;&#xC640; &#xAC19;&#xC774; &#xC0AC;&#xC6A9;&#xD55C; &#xC608;</p>
-<pre><code class="lang-bash">$ AA=hello
+<pre><code class="lang-bash">$ AA=foo
 
-<span class="hljs-comment"># &#xBCC0;&#xC218;&#xD655;&#xC7A5;&#xC774; &#xB4A4;&#xC5D0; &#xC77C;&#xC5B4;&#xB098;&#xBBC0;&#xB85C; {a,b}$AA &#xB294; a$AA b$AA &#xC640; &#xAC19;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.</span>
-$ <span class="hljs-built_in">echo</span> {a,b}<span class="hljs-variable">$AA</span>
-ahello bhello
+$ <span class="hljs-built_in">echo</span> {a,b}<span class="hljs-variable">$AA</span>            <span class="hljs-comment"># a$AA b$AA &#xAC00; &#xB41C;&#xB2E4;.</span>
+afoo bfoo
 
 $ AA1=aa AA2=bb AA3=cc
-$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$AA</span>{<span class="hljs-number">1</span>..<span class="hljs-number">3</span>}           <span class="hljs-comment"># $AA1 $AA2 $AA3 &#xAC00; &#xB41C;&#xB2E4;</span>
+<span class="hljs-comment"># &#xBCC0;&#xC218;&#xD655;&#xC7A5; &#xBCF4;&#xB2E4; brace &#xD655;&#xC7A5;&#xC774; &#xBA3C;&#xC800; &#xC77C;&#xC5B4;&#xB098;&#xBBC0;&#xB85C; $AA1 $AA2 $AA3 &#xAC00; &#xB41C;&#xB2E4;</span>
+$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$AA</span>{<span class="hljs-number">1</span>..<span class="hljs-number">3</span>}
 aa bb cc
 
-<span class="hljs-comment"># &#xADF8;&#xB0E5; $AA &#xB85C; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; X$AAY &#xC640; &#xAC19;&#xC544;&#xC9C0;&#xBBC0;&#xB85C; ${AA} &#xB098; &quot;$AA&quot; &#xB97C; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.</span>
+<span class="hljs-comment"># &#xADF8;&#xB0E5; $AA &#xB85C; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; X$AAY &#xC640; &#xAC19;&#xC544;&#xC9C0;&#xBBC0;&#xB85C; ${AA} &#xB098; &quot;$AA&quot; &#xB97C; &#xC0AC;&#xC6A9;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</span>
 $ <span class="hljs-built_in">echo</span> X{apple,<span class="hljs-variable">${AA}</span>,orange,melon}Y
 XappleY XhelloY XorangeY XmelonY
 </code></pre>
@@ -1482,7 +1482,7 @@ $ <span class="hljs-built_in">echo</span> {a..c\}
 {a..c}
 </code></pre>
 <h1 id="quiz">Quiz</h1>
-<p>brace &#xD655;&#xC7A5;&#xC744; &#xD65C;&#xC6A9;&#xD558;&#xBA74; &#xB3D9;&#xC77C;&#xD55C; &#xBA85;&#xB839;&#xC744; &#xC778;&#xC218;&#xB97C; &#xBC14;&#xAFD4;&#xAC00;&#xBA70; &#xC5EC;&#xB7EC;&#xBC88; &#xC2E4;&#xD589;&#xC2DC;&#xD0A4;&#xB294; &#xAC83;&#xC744; &#xAC04;&#xB2E8;&#xD788; &#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p>Brace &#xD655;&#xC7A5;&#xC744; &#xD65C;&#xC6A9;&#xD558;&#xBA74; &#xB3D9;&#xC77C;&#xD55C; &#xBA85;&#xB839;&#xC744; &#xC778;&#xC218;&#xB97C; &#xBC14;&#xAFD4;&#xAC00;&#xBA70; &#xC5EC;&#xB7EC;&#xBC88; &#xC2E4;&#xD589;&#xC2DC;&#xD0A4;&#xB294; &#xAC83;&#xC744; &#xAC04;&#xB2E8;&#xD788; &#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&apos;grep -c &apos;</span>{foo,bar,zoo}<span class="hljs-string">&apos; &apos;</span>{data1,data2,data3}<span class="hljs-string">&apos;;&apos;</span>
 grep -c foo data1; grep -c foo data2; grep -c foo data3; 
 grep -c bar data1; grep -c bar data2; grep -c bar data3; 
