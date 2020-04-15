@@ -1399,8 +1399,8 @@ sed -z -i <span class="hljs-string">&apos;s#&lt;head&gt;#&apos;</span><span clas
 $ watch -td -n1 <span class="hljs-string">&quot;<span class="hljs-variable">$( cat &lt;&lt;\EOF
 ps axH -o psr= |
 awk &apos;{a[$1]++} END { 
-    for (i in a)</span> { printf &quot;</span>c%-<span class="hljs-number">6</span>d<span class="hljs-string">&quot;,i }; print &quot;</span><span class="hljs-string">&quot;;
-    for (i in a) { printf &quot;</span>%-<span class="hljs-number">7</span>d<span class="hljs-string">&quot;, a[i] }; print &quot;</span><span class="hljs-string">&quot; }&apos; 
+    for (i in a)</span> { printf &quot;</span>cpu%-<span class="hljs-number">6</span>d<span class="hljs-string">&quot;,i }; print &quot;</span><span class="hljs-string">&quot;;
+    for (i in a) { printf &quot;</span>%-<span class="hljs-number">9</span>d<span class="hljs-string">&quot;, a[i] }; print &quot;</span><span class="hljs-string">&quot; }&apos; 
 EOF
 )&quot;</span>
 </code></pre>
