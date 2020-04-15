@@ -1453,19 +1453,24 @@ $ ( <span class="hljs-built_in">exec</span> <span class="hljs-operator">-l</span
       -p        <span class="hljs-built_in">readonly</span> &#xBCC0;&#xC218;&#xB4E4;&#xC744; &#xCD9C;&#xB825; ( <span class="hljs-operator">-f</span> &#xB97C; &#xCD94;&#xAC00;&#xD558;&#xBA74; &#xD568;&#xC218;&#xB9CC; &#xCD9C;&#xB825; )
 ----------------------------------------------------------------------
 
-$ <span class="hljs-built_in">readonly</span> AA=<span class="hljs-number">100</span>                                    $ BB=( [aa]=<span class="hljs-number">100</span> [bb]=<span class="hljs-number">200</span> )
+$ <span class="hljs-built_in">readonly</span> AA=<span class="hljs-number">100</span>                              $ BB=( [aa]=<span class="hljs-number">100</span> [bb]=<span class="hljs-number">200</span> )
 
-$ AA=<span class="hljs-number">200</span>                                             $ <span class="hljs-built_in">readonly</span> -A BB
-bash: AA: <span class="hljs-built_in">readonly</span> variable                          
-                                                     $ BB+=( [cc]=<span class="hljs-number">300</span> )
-$ <span class="hljs-built_in">echo</span> $?                                            bash: BB: <span class="hljs-built_in">readonly</span> variable
-<span class="hljs-number">1</span>                                                    
-                                                     $ <span class="hljs-built_in">echo</span> $?
-$ <span class="hljs-built_in">unset</span> AA                                           <span class="hljs-number">1</span>
+$ AA=<span class="hljs-number">200</span>                                       $ <span class="hljs-built_in">readonly</span> -A BB
+bash: AA: <span class="hljs-built_in">readonly</span> variable                    
+                                               $ BB+=( [cc]=<span class="hljs-number">300</span> )
+$ <span class="hljs-built_in">echo</span> $?                                      bash: BB: <span class="hljs-built_in">readonly</span> variable
+<span class="hljs-number">1</span>                                              
+                                               $ <span class="hljs-built_in">echo</span> $?
+$ <span class="hljs-built_in">unset</span> AA                                     <span class="hljs-number">1</span>
 bash: <span class="hljs-built_in">unset</span>: AA: cannot <span class="hljs-built_in">unset</span>: <span class="hljs-built_in">readonly</span> variable
 
 $ <span class="hljs-built_in">echo</span> $?
 <span class="hljs-number">1</span>
+
+$ <span class="hljs-built_in">declare</span> -p EUID UID PPID
+<span class="hljs-built_in">declare</span> -ir EUID=<span class="hljs-string">&quot;1000&quot;</span>        <span class="hljs-comment"># readonly &#xBCC0;&#xC218;&#xB294; &quot;r&quot; &#xC774; &#xCD94;&#xAC00;&#xB41C;&#xB2E4;.</span>
+<span class="hljs-built_in">declare</span> -ir UID=<span class="hljs-string">&quot;1000&quot;</span>
+<span class="hljs-built_in">declare</span> -ir PPID=<span class="hljs-string">&quot;2515&quot;</span>
 </code></pre>
 <h3 id="return">return</h3>
 <blockquote>
