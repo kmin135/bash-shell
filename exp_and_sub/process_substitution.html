@@ -1477,7 +1477,7 @@ join &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB294; &#xBC14;&#xB85C; &#xC885;&#xB8CC;&
 <span class="hljs-keyword">done</span> \
     {fd1}&gt; &gt;( <span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span> line; <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$line</span>&quot;</span> | sed <span class="hljs-string">&apos;s/x/y/g&apos;</span>; sleep <span class="hljs-number">1</span>; <span class="hljs-keyword">done</span> ) \
     {fd2}&gt; &gt;( <span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span> line; <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$line</span>&quot;</span> | sed <span class="hljs-string">&apos;s/x/z/g&apos;</span>; sleep <span class="hljs-number">2</span>; <span class="hljs-keyword">done</span> ) \
-    &lt; &lt;( <span class="hljs-keyword">for</span> ((i=<span class="hljs-number">0</span>; i&lt;<span class="hljs-number">4</span>; i++)); <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> aaaxxx; <span class="hljs-built_in">echo</span> bbbxxx; <span class="hljs-keyword">done</span> );
+    &lt; &lt;( <span class="hljs-keyword">for</span> ((i=<span class="hljs-number">0</span>; i&lt;<span class="hljs-number">4</span>; i++)) { <span class="hljs-built_in">echo</span> aaaxxx; <span class="hljs-built_in">echo</span> bbbxxx ;} );
 </code></pre>
 <p>&#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; <code>&gt;( ... )</code> subshell &#xACFC; &#xBA54;&#xC778; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xB418;&#xB294; cat &#xBA85;&#xB839;&#xC744; &#xD30C;&#xC774;&#xD504;&#xB85C; &#xC5F0;&#xACB0;&#xD574; &#xC8FC;&#xBA74; &#xB429;&#xB2C8;&#xB2E4;.
 &#xC774;&#xAC83;&#xC740; <code>&gt;( ... )</code> &#xCD9C;&#xB825;&#xC774; &#xD130;&#xBBF8;&#xB110;&#xB85C; &#xB420; &#xB54C;&#xBFD0;&#xB9CC; &#xC544;&#xB2C8;&#xB77C; <code>sed s/x/y/g &gt; file</code> &#xC640; &#xAC19;&#xC774;
@@ -1490,9 +1490,9 @@ join &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB294; &#xBC14;&#xB85C; &#xC885;&#xB8CC;&
         bbb* ) <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$line</span>&quot;</span> &gt;&amp; <span class="hljs-variable">$fd2</span> ;;
     <span class="hljs-keyword">esac</span>
 <span class="hljs-keyword">done</span> \
-    {fd1}&gt; &gt;( <span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span> line; <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$line</span>&quot;</span> | sed <span class="hljs-string">&apos;s/x/y/g&apos;</span> ; sleep <span class="hljs-number">1</span>; <span class="hljs-keyword">done</span>; ) \
-    {fd2}&gt; &gt;( <span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span> line; <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$line</span>&quot;</span> | sed <span class="hljs-string">&apos;s/x/z/g&apos;</span> ; sleep <span class="hljs-number">2</span>; <span class="hljs-keyword">done</span>; ) \
-    &lt; &lt;( <span class="hljs-keyword">for</span> ((i=<span class="hljs-number">0</span>; i&lt;<span class="hljs-number">4</span>; i++)); <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> aaaxxx; <span class="hljs-built_in">echo</span> bbbxxx; <span class="hljs-keyword">done</span> ) \
+    {fd1}&gt; &gt;( <span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span> line; <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$line</span>&quot;</span> | sed <span class="hljs-string">&apos;s/x/y/g&apos;</span> ; sleep <span class="hljs-number">1</span>; <span class="hljs-keyword">done</span> ) \
+    {fd2}&gt; &gt;( <span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span> line; <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$line</span>&quot;</span> | sed <span class="hljs-string">&apos;s/x/z/g&apos;</span> ; sleep <span class="hljs-number">2</span>; <span class="hljs-keyword">done</span> ) \
+    &lt; &lt;( <span class="hljs-keyword">for</span> ((i=<span class="hljs-number">0</span>; i&lt;<span class="hljs-number">4</span>; i++)) { <span class="hljs-built_in">echo</span> aaaxxx; <span class="hljs-built_in">echo</span> bbbxxx ;} ) \
 | cat    &lt;--------- &#xBA54;&#xC778; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xB418;&#xB294; cat &#xBA85;&#xB839;
 </code></pre>
 <p>&#xC704;&#xC758; &#xC608;&#xC81C; &#xAC19;&#xC740; &#xACBD;&#xC6B0;&#xB294; while &#xBB38;&#xC5D0; &#xC758;&#xD574; &#xB9E4;&#xBC88; sed &#xBA85;&#xB839;&#xC774; &#xC885;&#xB8CC;&#xB418;&#xBBC0;&#xB85C; &#xBA54;&#xC2DC;&#xC9C0; &#xCD9C;&#xB825;&#xC21C;&#xC11C;&#xAC00;
@@ -1508,7 +1508,7 @@ join &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB294; &#xBC14;&#xB85C; &#xC885;&#xB8CC;&
 <span class="hljs-keyword">done</span> \
     {fd1}&gt; &gt;( sed <span class="hljs-string">&apos;s/x/y/g&apos;</span> ) \
     {fd2}&gt; &gt;( sed <span class="hljs-string">&apos;s/x/z/g&apos;</span> ) \
-    &lt; &lt;( <span class="hljs-keyword">for</span> ((i=<span class="hljs-number">0</span>; i&lt;<span class="hljs-number">4</span>; i++)); <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> aaaxxx; <span class="hljs-built_in">echo</span> bbbxxx; <span class="hljs-keyword">done</span> ) \
+    &lt; &lt;( <span class="hljs-keyword">for</span> ((i=<span class="hljs-number">0</span>; i&lt;<span class="hljs-number">4</span>; i++)) { <span class="hljs-built_in">echo</span> aaaxxx; <span class="hljs-built_in">echo</span> bbbxxx ;} ) \
 | cat
 
 $ ./test.sh    <span class="hljs-comment"># &#xBA54;&#xC2DC;&#xC9C0; &#xCD9C;&#xB825;&#xC21C;&#xC11C;&#xAC00; &#xC720;&#xC9C0;&#xB418;&#xC9C0; &#xC54A;&#xACE0; &#xC7A0;&#xC2DC;&#xD6C4;&#xC5D0; &#xC885;&#xB8CC;&#xB420;&#xB54C; &#xD55C;&#xAEBC;&#xBC88;&#xC5D0; &#xCD9C;&#xB825;&#xB41C;&#xB2E4;.</span>
@@ -1532,7 +1532,7 @@ aaayyy
 <span class="hljs-keyword">done</span> \
     {fd1}&gt; &gt;( stdbuf -oL sed <span class="hljs-string">&apos;s/x/y/g&apos;</span> ) \
     {fd2}&gt; &gt;( stdbuf -oL sed <span class="hljs-string">&apos;s/x/z/g&apos;</span> ) \
-    &lt; &lt;( <span class="hljs-keyword">for</span> ((i=<span class="hljs-number">0</span>; i&lt;<span class="hljs-number">4</span>; i++)); <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> aaaxxx; <span class="hljs-built_in">echo</span> bbbxxx; <span class="hljs-keyword">done</span> ) \
+    &lt; &lt;( <span class="hljs-keyword">for</span> ((i=<span class="hljs-number">0</span>; i&lt;<span class="hljs-number">4</span>; i++)) { <span class="hljs-built_in">echo</span> aaaxxx; <span class="hljs-built_in">echo</span> bbbxxx ;} ) \
 | cat
 
 $ ./test.sh    <span class="hljs-comment"># &#xD30C;&#xC774;&#xD504;&#xB098; &#xD30C;&#xC77C;&#xB85C; &#xC4F0;&#xAE30;&#xB97C; &#xD560;&#xB54C;&#xB294; &#xD56D;&#xC0C1; &#xBC84;&#xD37C;&#xAD00;&#xB828; &#xC635;&#xC158;&#xC744; &#xC124;&#xC815;&#xD574; &#xC8FC;&#xC5B4;&#xC57C; &#xD55C;&#xB2E4;.</span>
@@ -1559,7 +1559,7 @@ stdout &#xC73C;&#xB85C; &#xC5F0;&#xACB0;&#xB418;&#xB294; FD &#xB97C; &#xC0DD;&#x
 <span class="hljs-keyword">done</span> \
     {fd1}&gt; &gt;( sed <span class="hljs-string">&apos;s/x/y/g&apos;</span> &gt;&amp;<span class="hljs-number">3</span> ) \
     {fd2}&gt; &gt;( sed <span class="hljs-string">&apos;s/x/z/g&apos;</span> &gt;&amp;<span class="hljs-number">3</span> ) \
-    &lt; &lt;( <span class="hljs-keyword">for</span> ((i=<span class="hljs-number">0</span>; i&lt;<span class="hljs-number">4</span>; i++)); <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> aaaxxx; <span class="hljs-built_in">echo</span> bbbxxx; <span class="hljs-keyword">done</span> ) \
+    &lt; &lt;( <span class="hljs-keyword">for</span> ((i=<span class="hljs-number">0</span>; i&lt;<span class="hljs-number">4</span>; i++)) { <span class="hljs-built_in">echo</span> aaaxxx; <span class="hljs-built_in">echo</span> bbbxxx ;} ) \
 | cat
 </code></pre>
 <h1 id="2-">2 .</h1>
