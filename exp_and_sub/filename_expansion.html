@@ -1450,7 +1450,7 @@ $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${array[12
 
 $ touch array1               <span class="hljs-comment"># &#xD604;&#xC7AC; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xC5D0; &#xC784;&#xC758;&#xB85C; array1 &#xD30C;&#xC77C;&#xC0DD;&#xC131;</span>
 
-<span class="hljs-comment"># unset &#xC744; &#xC2E4;&#xD589;&#xD558;&#xC600;&#xC73C;&#xB098; globbing &#xC5D0;&#xC758;&#xD574; array[12] &#xC774; array1 &#xD30C;&#xC77C;&#xACFC; &#xB9E4;&#xCE6D;&#xC774;&#xB418;&#xC5B4; </span>
+<span class="hljs-comment"># unset &#xC744; &#xC2E4;&#xD589;&#xD558;&#xC600;&#xC73C;&#xB098; globbing &#xC5D0;&#xC758;&#xD574; array[12] &#xAC00; array1 &#xD30C;&#xC77C;&#xACFC; &#xB9E4;&#xCE6D;&#xC774;&#xB418;&#xC5B4; </span>
 <span class="hljs-comment"># &#xC2E4;&#xC9C8;&#xC801;&#xC73C;&#xB85C; unset array1 &#xBA85;&#xB839;&#xACFC; &#xAC19;&#xAC8C;&#xB418;&#xC5B4; unset &#xC774; &#xB418;&#xC9C0; &#xC54A;&#xACE0; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
 $ <span class="hljs-built_in">unset</span> array[<span class="hljs-number">12</span>]         
 $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${array[12]}</span>         
@@ -1475,7 +1475,7 @@ $ head -c100 /dev/urandom | tr -dc <span class="hljs-string">&apos;[:graph:]&apo
 <pre><code class="lang-bash">$ AA=<span class="hljs-string">&quot;Arch Linux:*:Suse Linux:Fedora Linux&quot;</span>
 
 $ IFS=:
-$ ARR=(<span class="hljs-variable">$AA</span>)
+$ ARR=( <span class="hljs-variable">$AA</span> )
 $ IFS=$<span class="hljs-string">&apos; \t\n&apos;</span>
 
 $ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">${ARR[@]}</span>&quot;</span>
@@ -1486,7 +1486,7 @@ WriteObject.class WriteObject.java Suse Linux Fedora Linux
 -----------------------------------------------------------
 
 $ <span class="hljs-built_in">set</span> <span class="hljs-operator">-f</span>; IFS=:          <span class="hljs-comment"># set -f &#xC635;&#xC158; &#xC124;&#xC815;&#xC73C;&#xB85C; globbing &#xC744; disable</span>
-$ ARR=(<span class="hljs-variable">$AA</span>)
+$ ARR=( <span class="hljs-variable">$AA</span> )
 $ <span class="hljs-built_in">set</span> +f; IFS=$<span class="hljs-string">&apos; \t\n&apos;</span>
 
 $ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">${ARR[@]}</span>&quot;</span>
