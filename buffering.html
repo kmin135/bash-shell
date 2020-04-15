@@ -1395,15 +1395,15 @@ ONE
 TWO
 THREE
 
-$ { sed <span class="hljs-number">1</span>q; sed <span class="hljs-number">1</span>q; sed <span class="hljs-number">1</span>q ;} &lt; file
-ONE
-TWO
-THREE
+$ { sed <span class="hljs-string">&apos;s/$/X/;q&apos;</span>; sed <span class="hljs-string">&apos;s/$/Y/;q&apos;</span>; sed <span class="hljs-string">&apos;s/$/Z/;q&apos;</span> ;} &lt; file
+ONEX
+TWOY
+THREEZ
 
-$ { sed <span class="hljs-number">1</span>q; sed <span class="hljs-number">1</span>q; sed <span class="hljs-number">1</span>q ;} &lt;&lt;&lt; $<span class="hljs-string">&apos;ONE\nTWO\nTHREE&apos;</span>
-ONE
-TWO
-THREE
+$ { sed <span class="hljs-string">&apos;s/$/X/;q&apos;</span>; sed <span class="hljs-string">&apos;s/$/Y/;q&apos;</span>; sed <span class="hljs-string">&apos;s/$/Z/;q&apos;</span> ;} &lt;&lt;&lt; $<span class="hljs-string">&apos;ONE\nTWO\nTHREE&apos;</span>
+ONEX
+TWOY
+THREEZ
 </code></pre>
 <h3 id="sort-&#xBA85;&#xB839;">sort &#xBA85;&#xB839;</h3>
 <p>sort, column &#xAC19;&#xC740; &#xBA85;&#xB839;&#xB4E4;&#xC740; &#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; &#xD30C;&#xC774;&#xD504;&#xC5D0; &#xC5F0;&#xACB0;&#xB41C; &#xC774;&#xC804; &#xBA85;&#xB839;&#xC758; &#xCD9C;&#xB825;&#xC744;
