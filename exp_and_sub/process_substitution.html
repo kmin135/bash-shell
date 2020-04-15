@@ -1500,7 +1500,7 @@ join &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB294; &#xBC14;&#xB85C; &#xC885;&#xB8CC;&
 &#xC544;&#xB798; &#xB450; &#xBC88;&#xC9F8; &#xC608;&#xC81C;&#xC640; &#xAC19;&#xC774; sed &#xC758; &#xBC84;&#xD37C;&#xAD00;&#xB828; &#xC635;&#xC158;&#xC744; &#xC124;&#xC815;&#xD574; &#xC8FC;&#xC5B4;&#xC57C; &#xBA54;&#xC2DC;&#xC9C0; &#xCD9C;&#xB825;&#xC21C;&#xC11C;&#xAC00; &#xC720;&#xC9C0;&#xB429;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash"><span class="hljs-shebang">#!/bin/bash
 </span>
-<span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span> line; <span class="hljs-keyword">do</span>
+<span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span> line; <span class="hljs-keyword">do</span>    <span class="hljs-comment"># &gt;( sed ... ) &#xB85C; &#xC2E4;&#xD589;</span>
     <span class="hljs-keyword">case</span> <span class="hljs-variable">$line</span> <span class="hljs-keyword">in</span>
         aaa* ) sleep .<span class="hljs-number">2</span>; <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$line</span>&quot;</span> &gt;&amp; <span class="hljs-variable">$fd1</span> ;;
         bbb* ) sleep .<span class="hljs-number">5</span>; <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$line</span>&quot;</span> &gt;&amp; <span class="hljs-variable">$fd2</span> ;;
@@ -1524,7 +1524,7 @@ aaayyy
 
 <span class="hljs-shebang">#!/bin/bash
 </span>
-<span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span> line; <span class="hljs-keyword">do</span>
+<span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span> line; <span class="hljs-keyword">do</span>    <span class="hljs-comment"># &gt;( stdbuf -oL sed ... ) &#xBC84;&#xD37C; &#xC635;&#xC158; &#xC124;&#xC815;</span>
     <span class="hljs-keyword">case</span> <span class="hljs-variable">$line</span> <span class="hljs-keyword">in</span>
         aaa* ) sleep .<span class="hljs-number">2</span>; <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$line</span>&quot;</span> &gt;&amp; <span class="hljs-variable">$fd1</span> ;;
         bbb* ) sleep .<span class="hljs-number">5</span>; <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$line</span>&quot;</span> &gt;&amp; <span class="hljs-variable">$fd2</span> ;;
