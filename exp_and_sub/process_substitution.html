@@ -1459,6 +1459,7 @@ main &#xBA85;&#xB839;&#xC5D0; &#xD574;&#xB2F9;&#xD558;&#xB294; join &#xACFC; PGI
 join &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB294; &#xBC14;&#xB85C; &#xC885;&#xB8CC;&#xB418;&#xACA0;&#xC9C0;&#xB9CC; large_data &#xD30C;&#xC77C;&#xC744; &#xCC98;&#xB9AC;&#xC911;&#xC778; sort &#xB294; &#xC885;&#xB8CC;&#xB418;&#xC9C0; &#xC54A;&#xACE0; &#xB0A8;&#xC544;&#xC788;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">join -t, -<span class="hljs-number">1</span> <span class="hljs-number">1</span> -<span class="hljs-number">2</span> <span class="hljs-number">3</span> &lt;(sort -t, -k1,<span class="hljs-number">1</span> keys) &lt;(sort -t, -k3,<span class="hljs-number">3</span> large_data)
 </code></pre>
+<p><a name="quiz"></a></p>
 <h1 id="quiz">Quiz</h1>
 <p>&#xD504;&#xB85C;&#xC138;&#xC2A4; &#xCE58;&#xD658;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xB418;&#xB294; &#xBA85;&#xB839;&#xC740; background &#xB85C; &#xC2E4;&#xD589;&#xB418;&#xBBC0;&#xB85C;
 <code>&gt;( ... )</code> &#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xB418;&#xB294; &#xBA85;&#xB839;&#xC774; &#xC2DC;&#xAC04;&#xC774; &#xC624;&#xB798; &#xAC78;&#xB9B4;&#xACBD;&#xC6B0; main &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; &#xBA3C;&#xC800; &#xC885;&#xB8CC;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
@@ -1543,6 +1544,23 @@ aaayyy
 bbbzzz
 aaayyy
 bbbzzz
+</code></pre>
+<p>&#xB9CC;&#xC57D;&#xC5D0; &#xBC84;&#xD37C;&#xAD00;&#xB828; &#xC635;&#xC158;&#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xC744; &#xACBD;&#xC6B0;&#xC5D0;&#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xBA85;&#xB839; &#xC2E4;&#xD589;&#xC804;&#xC5D0;
+stdout &#xC73C;&#xB85C; &#xC5F0;&#xACB0;&#xB418;&#xB294; FD &#xB97C; &#xC0DD;&#xC131;&#xD574;&#xC11C; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; &#xB429;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash"><span class="hljs-shebang">#!/bin/bash
+</span>
+<span class="hljs-built_in">exec</span> <span class="hljs-number">3</span>&gt;&amp;<span class="hljs-number">1</span>     <span class="hljs-comment"># FD 3 &#xBC88;&#xC744; &#xC0DD;&#xC131;&#xD574; stdout &#xC5D0; &#xC5F0;&#xACB0;, &#xADF8;&#xB9AC;&#xACE0; sed ... &gt;&amp;3</span>
+
+<span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span> -r line; <span class="hljs-keyword">do</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-variable">$line</span> <span class="hljs-keyword">in</span>
+        aaa* ) sleep .<span class="hljs-number">2</span>; <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$line</span>&quot;</span> &gt;&amp; <span class="hljs-variable">$fd1</span> ;;
+        bbb* ) sleep .<span class="hljs-number">5</span>; <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$line</span>&quot;</span> &gt;&amp; <span class="hljs-variable">$fd2</span> ;;
+    <span class="hljs-keyword">esac</span>
+<span class="hljs-keyword">done</span> \
+    {fd1}&gt; &gt;( sed <span class="hljs-string">&apos;s/x/y/g&apos;</span> &gt;&amp;<span class="hljs-number">3</span> ) \
+    {fd2}&gt; &gt;( sed <span class="hljs-string">&apos;s/x/z/g&apos;</span> &gt;&amp;<span class="hljs-number">3</span> ) \
+    &lt; &lt;( <span class="hljs-keyword">for</span> ((i=<span class="hljs-number">0</span>; i&lt;<span class="hljs-number">4</span>; i++)); <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> aaaxxx; <span class="hljs-built_in">echo</span> bbbxxx; <span class="hljs-keyword">done</span> ) \
+| cat
 </code></pre>
 <h1 id="2-">2 .</h1>
 <p><code>diff</code> &#xBA85;&#xB839;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xBA74; &#xAC04;&#xB2E8;&#xD788; &#xB450;&#xAC1C;&#xC758; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xB97C; &#xC11C;&#xB85C; &#xBE44;&#xAD50;&#xD560; &#xC218; &#xC788;&#xB294;&#xB370;&#xC694;.<br>&#xBE44;&#xAD50;&#xD558;&#xB824;&#xB294; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xAC00; remote &#xC11C;&#xBC84;&#xC5D0; &#xC874;&#xC7AC;&#xD558;&#xB294; &#xACBD;&#xC6B0;&#xB294; &#xC5B4;&#xB5BB;&#xAC8C; &#xD560;&#xAE4C;&#xC694;?</p>
