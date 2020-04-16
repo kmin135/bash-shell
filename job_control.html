@@ -1547,8 +1547,8 @@ parent process &#xC5D0; &#xD574;&#xB2F9;&#xD558;&#xB294; &#xC2A4;&#xD06C;&#xB9BD
 <h4 id="script-&#xD30C;&#xC77C;-&#xC5D0;&#xC11C;&#xB294;-job-control-&#xC774;-&#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C;-disable-&#xB429;&#xB2C8;&#xB2E4;">Script &#xD30C;&#xC77C; &#xC5D0;&#xC11C;&#xB294; job control &#xC774; &#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; disable &#xB429;&#xB2C8;&#xB2E4;.</h4>
 <p>Non-interactive shell &#xC778; script &#xD30C;&#xC77C; &#xC2E4;&#xD589; &#xC2DC;&#xC5D0;&#xB294; &#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; job control &#xC774; disable &#xB429;&#xB2C8;&#xB2E4;.
 &#xADF8;&#xB807;&#xB2E4;&#xACE0; &#xD574;&#xC11C; <code>&amp;</code> &#xBB38;&#xC790;&#xB97C; &#xC774;&#xC6A9;&#xD574; background process &#xB97C; &#xC0DD;&#xC131;&#xD558;&#xC9C0; &#xBABB;&#xD558;&#xB294; &#xAC83;&#xC740; &#xC544;&#xB2C8;&#xACE0;
-&#xB2E4;&#xB9CC; bg, fg, suspend &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.
-&#xD558;&#xC9C0;&#xB9CC; jobs, wait, disown &#xBA85;&#xB839;&#xB4E4;&#xC740; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xB2E4;&#xB9CC; <code>bg</code>, <code>fg</code>, <code>suspend</code> &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xD558;&#xC9C0;&#xB9CC; <code>jobs</code>, <code>wait</code>, <code>disown</code> &#xBA85;&#xB839;&#xB4E4;&#xC740; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
 &#xD544;&#xC694;&#xC5D0; &#xB530;&#xB77C; <code>set -o monitor</code> &#xC635;&#xC158; &#xC124;&#xC815;&#xC744; &#xD1B5;&#xD574; enable &#xD560; &#xC218;&#xB3C4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <h4 id="shell-&#xC774;-&#xC885;&#xB8CC;&#xB418;&#xBA74;-background-job-&#xB4E4;&#xC740;-&#xC5B4;&#xB5BB;&#xAC8C;-&#xB420;&#xAE4C;">Shell &#xC774; &#xC885;&#xB8CC;&#xB418;&#xBA74; background job &#xB4E4;&#xC740; &#xC5B4;&#xB5BB;&#xAC8C; &#xB420;&#xAE4C;?</h4>
 <ul>
@@ -1570,6 +1570,38 @@ parent process &#xC5D0; &#xD574;&#xB2F9;&#xD558;&#xB294; &#xC2A4;&#xD06C;&#xB9BD
 </li>
 </ul>
 <h1 id="quiz">Quiz</h1>
+<p>background &#xB85C; &#xBA85;&#xB839;&#xC744; &#xC2E4;&#xD589;&#xC2DC;&#xD0AC; &#xB54C; subshell &#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; job table &#xC5D0; &#xB4F1;&#xB85D;&#xB418;&#xC9C0; &#xC54A;&#xC73C;&#xBBC0;&#xB85C;
+&#xBA54;&#xC778; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; wait &#xD560; &#xC218;&#xAC00; &#xC5C6;&#xB294;&#xB370;&#xC694;. 
+&#xBA85;&#xB839;&#xB4E4;&#xC744; subshell &#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xC2DC;&#xCF1C;&#xC57C; &#xB420; &#xACBD;&#xC6B0;,
+&#xC5B4;&#xB5BB;&#xAC8C; &#xD558;&#xBA74; &#xBA54;&#xC778; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; background &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB4E4;&#xC774; &#xBAA8;&#xB450; &#xC885;&#xB8CC;&#xB420; &#xB54C;&#xAE4C;&#xC9C0; &#xAE30;&#xB2E4;&#xB9B4; &#xC218; &#xC788;&#xC744;&#xAE4C;&#xC694;?</p>
+<p>&#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xBA54;&#xC778; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xB418;&#xB294; cat &#xBA85;&#xB839;&#xACFC; &#xD30C;&#xC774;&#xD504;&#xB85C; &#xC5F0;&#xACB0;&#xD574; &#xC8FC;&#xBA74; &#xB429;&#xB2C8;&#xB2E4;.
+&#xC774;&#xB54C; start &#xD568;&#xC218;&#xC5D0;&#xC11C; &#xBC1C;&#xC0DD;&#xD558;&#xB294; stdout &#xCD9C;&#xB825;&#xC774; &#xD30C;&#xC774;&#xD504;&#xB97C; &#xD1B5;&#xD558;&#xC9C0; &#xC54A;&#xACE0; &#xBC14;&#xB85C;
+&#xD130;&#xBBF8;&#xB110;&#xB85C; &#xCD9C;&#xB825;&#xB418;&#xAE30; &#xC704;&#xD574;&#xC11C; &#xBA3C;&#xC800; &#xBA54;&#xC778; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC5D0;&#xC11C; FD 3 &#xBC88;&#xC744; &#xC0DD;&#xC131;&#xD574; stdout &#xC73C;&#xB85C; &#xC5F0;&#xACB0;&#xD558;&#xACE0;
+start &#xD568;&#xC218;&#xC5D0;&#xC11C;&#xB294; stdout &#xCD9C;&#xB825;&#xC744; FD 3 &#xBC88;&#xC73C;&#xB85C; redirect &#xD569;&#xB2C8;&#xB2E4;.</p>
+<blockquote>
+<p>&#xD30C;&#xC774;&#xD504; &#xD65C;&#xC6A9;&#xC5D0; &#xB300;&#xD55C; &#xC880;&#xB354; &#xC790;&#xC138;&#xD55C; &#xB0B4;&#xC6A9;&#xC740; <a href="pipe.html#background">pipe &#xBA54;&#xB274;</a>&#xB97C; &#xCC38;&#xC870;&#xD558;&#xC138;&#xC694;</p>
+</blockquote>
+<pre><code class="lang-bash"><span class="hljs-shebang">#!/bin/bash
+</span>
+<span class="hljs-function"><span class="hljs-title">start</span></span> () {
+    <span class="hljs-built_in">echo</span> working ... <span class="hljs-variable">$BASHPID</span>
+    sleep <span class="hljs-number">2</span>.$(( RANDOM % <span class="hljs-number">10</span> ))
+} &gt;&amp;<span class="hljs-number">3</span>
+
+<span class="hljs-built_in">exec</span> <span class="hljs-number">3</span>&gt;&amp;<span class="hljs-number">1</span>
+
+( start &amp; start &amp; start &amp; ) | cat
+
+<span class="hljs-built_in">echo</span> ALL DONE.
+--------------------------------
+
+$ ./test.sh 
+working ... <span class="hljs-number">23675</span>
+working ... <span class="hljs-number">23676</span>
+working ... <span class="hljs-number">23677</span>
+ALL DONE.          <span class="hljs-comment"># background &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; &#xBAA8;&#xB450; &#xC885;&#xB8CC;&#xB41C; &#xD6C4;&#xC5D0; &#xB9C8;&#xC9C0;&#xB9C9; &#xBA54;&#xC2DC;&#xC9C0;&#xAC00; &#xCD9C;&#xB825;&#xB41C;&#xB2E4;.</span>
+</code></pre>
+<h1 id="2-">2 .</h1>
 <p>&#xD130;&#xBBF8;&#xB110;&#xC5D0;&#xC11C; GUI &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC744; ( &#xC608;&#xB97C; &#xB4E4;&#xBA74; gnome-calculator ) background &#xB85C; &#xC2E4;&#xD589;&#xC2DC;&#xD0A8; &#xD6C4;&#xC5D0;
 &#xD130;&#xBBF8;&#xB110; &#xCC3D;&#xC744; &#xC885;&#xB8CC;&#xD558;&#xBA74; &#xC2E4;&#xD589; &#xC911;&#xC778; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xB3C4; &#xD568;&#xAED8; &#xC885;&#xB8CC;&#xB418;&#xB294; &#xAC83;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
 &#xC774;&#xAC83;&#xC740; &#xD130;&#xBBF8;&#xB110;&#xC774; &#xC885;&#xB8CC;&#xB420;&#xB54C; shell &#xC774; SIGHUP &#xC2E0;&#xD638;&#xB97C; &#xBC1B;&#xAC8C; &#xB418;&#xBA74; &#xB098;&#xBA38;&#xC9C0; job &#xB4E4;&#xC5D0;&#xAC8C;&#xB3C4; SIGHUP &#xC2E0;&#xD638;&#xB97C;
