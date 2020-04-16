@@ -1416,7 +1416,8 @@ lockfile=<span class="hljs-variable">$0</span>
     postprocessing
 }
 
-( start &amp; start &amp; start &amp; <span class="hljs-built_in">wait</span>; <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;ALL DONE.&quot;</span> )
+start &amp; start &amp; start &amp; <span class="hljs-built_in">wait</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;ALL DONE.&quot;</span>
 ---------------------------------------------------------------
 
 $ ./test.sh  
