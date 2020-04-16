@@ -1484,10 +1484,10 @@ $ sudo cat /dev/input/mice | od -tx1
 <pre><code class="lang-bash">$ hello=<span class="hljs-number">100</span>
 $ linux=hello
 
-$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${$linux}</span>          <span class="hljs-comment"># &#xC624;&#xB958;</span>
+$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${$linux}</span>              <span class="hljs-comment"># &#xC624;&#xB958;</span>
 bash: <span class="hljs-variable">${$linux}</span>: bad substitution
 
-$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${!linux}</span>                 <span class="hljs-comment"># !linux -&gt; $linux -&gt; hello</span>
+$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${!linux}</span>              <span class="hljs-comment"># !linux -&gt; $linux -&gt; hello</span>
 <span class="hljs-number">100</span>
 --------------------------------------------------
 
@@ -1501,7 +1501,7 @@ $ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span 
 </span>
 <span class="hljs-function"><span class="hljs-title">func</span></span>() {
     <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span>
-    <span class="hljs-keyword">for</span> v <span class="hljs-keyword">in</span> <span class="hljs-string">&quot;<span class="hljs-variable">${!2}</span>&quot;</span>; <span class="hljs-keyword">do</span>       <span class="hljs-comment"># !2 -&gt; $2 -&gt; AA[@]</span>
+    <span class="hljs-keyword">for</span> v <span class="hljs-keyword">in</span> <span class="hljs-string">&quot;<span class="hljs-variable">${!2}</span>&quot;</span>; <span class="hljs-keyword">do</span>      <span class="hljs-comment"># !2 -&gt; $2 -&gt; AA[@]</span>
         <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$v</span>&quot;</span>
     <span class="hljs-keyword">done</span>
     <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$3</span>&quot;</span>
