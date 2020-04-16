@@ -1558,7 +1558,7 @@ stdout &#xC73C;&#xB85C; &#xC5F0;&#xACB0;&#xB418;&#xB294; FD &#xB97C; &#xC0DD;&#x
     <span class="hljs-keyword">esac</span>
 <span class="hljs-keyword">done</span> \
     {fd1}&gt; &gt;( sed <span class="hljs-string">&apos;s/x/y/g&apos;</span> &gt;&amp;<span class="hljs-number">3</span> ) \
-    {fd2}&gt; &gt;( sed <span class="hljs-string">&apos;s/x/z/g&apos;</span> &gt;&amp;<span class="hljs-number">3</span> ) \
+    {fd2}&gt; &gt;( <span class="hljs-built_in">exec</span> <span class="hljs-number">1</span>&gt;&amp;<span class="hljs-number">3</span>; sed <span class="hljs-string">&apos;s/x/z/g&apos;</span> ) \
     &lt; &lt;( <span class="hljs-keyword">for</span> ((i=<span class="hljs-number">0</span>; i&lt;<span class="hljs-number">4</span>; i++)) { <span class="hljs-built_in">echo</span> aaaxxx; <span class="hljs-built_in">echo</span> bbbxxx ;} ) \
 | cat
 </code></pre>

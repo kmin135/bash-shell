@@ -1387,6 +1387,57 @@ do_task &#xD568;&#xC218;&#xB294; &#xAC01;&#xC790;&#xC758; &#xD504;&#xB85C;&#xC13
 get_task_id &#xD568;&#xC218;&#xB97C; &#xC2E4;&#xD589;&#xD560; &#xB54C;&#xB9CC;&#xC740; &#xC624;&#xC9C1; &#xD558;&#xB098;&#xC758; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB9CC; &#xC9C4;&#xC785;&#xD574;&#xC11C; &#xC2E4;&#xD589;&#xC774; &#xB429;&#xB2C8;&#xB2E4;. 
 get_task_id &#xC640; &#xAC19;&#xC774; &#xC5EC;&#xB7EC; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC5D0; &#xC758;&#xD574; &#xB3D9;&#xC2DC;&#xC5D0; &#xC2E4;&#xD589;&#xB3FC;&#xC11C;&#xB294; &#xC548;&#xB418;&#xB294; &#xCF54;&#xB4DC;&#xAD6C;&#xAC04;&#xC744; critical section &#xC774;&#xB77C;&#xACE0; &#xD569;&#xB2C8;&#xB2E4;.
 &#xC774;&#xB54C; tasks.txt &#xD30C;&#xC77C;&#xC740;  4&#xAC1C;&#xC758; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC5D0;&#xC11C; &#xACF5;&#xC720;&#xD558;&#xB294; &#xACF5;&#xC720;&#xC790;&#xC6D0;&#xC774; &#xB429;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ cat test.sh 
+<span class="hljs-shebang">#!/bin/bash
+</span>
+lockfile=<span class="hljs-variable">$0</span>
+
+<span class="hljs-function"><span class="hljs-title">get_task_id</span></span> ()
+{  
+    flock <span class="hljs-number">9</span>
+    <span class="hljs-built_in">echo</span> critical section : start ... <span class="hljs-variable">$BASHPID</span>
+    <span class="hljs-built_in">echo</span> critical section : working ... <span class="hljs-variable">$BASHPID</span>
+    sleep <span class="hljs-number">2</span>.$(( RANDOM % <span class="hljs-number">10</span> ))
+    <span class="hljs-built_in">echo</span> critical section : end ... <span class="hljs-variable">$BASHPID</span>
+
+} <span class="hljs-number">9</span>&lt; <span class="hljs-string">&quot;<span class="hljs-variable">$lockfile</span>&quot;</span>
+
+<span class="hljs-function"><span class="hljs-title">preprocessing</span></span> () {
+    <span class="hljs-built_in">echo</span> preprocessing ... <span class="hljs-variable">$BASHPID</span>
+}
+
+<span class="hljs-function"><span class="hljs-title">postprocessing</span></span> () {
+    <span class="hljs-built_in">echo</span> postprocessing ... <span class="hljs-variable">$BASHPID</span>
+}
+
+<span class="hljs-function"><span class="hljs-title">start</span></span> () {
+    preprocessing
+    get_task_id
+    postprocessing
+}
+
+<span class="hljs-built_in">exec</span> <span class="hljs-number">3</span>&gt;&amp;<span class="hljs-number">1</span>
+( <span class="hljs-built_in">exec</span> <span class="hljs-number">1</span>&gt;&amp;<span class="hljs-number">3</span>; start &amp; start &amp; start &amp; <span class="hljs-built_in">wait</span>; <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;ALL DONE.&quot;</span> ) | cat
+---------------------------------------------------------------
+
+$ ./test.sh  
+preprocessing ... <span class="hljs-number">14156</span>                  <span class="hljs-comment"># preprocessing &#xB294; &#xB3D9;&#xC2DC;&#xC5D0; &#xC2E4;&#xD589;&#xB418;&#xACE0;</span>
+preprocessing ... <span class="hljs-number">14157</span>
+preprocessing ... <span class="hljs-number">14158</span>
+critical section : start ... <span class="hljs-number">14156</span>       <span class="hljs-comment"># critical section &#xAD6C;&#xAC04;&#xC5D0;&#xC11C;&#xB294;</span>
+critical section : working ... <span class="hljs-number">14156</span>     <span class="hljs-comment"># &#xD558;&#xB098;&#xC758; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB9CC; &#xC9C4;&#xC785;&#xD574;&#xC11C; &#xC2E4;&#xD589;&#xB41C;&#xB2E4;.</span>
+critical section : end ... <span class="hljs-number">14156</span>
+postprocessing ... <span class="hljs-number">14156</span>
+critical section : start ... <span class="hljs-number">14157</span>
+critical section : working ... <span class="hljs-number">14157</span>
+critical section : end ... <span class="hljs-number">14157</span>
+postprocessing ... <span class="hljs-number">14157</span>
+critical section : start ... <span class="hljs-number">14158</span>
+critical section : working ... <span class="hljs-number">14158</span>
+critical section : end ... <span class="hljs-number">14158</span>
+postprocessing ... <span class="hljs-number">14158</span>
+ALL DONE.
+</code></pre>
 <p>get_task_id &#xD568;&#xC218;&#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xC4F8; &#xC218;&#xB3C4; &#xC788;&#xC9C0;&#xB9CC;
 &#xC774;&#xB807;&#xAC8C; &#xD558;&#xBA74; exec &#xBA85;&#xB839;&#xC5D0; &#xC758;&#xD574;&#xC11C; FD 9 &#xBC88;&#xC774; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xC804;&#xCCB4;&#xC5D0; &#xC801;&#xC6A9;&#xC774; &#xB418;&#xACE0;
 &#xC885;&#xB8CC; &#xC2DC;&#xAE4C;&#xC9C0; &#xB0A8;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.</p>
