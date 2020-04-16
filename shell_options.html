@@ -1257,28 +1257,52 @@
                     
                         <h1 id="shell-options">Shell Options</h1>
 <p>Shell &#xC774; &#xB3D9;&#xC791;&#xD558;&#xB294; &#xBC29;&#xC2DD;&#xC744; &#xC5EC;&#xB7EC; &#xC635;&#xC158;&#xC744; &#xD1B5;&#xD574; &#xCEE8;&#xD2B8;&#xB864;&#xD560; &#xC218;&#xAC00; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
-&#xC635;&#xC158;&#xC744; &#xC124;&#xC815;&#xD560;&#xB54C; &#xC0AC;&#xC6A9;&#xD560;&#xC218; &#xC788;&#xB294; &#xBA85;&#xB839;&#xC740; <code>set</code> &#xACFC; <code>shopt</code> &#xB450;&#xAC00;&#xC9C0;&#xAC00; &#xC788;&#xB294;&#xB370; shopt &#xC740; bash &#xC804;&#xC6A9;&#xC73C;&#xB85C; sh &#xC5D0;&#xC11C;&#xB294; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xC635;&#xC158;&#xC744; &#xC124;&#xC815;&#xD560; &#xB54C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xB294; &#xBA85;&#xB839;&#xC740; <code>set</code> &#xACFC; <code>shopt</code> &#xB450; &#xAC00;&#xC9C0;&#xAC00; &#xC788;&#xB294;&#xB370; shopt &#xC740; bash &#xC804;&#xC6A9;&#xC73C;&#xB85C; sh &#xC5D0;&#xC11C;&#xB294; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.
 set &#xBA85;&#xB839;&#xC758; &#xC124;&#xC815;&#xAC12;&#xC740; <code>SHELLOPTS</code> &#xBCC0;&#xC218;&#xC5D0;, shopt &#xBA85;&#xB839;&#xC758; &#xC124;&#xC815;&#xAC12;&#xC740; <code>BASHOPTS</code> &#xBCC0;&#xC218;&#xC5D0; &#xAC01;&#xAC01; &#xC800;&#xC7A5;&#xB429;&#xB2C8;&#xB2E4;.
 set &#xC635;&#xC158;&#xC758; &#xACBD;&#xC6B0;&#xC5D0;&#xB294; &#xBCF4;&#xD1B5; &#xC9E7;&#xC740; &#xC635;&#xC158;&#xB3C4; &#xD568;&#xAED8; &#xC81C;&#xACF5;&#xD569;&#xB2C8;&#xB2E4;. </p>
 <h2 id="set">set</h2>
-<p>set &#xBA85;&#xB839;&#xC73C;&#xB85C; &#xC124;&#xC815;&#xD560; &#xC218; &#xC788;&#xB294; &#xC635;&#xC158;&#xB4E4;&#xC740; &#xBA85;&#xB839; &#xB77C;&#xC778;&#xC5D0;&#xC11C; &#xC9C1;&#xC811; bash &#xB610;&#xB294; sh &#xC744; &#xC2E4;&#xD589;&#xD560;&#xB54C; &#xC635;&#xC158;&#xC73C;&#xB85C;
+<p>set &#xBA85;&#xB839;&#xC740; &#xB450; &#xAC00;&#xC9C0; &#xAE30;&#xB2A5;&#xC774; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. <code>-</code> &#xBB38;&#xC790;&#xB85C; &#xC2DC;&#xC791;&#xD558;&#xB294; &#xC635;&#xC158; &#xC124;&#xC815; &#xAE30;&#xB2A5;&#xACFC;
+positional parameters &#xB97C; &#xC124;&#xC815;&#xD560; &#xC218; &#xC788;&#xB294; &#xAE30;&#xB2A5;&#xC785;&#xB2C8;&#xB2E4;.
+&#xC635;&#xC158; &#xC124;&#xC815; &#xC2DC;&#xC5D0;&#xB294; &#xBD99;&#xC5EC;&#xC11C; &#xC5EC;&#xB7EC; &#xAC1C;&#xB97C; &#xD55C;&#xBC88;&#xC5D0; &#xC124;&#xC815;&#xD560; &#xC218; &#xC788;&#xACE0; &#xB4A4;&#xC5D0; &#xC774;&#xC5B4;&#xC11C;
+positional parameters &#xB3C4; &#xC124;&#xC815;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ <span class="hljs-built_in">echo</span> $-
+bhimBHs
+                        <span class="hljs-comment"># -f (noglob), -C (noclobber) &#xC635;&#xC158;&#xC744; on &#xD558;&#xBA74;&#xC11C;</span>
+$ <span class="hljs-built_in">set</span> <span class="hljs-operator">-f</span>C <span class="hljs-number">11</span> <span class="hljs-number">22</span> <span class="hljs-number">33</span>      <span class="hljs-comment"># positional parameters &#xB97C; 11 22 33 &#xC73C;&#xB85C; &#xC124;&#xC815;</span>
+
+$ <span class="hljs-built_in">echo</span> $-
+bfhimBCHs               <span class="hljs-comment"># &quot;f&quot;, &quot;C&quot; &#xAC00; &#xCD94;&#xAC00;&#xB428;</span>
+
+$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$@</span>               <span class="hljs-comment"># positional parameters &#xB3C4; &#xC124;&#xC815;&#xB428;</span>
+<span class="hljs-number">11</span> <span class="hljs-number">22</span> <span class="hljs-number">33</span>
+                        <span class="hljs-comment"># noglob, noclobber &#xC635;&#xC158;&#xC744; off &#xD558;&#xBA74;&#xC11C;</span>
+$ <span class="hljs-built_in">set</span> +fC --            <span class="hljs-comment"># positional parameters &#xB97C; &#xC804;&#xBD80; &#xC0AD;&#xC81C;</span>
+
+$ <span class="hljs-built_in">echo</span> $-
+bhimBHs
+
+$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$@</span>
+$
+</code></pre>
+<p>set &#xC73C;&#xB85C; &#xC124;&#xC815;&#xD560; &#xC218; &#xC788;&#xB294; &#xC635;&#xC158;&#xB4E4;&#xC740; &#xBA85;&#xB839; &#xB77C;&#xC778;&#xC5D0;&#xC11C; &#xC9C1;&#xC811; bash, sh &#xBA85;&#xB839;&#xC744; &#xC2E4;&#xD589;&#xD560; &#xB54C; &#xC635;&#xC158;&#xC73C;&#xB85C;
 &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
-&#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xB294; &#xC635;&#xC158; &#xBAA9;&#xB85D;&#xACFC; &#xD604;&#xC7AC; &#xC0C1;&#xD0DC; &#xAC12;&#xC740; <code>set -o</code> &#xC73C;&#xB85C; &#xBCFC;&#xC218;&#xAC00; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
-&#xAC12;&#xC744; enable &#xD560;&#xB54C;&#xB294; <code>set -o &#xC635;&#xC158;&#xBA85;</code> &#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xACE0; disable &#xD560;&#xB54C;&#xB294; <code>set +o &#xC635;&#xC158;&#xBA85;</code> &#xC744; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.
-<code>[ -o &#xC635;&#xC158;&#xBA85; ]</code> &#xC73C;&#xB85C; &#xD604;&#xC7AC; &#xAC12;&#xC744; &#xD14C;&#xC2A4;&#xD2B8;&#xD574;&#xBCFC; &#xC218; &#xC788;&#xC73C;&#xBA70; enable &#xC77C;&#xACBD;&#xC6B0; <code>0</code> &#xC744; disable &#xC77C;&#xACBD;&#xC6B0; <code>1</code> &#xC744; &#xBC18;&#xD658;&#xD569;&#xB2C8;&#xB2E4;. </p>
+&#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xB294; &#xC635;&#xC158; &#xBAA9;&#xB85D;&#xACFC; &#xD604;&#xC7AC; &#xC0C1;&#xD0DC;&#xB294; <code>set -o</code> &#xC73C;&#xB85C; &#xBCFC; &#xC218;&#xAC00; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xAC12;&#xC744; <code>on</code> &#xD560; &#xB54C;&#xB294; <code>set -o &#xC635;&#xC158;&#xBA85;</code> &#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xACE0; <code>off</code> &#xD560; &#xB54C;&#xB294; <code>set +o &#xC635;&#xC158;&#xBA85;</code> &#xC744; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.
+<code>[ -o &#xC635;&#xC158;&#xBA85; ]</code> &#xC73C;&#xB85C; &#xD604;&#xC7AC; &#xAC12;&#xC744; &#xD14C;&#xC2A4;&#xD2B8;&#xD574;&#xBCFC; &#xC218; &#xC788;&#xC73C;&#xBA70; <code>on</code> &#xC77C; &#xACBD;&#xC6B0; <code>0</code> &#xC744; <code>off</code> &#xC77C; &#xACBD;&#xC6B0; <code>1</code> &#xC744; &#xBC18;&#xD658;&#xD569;&#xB2C8;&#xB2E4;. </p>
 <blockquote>
 <p>&#xC124;&#xC815;&#xB41C; &#xC635;&#xC158;&#xC740; <code>$-</code> &#xD2B9;&#xC218; &#xBCC0;&#xC218;&#xC5D0; flags &#xC73C;&#xB85C; &#xC800;&#xC7A5;&#xB429;&#xB2C8;&#xB2E4;.</p>
 </blockquote>
 <h3 id="&#xA0;">-&#xA0;-</h3>
 <p><code>set --</code> &#xC740; &#xD604;&#xC7AC; &#xC124;&#xC815;&#xB418;&#xC5B4;&#xC788;&#xB294;  positional parameters &#xB4E4;&#xC744; &#xC804;&#xBD80; &#xC0AD;&#xC81C;&#xD569;&#xB2C8;&#xB2E4;. </p>
-<pre><code class="lang-bash">$ <span class="hljs-built_in">set</span> <span class="hljs-number">11</span> <span class="hljs-number">22</span> <span class="hljs-number">33</span>
+<pre><code class="lang-bash">$ <span class="hljs-built_in">set</span> -- <span class="hljs-operator">-a</span> -b -c    <span class="hljs-comment"># &#xC778;&#xC218;&#xC5D0; &apos;-&apos; &#xBB38;&#xC790;&#xAC00; &#xD3EC;&#xD568;&#xB418;&#xBBC0;&#xB85C; &apos;--&apos; &#xB97C; &#xC0AC;&#xC6A9;</span>
 
 $ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span>
-<span class="hljs-number">11</span> <span class="hljs-number">22</span> <span class="hljs-number">33</span>
+<span class="hljs-operator">-a</span> -b -c
 
 $ <span class="hljs-built_in">set</span> --
 
-$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span>    <span class="hljs-comment"># &#xC804;&#xBD80; &#xC0AD;&#xC81C;&#xB418;&#xC5C8;&#xB2E4;.</span>
+$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span>          <span class="hljs-comment"># &#xC804;&#xBD80; &#xC0AD;&#xC81C;&#xB418;&#xC5C8;&#xB2E4;.</span>
+$
 </code></pre>
 <h3 id="">-</h3>
 <p><code>set -</code> &#xC740; xtrace, verbose &#xC635;&#xC158;&#xC124;&#xC815;&#xC744; turn off &#xC2DC;&#xD0B5;&#xB2C8;&#xB2E4;.  </p>
