@@ -1492,13 +1492,13 @@ grep -c bar data1; grep -c bar data2; grep -c bar data3;
 grep -c zoo data1; grep -c zoo data2; grep -c zoo data3;
 
 $ <span class="hljs-built_in">eval</span> <span class="hljs-string">&apos;grep -H -c &apos;</span>{foo,bar,zoo}<span class="hljs-string">&apos; &apos;</span>{data1,data2,data3}<span class="hljs-string">&apos;;&apos;</span>
-data1:<span class="hljs-number">12</span>
+data1:<span class="hljs-number">12</span>    <span class="hljs-comment"># foo</span>
 data2:<span class="hljs-number">3</span>
 data3:<span class="hljs-number">15</span>
-data1:<span class="hljs-number">0</span>
+data1:<span class="hljs-number">0</span>     <span class="hljs-comment"># bar</span>
 data2:<span class="hljs-number">5</span>
 data3:<span class="hljs-number">9</span>
-data1:<span class="hljs-number">7</span>
+data1:<span class="hljs-number">7</span>     <span class="hljs-comment"># zoo</span>
 data2:<span class="hljs-number">19</span>
 data3:<span class="hljs-number">2</span>
 </code></pre>
