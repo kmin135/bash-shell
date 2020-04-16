@@ -1397,7 +1397,7 @@ lockfile=<span class="hljs-variable">$0</span>
     flock <span class="hljs-number">9</span>
     <span class="hljs-built_in">echo</span> critical section : start ... <span class="hljs-variable">$BASHPID</span>
     <span class="hljs-built_in">echo</span> critical section : working ... <span class="hljs-variable">$BASHPID</span>
-    sleep <span class="hljs-number">2</span>.$(( RANDOM % <span class="hljs-number">10</span> ))
+    sleep <span class="hljs-number">1</span>.$(( RANDOM % <span class="hljs-number">10</span> ))
     <span class="hljs-built_in">echo</span> critical section : end ... <span class="hljs-variable">$BASHPID</span>
 
 } <span class="hljs-number">9</span>&lt; <span class="hljs-string">&quot;<span class="hljs-variable">$lockfile</span>&quot;</span>
