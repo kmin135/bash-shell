@@ -1518,18 +1518,18 @@ $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$AA</span>
 <h4 id="--&#xC640;----&#xC758;-&#xCC28;&#xC774;&#xC810;"><code>{ ... }</code> &#xC640; <code>( ... )</code> &#xC758; &#xCC28;&#xC774;&#xC810;</h4>
 <p>background &#xB85C; &#xBA85;&#xB839;&#xC744; &#xC2E4;&#xD589;&#xC2DC;&#xD0AC; &#xB54C; subshell &#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xD558;&#xBA74; job table &#xC5D0; &#xB4F1;&#xB85D;&#xB418;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.
 &#xB530;&#xB77C;&#xC11C; wait &#xD560; &#xC218;&#xB3C4; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
-<pre><code class="lang-bash">$ { sleep <span class="hljs-number">10</span> &amp; sleep <span class="hljs-number">10</span> &amp; sleep <span class="hljs-number">10</span> &amp; }      <span class="hljs-comment"># { ... }</span>
+<pre><code class="lang-bash">$ { sleep <span class="hljs-number">10</span> &amp; sleep <span class="hljs-number">10</span> &amp; sleep <span class="hljs-number">10</span> &amp; }      <span class="hljs-comment"># { ... } &#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xD55C; &#xBA85;&#xB839;&#xB4E4;&#xC740;</span>
 [<span class="hljs-number">1</span>] <span class="hljs-number">11558</span>
 [<span class="hljs-number">2</span>] <span class="hljs-number">11559</span>
 [<span class="hljs-number">3</span>] <span class="hljs-number">11560</span>
 
-$ <span class="hljs-built_in">jobs</span>
+$ <span class="hljs-built_in">jobs</span>                                      <span class="hljs-comment"># job table &#xC5D0; &#xB4F1;&#xB85D;&#xB41C;&#xB2E4;.</span>
 [<span class="hljs-number">1</span>]   Running                 sleep <span class="hljs-number">10</span> &amp;
 [<span class="hljs-number">2</span>]-  Running                 sleep <span class="hljs-number">10</span> &amp;
 [<span class="hljs-number">3</span>]+  Running                 sleep <span class="hljs-number">10</span> &amp;
 ..........................................
 
-$ ( sleep <span class="hljs-number">10</span> &amp; sleep <span class="hljs-number">10</span> &amp; sleep <span class="hljs-number">10</span> &amp; )      <span class="hljs-comment"># ( ... ) subshell</span>
+$ ( sleep <span class="hljs-number">10</span> &amp; sleep <span class="hljs-number">10</span> &amp; sleep <span class="hljs-number">10</span> &amp; )      <span class="hljs-comment"># ( ... ) subshell &#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xD55C; &#xBA85;&#xB839;&#xB4E4;&#xC740;</span>
 
 $ <span class="hljs-built_in">jobs</span>                                      <span class="hljs-comment"># job table &#xC5D0; &#xB4F1;&#xB85D;&#xB418;&#xC9C0; &#xC54A;&#xB294;&#xB2E4;.</span>
 
