@@ -1515,6 +1515,29 @@ $ { AA=<span class="hljs-number">200</span>; <span class="hljs-built_in">echo</s
 $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$AA</span>
 <span class="hljs-number">100</span>
 </code></pre>
+<h4 id="--&#xC640;----&#xC758;-&#xCC28;&#xC774;&#xC810;"><code>( ... )</code> &#xC640; <code>{ ... }</code> &#xC758; &#xCC28;&#xC774;&#xC810;</h4>
+<p>background &#xB85C; &#xBA85;&#xB839;&#xC744; &#xC2E4;&#xD589;&#xC2DC;&#xD0AC; &#xB54C; subshell &#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xD558;&#xBA74; job table &#xC5D0; &#xB4F1;&#xB85D;&#xB418;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ ( sleep <span class="hljs-number">10</span> &amp; sleep <span class="hljs-number">10</span> &amp; sleep <span class="hljs-number">10</span> &amp; )      <span class="hljs-comment"># ( ... ) subshell</span>
+
+$ <span class="hljs-built_in">jobs</span>                                      <span class="hljs-comment"># job table &#xC5D0; &#xB4F1;&#xB85D;&#xB418;&#xC9C0; &#xC54A;&#xB294;&#xB2E4;.</span>
+
+$ ps f `pidof sleep`
+  PID TTY      STAT   TIME COMMAND
+<span class="hljs-number">12395</span> pts/<span class="hljs-number">17</span>   S      <span class="hljs-number">0</span>:<span class="hljs-number">00</span> sleep <span class="hljs-number">10</span>
+<span class="hljs-number">12394</span> pts/<span class="hljs-number">17</span>   S      <span class="hljs-number">0</span>:<span class="hljs-number">00</span> sleep <span class="hljs-number">10</span>
+<span class="hljs-number">12393</span> pts/<span class="hljs-number">17</span>   S      <span class="hljs-number">0</span>:<span class="hljs-number">00</span> sleep <span class="hljs-number">10</span>
+......................................
+
+$ { sleep <span class="hljs-number">10</span> &amp; sleep <span class="hljs-number">10</span> &amp; sleep <span class="hljs-number">10</span> &amp; }      <span class="hljs-comment"># { ... }</span>
+[<span class="hljs-number">1</span>] <span class="hljs-number">11558</span>
+[<span class="hljs-number">2</span>] <span class="hljs-number">11559</span>
+[<span class="hljs-number">3</span>] <span class="hljs-number">11560</span>
+
+$ <span class="hljs-built_in">jobs</span>
+[<span class="hljs-number">1</span>]   Running                 sleep <span class="hljs-number">10</span> &amp;
+[<span class="hljs-number">2</span>]-  Running                 sleep <span class="hljs-number">10</span> &amp;
+[<span class="hljs-number">3</span>]+  Running                 sleep <span class="hljs-number">10</span> &amp;
+</code></pre>
 <h4 id="script-&#xD30C;&#xC77C;-&#xC2E4;&#xD589;-&#xC911;&#xC5D0;-background-&#xB85C;-&#xC2E4;&#xD589;">Script &#xD30C;&#xC77C; &#xC2E4;&#xD589; &#xC911;&#xC5D0; background &#xB85C; &#xC2E4;&#xD589;</h4>
 <p>&#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xD30C;&#xC77C;&#xC744; &#xC2E4;&#xD589; &#xC911;&#xC5D0; background &#xB85C; &#xBA85;&#xB839;&#xC744; &#xC2E4;&#xD589;&#xD558;&#xAC8C; &#xB418;&#xBA74; &#xC774;&#xB54C; &#xC2E4;&#xD589;&#xB418;&#xB294; &#xBA85;&#xB839;&#xC740;
 job table &#xC5D0; &#xB098;&#xD0C0;&#xB098;&#xC9C0; &#xC54A;&#xACE0; stdin &#xC740; /dev/null &#xC5D0; &#xC5F0;&#xACB0;&#xB429;&#xB2C8;&#xB2E4;.
@@ -1522,7 +1545,7 @@ parent process &#xC5D0; &#xD574;&#xB2F9;&#xD558;&#xB294; &#xC2A4;&#xD06C;&#xB9BD
 &#xB370;&#xBAAC; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xB97C; &#xB9CC;&#xB4DC;&#xB294; &#xBC29;&#xBC95;&#xC73C;&#xB85C;&#xB3C4; &#xC0AC;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;.</p>
 <h4 id="script-&#xD30C;&#xC77C;-&#xC5D0;&#xC11C;&#xB294;-job-control-&#xC774;-&#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C;-disable-&#xB429;&#xB2C8;&#xB2E4;">Script &#xD30C;&#xC77C; &#xC5D0;&#xC11C;&#xB294; job control &#xC774; &#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; disable &#xB429;&#xB2C8;&#xB2E4;.</h4>
 <p>Non-interactive shell &#xC778; script &#xD30C;&#xC77C; &#xC2E4;&#xD589; &#xC2DC;&#xC5D0;&#xB294; &#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; job control &#xC774; disable &#xB429;&#xB2C8;&#xB2E4;.
-&#xADF8;&#xB807;&#xB2E4;&#xACE0; &#xD574;&#xC11C; <code>&amp;</code> &#xBA54;&#xD0C0; &#xBB38;&#xC790;&#xB97C; &#xC774;&#xC6A9;&#xD574; background process &#xB97C; &#xC0DD;&#xC131;&#xD558;&#xC9C0; &#xBABB;&#xD55C;&#xB2E4;&#xB294; &#xAC83;&#xC740; &#xC544;&#xB2C8;&#xACE0;
+&#xADF8;&#xB807;&#xB2E4;&#xACE0; &#xD574;&#xC11C; <code>&amp;</code> &#xBB38;&#xC790;&#xB97C; &#xC774;&#xC6A9;&#xD574; background process &#xB97C; &#xC0DD;&#xC131;&#xD558;&#xC9C0; &#xBABB;&#xD558;&#xB294; &#xAC83;&#xC740; &#xC544;&#xB2C8;&#xACE0;
 &#xB2E4;&#xB9CC; bg, fg, suspend &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.
 &#xD558;&#xC9C0;&#xB9CC; jobs, wait, disown &#xBA85;&#xB839;&#xB4E4;&#xC740; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
 &#xD544;&#xC694;&#xC5D0; &#xB530;&#xB77C; <code>set -o monitor</code> &#xC635;&#xC158; &#xC124;&#xC815;&#xC744; &#xD1B5;&#xD574; enable &#xD560; &#xC218;&#xB3C4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
