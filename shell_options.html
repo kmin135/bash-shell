@@ -1418,16 +1418,16 @@ $ <span class="hljs-built_in">cd</span> ..; <span class="hljs-built_in">pwd</spa
 <pre><code class="lang-bash">$ <span class="hljs-literal">true</span> | <span class="hljs-literal">false</span> | <span class="hljs-literal">true</span>; <span class="hljs-built_in">echo</span> $?
 <span class="hljs-number">0</span>
 
-$ ( <span class="hljs-built_in">set</span> -o pipefail;  <span class="hljs-literal">true</span> | <span class="hljs-literal">false</span> | <span class="hljs-literal">true</span>; <span class="hljs-built_in">echo</span> $? )
+$ ( <span class="hljs-built_in">set</span> -o pipefail;  <span class="hljs-literal">true</span> | <span class="hljs-literal">false</span> | <span class="hljs-literal">true</span> ); <span class="hljs-built_in">echo</span> $?
 <span class="hljs-number">1</span>
 -----------------------------------------------------
 
-<span class="hljs-comment"># pipefail &#xC635;&#xC158; &#xC124;&#xC815;&#xC744; &#xD558;&#xC9C0; &#xC54A;&#xC73C;&#xBA74; sed &#xBA85;&#xB839;&#xC5D0; &#xC758;&#xD574; </span>
-<span class="hljs-comment"># command1 &#xC758; &#xC2E4;&#xD328;&#xC5D0; &#xC0C1;&#xAD00;&#xC5C6;&#xC774; &#xD56D;&#xC0C1; true &#xAC00; &#xBC18;&#xD658;&#xB41C;&#xB2E4;.</span>
+<span class="hljs-comment"># pipefail &#xC635;&#xC158;&#xC744; &#xC124;&#xC815;&#xD558;&#xC9C0; &#xC54A;&#xC73C;&#xBA74; sed &#xBA85;&#xB839;&#xC5D0; &#xC758;&#xD574; </span>
+<span class="hljs-comment"># command1 &#xC758; &#xC2E4;&#xD328;&#xC5D0; &#xC0C1;&#xAD00;&#xC5C6;&#xC774; foo &#xD568;&#xC218;&#xB294; &#xD56D;&#xC0C1; true &#xAC00; &#xBC18;&#xD658;&#xB41C;&#xB2E4;.</span>
 foo () 
 (
     <span class="hljs-built_in">set</span> -o pipefail
-    <span class="hljs-built_in">command</span>1 <span class="hljs-variable">$1</span> <span class="hljs-variable">$2</span> <span class="hljs-variable">$3</span> | sed -rn <span class="hljs-string">&apos;/&lt;main&gt;:/,/^$/p&apos;</span>
+    <span class="hljs-built_in">command</span>1 <span class="hljs-variable">$1</span> <span class="hljs-variable">$2</span> | sed -rn <span class="hljs-string">&apos;/&lt;main&gt;:/,/^$/p&apos;</span>
 )
 </code></pre>
 <h4 id="posix">posix</h4>
