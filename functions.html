@@ -1346,6 +1346,16 @@ $ func <span class="hljs-number">111</span> <span class="hljs-number">222</span>
 
 $ compgen -A <span class="hljs-keyword">function</span>
 </code></pre>
+<p>&#xD2B9;&#xC815; &#xD568;&#xC218;&#xAC00; &#xC815;&#xC758;&#xB418;&#xC5B4; &#xC788;&#xB294;&#xC9C0; &#xCCB4;&#xD06C;&#xD558;&#xAE30;</p>
+<pre><code class="lang-bash">$ <span class="hljs-built_in">declare</span> -F _dock         <span class="hljs-comment"># _dock &#xC774;&#xB77C;&#xB294; &#xD568;&#xC218;&#xB294; &#xD604;&#xC7AC; &#xC815;&#xC758;&#xB418;&#xC5B4; &#xC788;&#xC9C0; &#xC54A;&#xC74C;</span>
+$ <span class="hljs-built_in">echo</span> $?               
+<span class="hljs-number">1</span>
+
+$ <span class="hljs-built_in">declare</span> -F _docker       <span class="hljs-comment"># _docker &#xD568;&#xC218;&#xB294; &#xC815;&#xC758;&#xB418;&#xC5B4; &#xC788;&#xC74C;</span>
+_docker
+$ <span class="hljs-built_in">echo</span> $?
+<span class="hljs-number">0</span>
+</code></pre>
 <p>&#xC815;&#xC758;&#xB41C; &#xD568;&#xC218; &#xC0AD;&#xC81C;&#xD558;&#xAE30;</p>
 <pre><code class="lang-bash">$ <span class="hljs-built_in">unset</span> <span class="hljs-operator">-f</span> &#xD568;&#xC218;&#xBA85;
 </code></pre>
