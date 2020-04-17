@@ -1372,7 +1372,7 @@ en_US.UTF-<span class="hljs-number">8</span>
 
 $ grep -P <span class="hljs-string">&apos;\xC0&apos;</span> &lt;&lt;&lt; $<span class="hljs-string">&apos;Testing this: \xC0 byte&apos;</span>
 
-$ LANG=C grep -P <span class="hljs-string">&apos;\xC0&apos;</span> &lt;&lt;&lt; $<span class="hljs-string">&apos;Testing this: \xC0 byte&apos;</span>
+$ LC_ALL=C grep -P <span class="hljs-string">&apos;\xC0&apos;</span> &lt;&lt;&lt; $<span class="hljs-string">&apos;Testing this: \xC0 byte&apos;</span>
 Testing this: &#xFFFD; byte
 
 $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$LANG</span>

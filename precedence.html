@@ -1428,7 +1428,7 @@ tmpfile=`mktemp`
 {
     <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;check <span class="hljs-variable">$2</span>&quot;</span> &gt;&amp;<span class="hljs-number">2</span>
     <span class="hljs-comment"># magic number &#xB97C; &#xC774;&#xC6A9;&#xD574; &#xC555;&#xCD95;&#xD30C;&#xC77C;&#xC758; &#xC704;&#xCE58;&#xB97C; &#xCC3E;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
-    <span class="hljs-keyword">for</span> pos <span class="hljs-keyword">in</span> `LANG=C grep -P -abo <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$vmlinuz</span>&quot;</span>`
+    <span class="hljs-keyword">for</span> pos <span class="hljs-keyword">in</span> `LC_ALL=C grep -P -abo <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$vmlinuz</span>&quot;</span>`
     <span class="hljs-keyword">do</span>
         pos=<span class="hljs-variable">${pos%%:*}</span> pos=$((pos + <span class="hljs-number">1</span>))  <span class="hljs-comment"># grep &#xC73C;&#xB85C; &#xB098;&#xC628; &#xAC12;&#xC5D0; +1 &#xC744; &#xD574;&#xC57C;&#xD568;</span>
         <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;pos : <span class="hljs-variable">$pos</span>&quot;</span> &gt;&amp;<span class="hljs-number">2</span>

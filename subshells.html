@@ -1443,7 +1443,7 @@ $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$LANG</spa
 en_US.UTF-<span class="hljs-number">8</span>
 
 <span class="hljs-comment"># LANG &#xD658;&#xACBD;&#xBCC0;&#xC218; &#xAC12;&#xC744; export &#xB97C; &#xC774;&#xC6A9;&#xD574; &#xC77C;&#xC2DC;&#xC801;&#xC73C;&#xB85C; subshell &#xC774;&#xD558; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC5D0; &#xC801;&#xC6A9;</span>
-$ ( <span class="hljs-built_in">export</span> LANG=ko_KR.UTF-<span class="hljs-number">8</span>
+$ ( <span class="hljs-built_in">export</span> LC_ALL=C
     join -j <span class="hljs-number">1</span> <span class="hljs-operator">-a</span> <span class="hljs-number">1</span> &lt;(sort file1) &lt;(sort file2) )
 
 $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$LANG</span>
