@@ -1369,6 +1369,40 @@ $ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;print 
 &gt; )</span>&quot;</span>
 <span class="hljs-string">&apos;&apos;</span><span class="hljs-built_in">print</span> quotes easily<span class="hljs-string">&quot;&quot;</span>
 </code></pre>
+<p>&#xD604;&#xC7AC; &#xAC01; cpu core &#xC5D0; &#xBC14;&#xC6B4;&#xB4DC;&#xB41C; &#xC2A4;&#xB808;&#xB4DC; &#xAC1C;&#xC218;&#xB97C; &#xC2E4;&#xC2DC;&#xAC04;&#xC73C;&#xB85C; &#xBCF4;&#xAE30;</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># ps &#xBA85;&#xB839;&#xC5D0;&#xC11C; psr &#xC740; &#xD604;&#xC7AC; &#xC2A4;&#xB808;&#xB4DC;&#xAC00; &#xBC14;&#xC6B4;&#xB4DC;&#xB41C; cpu core &#xB97C; &#xB9D0;&#xD558;&#xACE0;</span>
+<span class="hljs-comment"># &#xB4A4;&#xC5D0; &apos;=&apos; &#xB294; ps &#xBA85;&#xB839;&#xC774; &#xD0C0;&#xC774;&#xD2C0;&#xC744; &#xD45C;&#xC2DC;&#xD558;&#xC9C0; &#xC54A;&#xAC8C; &#xD569;&#xB2C8;&#xB2E4;.</span>
+<span class="hljs-comment"># &#xCD9C;&#xB825; &#xACB0;&#xACFC;&#xAC00; &#xC2E4;&#xC81C; &#xCF54;&#xC5B4; &#xC218; &#xBCF4;&#xB2E4; &#xB9CE;&#xAC8C; &#xB098;&#xC624;&#xB294; &#xC774;&#xC720;&#xB294; Hyper-Threading &#xB54C;&#xBB38;&#xC785;&#xB2C8;&#xB2E4;.</span>
+
+$ watch -td -n1 <span class="hljs-string">&quot;<span class="hljs-variable">$( cat &lt;&lt;\EOF
+ps axH -o psr= |
+awk &apos;{a[$1]++} END { 
+    for (i in a)</span> { printf &quot;</span>cpu%-<span class="hljs-number">6</span>d<span class="hljs-string">&quot;,i }; print &quot;</span><span class="hljs-string">&quot;;
+    for (i in a) { printf &quot;</span>%-<span class="hljs-number">9</span>d<span class="hljs-string">&quot;, a[i] }; print &quot;</span><span class="hljs-string">&quot; }&apos; 
+EOF
+)&quot;</span>
+cpu0     cpu1     cpu2     cpu3     cpu4     cpu5     cpu6     cpu7     
+<span class="hljs-number">289</span>      <span class="hljs-number">232</span>      <span class="hljs-number">269</span>      <span class="hljs-number">198</span>      <span class="hljs-number">260</span>      <span class="hljs-number">214</span>      <span class="hljs-number">279</span>      <span class="hljs-number">215</span>
+</code></pre>
+<p>&#xC18C;&#xC2A4;&#xCF54;&#xB4DC; &#xD30C;&#xC77C; &#xC5C6;&#xC774; heredoc &#xC744; &#xC774;&#xC6A9;&#xD574; &#xCEF4;&#xD30C;&#xC77C; &#xD558;&#xAE30;</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># &#xBA85;&#xB839;&#xD589; &#xC0C1;&#xC5D0;&#xC11C; &#xCCAB;&#xBC88;&#xC9F8; &apos;-&apos; &#xB294; stdout &#xC744;( -o &#xC635;&#xC158;&#xACFC; ), &#xB450;&#xBC88;&#xC9F8; &apos;-&apos; &#xB294; stdin &#xC744; &#xB098;&#xD0C0;&#xB0C4;</span>
+<span class="hljs-comment"># gcc &#xB294; &#xD30C;&#xC77C; &#xD655;&#xC7A5;&#xC790;&#xB97C; &#xD1B5;&#xD574; c, c++ &#xD30C;&#xC77C;&#xC744; &#xAD6C;&#xBD84;&#xD558;&#xB294;&#xB370; &#xC9C0;&#xAE08;&#xC740; stdin &#xC73C;&#xB85C;&#xBD80;&#xD130;</span>
+<span class="hljs-comment"># &#xC785;&#xB825;&#xC744; &#xBC1B;&#xC73C;&#xBBC0;&#xB85C; -x &#xC635;&#xC158;&#xC744; &#xC774;&#xC6A9;&#xD574; c &#xD30C;&#xC77C;&#xC784;&#xC744; &#xBA85;&#xC2DC;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;. ( c++ &#xC758; &#xACBD;&#xC6B0;&#xB294; -xc++ )</span>
+$ gcc -S -xc -o - - &lt;&lt;\EOF
+int a = <span class="hljs-number">123</span>;
+int <span class="hljs-function"><span class="hljs-title">foo</span></span>() { 
+    int b = <span class="hljs-number">234</span>;
+    int c = a + b;
+    <span class="hljs-built_in">return</span> c;
+}                     
+EOF
+        .file   <span class="hljs-string">&quot;&quot;</span>
+        .intel_syntax noprefix
+        .text
+        .globl  a
+        . . . .
+        . . . .
+</code></pre>
 <p>&#xB2E4;&#xC74C;&#xC740; html &#xC5D0;&#xC11C; <code>&lt;head&gt;</code> &#xD0DC;&#xADF8; &#xC544;&#xB798;&#xC5D0; javascript &#xCF54;&#xB4DC;&#xB97C; &#xCD94;&#xAC00;&#xD558;&#xAE30; &#xC704;&#xD55C; &#xAC83;&#xC778;&#xB370;&#xC694;.
 &#xBA3C;&#xC800; here document &#xC5D0; &#xCF54;&#xB4DC;&#xB97C; &#xBD99;&#xC5EC;&#xB123;&#xAE30; &#xD55C; &#xD6C4; sed &#xBA85;&#xB839; &#xC2E4;&#xD589;&#xC5D0; &#xD544;&#xC694;&#xD55C; escape &#xCC98;&#xB9AC;&#xB97C; &#xD558;&#xC5EC; &#xBCC0;&#xC218;&#xC5D0; &#xB300;&#xC785;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <blockquote>
@@ -1390,21 +1424,6 @@ EOF
 )
 <span class="hljs-comment"># escape &#xCC98;&#xB9AC;&#xAC00; &#xC644;&#xB8CC;&#xB41C; &#xBCC0;&#xC218;&#xAC12;&#xC744; &#xC774;&#xC6A9;&#xD574; sed &#xBA85;&#xB839; &#xC2E4;&#xD589;</span>
 sed -z -i <span class="hljs-string">&apos;s#&lt;head&gt;#&apos;</span><span class="hljs-string">&quot;<span class="hljs-variable">${GOOGLE_ANAL}</span>&quot;</span><span class="hljs-string">&apos;#&apos;</span> *.html
-</code></pre>
-<p>&#xD604;&#xC7AC; &#xAC01; cpu core &#xC5D0; &#xBC14;&#xC6B4;&#xB4DC;&#xB41C; &#xC2A4;&#xB808;&#xB4DC; &#xAC1C;&#xC218;&#xB97C; &#xC2E4;&#xC2DC;&#xAC04;&#xC73C;&#xB85C; &#xBCF4;&#xAE30;</p>
-<pre><code class="lang-bash"><span class="hljs-comment"># ps &#xBA85;&#xB839;&#xC5D0;&#xC11C; psr &#xC740; &#xD604;&#xC7AC; &#xC2A4;&#xB808;&#xB4DC;&#xAC00; &#xBC14;&#xC6B4;&#xB4DC;&#xB41C; cpu core &#xB97C; &#xB9D0;&#xD558;&#xACE0;</span>
-<span class="hljs-comment"># &#xB4A4;&#xC5D0; &apos;=&apos; &#xB294; ps &#xBA85;&#xB839;&#xC774; &#xD0C0;&#xC774;&#xD2C0;&#xC744; &#xD45C;&#xC2DC;&#xD558;&#xC9C0; &#xC54A;&#xAC8C; &#xD569;&#xB2C8;&#xB2E4;.</span>
-<span class="hljs-comment"># &#xCD9C;&#xB825; &#xACB0;&#xACFC;&#xAC00; &#xC2E4;&#xC81C; &#xCF54;&#xC5B4; &#xC218; &#xBCF4;&#xB2E4; &#xB9CE;&#xAC8C; &#xB098;&#xC624;&#xB294; &#xC774;&#xC720;&#xB294; Hyper-Threading &#xB54C;&#xBB38;&#xC785;&#xB2C8;&#xB2E4;.</span>
-
-$ watch -td -n1 <span class="hljs-string">&quot;<span class="hljs-variable">$( cat &lt;&lt;\EOF
-ps axH -o psr= |
-awk &apos;{a[$1]++} END { 
-    for (i in a)</span> { printf &quot;</span>cpu%-<span class="hljs-number">6</span>d<span class="hljs-string">&quot;,i }; print &quot;</span><span class="hljs-string">&quot;;
-    for (i in a) { printf &quot;</span>%-<span class="hljs-number">9</span>d<span class="hljs-string">&quot;, a[i] }; print &quot;</span><span class="hljs-string">&quot; }&apos; 
-EOF
-)&quot;</span>
-cpu0     cpu1     cpu2     cpu3     cpu4     cpu5     cpu6     cpu7     
-<span class="hljs-number">289</span>      <span class="hljs-number">232</span>      <span class="hljs-number">269</span>      <span class="hljs-number">198</span>      <span class="hljs-number">260</span>      <span class="hljs-number">214</span>      <span class="hljs-number">279</span>      <span class="hljs-number">215</span>
 </code></pre>
 <h4 id="here-document-&#xB97C;-&#xD30C;&#xC77C;&#xB85C;-&#xC4F0;&#xAE30;">Here document &#xB97C; &#xD30C;&#xC77C;&#xB85C; &#xC4F0;&#xAE30;</h4>
 <pre><code class="lang-bash">$ cat &lt;&lt;\END &gt; file.conf     <span class="hljs-comment"># &lt;&lt;END &#xB294; 0&lt;&lt;END &#xACFC; &#xAC19;&#xC740; &#xAC83;&#xC784;</span>
@@ -1468,31 +1487,47 @@ hello, welcome to m4!
 END
 
 Hello world, welcome to m4!
--------------------------------
-
-<span class="hljs-comment"># &#xBA85;&#xB839;&#xD589; &#xC0C1;&#xC5D0;&#xC11C; &#xCCAB;&#xBC88;&#xC9F8; &apos;-&apos; &#xB294; stdout &#xC744;( -o &#xC635;&#xC158;&#xACFC; ), &#xB450;&#xBC88;&#xC9F8; &apos;-&apos; &#xB294; stdin &#xC744; &#xB098;&#xD0C0;&#xB0C4;</span>
-<span class="hljs-comment"># gcc &#xB294; &#xD30C;&#xC77C; &#xD655;&#xC7A5;&#xC790;&#xB97C; &#xD1B5;&#xD574; c, c++ &#xD30C;&#xC77C;&#xC744; &#xAD6C;&#xBD84;&#xD558;&#xB294;&#xB370; &#xC9C0;&#xAE08;&#xC740; stdin &#xC73C;&#xB85C;&#xBD80;&#xD130;</span>
-<span class="hljs-comment"># &#xC785;&#xB825;&#xC744; &#xBC1B;&#xC73C;&#xBBC0;&#xB85C; -x &#xC635;&#xC158;&#xC744; &#xC774;&#xC6A9;&#xD574; c &#xD30C;&#xC77C;&#xC784;&#xC744; &#xBA85;&#xC2DC;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;. ( c++ &#xC758; &#xACBD;&#xC6B0;&#xB294; -xc++ )</span>
-$ gcc -S -xc -o - - &lt;&lt;\@
-int a = <span class="hljs-number">123</span>;
-int <span class="hljs-function"><span class="hljs-title">foo</span></span>() { 
-    int b = <span class="hljs-number">234</span>;
-    int c = a + b;
-    <span class="hljs-built_in">return</span> c;
-}                     
+</code></pre>
+<h4 id="&#xC5F0;&#xC0B0;&#xC790;&#xB85C;-&#xBA85;&#xB839;-&#xC5F0;&#xACB0;&#xD558;&#xAE30;"><code>&amp;&amp;</code> &#xC5F0;&#xC0B0;&#xC790;&#xB85C; &#xBA85;&#xB839; &#xC5F0;&#xACB0;&#xD558;&#xAE30;</h4>
+<p>gcc &#xBA85;&#xB839;&#xC774; &#xC131;&#xACF5;&#xD558;&#xBA74; docker build &#xAC00; &#xC2E4;&#xD589;&#xB418;&#xACE0;, &#xC131;&#xACF5;&#xD558;&#xBA74; docker run &#xC774; &#xC2E4;&#xD589;&#xB418;&#xACE0;, 
+&#xC131;&#xACF5;&#xD558;&#xBA74; docker rmi &#xAC00; &#xC2E4;&#xD589;&#xB429;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ gcc -xc -static - &lt;&lt;@ &amp;&amp; docker build <span class="hljs-operator">-f</span> - &lt;&lt;@@ . -t $$ &amp;&amp; docker run --rm <span class="hljs-variable">$_</span> &amp;&amp; docker rmi <span class="hljs-variable">$_</span>
+<span class="hljs-comment">#include &lt;stdio.h&gt;</span>
+int <span class="hljs-function"><span class="hljs-title">main</span></span>() {
+    puts(<span class="hljs-string">&quot;\nhello heredoc !!!\n&quot;</span>);
+}
 @
-        .file   <span class="hljs-string">&quot;&quot;</span>
-        .intel_syntax noprefix
-        .text
-        .globl  a
-        . . . .
-        . . . .
+FROM scratch
+ADD a.out /a.out
+ENTRYPOINT [<span class="hljs-string">&quot;/a.out&quot;</span>]
+@@
+
+<span class="hljs-comment">############  &#xC2E4;&#xD589; &#xACB0;&#xACFC;  ###########</span>
+
+Sending build context to Docker daemon  <span class="hljs-number">868.4</span>kB    <span class="hljs-comment"># docker build</span>
+Step <span class="hljs-number">1</span>/<span class="hljs-number">3</span> : FROM scratch
+ ---&gt; 
+Step <span class="hljs-number">2</span>/<span class="hljs-number">3</span> : ADD a.out /a.out
+ ---&gt; fe8e86f44747
+Step <span class="hljs-number">3</span>/<span class="hljs-number">3</span> : ENTRYPOINT [<span class="hljs-string">&quot;/a.out&quot;</span>]
+ ---&gt; Running <span class="hljs-keyword">in</span> b12842c6b1d6
+Removing intermediate container b12842c6b1d6
+ ---&gt; <span class="hljs-number">0464506</span>ca375
+Successfully built <span class="hljs-number">0464506</span>ca375
+Successfully tagged <span class="hljs-built_in">test</span>:hello
+
+hello heredoc !!!                                  <span class="hljs-comment"># docker run</span>
+
+Untagged: <span class="hljs-built_in">test</span>:hello                               <span class="hljs-comment"># docker rmi</span>
+Deleted: sha256:<span class="hljs-number">0464506</span>ca375c31e21c6b23a2166e3cf09bf92024c39c5129cb3f7597775c2ff
+Deleted: sha256:fe8e86f44747600e910e13f763d764a6c91f61eb3427fa2cbc3095a185d9c93a
+Deleted: sha256:e2590cb0474b479e30aeddbf34f885e0659ec4d263bb0863d717e03cbaec4f33
 </code></pre>
 <h4 id="here-document-&#xB97C;-&#xC774;&#xC6A9;&#xD55C;-&#xBCC0;&#xC218;&#xAC12;-&#xC124;&#xC815;">Here document &#xB97C; &#xC774;&#xC6A9;&#xD55C; &#xBCC0;&#xC218;&#xAC12; &#xC124;&#xC815;</h4>
-<pre><code class="lang-bash">$ AA=$( cat &lt;&lt;@   <span class="hljs-comment"># &#xAD6C;&#xBD84;&#xC790; &apos;@&apos;</span>
+<pre><code class="lang-bash">$ AA=$( cat &lt;&lt;EOF
 &gt; <span class="hljs-string">&apos;here&apos;</span>
 &gt; <span class="hljs-string">&quot;document&quot;</span>
-&gt; @              <span class="hljs-comment"># &#xB9C8;&#xC9C0;&#xB9C9; &#xC904;&#xC740; &#xAD6C;&#xBD84;&#xC790; &#xC678;&#xC5D0; &#xB2E4;&#xB978; &#xBB38;&#xC790;&#xAC00; &#xC624;&#xBA74; &#xC548;&#xB41C;&#xB2E4;.</span>
+&gt; EOF              <span class="hljs-comment"># &#xB9C8;&#xC9C0;&#xB9C9; &#xC904;&#xC740; &#xAD6C;&#xBD84;&#xC790; &#xC678;&#xC5D0; &#xB2E4;&#xB978; &#xBB38;&#xC790;&#xAC00; &#xC624;&#xBA74; &#xC548;&#xB41C;&#xB2E4;.</span>
 &gt; )
 
 $ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$AA</span>&quot;</span>
