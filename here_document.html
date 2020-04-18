@@ -1508,20 +1508,20 @@ Sending build context to Docker daemon  <span class="hljs-number">868.4</span>kB
 Step <span class="hljs-number">1</span>/<span class="hljs-number">3</span> : FROM scratch
  ---&gt; 
 Step <span class="hljs-number">2</span>/<span class="hljs-number">3</span> : ADD a.out /a.out
- ---&gt; fe8e86f44747
+ ---&gt; bbb48d00ab4b
 Step <span class="hljs-number">3</span>/<span class="hljs-number">3</span> : ENTRYPOINT [<span class="hljs-string">&quot;/a.out&quot;</span>]
- ---&gt; Running <span class="hljs-keyword">in</span> b12842c6b1d6
-Removing intermediate container b12842c6b1d6
- ---&gt; <span class="hljs-number">0464506</span>ca375
-Successfully built <span class="hljs-number">0464506</span>ca375
-Successfully tagged <span class="hljs-built_in">test</span>:hello
+ ---&gt; Running <span class="hljs-keyword">in</span> <span class="hljs-number">9</span>bd94749f43a
+Removing intermediate container <span class="hljs-number">9</span>bd94749f43a
+ ---&gt; a3b234463237
+Successfully built a3b234463237
+Successfully tagged <span class="hljs-number">23837</span>:latest
 
 hello heredoc !!!                                  <span class="hljs-comment"># docker run</span>
 
-Untagged: <span class="hljs-built_in">test</span>:hello                               <span class="hljs-comment"># docker rmi</span>
-Deleted: sha256:<span class="hljs-number">0464506</span>ca375c31e21c6b23a2166e3cf09bf92024c39c5129cb3f7597775c2ff
-Deleted: sha256:fe8e86f44747600e910e13f763d764a6c91f61eb3427fa2cbc3095a185d9c93a
-Deleted: sha256:e2590cb0474b479e30aeddbf34f885e0659ec4d263bb0863d717e03cbaec4f33
+Untagged: <span class="hljs-number">23837</span>:latest                             <span class="hljs-comment"># docker rmi</span>
+Deleted: sha256:a3b2344632374c716a5938e51aa6031771879f8f1215280f346b8d23cb2e8a1e
+Deleted: sha256:bbb48d00ab4bb42134e47ef459c490c5ef5c02436d68a75220c33378b2700f3c
+Deleted: sha256:d6e7c19c556bee448f900f3133a0723cf286282574d1056ed62feae5d0069065
 </code></pre>
 <h4 id="here-document-&#xB97C;-&#xC774;&#xC6A9;&#xD55C;-&#xBCC0;&#xC218;&#xAC12;-&#xC124;&#xC815;">Here document &#xB97C; &#xC774;&#xC6A9;&#xD55C; &#xBCC0;&#xC218;&#xAC12; &#xC124;&#xC815;</h4>
 <pre><code class="lang-bash">$ AA=$( cat &lt;&lt;EOF
