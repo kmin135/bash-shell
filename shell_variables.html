@@ -1585,12 +1585,21 @@ $ <span class="hljs-built_in">cd</span> ~
 <p>&#xC774; &#xD658;&#xACBD; &#xBCC0;&#xC218;&#xB294; &#xD604;&#xC7AC; running shell &#xC744; &#xB9D0;&#xD558;&#xB294; &#xAC83;&#xC774; &#xC544;&#xB2C8;&#xACE0; /etc/passwd &#xC5D0; &#xC124;&#xC815;&#xB418;&#xC5B4; &#xC788;&#xB294; &#xAC12;&#xC5D0; &#xB530;&#xB77C; &#xC124;&#xC815;&#xB429;&#xB2C8;&#xB2E4;.
 xterm &#xC744; &#xC2E4;&#xD589;&#xD558;&#xAC70;&#xB098; vim &#xC5D0;&#xC11C; shell &#xBA85;&#xB839;&#xC744; &#xC2E4;&#xD589;&#xC2DC;&#xD0AC; &#xB54C; &#xC774; &#xAC12;&#xC744; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <p>&#xD604;&#xC7AC; running shell &#xC744; &#xC54C;&#xACE0; &#xC2F6;&#xC73C;&#xBA74;</p>
-<pre><code class="lang-bash">$ sh
+<pre><code class="lang-bash">bash$ readlink /proc/$$/exe
+/bin/bash
 
-$ readlink /proc/$$/exe
+bash$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$0</span>
+/bin/bash
+
+bash$ sh             <span class="hljs-comment"># &apos;sh&apos; &#xC2E4;&#xD589;</span>
+
+sh$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$SHELL</span>      <span class="hljs-comment"># &#xD604;&#xC7AC; &apos;sh&apos; &#xC774;&#xC9C0;&#xB9CC; &apos;bash&apos; &#xB85C; &#xB098;&#xC628;&#xB2E4;.</span>
+/bin/bash
+
+sh$ readlink /proc/$$/exe
 /bin/dash
 
-$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$0</span>
+sh$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$0</span>
 sh
 </code></pre>
 <h4 id="shellopts">SHELLOPTS</h4>
