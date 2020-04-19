@@ -1518,16 +1518,26 @@ set uid &#xBE44;&#xD2B8;&#xAC00; &#xC124;&#xC815;&#xB41C; &#xD504;&#xB85C;&#xADF
 <h4 id="mapfile">MAPFILE</h4>
 <p> <code>mapfile</code> &#xBA85;&#xB839;&#xC73C;&#xB85C; &#xB77C;&#xC778;&#xB4E4;&#xC744; &#xC77D;&#xC5B4;&#xB4E4;&#xC77C;&#xB54C; &#xBCC0;&#xC218;&#xB97C; &#xC9C0;&#xC815;&#xD558;&#xC9C0; &#xC54A;&#xC73C;&#xBA74; &#xC5EC;&#xAE30;&#xC5D0; &#xC800;&#xC7A5;&#xC774; &#xB429;&#xB2C8;&#xB2E4;.</p>
 <h4 id="oldpwd">OLDPWD</h4>
-<p> <code>cd</code> &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6A9;&#xD560;&#xB54C; &#xBC14;&#xB85C; &#xC804; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xB97C; &#xB098;&#xD0C0;&#xB0C5;&#xB2C8;&#xB2E4;. </p>
-<pre><code class="lang-bash">sh$ <span class="hljs-built_in">pwd</span>
-/usr/<span class="hljs-built_in">local</span>/bin
+<p> <code>cd</code> &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6A9;&#xD560;&#xB54C; &#xBC14;&#xB85C; &#xC774;&#xC804; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xB97C; &#xB098;&#xD0C0;&#xB0C5;&#xB2C8;&#xB2E4;. </p>
+<pre><code class="lang-bash">$ <span class="hljs-built_in">pwd</span>
+/home/mug896
+
+$ <span class="hljs-built_in">cd</span> `mktemp <span class="hljs-operator">-d</span>`          <span class="hljs-comment"># &#xC784;&#xC2DC; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xB97C; &#xB9CC;&#xB4E4;&#xC5B4;&#xC11C; &#xC774;&#xB3D9;</span>
+
+$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$PWD</span>
+/tmp/tmp.LYAC8UtyQe
+
+$ <span class="hljs-built_in">cd</span> -                    <span class="hljs-comment"># &#xC774;&#xC804; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xB85C; &#xC774;&#xB3D9;</span>
+
+$ rm -rf <span class="hljs-variable">$OLDPWD</span>          <span class="hljs-comment"># $OLDPWD &#xB294; &#xC784;&#xC2DC; &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xAC00; &#xB41C;&#xB2E4;.</span>
+
+$ <span class="hljs-built_in">pwd</span>
+/home/mug896
+-----------------------------------------------------------
 
 <span class="hljs-comment"># cd &#xBA85;&#xB839;&#xC744; &#xC774;&#xC6A9;&#xD574; &#xD604;&#xC7AC; shell PID &#xB97C; &#xCD9C;&#xB825; &#xD6C4; $OLDPWD &#xB97C; &#xC774;&#xC6A9;&#xD574; &#xBCF5;&#xADC0;</span>
-sh$ <span class="hljs-built_in">cd</span> -P /proc/self &amp;&amp; <span class="hljs-built_in">echo</span> <span class="hljs-variable">${PWD##*/}</span> &amp;&amp; <span class="hljs-built_in">cd</span> <span class="hljs-variable">$OLDPWD</span>
+$ <span class="hljs-built_in">cd</span> -P /proc/self &amp;&amp; <span class="hljs-built_in">echo</span> <span class="hljs-variable">${PWD##*/}</span> &amp;&amp; <span class="hljs-built_in">cd</span> <span class="hljs-variable">$OLDPWD</span>
 <span class="hljs-number">19482</span>
-
-sh&amp; <span class="hljs-built_in">pwd</span>
-/usr/<span class="hljs-built_in">local</span>/bin
 </code></pre>
 <h4 id="opterr">OPTERR</h4>
 <p> <code>getopts</code> &#xBA85;&#xB839;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xBCC0;&#xC218;&#xB85C; 0 &#xC73C;&#xB85C; &#xC124;&#xC815;&#xD558;&#xBA74; &#xC5D0;&#xB7EC;&#xBA54;&#xC2DC;&#xC9C0;&#xB97C; &#xD45C;&#xC2DC;&#xD558;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;. &#xAE30;&#xBCF8;&#xAC12;&#xC740; 1 &#xC785;&#xB2C8;&#xB2E4;. &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xAC00; &#xC2E4;&#xD589;&#xB420;&#xB54C;&#xB9C8;&#xB2E4; &#xC0C8;&#xB85C; &#xC124;&#xC815;&#xB418;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; getopts &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xB0B4;&#xC5D0;&#xC11C; &#xC124;&#xC815;&#xD574;&#xC57C;&#xD569;&#xB2C8;&#xB2E4;.</p>
