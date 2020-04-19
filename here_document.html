@@ -1507,7 +1507,7 @@ ENTRYPOINT [<span class="hljs-string">&quot;/a.out&quot;</span>]
 Sending build context to Docker daemon  <span class="hljs-number">868.4</span>kB    <span class="hljs-comment"># docker build</span>
 Step <span class="hljs-number">1</span>/<span class="hljs-number">3</span> : FROM scratch
  ---&gt; 
-Step <span class="hljs-number">2</span>/<span class="hljs-number">3</span> : ADD a.out /a.out
+Step <span class="hljs-number">2</span>/<span class="hljs-number">3</span> : COPY a.out /
  ---&gt; bbb48d00ab4b
 Step <span class="hljs-number">3</span>/<span class="hljs-number">3</span> : ENTRYPOINT [<span class="hljs-string">&quot;/a.out&quot;</span>]
  ---&gt; Running <span class="hljs-keyword">in</span> <span class="hljs-number">9</span>bd94749f43a
