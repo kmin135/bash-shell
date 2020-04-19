@@ -1498,7 +1498,7 @@ int <span class="hljs-function"><span class="hljs-title">main</span></span>() {
 }
 @
 FROM scratch
-ADD a.out /a.out
+COPY a.out /
 ENTRYPOINT [<span class="hljs-string">&quot;/a.out&quot;</span>]
 @@
 
