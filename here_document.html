@@ -1489,9 +1489,8 @@ END
 Hello world, welcome to m4!
 </code></pre>
 <h4 id="&#xC5F0;&#xC0B0;&#xC790;&#xB85C;-&#xBA85;&#xB839;-&#xC5F0;&#xACB0;&#xD558;&#xAE30;"><code>&amp;&amp;</code> &#xC5F0;&#xC0B0;&#xC790;&#xB85C; &#xBA85;&#xB839; &#xC5F0;&#xACB0;&#xD558;&#xAE30;</h4>
-<p>gcc &#xBA85;&#xB839;&#xC774; &#xC131;&#xACF5;&#xD558;&#xBA74; docker build &#xAC00; &#xC2E4;&#xD589;&#xB418;&#xACE0;, &#xC131;&#xACF5;&#xD558;&#xBA74; docker run &#xC774; &#xC2E4;&#xD589;&#xB418;&#xACE0;, 
-&#xC131;&#xACF5;&#xD558;&#xBA74; docker rmi &#xAC00; &#xC2E4;&#xD589;&#xB429;&#xB2C8;&#xB2E4;.</p>
-<pre><code class="lang-bash">$ gcc -xc -static - &lt;&lt;@ &amp;&amp; docker build <span class="hljs-operator">-f</span> - &lt;&lt;@@ . -t $$ &amp;&amp; docker run --rm <span class="hljs-variable">$_</span> &amp;&amp; docker rmi <span class="hljs-variable">$_</span>
+<pre><code class="lang-bash">$ <span class="hljs-built_in">cd</span> `mktemp <span class="hljs-operator">-d</span>` &amp;&amp; gcc -xc -static - &lt;&lt;@ &amp;&amp; docker build <span class="hljs-operator">-f</span> - &lt;&lt;@@ . -t $$ \
+&amp;&amp; docker run --rm <span class="hljs-variable">$_</span> &amp;&amp; docker rmi <span class="hljs-variable">$_</span> &amp;&amp; <span class="hljs-built_in">cd</span> - &amp;&amp; rm -rf <span class="hljs-variable">$OLDPWD</span>
 <span class="hljs-comment">#include &lt;stdio.h&gt;</span>
 int <span class="hljs-function"><span class="hljs-title">main</span></span>() {
     puts(<span class="hljs-string">&quot;\nhello heredoc !!!\n&quot;</span>);
