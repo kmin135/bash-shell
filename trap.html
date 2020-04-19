@@ -1465,13 +1465,13 @@ $ ./<span class="hljs-built_in">trap</span>2.sh
 <span class="hljs-number">200</span>
 </code></pre>
 <p>&#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; double quotes &#xC744; &#xC774;&#xC6A9;&#xD574; &#xC791;&#xC131;&#xD558;&#xBA74; trap &#xC774; &#xC815;&#xC758;&#xB420; &#xB54C; <code>first $AA</code> &#xB294;
-<code>first 100</code> &#xC774; &#xB418;&#xACE0; <code>second : $var</code> &#xB294; <code>second : $AA</code> &#xB85C; &#xC815;&#xC758;&#xB429;&#xB2C8;&#xB2E4;.
+<code>first 100</code> &#xC774; &#xB418;&#xACE0; <code>second : $var</code> &#xB294; <code>second : $( echo $AA )</code> &#xB85C; &#xC815;&#xC758;&#xB429;&#xB2C8;&#xB2E4;.
 &#xB098;&#xC911;&#xC5D0; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xAC00; exit &#xB418;&#xC5B4; handler &#xAC00; &#xC2E4;&#xD589;&#xB420; &#xB54C;&#xB294; <code>$AA</code> &#xAC12;&#xC774; 200 &#xC774; &#xB418;&#xBBC0;&#xB85C;
 100, 200 &#xBAA8;&#xB450; &#xCD9C;&#xB825;&#xB429;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash"><span class="hljs-shebang">#!/bin/bash
 </span>
 AA=<span class="hljs-number">100</span>
-var=<span class="hljs-string">&apos;$AA&apos;</span>
+var=<span class="hljs-string">&apos;$( echo $AA )&apos;</span>
 
 <span class="hljs-built_in">trap</span> <span class="hljs-string">&quot;echo first : <span class="hljs-variable">$AA</span>, second : <span class="hljs-variable">$var</span>&quot;</span> EXIT 
 
