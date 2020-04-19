@@ -1259,7 +1259,7 @@
 <blockquote>
 <p>trap [-lp] [[arg] signal_spec ...]</p>
 </blockquote>
-<p>&#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB97C; &#xC791;&#xC131;&#xD560;&#xB54C; &#xC784;&#xC2DC;&#xD30C;&#xC77C;&#xC774;&#xB098; named pipe &#xAC19;&#xC740; &#xB9AC;&#xC18C;&#xC2A4;&#xB97C; &#xC0DD;&#xC131;&#xD574; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xACE0;
+<p>&#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB97C; &#xC791;&#xC131;&#xD560; &#xB54C; &#xC784;&#xC2DC;&#xD30C;&#xC77C;&#xC774;&#xB098; named pipe &#xAC19;&#xC740; &#xB9AC;&#xC18C;&#xC2A4;&#xB97C; &#xC0DD;&#xC131;&#xD574; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xACE0;
 &#xC2E4;&#xD589; &#xC911;&#xC5D0;&#xB294; &#xC784;&#xC2DC; &#xACB0;&#xACFC;&#xBB3C;&#xC774; &#xBC1C;&#xC0DD;&#xD560; &#xC218;&#xB3C4; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
 &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xAC00; &#xC815;&#xC0C1;&#xC801;&#xC73C;&#xB85C; &#xC885;&#xB8CC;&#xB418;&#xBA74; &#xB4A4;&#xCC98;&#xB9AC; &#xC791;&#xC5C5;&#xC744; &#xAC70;&#xCE58;&#xAC8C; &#xB418;&#xBBC0;&#xB85C; &#xBB38;&#xC81C;&#xAC00; &#xC5C6;&#xACA0;&#xC9C0;&#xB9CC; &#xC2E4;&#xD589; &#xB3C4;&#xC911;&#xC5D0;
 &#xC0AC;&#xC6A9;&#xC790;&#xAC00; Ctrl-c &#xB85C; &#xC885;&#xB8CC;&#xB97C; &#xC2DC;&#xB3C4;&#xD55C;&#xB2E4;&#xB358;&#xC9C0;, &#xC544;&#xB2C8;&#xBA74; &#xD130;&#xBBF8;&#xB110; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC744; &#xC885;&#xB8CC;&#xC2DC;&#xD0A8;&#xB2E4;&#xBA74; &#xBB38;&#xC81C;&#xAC00; &#xB420; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.  </p>
@@ -1317,8 +1317,8 @@ myhandler  <span class="hljs-comment"># &#xC815;&#xC0C1;&#xC885;&#xB8CC;&#xC2DC;
 </code></pre>
 <p>&#xC774;&#xC640; &#xAC19;&#xC740; &#xBD88;&#xD3B8;&#xC744; &#xC5C6;&#xC560;&#xAE30; &#xC704;&#xD574; bash &#xC5D0;&#xC11C;&#xB294; EXIT pseudo-signal &#xC744; &#xC81C;&#xACF5;&#xD569;&#xB2C8;&#xB2E4;.
 trap &#xC5D0; EXIT &#xC2E0;&#xD638;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; &#xC5B4;&#xB5A4; &#xC885;&#xB8CC; &#xC0C1;&#xD669;&#xC5D0;&#xC11C;&#xB3C4; &#xB9C8;&#xC9C0;&#xB9C9;&#xC5D0; handler &#xAC00; &#xC2E4;&#xD589;&#xB429;&#xB2C8;&#xB2E4;.
-&#xB2E4;&#xC2DC;&#xB9D0;&#xD574; &#xC815;&#xC0C1;&#xC885;&#xB8CC;, Ctrl-c &#xC5D0;&#xC758;&#xD55C; &#xC885;&#xB8CC;, &#xD130;&#xBBF8;&#xB110; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC758; &#xC885;&#xB8CC;, &#xC2DC;&#xC2A4;&#xD15C; shutdown &#xC5D0;&#xC758;&#xD55C; &#xC885;&#xB8CC; &#xC0C1;&#xAD00;&#xC5C6;&#xC774; 
-&#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xAC00; exit &#xB420;&#xB54C; &#xC2E4;&#xD589;&#xB429;&#xB2C8;&#xB2E4;.
+&#xB2E4;&#xC2DC;&#xB9D0;&#xD574; &#xC815;&#xC0C1;&#xC885;&#xB8CC;, Ctrl-c &#xC5D0;&#xC758;&#xD55C; &#xC885;&#xB8CC;, &#xD130;&#xBBF8;&#xB110; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC758; &#xC885;&#xB8CC;,
+&#xC2DC;&#xC2A4;&#xD15C; shutdown &#xC5D0;&#xC758;&#xD55C; &#xC885;&#xB8CC; &#xC0C1;&#xAD00;&#xC5C6;&#xC774; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xAC00; exit &#xB420; &#xB54C; &#xC2E4;&#xD589;&#xB429;&#xB2C8;&#xB2E4;.
 &#xADF8;&#xB7EC;&#xBBC0;&#xB85C; &#xC704;&#xC758; &#xC608;&#xB97C; EXIT pseudo &#xC2E0;&#xD638;&#xB97C; &#xC774;&#xC6A9;&#xD574; &#xB2E4;&#xC2DC; &#xC791;&#xC131;&#xD558;&#xBA74; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash"><span class="hljs-shebang">#!/bin/bash
 </span>
@@ -1328,7 +1328,7 @@ trap &#xC5D0; EXIT &#xC2E0;&#xD638;&#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; &#x
 ...
 ...
 </code></pre>
-<p>&#xD55C;&#xAC00;&#xC9C0; &#xCC38;&#xACE0;&#xD560; &#xC0AC;&#xD56D;&#xC740; EXIT &#xC2E0;&#xD638;&#xB294; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xAC00; &#xC885;&#xB8CC;&#xB420;&#xB54C; &#xC0AC;&#xC6A9;&#xB418;&#xB294; &#xC2E0;&#xD638;&#xC785;&#xB2C8;&#xB2E4;.
+<p>&#xD55C; &#xAC00;&#xC9C0; &#xCC38;&#xACE0;&#xD560; &#xC0AC;&#xD56D;&#xC740; EXIT &#xC2E0;&#xD638;&#xB294; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xAC00; &#xC885;&#xB8CC;&#xB420; &#xB54C; &#xC0AC;&#xC6A9;&#xB418;&#xB294; &#xC2E0;&#xD638;&#xC785;&#xB2C8;&#xB2E4;.
 &#xADF8;&#xB7EC;&#xBBC0;&#xB85C; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; EXIT &#xC2E0;&#xD638;&#xB97C; subshell &#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xD55C;&#xB2E4;&#xACE0; &#xD558;&#xB354;&#xB77C;&#xB3C4;
 Ctrl-c &#xC885;&#xB8CC;&#xC2DC; &#xB9C8;&#xC9C0;&#xB9C9; <code>echo end...</code> &#xB294; &#xC2E4;&#xD589;&#xB418;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.
 &#xB610;&#xD55C; EXIT &#xC2E0;&#xD638;&#xB294; pseudo signal &#xB85C; ignore &#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
@@ -1361,7 +1361,11 @@ start...
 ^C<span class="hljs-built_in">trap</span> subshell...        
 <span class="hljs-built_in">trap</span> handler...          <span class="hljs-comment"># EXIT handler &#xB9CC; &#xC2E4;&#xD589;&#xB41C;&#xB2E4;.</span>
 </code></pre>
-<p>Bash &#xC5D0;&#xC11C; &#xC81C;&#xACF5;&#xD558;&#xB294; pseudo-signals &#xC5D0;&#xB294; EXIT &#xC678;&#xC5D0; &#xD568;&#xC218;&#xB098; source &#xD55C; &#xD30C;&#xC77C;&#xC5D0;&#xC11C; return &#xD560;&#xB54C; &#xC0AC;&#xC6A9;&#xD560;&#xC218; &#xC788;&#xB294; RETURN &#xC2E0;&#xD638;, &#xBA85;&#xB839;&#xC774; 0 &#xC774; &#xC544;&#xB2CC; &#xAC12;&#xC73C;&#xB85C; &#xC885;&#xB8CC;&#xD588;&#xC744;&#xB54C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xB294; ERR &#xC2E0;&#xD638;, &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xB514;&#xBC84;&#xAE45;&#xC5D0; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xB294; DEBUG &#xC2E0;&#xD638;&#xB97C; &#xC81C;&#xACF5;&#xD569;&#xB2C8;&#xB2E4;. &#xC774;&#xB4E4; &#xC2E0;&#xD638; &#xC124;&#xC815;&#xC740; subshell &#xAE4C;&#xC9C0; &#xC801;&#xC6A9;&#xB420; &#xC218; &#xC788;&#xC73C;&#xBA70;( functrace, errtrace &#xC635;&#xC158; &#xC124;&#xC815;&#xC2DC; ),  child process &#xC5D0;&#xB294; &#xC801;&#xC6A9;&#xB418;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p>Bash &#xC5D0;&#xC11C; &#xC81C;&#xACF5;&#xD558;&#xB294; pseudo-signals &#xC5D0;&#xB294; EXIT &#xC678;&#xC5D0; &#xD568;&#xC218;&#xB098; source &#xD55C; &#xD30C;&#xC77C;&#xC5D0;&#xC11C; return &#xD560; &#xB54C;
+&#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xB294; RETURN &#xC2E0;&#xD638;, &#xBA85;&#xB839;&#xC774; 0 &#xC774; &#xC544;&#xB2CC; &#xAC12;&#xC73C;&#xB85C; &#xC885;&#xB8CC;&#xD588;&#xC744; &#xB54C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xB294; ERR &#xC2E0;&#xD638;,
+&#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xB514;&#xBC84;&#xAE45;&#xC5D0; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xB294; DEBUG &#xC2E0;&#xD638;&#xB97C; &#xC81C;&#xACF5;&#xD569;&#xB2C8;&#xB2E4;.
+&#xC774;&#xB4E4; &#xC2E0;&#xD638; &#xC124;&#xC815;&#xC740; subshell &#xAE4C;&#xC9C0; &#xC801;&#xC6A9;&#xB420; &#xC218; &#xC788;&#xC73C;&#xBA70;( functrace, errtrace &#xC635;&#xC158; &#xC124;&#xC815; &#xC2DC; ),
+child process &#xC5D0;&#xB294; &#xC801;&#xC6A9;&#xB418;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <table>
 <thead>
 <tr>
@@ -1384,7 +1388,7 @@ start...
 </tr>
 <tr>
 <td style="text-align:center">RETURN</td>
-<td>&#xD568;&#xC218;&#xC5D0;&#xC11C; &#xB9AC;&#xD134;&#xD560;&#xB54C;, source &#xD55C; &#xD30C;&#xC77C;&#xC5D0;&#xC11C; &#xB9AC;&#xD134;&#xD560;&#xB54C; &#xBC1C;&#xC0DD;.</td>
+<td>&#xD568;&#xC218;&#xC5D0;&#xC11C; &#xB9AC;&#xD134;&#xD560; &#xB54C;, source &#xD55C; &#xD30C;&#xC77C;&#xC5D0;&#xC11C; &#xB9AC;&#xD134;&#xD560; &#xB54C; &#xBC1C;&#xC0DD;.</td>
 </tr>
 </tbody>
 </table>
@@ -1440,7 +1444,7 @@ end...
 </code></pre>
 <p><a name="quotes"></a></p>
 <h3 id="trap-handler-&#xC124;&#xC815;&#xC2DC;-quotes-&#xC758;-&#xC0AC;&#xC6A9;">trap handler &#xC124;&#xC815;&#xC2DC; quotes &#xC758; &#xC0AC;&#xC6A9;</h3>
-<p>trap handler &#xB97C; &#xC124;&#xC815;&#xD560;&#xB54C; double quotes &#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; &#xC124;&#xC815; &#xB2F9;&#xC2DC;&#xC5D0; &#xBCC0;&#xC218;&#xAC12;&#xC774;
+<p>trap handler &#xB97C; &#xC124;&#xC815;&#xD560; &#xB54C; double quotes &#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; &#xC124;&#xC815; &#xB2F9;&#xC2DC;&#xC5D0; &#xBCC0;&#xC218;&#xAC12;&#xC774;
 &#xD655;&#xC7A5;&#xB418;&#xC5B4; &#xC815;&#xC758;&#xAC00; &#xB418;&#xBBC0;&#xB85C; &#xC2E4;&#xD589; &#xC2DC;&#xC5D0; &#xC6D0;&#xD558;&#xB294; &#xAC12;&#xC774; &#xD45C;&#xC2DC;&#xB418;&#xC9C0; &#xC54A;&#xC744; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">------------- <span class="hljs-built_in">trap</span>1.sh -------------
 <span class="hljs-shebang">#!/bin/bash 
@@ -1611,10 +1615,10 @@ $ <span class="hljs-built_in">echo</span> $?               <span class="hljs-com
 <li><p>&#xC804;&#xCCB4; process group &#xC744; &#xC885;&#xB8CC;&#xC2DC;&#xD0A4;&#xAE30;</p>
 </li>
 </ul>
-<p>&#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; Ctrl-c &#xD0A4;&#xB97C; &#xC785;&#xB825;&#xD588;&#xC744;&#xB54C; &#xBC1C;&#xC0DD;&#xD558;&#xB294; SIGINT &#xC2E0;&#xD638;&#xB294; foreground  process group &#xC5D0; &#xC804;&#xB2EC;&#xB418;&#xBBC0;&#xB85C;
+<p>&#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; Ctrl-c &#xD0A4;&#xB97C; &#xC785;&#xB825;&#xD588;&#xC744; &#xB54C; &#xBC1C;&#xC0DD;&#xD558;&#xB294; SIGINT &#xC2E0;&#xD638;&#xB294; foreground  process group &#xC5D0; &#xC804;&#xB2EC;&#xB418;&#xBBC0;&#xB85C;
 &#xAC19;&#xC740; process group &#xC5D0; &#xC18D;&#xD55C; &#xBA85;&#xB839;&#xB4E4;&#xC740; &#xBAA8;&#xB450; &#xC885;&#xB8CC;&#xD558;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.
-&#xB2E4;&#xC74C;&#xC740; A.sh &#xC5D0;&#xC11C; B.sh &#xC744; &#xC2E4;&#xD589;&#xD558;&#xACE0; B.sh &#xC5D0;&#xC11C;&#xB294; sleep &#xC678;&#xBD80;&#xBA85;&#xB839;&#xC744; &#xC2E4;&#xD589;&#xD558;&#xACE0; &#xC788;&#xB294; &#xC608;&#xC785;&#xB2C8;&#xB2E4;.
-sleep &#xBA85;&#xB839;&#xC5D0; &#xC758;&#xD574; &#xC2E4;&#xD589;&#xC774; &#xC911;&#xB2E8;&#xB410;&#xC744;&#xB54C; Ctrl-c &#xD0A4;&#xB97C; &#xC785;&#xB825;&#xD558;&#xBA74; A.sh, B.sh  &#xBAA8;&#xB450; &#xC885;&#xB8CC;&#xD558;&#xB294; &#xAC83;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.  </p>
+&#xB2E4;&#xC74C;&#xC740; A.sh &#xC5D0;&#xC11C; B.sh &#xC744; &#xC2E4;&#xD589;&#xD558;&#xACE0; B.sh &#xC5D0;&#xC11C;&#xB294; sleep &#xC678;&#xBD80; &#xBA85;&#xB839;&#xC744; &#xC2E4;&#xD589;&#xD558;&#xACE0; &#xC788;&#xB294; &#xC608;&#xC785;&#xB2C8;&#xB2E4;.
+sleep &#xBA85;&#xB839;&#xC5D0; &#xC758;&#xD574; &#xC2E4;&#xD589;&#xC774; &#xC911;&#xB2E8;&#xB410;&#xC744; &#xB54C; Ctrl-c &#xD0A4;&#xB97C; &#xC785;&#xB825;&#xD558;&#xBA74; A.sh, B.sh  &#xBAA8;&#xB450; &#xC885;&#xB8CC;&#xD558;&#xB294; &#xAC83;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.  </p>
 <pre><code class="lang-bash">------- A.sh -------
 <span class="hljs-shebang">#!/bin/bash</span>
 <span class="hljs-built_in">echo</span> A.sh --- start
@@ -1631,7 +1635,7 @@ sleep <span class="hljs-number">100</span>
 $ ./A.sh     
 A.sh --- start
 B.sh ------ start
-^C                <span class="hljs-comment"># Ctrl-c &#xD0A4;&#xB97C; &#xC785;&#xB825;&#xD588;&#xC744;&#xB54C; A.sh, B.sh &#xBAA8;&#xB450; &#xC885;&#xB8CC;&#xB41C;&#xB2E4;.</span>
+^C                <span class="hljs-comment"># Ctrl-c &#xD0A4;&#xB97C; &#xC785;&#xB825;&#xD588;&#xC744; &#xB54C; A.sh, B.sh &#xBAA8;&#xB450; &#xC885;&#xB8CC;&#xB41C;&#xB2E4;.</span>
 </code></pre>
 <p>&#xC774;&#xBC88;&#xC5D0;&#xB294; child process &#xB9CC; &#xC885;&#xB8CC;&#xC2DC;&#xD0A4;&#xB294; &#xC608;&#xC785;&#xB2C8;&#xB2E4;.
 &#xBA3C;&#xC800; B.sh &#xC5D0; trap &#xC124;&#xC815;&#xC744; &#xD558;&#xB294;&#xB370; &#xB9C8;&#xC9C0;&#xB9C9; &#xBA85;&#xB839;&#xC73C;&#xB85C; <code>exit</code> &#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xC600;&#xC2B5;&#xB2C8;&#xB2E4;.
@@ -1696,10 +1700,11 @@ PING <span class="hljs-number">0.0</span>.<span class="hljs-number">0.1</span> (
 B.sh ------ end    <span class="hljs-comment"># ping &#xBA85;&#xB839;&#xB9CC; &#xC885;&#xB8CC;&#xB418;&#xACE0; B.sh, A.sh &#xB098;&#xBA38;&#xC9C0; &#xBA85;&#xB839;&#xC774; &#xBAA8;&#xB450; &#xC2E4;&#xD589;&#xB41C;&#xB2E4;.</span>
 A.sh --- end
 </code></pre>
-<p>&#xC704;&#xC758; ping &#xBA85;&#xB839;&#xACFC; &#xAC19;&#xC740; &#xACBD;&#xC6B0;&#xC5D0; &#xC0AC;&#xC6A9;&#xC790;&#xAC00; Ctrl-c &#xD0A4;&#xB97C; &#xC785;&#xB825;&#xD558;&#xC600;&#xC744;&#xB54C; ping &#xBA85;&#xB839; &#xBFD0;&#xB9CC;&#xC544;&#xB2C8;&#xB77C;
-B.sh, A.sh &#xBAA8;&#xB450; &#xAC19;&#xC774; &#xC885;&#xB8CC;&#xD574;&#xC57C;&#xB420; &#xACBD;&#xC6B0;&#xAC00; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+<p>&#xC704;&#xC758; ping &#xBA85;&#xB839;&#xACFC; &#xAC19;&#xC740; &#xACBD;&#xC6B0;&#xC5D0; &#xC0AC;&#xC6A9;&#xC790;&#xAC00; Ctrl-c &#xD0A4;&#xB97C; &#xC785;&#xB825;&#xD558;&#xC600;&#xC744; &#xB54C; ping &#xBA85;&#xB839;&#xBFD0;&#xB9CC; &#xC544;&#xB2C8;&#xB77C;
+B.sh, A.sh &#xBAA8;&#xB450; &#xAC19;&#xC774; &#xC885;&#xB8CC;&#xD574;&#xC57C; &#xB420; &#xACBD;&#xC6B0;&#xAC00; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
 &#xC0AC;&#xC2E4; &#xC704;&#xC640; &#xAC19;&#xC740; &#xACB0;&#xACFC;&#xAC00; &#xB098;&#xC624;&#xB294; &#xC774;&#xC720;&#xB294; bash &#xC758; &#xACBD;&#xC6B0; &#xC0AC;&#xC6A9;&#xC790; handler &#xB97C; &#xC2E4;&#xD589;&#xD55C; &#xD6C4;&#xC5D0;&#xB294;
-default handler &#xB97C; &#xC2E4;&#xD589;&#xD558;&#xC9C0; &#xC54A;&#xAE30; &#xB54C;&#xBB38;&#xC778;&#xB370;&#xC694;<br>( shebang &#xB77C;&#xC778;&#xC744; <code>#!/bin/sh</code> &#xB85C; &#xBC14;&#xAFB8;&#xC5B4; &#xC2E4;&#xD589;&#xD574;&#xBCF4;&#xBA74; B.sh, A.sh &#xBAA8;&#xB450; &#xBC14;&#xB85C; &#xC885;&#xB8CC;&#xD569;&#xB2C8;&#xB2E4; )</p>
+default handler &#xB97C; &#xC2E4;&#xD589;&#xD558;&#xC9C0; &#xC54A;&#xAE30; &#xB54C;&#xBB38;&#xC778;&#xB370;&#xC694; 
+( shebang &#xB77C;&#xC778;&#xC744; <code>#!/bin/sh</code> &#xB85C; &#xBC14;&#xAFB8;&#xC5B4; &#xC2E4;&#xD589;&#xD574;&#xBCF4;&#xBA74; B.sh, A.sh &#xBAA8;&#xB450; &#xBC14;&#xB85C; &#xC885;&#xB8CC;&#xD569;&#xB2C8;&#xB2E4; )</p>
 <p>&#xADF8;&#xB7EC;&#xBBC0;&#xB85C; &#xAE30;&#xC874;&#xC758; trap &#xC124;&#xC815;&#xC5D0;&#xC11C; exit &#xC744; &#xBE7C;&#xACE0;, trap &#xC124;&#xC815;&#xC744; reset &#xD55C;&#xB2E4;&#xC74C;( trap - INT )
 &#xB2E4;&#xC2DC; &#xC790;&#xAE30; &#xC790;&#xC2E0;&#xC5D0;&#xAC8C; INT &#xC2E0;&#xD638;&#xB97C; &#xBCF4;&#xB0B4;&#xBA74; B.sh, A.sh &#xC5D0;&#xC11C; &#xBAA8;&#xB450; default INT handler &#xAC00; &#xC2E4;&#xD589;&#xB418;&#xC5B4; &#xBC14;&#xB85C; &#xC885;&#xB8CC;&#xD558;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">------- B.sh -------
@@ -1733,7 +1738,7 @@ ping <span class="hljs-number">0.0</span>.<span class="hljs-number">0.1</span>
 <span class="hljs-built_in">echo</span> A.sh --- end
 --------------------
 
-$ ./A.sh      <span class="hljs-comment"># Ctrl-c &#xD0A4;&#xB97C; &#xC785;&#xB825;&#xD588;&#xC744;&#xB54C; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xC804;&#xCCB4;&#xAC00; &#xC885;&#xB8CC;&#xB429;&#xB2C8;&#xB2E4;.</span>
+$ ./A.sh      <span class="hljs-comment"># Ctrl-c &#xD0A4;&#xB97C; &#xC785;&#xB825;&#xD588;&#xC744; &#xB54C; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xC804;&#xCCB4;&#xAC00; &#xC885;&#xB8CC;&#xB429;&#xB2C8;&#xB2E4;.</span>
 A.sh --- start
 PING <span class="hljs-number">0.0</span>.<span class="hljs-number">0.1</span> (<span class="hljs-number">0.0</span>.<span class="hljs-number">0.1</span>) <span class="hljs-number">56</span>(<span class="hljs-number">84</span>) bytes of data.
 ^C
@@ -1775,7 +1780,7 @@ Sat Jan <span class="hljs-number">26</span> <span class="hljs-number">19</span>:
 Sat Jan <span class="hljs-number">26</span> <span class="hljs-number">19</span>:<span class="hljs-number">34</span>:<span class="hljs-number">50</span> KST <span class="hljs-number">2019</span>
 <span class="hljs-number">1111111111111</span>
 </code></pre>
-<p>&#xB9CC;&#xC57D;&#xC5D0; command1 &#xBA85;&#xB839;&#xC774; &#xC885;&#xB8CC;&#xB410;&#xC744;&#xB54C; CHLD &#xC2E0;&#xD638;&#xB97C; trap &#xD574;&#xC11C; &#xB4A4;&#xCC98;&#xB9AC; &#xC791;&#xC5C5;&#xC73C;&#xB85C;
+<p>&#xB9CC;&#xC57D;&#xC5D0; command1 &#xBA85;&#xB839;&#xC774; &#xC885;&#xB8CC;&#xB410;&#xC744; &#xB54C; CHLD &#xC2E0;&#xD638;&#xB97C; trap &#xD574;&#xC11C; &#xB4A4;&#xCC98;&#xB9AC; &#xC791;&#xC5C5;&#xC73C;&#xB85C;
 command2 &#xBA85;&#xB839;&#xC744; &#xC2E4;&#xD589;&#xD558;&#xB824;&#xACE0; &#xD55C;&#xB2E4;&#xBA74; shell &#xC5D0;&#xC11C;&#xB294; &#xADF8;&#xB0E5; command1, command2
 &#xBA85;&#xB839;&#xC744; &#xCC28;&#xB840;&#xB85C; &#xC2E4;&#xD589;&#xD558;&#xBA74; &#xB429;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ ( <span class="hljs-built_in">set</span> -m; <span class="hljs-built_in">trap</span> <span class="hljs-string">&apos;command2&apos;</span> CHLD; <span class="hljs-built_in">command</span>1 ) 
@@ -1784,9 +1789,9 @@ $ ( <span class="hljs-built_in">command</span>1; <span class="hljs-built_in">com
 </code></pre>
 <h3 id="trap-handler-&#xB0B4;&#xC5D0;&#xC11C;&#xC758;-&#xC885;&#xB8CC;-&#xC0C1;&#xD0DC;-&#xAC12;">trap handler &#xB0B4;&#xC5D0;&#xC11C;&#xC758; &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;</h3>
 <p>Ctrl-c &#xC5D0; &#xC758;&#xD574; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; &#xC885;&#xB8CC;&#xB420; &#xB54C; EXIT handler &#xB0B4;&#xC5D0;&#xC11C;&#xB294; &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC744; &#xAD6C;&#xD560; &#xC218;&#xAC00; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
-<p>&#xC544;&#xB798; EXIT &#xC2E0;&#xD638;&#xC758; &#xACBD;&#xC6B0;&#xB97C; &#xBCF4;&#xBA74; cat &#xBA85;&#xB839;&#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xC774; &#xC911;&#xB2E8;&#xB42C;&#xC744;&#xB54C; Ctrl-c &#xB85C; &#xC885;&#xB8CC;&#xD560; &#xACBD;&#xC6B0;
+<p>&#xC544;&#xB798; EXIT &#xC2E0;&#xD638;&#xC758; &#xACBD;&#xC6B0;&#xB97C; &#xBCF4;&#xBA74; cat &#xBA85;&#xB839;&#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xC774; &#xC911;&#xB2E8;&#xB42C;&#xC744; &#xB54C; Ctrl-c &#xB85C; &#xC885;&#xB8CC;&#xD560; &#xACBD;&#xC6B0;
 &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC774; &#xC81C;&#xB300;&#xB85C; &#xD45C;&#xC2DC;&#xB418;&#xC9C0; &#xC54A;&#xB294; &#xAC83;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
-&#xB610;&#xD55C; EXIT handler &#xB294; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xAC00; &#xC885;&#xB8CC;&#xB420;&#xB54C; &#xC2E4;&#xD589;&#xB418;&#xBBC0;&#xB85C;
+&#xB610;&#xD55C; EXIT handler &#xB294; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xAC00; &#xC885;&#xB8CC;&#xB420; &#xB54C; &#xC2E4;&#xD589;&#xB418;&#xBBC0;&#xB85C;
 &#xB4A4;&#xC774;&#xC740; <code>echo 111</code> &#xBA85;&#xB839;&#xC740; &#xC2E4;&#xD589;&#xB418;&#xC9C0; &#xC54A;&#xB294; &#xAC83;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. </p>
 <pre><code class="lang-bash">$ ( <span class="hljs-built_in">trap</span> <span class="hljs-string">&apos;echo exit : $?&apos;</span> EXIT; cat; <span class="hljs-built_in">echo</span> <span class="hljs-number">111</span> )   <span class="hljs-comment"># EXIT &#xC2E0;&#xD638;</span>
 ^C<span class="hljs-built_in">exit</span> : <span class="hljs-number">0</span>
