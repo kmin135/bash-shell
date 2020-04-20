@@ -1426,6 +1426,28 @@ record <span class="hljs-number">2</span> has <span class="hljs-number">4</span>
 &gt;&gt;&gt; xxx@yyy
 record <span class="hljs-number">3</span> has <span class="hljs-number">2</span> fields
 </code></pre>
+<h4 id="bash-c--&#xB610;&#xB294;-sh-c--&#xC0AC;&#xC6A9;&#xC2DC;-multiline-&#xBA85;&#xB839;-&#xC791;&#xC131;&#xBC95;">bash -c ... &#xB610;&#xB294; sh -c ... &#xC0AC;&#xC6A9;&#xC2DC; multi-line &#xBA85;&#xB839; &#xC791;&#xC131;&#xBC95;</h4>
+<p>&#xBCF4;&#xD1B5; <code>sh -c ...</code> &#xD615;&#xD0DC;&#xB85C; &#xBA85;&#xB839;&#xC744; &#xC2E4;&#xD589;&#xD560; &#xB54C;&#xB294; quote &#xC744; &#xD558;&#xACE0; single-line &#xC73C;&#xB85C; &#xC791;&#xC131;&#xD558;&#xB294;&#xB370;&#xC694;.
+here document &#xB97C; &#xD65C;&#xC6A9;&#xD558;&#xBA74; multi-line &#xBA85;&#xB839;&#xC744; &#xC791;&#xC131;&#xD560; &#xC218; &#xC788;&#xACE0;
+quotes &#xB3C4; single, double quotes &#xBAA8;&#xB450; escape &#xC5C6;&#xC774; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ cmd=$( cat &lt;&lt;\EOF                        $ bash -c <span class="hljs-string">&quot;<span class="hljs-variable">$( cat &lt;&lt;\EOF
+AA=100                                     AA=100
+echo -e &quot;double quotes\n$AA&quot;               echo -e &quot;double quotes\n$AA&quot;
+echo &apos;single quotes\n$AA&apos;                  echo &apos;single quotes\n$AA&apos;
+cat &lt;&lt;\@                                   cat &lt;&lt;\@
+&apos;here&apos;                                     &apos;here&apos;
+&quot;document&quot;                                 &quot;document&quot;
+@                                          @
+EOF                                        EOF
+)</span>                                          )&quot;</span>
+
+$ bash -c <span class="hljs-string">&quot;<span class="hljs-variable">$cmd</span>&quot;</span>                           double quotes
+double quotes                              <span class="hljs-number">100</span>
+<span class="hljs-number">100</span>                                        single quotes\n<span class="hljs-variable">$AA</span>
+single quotes\n<span class="hljs-variable">$AA</span>                         <span class="hljs-string">&apos;here&apos;</span>
+<span class="hljs-string">&apos;here&apos;</span>                                     <span class="hljs-string">&quot;document&quot;</span>
+<span class="hljs-string">&quot;document&quot;</span>
+</code></pre>
 <h3 id="uniq-sort-u-&#xCC28;&#xC774;">uniq, sort -u &#xCC28;&#xC774;</h3>
 <p>&#xD30C;&#xC77C; &#xB0B4;&#xC6A9; &#xC911;&#xC5D0;&#xC11C; &#xC911;&#xBCF5;&#xB418;&#xC5B4; &#xC874;&#xC7AC;&#xD558;&#xB294; &#xB77C;&#xC778;&#xB4E4;&#xC744; &#xD558;&#xB098;&#xC758; &#xB77C;&#xC778;&#xB9CC; &#xB0A8;&#xAE30;&#xACE0; &#xCD9C;&#xB825;&#xD558;&#xACE0;&#xC790; &#xD560; &#xB54C;&#xB294;
 uniq &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6A9;&#xD574;&#xC11C;&#xB294; &#xC548;&#xB418;&#xACE0; <code>sort -u</code> &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6A9;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.
