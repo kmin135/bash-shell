@@ -1398,19 +1398,19 @@ bash-<span class="hljs-number">4.3</span>$ id
 uid=<span class="hljs-number">1002</span>(bob) gid=<span class="hljs-number">1005</span>(gamers) euid=<span class="hljs-number">1004</span>(alice) groups=<span class="hljs-number">1002</span>(bob),<span class="hljs-number">1005</span>(gamers)
 </code></pre>
 <h4 id="p--physical">-P | physical</h4>
-<p> cd &#xD560;&#xB54C; &#xC2EC;&#xBCFC;&#xB9AD; &#xB9C1;&#xD06C; &#xB514;&#xB809;&#xD1A0;&#xB9AC; &#xAD6C;&#xC870;&#xB97C; &#xB530;&#xB974;&#xC9C0; &#xC54A;&#xACE0; &#xBB3C;&#xB9AC;&#xC801; &#xB514;&#xB809;&#xD1A0;&#xB9AC; &#xAD6C;&#xC870;&#xB97C; &#xB530;&#xB984;&#xB2C8;&#xB2E4;.</p>
+<p> cd &#xD560;&#xB54C; &#xC2EC;&#xBCFC;&#xB9AD; &#xB9C1;&#xD06C; &#xB514;&#xB809;&#xD1A0;&#xB9AC; &#xAD6C;&#xC870;&#xB97C; &#xB530;&#xB974;&#xC9C0; &#xC54A;&#xACE0; &#xBB3C;&#xB9AC;&#xC801; &#xB514;&#xB809;&#xD1A0;&#xB9AC; &#xAD6C;&#xC870;&#xB97C; &#xB530;&#xB985;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># &#xC608;&#xB97C;&#xB4E4;&#xC5B4; /usr/sys &#xAC00; /usr/local/sys &#xB97C; symbolic link &#xD55C;&#xB2E4;&#xBA74;</span>
 
-$ <span class="hljs-built_in">cd</span> /usr/sys; <span class="hljs-built_in">echo</span> <span class="hljs-variable">$PWD</span>
+$ <span class="hljs-built_in">cd</span> /usr/sys &amp;&amp; <span class="hljs-built_in">echo</span> <span class="hljs-variable">$PWD</span>
 /usr/sys
-$ <span class="hljs-built_in">cd</span> ..; <span class="hljs-built_in">pwd</span>
+$ <span class="hljs-built_in">cd</span> .. &amp;&amp; <span class="hljs-built_in">pwd</span>
 /usr
 
 <span class="hljs-comment"># &#xC635;&#xC158;&#xC744; &#xC124;&#xC815; &#xD560;&#xACBD;&#xC6B0;&#xB294; :</span>
 
-$ <span class="hljs-built_in">cd</span> /usr/sys; <span class="hljs-built_in">echo</span> <span class="hljs-variable">$PWD</span>
+$ <span class="hljs-built_in">cd</span> /usr/sys &amp;&amp; <span class="hljs-built_in">echo</span> <span class="hljs-variable">$PWD</span>
 /usr/<span class="hljs-built_in">local</span>/sys
-$ <span class="hljs-built_in">cd</span> ..; <span class="hljs-built_in">pwd</span>
+$ <span class="hljs-built_in">cd</span> .. &amp;&amp; <span class="hljs-built_in">pwd</span>
 /usr/<span class="hljs-built_in">local</span>
 </code></pre>
 <h4 id="pipefail">pipefail</h4>
