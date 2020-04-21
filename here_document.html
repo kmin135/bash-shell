@@ -1583,17 +1583,17 @@ document
 with tab
 </code></pre>
 <p>&#xC911;&#xCCA9;&#xC0AC;&#xC6A9;</p>
-<pre><code class="lang-bash">$ cat &lt;&lt;-\END1 &lt;&lt;END2
-        <span class="hljs-string">&apos;hello&apos;</span>
-        <span class="hljs-string">&quot;world&quot;</span>
-        END1
+<pre><code class="lang-bash">$ cat &lt;&lt;END1 &lt;&lt;END2
+<span class="hljs-string">&apos;hello&apos;</span>
+<span class="hljs-string">&quot;world&quot;</span>
+END1
 
 message start
-$( cat /dev/stdin )
+$( &lt; /dev/stdin )
 message end
 END2
 
-<span class="hljs-comment">################# output ##############</span>
+<span class="hljs-comment">######  &#xC2E4;&#xD589; &#xACB0;&#xACFC;  ######</span>
 
 message start
 <span class="hljs-string">&apos;hello&apos;</span>
