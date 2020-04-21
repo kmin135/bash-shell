@@ -1304,6 +1304,25 @@ $ <span class="hljs-number">2</span>=bbb
     lxc <span class="hljs-built_in">exec</span> <span class="hljs-string">&quot;<span class="hljs-variable">$container</span>&quot;</span> -- sudo --login --user <span class="hljs-string">&quot;<span class="hljs-variable">$user</span>&quot;</span>
 }
 </code></pre>
+<p>positional parameters &#xB294; local &#xBCC0;&#xC218;&#xC774;&#xBBC0;&#xB85C; &#xD568;&#xC218; &#xB0B4;&#xC5D0;&#xC11C; set &#xBA85;&#xB839;&#xC744; &#xC774;&#xC6A9;&#xD574; &#xC124;&#xC815;&#xD55C; &#xAC12;&#xC740;
+&#xD574;&#xB2F9; &#xD568;&#xC218;&#xC5D0;&#xC11C;&#xB9CC; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash"><span class="hljs-shebang">#!/bin/bash
+</span>
+<span class="hljs-function"><span class="hljs-title">fun</span></span> () {
+    <span class="hljs-built_in">set</span> -- <span class="hljs-number">11</span> <span class="hljs-number">22</span> <span class="hljs-number">33</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-variable">$1</span> <span class="hljs-variable">$2</span> <span class="hljs-variable">$3</span>
+}
+
+fun
+
+<span class="hljs-built_in">echo</span> <span class="hljs-variable">$1</span> <span class="hljs-variable">$2</span> <span class="hljs-variable">$3</span>
+
+<span class="hljs-comment">##### &#xC2E4;&#xD589; &#xACB0;&#xACFC; #####</span>
+
+./test.sh aa bb cc
+<span class="hljs-number">11</span> <span class="hljs-number">22</span> <span class="hljs-number">33</span>
+aa bb cc             <span class="hljs-comment"># &#xD568;&#xC218; &#xBC16;&#xC5D0;&#xC11C;&#xB294; set &#xC124;&#xC815;&#xC774; &#xC801;&#xC6A9;&#xB418;&#xC9C0; &#xC54A;&#xB294;&#xB2E4;.</span>
+</code></pre>
 <h3 id="0">$0</h3>
 <p>&#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xD30C;&#xC77C; &#xC774;&#xB984;&#xB97C; &#xB098;&#xD0C0;&#xB0C5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ cat test.sh
