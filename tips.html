@@ -1623,7 +1623,7 @@ Watches established.
 &#xBC18;&#xB300;&#xB85C; &#xB2E8;&#xC704;&#xAC00; &#xBD99;&#xC740; &#xC22B;&#xC790;&#xB97C; &#xD480;&#xC5B4;&#xC11C; &#xC22B;&#xC790;&#xB85C; &#xCD9C;&#xB825;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
 &#xC0AC;&#xC6A9;&#xB418;&#xB294; &#xB2E8;&#xC704;&#xC5D0;&#xB294; 1000 &#xC744; 1K &#xB85C; &#xBCF4;&#xB294; <code>si</code> &#xB2E8;&#xC704;&#xC640; 2^10 &#xAC12;&#xC778;
 1024 &#xB97C; 1K &#xB85C; &#xBCF4;&#xB294; <code>iec</code> &#xB2E8;&#xC704;&#xAC00; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
-<code>iec-i</code> &#xB2E8;&#xC704;&#xB294; iec &#xB2E8;&#xC704;&#xC5D0; <code>i</code> &#xBB38;&#xC790;&#xAC00; &#xCD94;&#xAC00;&#xB85C; &#xBD99;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<code>iec-i</code> &#xB2E8;&#xC704;&#xB294; iec &#xB2E8;&#xC704;&#xC5D0; <code>i</code> &#xBB38;&#xC790;&#xAC00; &#xBD99;&#xB294; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.</p>
 <blockquote>
 <p><code>SI</code> &#xB294; &#xD504;&#xB791;&#xC2A4;&#xC5B4;&#xC778; Systeme Internationale &#xC758; &#xC57D;&#xC790;&#xB85C; International System of Units 
 &#xC744; &#xC758;&#xBBF8;&#xD558;&#xACE0; <code>IEC</code> &#xB294; International Electrotechnical Commission &#xC744; &#xC758;&#xBBF8;&#xD569;&#xB2C8;&#xB2E4;.</p>
@@ -1640,8 +1640,8 @@ $ numfmt --to=iec <span class="hljs-number">1048567</span>
 $ numfmt --to=iec <span class="hljs-number">1000000</span>   <span class="hljs-comment"># 1000000 &#xC744; iec &#xB2E8;&#xC704;&#xB85C; &#xCD9C;&#xB825;&#xD558;&#xBA74; 977K &#xAC00; &#xB429;&#xB2C8;&#xB2E4;.</span>
 <span class="hljs-number">977</span>K
 </code></pre>
-<p>&#xD574;&#xB2F9; &#xBA85;&#xB839;&#xC5D0;&#xC11C; &#xB2E8;&#xC704; &#xCD9C;&#xB825;&#xC744; &#xC9C0;&#xC6D0;&#xD558;&#xB294; &#xACBD;&#xC6B0;&#xB3C4; &#xC788;&#xC9C0;&#xB9CC; &#xADF8;&#xB807;&#xC9C0; &#xC54A;&#xAC70;&#xB098; raw &#xB370;&#xC774;&#xD130;&#xB97C;
-&#xB2E4;&#xB8F0; &#xACBD;&#xC6B0;&#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; numfmt &#xBA85;&#xB839;&#xC744; &#xD65C;&#xC6A9;&#xD558;&#xC5EC; &#xCD9C;&#xB825;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p>&#xD574;&#xB2F9; &#xBA85;&#xB839;&#xC5D0;&#xC11C; &#xB2E8;&#xC704; &#xCD9C;&#xB825;&#xC744; &#xC9C0;&#xC6D0;&#xD558;&#xB294; &#xACBD;&#xC6B0;&#xB3C4; &#xC788;&#xC9C0;&#xB9CC; &#xADF8;&#xB807;&#xC9C0; &#xC54A;&#xC744; &#xACBD;&#xC6B0;
+&#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; numfmt &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xC5EC; &#xCD9C;&#xB825;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># df &#xBA85;&#xB839;&#xC740; &#xB2E8;&#xC704; &#xCD9C;&#xB825;&#xC744; &#xC9C0;&#xC6D0;&#xD558;&#xC9C0;&#xB9CC; &#xC608;&#xC81C;&#xB97C; &#xC704;&#xD574;&#xC11C; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC740; &#xCD9C;&#xB825;&#xAC12;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xACA0;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
 $ df -B1 
 Filesystem        <span class="hljs-number">1</span>B-blocks        Used    Available Use% Mounted on
@@ -1677,6 +1677,50 @@ tmpfs                <span class="hljs-number">7.8</span>GiB      <span class="h
 tmpfs                <span class="hljs-number">5.0</span>MiB      <span class="hljs-number">4.0</span>KiB       <span class="hljs-number">5.0</span>MiB   <span class="hljs-number">1</span>% /run/lock
 tmpfs                <span class="hljs-number">7.8</span>GiB          <span class="hljs-number">0</span>B       <span class="hljs-number">7.8</span>GiB   <span class="hljs-number">0</span>% /sys/fs/cgroup
 tmpfs                <span class="hljs-number">1.6</span>GiB      <span class="hljs-number">108</span>KiB       <span class="hljs-number">1.6</span>GiB   <span class="hljs-number">1</span>% /run/user/<span class="hljs-number">1000</span>
+
+<span class="hljs-comment"># &#xACB0;&#xACFC;&#xAC12;&#xC5D0; &#xD2B9;&#xC815; &#xAC12;&#xC744; &#xACF1;&#xD558;&#xAE30; &#xD574;&#xC11C; &#xCD9C;&#xB825;&#xD574;&#xC57C; &#xB420; &#xACBD;&#xC6B0;&#xB294; &apos;--from-unit=&apos; &#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xACE0;</span>
+<span class="hljs-comment"># &#xD2B9;&#xC815; &#xAC12;&#xC744; &#xB098;&#xB204;&#xAE30;&#xD574;&#xC11C; &#xCD9C;&#xB825;&#xD574;&#xC57C; &#xB420; &#xACBD;&#xC6B0;&#xB294; &apos;--to-unit=&apos; &#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; &#xB429;&#xB2C8;&#xB2E4;.</span>
+</code></pre>
+<p>&#xB2E4;&#xC74C; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB294; &#xB2E8;&#xC704; suffix &#xAC00; &#xBD99;&#xC740; &#xC22B;&#xC790;&#xB4E4;&#xC744; &#xB354;&#xD558;&#xAE30; &#xD558;&#xC5EC; &#xD569;&#xACC4;&#xB97C; &#xCD9C;&#xB825;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ cat numfmt.sh        
+<span class="hljs-shebang">#!/bin/sh</span>
+<span class="hljs-comment">#</span>
+<span class="hljs-comment">#    -f : field</span>
+<span class="hljs-comment">#    -s : separator</span>
+<span class="hljs-comment">#    -h : skip header lines</span>
+<span class="hljs-comment">#</span>
+<span class="hljs-keyword">while</span> <span class="hljs-built_in">getopts</span> <span class="hljs-string">&quot;f:s:h:&quot;</span> opt; <span class="hljs-keyword">do</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-variable">$opt</span> <span class="hljs-keyword">in</span>
+        f ) field=<span class="hljs-variable">$OPTARG</span> ;;
+        s ) separator=<span class="hljs-variable">$OPTARG</span> ;;
+        h ) header=<span class="hljs-variable">$OPTARG</span> ;;
+    <span class="hljs-keyword">esac</span>                             <span class="hljs-comment"># &#xC720;&#xD6A8;&#xD558;&#xC9C0; &#xC54A;&#xC740; &#xC635;&#xC158;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xAC70;&#xB098;</span>
+    [ <span class="hljs-string">&quot;<span class="hljs-variable">$opt</span>&quot;</span> = <span class="hljs-string">&quot;?&quot;</span> ] &amp;&amp; <span class="hljs-built_in">exit</span> <span class="hljs-number">1</span>       <span class="hljs-comment"># &#xC635;&#xC158; &#xC778;&#xC218; &#xAC12;&#xC744; &#xBE7C;&#xBA39;&#xC73C;&#xBA74; &#xC885;&#xB8CC;</span>
+<span class="hljs-keyword">done</span>
+
+<span class="hljs-built_in">test</span> -z <span class="hljs-string">&quot;<span class="hljs-variable">$field</span>&quot;</span>     &amp;&amp; field=<span class="hljs-number">1</span>
+<span class="hljs-built_in">test</span> -n <span class="hljs-string">&quot;<span class="hljs-variable">$header</span>&quot;</span>    &amp;&amp; TAIL=<span class="hljs-string">&quot;tail -n +<span class="hljs-variable">$(( header + 1)</span>) | &quot;</span>
+<span class="hljs-built_in">test</span> -n <span class="hljs-string">&quot;<span class="hljs-variable">$separator</span>&quot;</span> &amp;&amp; SEP=<span class="hljs-string">&quot;-F &apos;<span class="hljs-variable">$separator</span>&apos;&quot;</span>
+
+<span class="hljs-built_in">eval</span> <span class="hljs-string">&quot;<span class="hljs-variable">$( cat &lt;&lt;EOF
+$TAIL
+awk $SEP &apos;{print \$$field}&apos; |
+numfmt --from=iec |
+awk -M &apos;{ sum += \$1 } END{ print sum }&apos; |
+numfmt --to=iec
+EOF
+)</span>&quot;</span>
+
+<span class="hljs-comment">##############  &#xC2E4;&#xD589; &#xACB0;&#xACFC;  ##############</span>
+
+$ df -h | numfmt.sh <span class="hljs-operator">-f</span>3 -h1    <span class="hljs-comment"># 3 &#xBC88;&#xC9F8; field &#xAC12;, header &#xB294; 1 &#xB77C;&#xC778;&#xC744; &#xC81C;&#xC678;&#xD568;</span>
+<span class="hljs-number">106</span>G
+$ df -h | numfmt.sh <span class="hljs-operator">-f</span>4 -h1
+<span class="hljs-number">145</span>G
+$ df -B1 | numfmt.sh <span class="hljs-operator">-f</span>3 -h1
+<span class="hljs-number">105</span>G
+$ df -B1 | numfmt.sh <span class="hljs-operator">-f</span>4 -h1
+<span class="hljs-number">144</span>G
 </code></pre>
 <p><a name="quiz"></a></p>
 <h1 id="quiz">Quiz</h1>
@@ -1701,7 +1745,7 @@ $ seq <span class="hljs-number">5</span> | tac
 
 <span class="hljs-comment"># &#xB2E4;&#xC74C;&#xC740; deb &#xD328;&#xD0A4;&#xC9C0;&#xAC00; &#xC2DC;&#xC2A4;&#xD15C;&#xC5D0; install, remove, upgrade &#xB418;&#xB294; &#xAE30;&#xB85D;&#xC744;</span>
 <span class="hljs-comment"># /var/log/dpkg.log &#xB85C;&#xADF8; &#xD30C;&#xC77C;&#xACFC; tac &#xBA85;&#xB839;&#xC744; &#xC774;&#xC6A9;&#xD574; &#xCD5C;&#xADFC; &#xC21C;&#xC73C;&#xB85C; &#xBCF4;&#xC5EC;&#xC90D;&#xB2C8;&#xB2E4;.</span>
-<span class="hljs-comment"># case &#xBB38;&#xC5D0; ;;&amp; ( next-matching ) &#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xC600;&#xC73C;&#xBBC0;&#xB85C; -i, -ir, -rui &#xC640;&#xAC19;&#xC774; &#xC0AC;&#xC6A9;&#xD560;&#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
+<span class="hljs-comment"># case &#xBB38;&#xC5D0; ;;&amp; (next-matching) &#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xC600;&#xC73C;&#xBBC0;&#xB85C; -i, -ir, -rui &#xC640; &#xAC19;&#xC774; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
 $ cat dpkg-history.sh
 
 <span class="hljs-shebang">#!/bin/bash
@@ -1713,7 +1757,7 @@ GREP=<span class="hljs-string">&quot;grep -E --color=always&quot;</span>
 <span class="hljs-keyword">case</span> <span class="hljs-variable">$1</span> <span class="hljs-keyword">in</span>
     -*i* )
         str+=<span class="hljs-string">&quot; install &quot;</span>
-        ;;&amp;                         <span class="hljs-comment"># ;;&amp; ( next-matching )</span>
+        ;;&amp;                         <span class="hljs-comment"># ;;&amp; (next-matching)</span>
     -*u* )
         [ -n <span class="hljs-string">&quot;<span class="hljs-variable">$str</span>&quot;</span> ] &amp;&amp; str+=<span class="hljs-string">&quot;|&quot;</span>; str+=<span class="hljs-string">&quot; upgrade &quot;</span>
         ;;&amp;
