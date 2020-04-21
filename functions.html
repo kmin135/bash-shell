@@ -1648,6 +1648,96 @@ $* : <span class="hljs-number">11</span> <span class="hljs-number">22</span> <sp
 ======== <span class="hljs-string">&quot;$*&quot;</span> =======     <span class="hljs-comment"># &#xD568;&#xC218;&#xC5D0; &#xC804;&#xB2EC;&#xD55C; &#xC778;&#xC218; &#xC804;&#xCCB4;&#xAC00; &#xD558;&#xB098;&#xC758; &#xC778;&#xC218;&#xAC00; &#xB41C;&#xB2E4;.</span>
 <span class="hljs-number">11</span> <span class="hljs-number">22</span>     <span class="hljs-number">33</span> <span class="hljs-number">44</span>
 </code></pre>
+<h2 id="&#xC608;&#xC81C;-">&#xC608;&#xC81C; )</h2>
+<p>docker inspect &#xBA85;&#xB839;&#xC740; &#xB85C;&#xCEEC;&#xC5D0; &#xC788;&#xB294; &#xC774;&#xBBF8;&#xC9C0;&#xB9CC; &#xC870;&#xD68C;&#xAC00; &#xAC00;&#xB2A5;&#xD55C;&#xB370;&#xC694;.
+dockerhub &#xC5D0; &#xC788;&#xB294; &#xC774;&#xBBF8;&#xC9C0;&#xB97C; &#xB2E4;&#xC6B4;&#xBC1B;&#xC9C0; &#xC54A;&#xACE0; REST API &#xB97C; &#xD1B5;&#xD574; &#xC870;&#xD68C;&#xD558;&#xB294; &#xC608;&#xC81C;&#xC785;&#xB2C8;&#xB2E4;.
+main &#xD568;&#xC218;&#xC5D0;&#xC11C; &#xD638;&#xCD9C;&#xD558;&#xACE0; &#xC788;&#xB294; get_token, get_digest, get_image_configuration &#xD568;&#xC218;&#xB4E4;&#xC744; &#xBCF4;&#xBA74;
+&#xB0B4;&#xBD80;&#xC801;&#xC73C;&#xB85C; $image, $tag, $token, $digest &#xBCC0;&#xC218;&#xB4E4;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xACE0; &#xC788;&#xC9C0;&#xB9CC; &#xD638;&#xCD9C;&#xC2DC; &#xB530;&#xB85C;
+&#xC778;&#xC218;&#xB4E4;&#xC744; &#xC804;&#xB2EC;&#xD558;&#xC9C0;&#xB294; &#xC54A;&#xACE0; &#xC788;&#xB294;&#xB370;&#xC694;.
+&#xC774;&#xAC83;&#xC740; child &#xD568;&#xC218;&#xC5D0;&#xC11C; parent &#xD568;&#xC218;&#xC758; local &#xBCC0;&#xC218;&#xC5D0; &#xC9C1;&#xC811; &#xC811;&#xADFC;&#xC774; &#xAC00;&#xB2A5;&#xD558;&#xAE30; &#xB54C;&#xBB38;&#xC785;&#xB2C8;&#xB2E4;.</p>
+<blockquote>
+<p>&#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xC2E4;&#xD589;&#xC744; &#xC704;&#xD574;&#xC120; JSON &#xCC98;&#xB9AC;&#xAE30;&#xC778; <code>jq</code> &#xBA85;&#xB839;&#xC744; &#xC124;&#xCE58;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</p>
+</blockquote>
+<pre><code class="lang-bash">$ cat docker-inspect.sh
+<span class="hljs-shebang">#!/bin/bash
+</span>
+<span class="hljs-built_in">set</span> -o errexit
+
+<span class="hljs-function"><span class="hljs-title">main</span></span>() {
+    <span class="hljs-built_in">local</span> image tag token digest
+
+    image=$( <span class="hljs-built_in">test</span> <span class="hljs-string">&quot;<span class="hljs-variable">${1#/*}</span>&quot;</span> = <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span> &amp;&amp; <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;library/<span class="hljs-variable">$1</span>&quot;</span> || <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span> )
+    tag=<span class="hljs-variable">${2:-latest}</span>
+    token=$( get_token )        <span class="hljs-comment"># get_token &quot;$image&quot;</span>
+    digest=$( get_digest )      <span class="hljs-comment"># get_digest &quot;$image&quot; &quot;$tag&quot; &quot;$token&quot;</span>
+
+    get_image_configuration     <span class="hljs-comment"># get_image_configuration &quot;$image&quot; &quot;$token&quot; &quot;$digest&quot;</span>
+}
+
+<span class="hljs-function"><span class="hljs-title">get_image_configuration</span></span>() {
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Retrieving Image Configuration ... &quot;</span> &gt;&amp;<span class="hljs-number">2</span>
+
+    curl --silent --location \
+    --header <span class="hljs-string">&quot;Authorization: Bearer <span class="hljs-variable">$token</span>&quot;</span> \
+    <span class="hljs-string">&quot;https://registry-1.docker.io/v2/<span class="hljs-variable">$image</span>/blobs/<span class="hljs-variable">$digest</span>&quot;</span> \
+    | jq -r <span class="hljs-string">&apos;.container_config&apos;</span>
+}
+
+<span class="hljs-function"><span class="hljs-title">get_token</span></span>() {
+    <span class="hljs-built_in">echo</span> -n <span class="hljs-string">&quot;Retrieving Docker Hub token ... &quot;</span> &gt;&amp;<span class="hljs-number">2</span>
+
+    curl --silent \
+    <span class="hljs-string">&quot;https://auth.docker.io/token?scope=repository:<span class="hljs-variable">$image</span>:pull&amp;service=registry.docker.io&quot;</span> \
+    | jq -r <span class="hljs-string">&apos;.token&apos;</span>
+
+    <span class="hljs-built_in">echo</span> done. &gt;&amp;<span class="hljs-number">2</span>
+}
+
+<span class="hljs-function"><span class="hljs-title">get_digest</span></span>() {
+    <span class="hljs-built_in">echo</span> -n <span class="hljs-string">&quot;Retrieving image digest ... &quot;</span> &gt;&amp;<span class="hljs-number">2</span>
+
+    curl --silent \
+    --header <span class="hljs-string">&quot;Accept: application/vnd.docker.distribution.manifest.v2+json&quot;</span> \
+    --header <span class="hljs-string">&quot;Authorization: Bearer <span class="hljs-variable">$token</span>&quot;</span> \
+    <span class="hljs-string">&quot;https://registry-1.docker.io/v2/<span class="hljs-variable">$image</span>/manifests/<span class="hljs-variable">$tag</span>&quot;</span> \
+    | jq -r <span class="hljs-string">&apos;.config.digest&apos;</span>
+
+    <span class="hljs-built_in">echo</span> done. &gt;&amp;<span class="hljs-number">2</span>
+}
+
+<span class="hljs-keyword">if</span> [ <span class="hljs-string">&quot;<span class="hljs-variable">$#</span>&quot;</span> = <span class="hljs-number">0</span> -o <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span> = <span class="hljs-string">&quot;-h&quot;</span> -o <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span> = <span class="hljs-string">&quot;--help&quot;</span> ]; <span class="hljs-keyword">then</span>
+cat &lt;&lt;-EOF
+
+Usage:
+
+`basename <span class="hljs-string">&quot;<span class="hljs-variable">$0</span>&quot;</span>` &lt;image&gt; &lt;tag&gt;
+
+EOF
+    <span class="hljs-built_in">exit</span> <span class="hljs-number">1</span>
+<span class="hljs-keyword">fi</span>
+
+main <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span>
+
+<span class="hljs-comment">########################  &#xC2E4;&#xD589; &#xBC29;&#xBC95;  ##########################</span>
+
+$ docker-inspect.sh ubuntu                <span class="hljs-comment"># library/ubuntu latest &#xAC00; &#xB41C;&#xB2E4;.</span>
+$ docker-inspect.sh ubuntu <span class="hljs-number">19.10</span>          <span class="hljs-comment"># library/ubuntu 19.10  &#xAC00; &#xB41C;&#xB2E4;.</span>
+$ docker-inspect.sh foobar/ubuntu <span class="hljs-number">19.10</span>
+</code></pre>
+<p>&#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xAC00; &#xBCF5;&#xC7A1;&#xD574;&#xC9C8; &#xACBD;&#xC6B0;&#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xC9C1;&#xC811; &#xC778;&#xC218;&#xB97C; &#xC804;&#xB2EC;&#xD574;&#xC11C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xAC83;&#xC774;
+&#xAC00;&#xB3C5;&#xC131;&#xC774;&#xB098; &#xC624;&#xB958; &#xC608;&#xBC29;&#xC5D0; &#xC88B;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># &#xD568;&#xC218; &#xD638;&#xCD9C;&#xC2DC;</span>
+get_token <span class="hljs-string">&quot;<span class="hljs-variable">$image</span>&quot;</span>
+get_digest <span class="hljs-string">&quot;<span class="hljs-variable">$image</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$tag</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$token</span>&quot;</span>
+get_image_configuration <span class="hljs-string">&quot;<span class="hljs-variable">$image</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$token</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$digest</span>&quot;</span>
+
+<span class="hljs-comment"># &#xD568;&#xC218; &#xB0B4;&#xC5D0;&#xC11C;&#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xC791;&#xC131;&#xD569;&#xB2C8;&#xB2E4;.</span>
+<span class="hljs-function"><span class="hljs-title">get_digest</span></span> () {
+    <span class="hljs-built_in">local</span> image tag token
+    image=<span class="hljs-variable">$1</span> tag=<span class="hljs-variable">$2</span> token=<span class="hljs-variable">$3</span>
+. . .
+</code></pre>
+<p><a href="https://ops.tips/blog/inspecting-docker-image-without-pull/" target="_blank">https://ops.tips/blog/inspecting-docker-image-without-pull/</a></p>
 
                     
                     </section>
