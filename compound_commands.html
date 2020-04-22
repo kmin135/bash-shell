@@ -1736,7 +1736,7 @@ Fred:apples:<span class="hljs-number">20</span>:June:<span class="hljs-number">4
 <li>&#xD14C;&#xC2A4;&#xD2B8;&#xB418;&#xB294; &#xBA85;&#xB839;&#xC774; &#xC624;&#xB958;&#xB85C; &#xC885;&#xB8CC;&#xD558;&#xBA74; &#xACC4;&#xC18D;&#xD574;&#xC11C; &#xBC18;&#xBCF5;&#xD569;&#xB2C8;&#xB2E4;.<br>( <code>until ...</code> &#xC740; <code>while ! ...</code> &#xACFC; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4;. )</li>
 </ul>
 <pre><code class="lang-bash"><span class="hljs-built_in">read</span> -p <span class="hljs-string">&quot;Enter Hostname: &quot;</span> hostname
-until ping -c <span class="hljs-number">1</span> <span class="hljs-string">&quot;<span class="hljs-variable">$hostname</span>&quot;</span> &gt; /dev/null
+until ping -q -c <span class="hljs-number">1</span> <span class="hljs-string">&quot;<span class="hljs-variable">$hostname</span>&quot;</span> &amp;&gt; /dev/null
 <span class="hljs-keyword">do</span>
         sleep <span class="hljs-number">60</span>;
 <span class="hljs-keyword">done</span>
