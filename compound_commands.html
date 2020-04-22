@@ -1882,7 +1882,7 @@ select pick <span class="hljs-keyword">in</span> <span class="hljs-string">&quot
         *) 
             [ <span class="hljs-string">&quot;<span class="hljs-variable">$REPLY</span>&quot;</span> = <span class="hljs-string">&quot;x&quot;</span> ] &amp;&amp; <span class="hljs-built_in">break</span> <span class="hljs-number">2</span>
             <span class="hljs-built_in">echo</span> <span class="hljs-operator">-e</span> <span class="hljs-string">&quot;\n&#xC62C;&#xBC14;&#xB978; &#xBC88;&#xD638;&#xB97C; &#xC785;&#xB825;&#xD574; &#xC8FC;&#xC138;&#xC694;.\n&quot;</span>
-            <span class="hljs-built_in">read</span> -n1; clear; <span class="hljs-built_in">break</span>
+            <span class="hljs-built_in">read</span> -n1; next=<span class="hljs-literal">false</span>; clear; <span class="hljs-built_in">break</span>
     <span class="hljs-keyword">esac</span>
 
     <span class="hljs-built_in">echo</span>
