@@ -1870,7 +1870,7 @@ clear
 <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$(fmt -w $cols &lt;&lt;&lt; &quot;$Q&quot;)</span>&quot;</span>    <span class="hljs-comment"># &#xBB38;&#xC81C; &#xB77C;&#xC778;&#xC774; &#xAE38;&#xACBD;&#xC6B0; width &#xB97C; &#xC870;&#xC815;</span>
 <span class="hljs-built_in">echo</span>
 
-AA=( <span class="hljs-string">&quot;<span class="hljs-variable">${A1%?}</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">${A2%?}</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">${A3%?}</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">${A4%?}</span>&quot;</span> )   <span class="hljs-comment"># &apos;X&apos;,&apos;T&apos; &#xBB38;&#xC790;&#xB294; &#xC81C;&#xC678;&#xD558;&#xACE0; &#xC785;&#xB825;</span>
+AA=( <span class="hljs-string">&quot;<span class="hljs-variable">${A1%?}</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">${A2%?}</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">${A3%?}</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">${A4%?}</span>&quot;</span> )   <span class="hljs-comment"># &apos;O&apos;,&apos;X&apos; &#xBB38;&#xC790;&#xB294; &#xC81C;&#xC678;&#xD558;&#xACE0; &#xC785;&#xB825;</span>
 
 select pick <span class="hljs-keyword">in</span> <span class="hljs-string">&quot;<span class="hljs-variable">${AA[@]}</span>&quot;</span>
 <span class="hljs-keyword">do</span>
@@ -1887,7 +1887,7 @@ select pick <span class="hljs-keyword">in</span> <span class="hljs-string">&quot
 
     <span class="hljs-built_in">echo</span>
     <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$REPLY</span> &#xBC88; \&quot;<span class="hljs-variable">${pick% }</span>\&quot;&quot;</span>
-    <span class="hljs-keyword">if</span> [ <span class="hljs-string">&quot;<span class="hljs-variable">$correct</span>&quot;</span> = <span class="hljs-string">&quot;T&quot;</span> ]; <span class="hljs-keyword">then</span>
+    <span class="hljs-keyword">if</span> [ <span class="hljs-string">&quot;<span class="hljs-variable">$correct</span>&quot;</span> = <span class="hljs-string">&quot;O&quot;</span> ]; <span class="hljs-keyword">then</span>
         <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;@@@ &#xC815;&#xB2F5; @@@ &#xC785;&#xB2C8;&#xB2E4;.&quot;</span>
         next=<span class="hljs-literal">true</span>; <span class="hljs-built_in">let</span> next_question++
     <span class="hljs-keyword">else</span>
@@ -1912,7 +1912,7 @@ Q=<span class="hljs-string">&quot;&#xC55E;&#xB4A4; &#xC0DD;&#xAC01;&#xD558;&#xC9
 
 A1=<span class="hljs-string">&quot;&#xCF54;&#xBFD4;&#xC18C; X&quot;</span>         <span class="hljs-comment"># &#xD2C0;&#xB9B0;&#xB2F5;&#xC758; &#xB05D;&#xC5D0;&#xB294; &apos;X&apos; &#xBB38;&#xC790;&#xB97C;</span>
 A2=<span class="hljs-string">&quot;&#xD558;&#xB9C8; X&quot;</span>
-A3=<span class="hljs-string">&quot;&#xB3FC;&#xC9C0; T&quot;</span>          <span class="hljs-comment"># &#xC815;&#xB2F5;&#xC758; &#xB05D;&#xC5D0;&#xB294; &apos;T&apos; &#xBB38;&#xC790;&#xB97C; &#xC785;&#xB825;</span>
+A3=<span class="hljs-string">&quot;&#xB3FC;&#xC9C0; O&quot;</span>          <span class="hljs-comment"># &#xC815;&#xB2F5;&#xC758; &#xB05D;&#xC5D0;&#xB294; &apos;O&apos; &#xBB38;&#xC790;&#xB97C; &#xC785;&#xB825;</span>
 A4=<span class="hljs-string">&quot;&#xCF54;&#xB07C;&#xB9AC; X&quot;</span>
 
 ---------------------------------------------
@@ -1923,7 +1923,7 @@ Q=<span class="hljs-string">&quot;&#xD754;&#xD788; &#xC2A4;&#xD3EC;&#xCE20; &#xA
 A1=<span class="hljs-string">&quot;&#xBC1C; &#xD558;&#xB098;&#xC870;&#xCC28; &#xB4E4;&#xC5B4;&#xAC08; &#xC218; &#xC5C6;&#xB294; &#xD2C8; X&quot;</span>
 A2=<span class="hljs-string">&quot;&#xBC1C;&#xD1B1; &#xD558;&#xB098;&#xC870;&#xCC28; &#xB4E4;&#xC5B4;&#xAC08; &#xC218; &#xC5C6;&#xB294; &#xD2C8; X&quot;</span>
 A3=<span class="hljs-string">&quot;&#xC190;&#xD1B1; &#xD558;&#xB098;&#xC870;&#xCC28; &#xB4E4;&#xC5B4;&#xAC08; &#xC218; &#xC5C6;&#xB294; &#xD2C8; X&quot;</span>
-A4=<span class="hljs-string">&quot;&#xBA38;&#xB9AC;&#xCE74;&#xB77D; &#xD558;&#xB098; &#xC870;&#xCC28; &#xB4E4;&#xC5B4;&#xAC08; &#xC218; &#xC5C6;&#xB294; &#xD2C8; T&quot;</span>
+A4=<span class="hljs-string">&quot;&#xBA38;&#xB9AC;&#xCE74;&#xB77D; &#xD558;&#xB098; &#xC870;&#xCC28; &#xB4E4;&#xC5B4;&#xAC08; &#xC218; &#xC5C6;&#xB294; &#xD2C8; O&quot;</span>
 </code></pre>
 
                     
