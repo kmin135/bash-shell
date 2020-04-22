@@ -1683,7 +1683,7 @@ tmpfs                <span class="hljs-number">1.6</span>GiB      <span class="h
 </code></pre>
 <p>&#xB2E4;&#xC74C; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB294; &#xB2E8;&#xC704; suffix &#xAC00; &#xBD99;&#xC740; &#xC22B;&#xC790;&#xB4E4;&#xC744; &#xB354;&#xD558;&#xAE30; &#xD558;&#xC5EC; &#xD569;&#xACC4;&#xB97C; &#xCD9C;&#xB825;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ cat numfmt.sh        
-<span class="hljs-shebang">#!/bin/sh</span>
+<span class="hljs-shebang">#!/bin/bash</span>
 <span class="hljs-comment">#</span>
 <span class="hljs-comment">#    -f : field</span>
 <span class="hljs-comment">#    -s : separator</span>
@@ -1694,8 +1694,10 @@ tmpfs                <span class="hljs-number">1.6</span>GiB      <span class="h
         f ) field=<span class="hljs-variable">$OPTARG</span> ;;
         s ) separator=<span class="hljs-variable">$OPTARG</span> ;;
         h ) header=<span class="hljs-variable">$OPTARG</span> ;;
-    <span class="hljs-keyword">esac</span>                             <span class="hljs-comment"># &#xC720;&#xD6A8;&#xD558;&#xC9C0; &#xC54A;&#xC740; &#xC635;&#xC158;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xAC70;&#xB098;</span>
-    [ <span class="hljs-string">&quot;<span class="hljs-variable">$opt</span>&quot;</span> = <span class="hljs-string">&quot;?&quot;</span> ] &amp;&amp; <span class="hljs-built_in">exit</span> <span class="hljs-number">1</span>       <span class="hljs-comment"># &#xC635;&#xC158; &#xC778;&#xC218; &#xAC12;&#xC744; &#xBE7C;&#xBA39;&#xC73C;&#xBA74; &#xC885;&#xB8CC;</span>
+    <span class="hljs-keyword">esac</span>
+    <span class="hljs-comment"># &#xC720;&#xD6A8;&#xD558;&#xC9C0; &#xC54A;&#xC740; &#xC635;&#xC158;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xAC70;&#xB098;, &#xC635;&#xC158; &#xC778;&#xC218; &#xAC12;&#xC744; &#xBE7C;&#xBA39;&#xC73C;&#xBA74; &#xC885;&#xB8CC;</span>
+    [ <span class="hljs-string">&quot;<span class="hljs-variable">$opt</span>&quot;</span> = <span class="hljs-string">&quot;?&quot;</span> ] &amp;&amp; <span class="hljs-built_in">exit</span> <span class="hljs-number">1</span>
+    [[ <span class="hljs-variable">$OPTARG</span> == -* ]] &amp;&amp; <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$0</span>: invalid option argument -- <span class="hljs-variable">$OPTARG</span>&quot;</span> &amp;&amp; <span class="hljs-built_in">exit</span> <span class="hljs-number">1</span>
 <span class="hljs-keyword">done</span>
 
 <span class="hljs-built_in">test</span> -z <span class="hljs-string">&quot;<span class="hljs-variable">$field</span>&quot;</span>     &amp;&amp; field=<span class="hljs-number">1</span>
