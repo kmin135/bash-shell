@@ -1393,7 +1393,7 @@ command &#xB97C; &#xC2E4;&#xD589;&#xD560;&#xC218; &#xC5C6;&#xC744;&#xACBD;&#xC6B
 <p><strong>bash &#xC804;&#xC6A9; &#xC635;&#xC158;</strong></p>
 <ul>
 <li><code>-a</code> name : 0 &#xBC88;&#xC9F8; &#xC778;&#xC218;&#xB294; &#xBA85;&#xB839; &#xC790;&#xC2E0;&#xC758; &#xC774;&#xB984;&#xC744; &#xB098;&#xD0C0;&#xB0B4;&#xB294;&#xB370; &#xC774; &#xC635;&#xC158;&#xC73C;&#xB85C; &#xBCC0;&#xACBD;&#xD560;&#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.<br>( <code>ps</code> &#xBAA9;&#xB85D;&#xC5D0;&#xB3C4; &#xBCC0;&#xACBD;&#xB41C; &#xC774;&#xB984;&#xC774; &#xB098;&#xD0C0;&#xB0A9;&#xB2C8;&#xB2E4;. )    </li>
-<li><code>-c</code> :  empty environment &#xC0C1;&#xD0DC;&#xB85C; &#xBA85;&#xB839;&#xC744; &#xC2E4;&#xD589;&#xD569;&#xB2C8;&#xB2E4;.</li>
+<li><code>-c</code> :  empty environment &#xC0C1;&#xD0DC;&#xB85C; &#xBA85;&#xB839;&#xC744; &#xC2E4;&#xD589;&#xD569;&#xB2C8;&#xB2E4;. ( env -i &#xC640; &#xAC19;&#xC740; &#xC5ED;&#xD560; )</li>
 <li><code>-l</code> :  login shell &#xB85C; &#xC2E4;&#xD589;&#xD569;&#xB2C8;&#xB2E4;. &#xBA85;&#xB839;&#xC774;&#xB984; &#xC55E;&#xC5D0; <code>-</code> &#xBB38;&#xC790;&#xAC00; &#xBD99;&#xAC8C;&#xB429;&#xB2C8;&#xB2E4;.</li>
 </ul>
 <pre><code class="lang-bash">$ ( <span class="hljs-built_in">exec</span> <span class="hljs-operator">-a</span> testps ps -o pid,ppid,cmd ) 
@@ -1405,6 +1405,11 @@ $ ( <span class="hljs-built_in">exec</span> <span class="hljs-operator">-l</span
   PID  PPID CMD
 <span class="hljs-number">24889</span>  <span class="hljs-number">3379</span> /bin/bash
 <span class="hljs-number">28611</span> <span class="hljs-number">24889</span> -testps -o pid,ppid,cmd         <span class="hljs-comment"># testps &#xC774;&#xB984;&#xC55E;&#xC5D0; &apos;-&apos; &#xBB38;&#xC790;&#xAC00; &#xBD99;&#xB294;&#xB2E4;</span>
+
+$ ( <span class="hljs-built_in">exec</span> sh -c <span class="hljs-string">&apos;echo $EDITOR&apos;</span> )
+/usr/bin/vim
+$ ( <span class="hljs-built_in">exec</span> -c sh -c <span class="hljs-string">&apos;echo $EDITOR&apos;</span> )          <span class="hljs-comment"># &apos;exec -c&apos; empty environment</span>
+$
 </code></pre>
 <h3 id="exit">exit</h3>
 <blockquote>
