@@ -1689,15 +1689,17 @@ tmpfs                <span class="hljs-number">1.6</span>GiB      <span class="h
 <span class="hljs-comment">#    -s : separator</span>
 <span class="hljs-comment">#    -h : skip header lines</span>
 <span class="hljs-comment">#</span>
+<span class="hljs-function"><span class="hljs-title">errArg</span></span> () { <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$0</span>: invalid option argument -- <span class="hljs-variable">$1</span>&quot;</span>; <span class="hljs-built_in">exit</span> <span class="hljs-number">1</span> ;} &gt;&amp;<span class="hljs-number">2</span>
+
 <span class="hljs-keyword">while</span> <span class="hljs-built_in">getopts</span> <span class="hljs-string">&quot;f:s:h:&quot;</span> opt; <span class="hljs-keyword">do</span>
     <span class="hljs-keyword">case</span> <span class="hljs-variable">$opt</span> <span class="hljs-keyword">in</span>
-        f ) field=<span class="hljs-variable">$OPTARG</span> ;;
+        f ) [[ <span class="hljs-variable">$OPTARG</span> =~ ^[<span class="hljs-number">0</span>-<span class="hljs-number">9</span>]+$ ]] &amp;&amp; field=<span class="hljs-variable">$OPTARG</span>  || errArg <span class="hljs-string">&quot;<span class="hljs-variable">$OPTARG</span>&quot;</span> ;;
+        h ) [[ <span class="hljs-variable">$OPTARG</span> =~ ^[<span class="hljs-number">0</span>-<span class="hljs-number">9</span>]+$ ]] &amp;&amp; header=<span class="hljs-variable">$OPTARG</span> || errArg <span class="hljs-string">&quot;<span class="hljs-variable">$OPTARG</span>&quot;</span> ;;
         s ) separator=<span class="hljs-variable">$OPTARG</span> ;;
-        h ) header=<span class="hljs-variable">$OPTARG</span> ;;
     <span class="hljs-keyword">esac</span>
     <span class="hljs-comment"># &#xC720;&#xD6A8;&#xD558;&#xC9C0; &#xC54A;&#xC740; &#xC635;&#xC158;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xAC70;&#xB098;, &#xC635;&#xC158; &#xC778;&#xC218; &#xAC12;&#xC744; &#xBE7C;&#xBA39;&#xC73C;&#xBA74; &#xC885;&#xB8CC;</span>
     [ <span class="hljs-string">&quot;<span class="hljs-variable">$opt</span>&quot;</span> = <span class="hljs-string">&quot;?&quot;</span> ] &amp;&amp; <span class="hljs-built_in">exit</span> <span class="hljs-number">1</span>
-    [[ <span class="hljs-variable">$OPTARG</span> == -* ]] &amp;&amp; <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$0</span>: invalid option argument -- <span class="hljs-variable">$OPTARG</span>&quot;</span> &amp;&amp; <span class="hljs-built_in">exit</span> <span class="hljs-number">1</span>
+    [[ <span class="hljs-variable">$OPTARG</span> =~ ^--?[[:alpha:]] ]] &amp;&amp; errArg <span class="hljs-string">&quot;<span class="hljs-variable">$OPTARG</span>&quot;</span>
 <span class="hljs-keyword">done</span>
 
 <span class="hljs-built_in">test</span> -z <span class="hljs-string">&quot;<span class="hljs-variable">$field</span>&quot;</span>     &amp;&amp; field=<span class="hljs-number">1</span>
