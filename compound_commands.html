@@ -1890,13 +1890,13 @@ select pick <span class="hljs-keyword">in</span> <span class="hljs-string">&quot
     <span class="hljs-keyword">if</span> [ <span class="hljs-string">&quot;<span class="hljs-variable">$correct</span>&quot;</span> = <span class="hljs-string">&quot;O&quot;</span> ]; <span class="hljs-keyword">then</span>
         <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;@@@ &#xC815;&#xB2F5; @@@ &#xC785;&#xB2C8;&#xB2E4;.&quot;</span>
         next=<span class="hljs-literal">true</span>; <span class="hljs-built_in">let</span> next_question++
+        [ <span class="hljs-string">&quot;<span class="hljs-variable">$next_question</span>&quot;</span> <span class="hljs-operator">-gt</span> <span class="hljs-string">&quot;<span class="hljs-variable">$total_questions</span>&quot;</span> ] &amp;&amp; <span class="hljs-built_in">break</span> <span class="hljs-number">2</span>
     <span class="hljs-keyword">else</span>
         <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;&#xD2C0;&#xB838;&#xC2B5;&#xB2C8;&#xB2E4;.&quot;</span>
         next=<span class="hljs-literal">false</span>
     <span class="hljs-keyword">fi</span>
     <span class="hljs-built_in">echo</span>
 
-    [ <span class="hljs-string">&quot;<span class="hljs-variable">$next_question</span>&quot;</span> <span class="hljs-operator">-gt</span> <span class="hljs-string">&quot;<span class="hljs-variable">$total_questions</span>&quot;</span> ] &amp;&amp; <span class="hljs-built_in">break</span> <span class="hljs-number">2</span>
     <span class="hljs-built_in">read</span> -n1; <span class="hljs-built_in">break</span>
 <span class="hljs-keyword">done</span>   <span class="hljs-comment"># select</span>
 
