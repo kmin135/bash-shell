@@ -1461,7 +1461,7 @@ arg1 : <span class="hljs-number">11</span>,         <span class="hljs-comment">#
 arg2 : <span class="hljs-number">22</span>,
 arg3 : <span class="hljs-number">33</span>
 </code></pre>
-<p>&#xADF8;&#xB7EC;&#xBBC0;&#xB85C; &#xBA85;&#xB839;&#xC5D0;&#xC11C; <code>,</code> &#xB97C; &#xC774;&#xC6A9;&#xD574; &#xC635;&#xC158; &#xC778;&#xC218;&#xB97C; &#xBC1B;&#xC744; &#xACBD;&#xC6B0; &#xD558;&#xB098;&#xC758; &#xC778;&#xC218;&#xB85C; 
+<p>&#xB530;&#xB77C;&#xC11C; &#xBA85;&#xB839;&#xC5D0;&#xC11C; <code>,</code> &#xB97C; &#xC774;&#xC6A9;&#xD574; &#xC635;&#xC158; &#xC778;&#xC218;&#xB97C; &#xBC1B;&#xC744; &#xACBD;&#xC6B0; &#xD558;&#xB098;&#xC758; &#xC778;&#xC218;&#xB85C; 
 &#xC804;&#xB2EC;&#xB418;&#xAE30; &#xC704;&#xD574;&#xC11C; &#xACF5;&#xBC31;&#xC744; &#xB450;&#xC5B4;&#xC11C;&#xB294; &#xC548;&#xB429;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># &apos;,&apos; &#xB97C; &#xACF5;&#xBC31;&#xC5C6;&#xC774; &#xBD99;&#xC5EC;&#xC57C; trace= &#xC640;&#xD568;&#xAED8; &#xD558;&#xB098;&#xC758; &#xC778;&#xC218;&#xB85C; &#xC804;&#xB2EC;&#xB41C;&#xB2E4;.</span>
 $ strace <span class="hljs-operator">-e</span> trace=open,close,<span class="hljs-built_in">read</span>,write <span class="hljs-built_in">command</span> ...
@@ -1471,7 +1471,7 @@ OK
 $ strace <span class="hljs-operator">-e</span> trace=open, close, <span class="hljs-built_in">read</span>, write <span class="hljs-built_in">command</span> ...
 ERROR
 
-$ gcc -shared -Wl,-soname,libmean.so.<span class="hljs-number">1</span> -o libmean.so.<span class="hljs-number">1.0</span>.<span class="hljs-number">1</span>  calc_mean.o
+$ gcc -shared -Wl,-soname,libmean.so.<span class="hljs-number">1</span> -o libmean.so.<span class="hljs-number">1.0</span>.<span class="hljs-number">1</span>  ...
 OK
 
 $ gcc -Wl,-z,defs ...
