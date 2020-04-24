@@ -1656,7 +1656,7 @@ main &#xD568;&#xC218;&#xC5D0;&#xC11C; &#xD638;&#xCD9C;&#xD558;&#xACE0; &#xC788;&
 &#xC778;&#xC218;&#xB97C; &#xC804;&#xB2EC;&#xD558;&#xC9C0;&#xB294; &#xC54A;&#xACE0; &#xC788;&#xB294;&#xB370;&#xC694;.
 &#xC774;&#xAC83;&#xC740; child &#xD568;&#xC218;&#xC5D0;&#xC11C; parent &#xD568;&#xC218;&#xC758; local &#xBCC0;&#xC218;&#xC5D0; &#xC9C1;&#xC811; &#xC811;&#xADFC;&#xC774; &#xAC00;&#xB2A5;&#xD558;&#xAE30; &#xB54C;&#xBB38;&#xC785;&#xB2C8;&#xB2E4;.</p>
 <blockquote>
-<p>&#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xC2E4;&#xD589;&#xC744; &#xC704;&#xD574;&#xC120; JSON &#xCC98;&#xB9AC;&#xAE30;&#xC778; <code>jq</code> &#xBA85;&#xB839;&#xC774; &#xC788;&#xC5B4;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.<br>&#xC624;&#xB798;&#xC804;&#xC5D0; &#xC5C5;&#xB85C;&#xB4DC;&#xB41C; &#xC774;&#xBBF8;&#xC9C0;&#xC77C; &#xACBD;&#xC6B0; &#xC870;&#xD68C;&#xAC00; &#xC548;&#xB420; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p>&#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xC2E4;&#xD589;&#xC744; &#xC704;&#xD574;&#xC120; JSON &#xCC98;&#xB9AC;&#xAE30;&#xC778; <code>jq</code> &#xBA85;&#xB839;&#xC774; &#xC788;&#xC5B4;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.  </p>
 </blockquote>
 <pre><code class="lang-bash">$ cat docker-inspect.sh
 <span class="hljs-shebang">#!/bin/bash
@@ -1666,7 +1666,7 @@ main &#xD568;&#xC218;&#xC5D0;&#xC11C; &#xD638;&#xCD9C;&#xD558;&#xACE0; &#xC788;&
 <span class="hljs-function"><span class="hljs-title">main</span></span>() {
     <span class="hljs-built_in">local</span> image tag token digest
 
-    image=$( <span class="hljs-built_in">test</span> <span class="hljs-string">&quot;<span class="hljs-variable">${1#/*}</span>&quot;</span> = <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span> &amp;&amp; <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;library/<span class="hljs-variable">$1</span>&quot;</span> || <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span> )
+    image=$( <span class="hljs-built_in">test</span> <span class="hljs-string">&quot;<span class="hljs-variable">${1%/*}</span>&quot;</span> = <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span> &amp;&amp; <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;library/<span class="hljs-variable">$1</span>&quot;</span> || <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span> )
     tag=<span class="hljs-variable">${2:-latest}</span>
     token=$( get_token )        <span class="hljs-comment"># get_token &quot;$image&quot;</span>
     digest=$( get_digest )      <span class="hljs-comment"># get_digest &quot;$image&quot; &quot;$tag&quot; &quot;$token&quot;</span>
@@ -1700,7 +1700,7 @@ main &#xD568;&#xC218;&#xC5D0;&#xC11C; &#xD638;&#xCD9C;&#xD558;&#xACE0; &#xC788;&
     --header <span class="hljs-string">&quot;Accept: application/vnd.docker.distribution.manifest.v2+json&quot;</span> \
     --header <span class="hljs-string">&quot;Authorization: Bearer <span class="hljs-variable">$token</span>&quot;</span> \
     <span class="hljs-string">&quot;https://registry-1.docker.io/v2/<span class="hljs-variable">$image</span>/manifests/<span class="hljs-variable">$tag</span>&quot;</span> \
-    | jq -r <span class="hljs-string">&apos;.config.digest&apos;</span>
+    | jq <span class="hljs-string">&apos;.&apos;</span>
 
     <span class="hljs-built_in">echo</span> done. &gt;&amp;<span class="hljs-number">2</span>
 }
