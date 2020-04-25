@@ -1585,7 +1585,7 @@ $ lxc profile <span class="hljs-built_in">set</span> default security.nesting <s
 $ lxc profile <span class="hljs-built_in">set</span> default security.privileged <span class="hljs-string">&quot;true&quot;</span>
 $ lxc profile <span class="hljs-built_in">set</span> default environment.TZ Asia/Seoul
 $ lxc network <span class="hljs-built_in">set</span> lxdbr0 ipv6.address none
-$ lxc profile <span class="hljs-built_in">set</span> default linux.kernel_modules overlay,nf_nat,ip_tables,ip6_tables,netlink_diag,br_netfilter,xt_conntrack,nf_conntrack,ip_vs,vxlan
+$ lxc profile <span class="hljs-built_in">set</span> default linux.kernel_modules overlay,nf_nat,ip_tables,br_netfilter,xt_conntrack,nf_conntrack,ip_vs,vxlan
 
 <span class="hljs-comment"># &#xC0DD;&#xC131;&#xB41C; &#xCEE8;&#xD14C;&#xC774;&#xB108;&#xC5D0; static ip &#xB97C; &#xD560;&#xB2F9;&#xD558;&#xB824;&#xBA74;</span>
 $ lxc stop mycontainer
