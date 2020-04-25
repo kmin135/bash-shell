@@ -1584,12 +1584,13 @@ docker &#xC758; &#xACBD;&#xC6B0;&#xB294; &#xBCF4;&#xD1B5; application &#xCEE8;&#
 $ lxc profile <span class="hljs-built_in">set</span> default security.nesting <span class="hljs-string">&quot;true&quot;</span>
 $ lxc profile <span class="hljs-built_in">set</span> default security.privileged <span class="hljs-string">&quot;true&quot;</span>
 $ lxc profile <span class="hljs-built_in">set</span> default environment.TZ Asia/Seoul
+$ lxc network <span class="hljs-built_in">set</span> lxdbr0 ipv6.address none
 $ lxc profile <span class="hljs-built_in">set</span> default linux.kernel_modules overlay,nf_nat,ip_tables,ip6_tables,netlink_diag,br_netfilter,xt_conntrack,nf_conntrack,ip_vs,vxlan
 
 <span class="hljs-comment"># &#xC0DD;&#xC131;&#xB41C; &#xCEE8;&#xD14C;&#xC774;&#xB108;&#xC5D0; static ip &#xB97C; &#xD560;&#xB2F9;&#xD558;&#xB824;&#xBA74;</span>
 $ lxc stop mycontainer
 $ lxc network attach lxdbr0 mycontainer eth0 eth0
-$ lxc config device <span class="hljs-built_in">set</span> mycontainer eth0 ipv4.address <span class="hljs-number">10.12</span>.<span class="hljs-number">34.56</span>
+$ lxc config device <span class="hljs-built_in">set</span> mycontainer eth0 ipv4.address <span class="hljs-number">10.215</span>.<span class="hljs-number">19.10</span>
 $ lxc start mycontainer
 
 <span class="hljs-comment"># &#xD604;&#xC7AC; &#xCEE8;&#xD14C;&#xC774;&#xB108;&#xB97C; &#xC774;&#xBBF8;&#xC9C0;&#xB85C; &#xB9CC;&#xB4E4; &#xB54C;&#xB294; publish &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.</span>
