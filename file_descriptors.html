@@ -1683,13 +1683,13 @@ du &#xBA85;&#xB839;&#xC5D0;&#xC11C;&#xB294; <code>--apparent-size</code> &#xC635
 <pre><code class="lang-bash">$ find /usr/bin -type l,f -exec <span class="hljs-built_in">stat</span> -c <span class="hljs-string">&apos;%i %b&apos;</span> {} + | awk <span class="hljs-string">&apos;!($1 in a) {a[$1]; sum+=$2} END{ print sum}&apos;</span>
 <span class="hljs-number">2546360</span>
 
-$ <span class="hljs-built_in">stat</span> -c %b /usr/bin
+$ <span class="hljs-built_in">stat</span> -c %b /usr/bin         <span class="hljs-comment"># &apos;%s&apos; &#xB300;&#xC2E0;&#xC5D0; &apos;%b&apos; &#xB97C; &#xC0AC;&#xC6A9;</span>
 <span class="hljs-number">232</span>
 
 $ bc &lt;&lt;&lt; <span class="hljs-string">&apos;( 2546360 + 232 ) * 512&apos;</span>
 <span class="hljs-number">1303855104</span>
 
-$ du -B1 /usr/bin         <span class="hljs-comment"># &apos;-B1&apos; &#xC740; --block-size=1</span>
+$ du -B1 /usr/bin             <span class="hljs-comment"># &apos;-B1&apos; &#xC740; --block-size=1</span>
 <span class="hljs-number">1303855104</span>      /usr/bin
 </code></pre>
 <hr>
