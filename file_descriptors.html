@@ -1613,7 +1613,7 @@ $ &gt; filename
 $ find /usr/bin -type f -exec <span class="hljs-built_in">stat</span> -c %s {} + | awk <span class="hljs-string">&apos;{sum+=$1} END{ print sum}&apos;</span>
 <span class="hljs-number">1296011570</span>
 
-$ du -bs /usr/bin         <span class="hljs-comment"># du &#xBA85;&#xB839;&#xC740; &#xC2E4;&#xC81C; &#xB514;&#xC2A4;&#xD06C; &#xC0AC;&#xC6A9;&#xB7C9;&#xC744; &#xAD6C;&#xD560;&#xB54C; &#xC0AC;&#xC6A9;</span>
+$ du -b /usr/bin          <span class="hljs-comment"># du &#xBA85;&#xB839;&#xC740; &#xC2E4;&#xC81C; &#xB514;&#xC2A4;&#xD06C; &#xC0AC;&#xC6A9;&#xB7C9;&#xC744; &#xAD6C;&#xD560;&#xB54C; &#xC0AC;&#xC6A9;</span>
 <span class="hljs-number">1282479351</span>      /usr/bin
 </code></pre>
 <p>&#xBA3C;&#xC800; &#xD30C;&#xC77C;&#xC740; &#xD558;&#xB4DC;&#xB9C1;&#xD06C;&#xAC00; &#xC788;&#xC744; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. &#xC544;&#xB798; &#xADF8;&#xB9BC;&#xC5D0;&#xC11C; &#xB178;&#xB780;&#xC0C9; &#xBC15;&#xC2A4;&#xB85C; &#xD45C;&#xC2DC;&#xB41C; &#xC22B;&#xC790;&#xAC00; 
@@ -1650,8 +1650,47 @@ $ expr <span class="hljs-number">1282350388</span> + <span class="hljs-number">1
 $ expr <span class="hljs-number">1282350388</span> + <span class="hljs-number">14275</span> + <span class="hljs-number">114688</span>
 <span class="hljs-number">1282479351</span>
 
-$ du -bs /usr/bin          <span class="hljs-comment"># &#xC774;&#xC81C; du &#xBA85;&#xB839;&#xC758; &#xCD9C;&#xB825; &#xACB0;&#xACFC;&#xC640; &#xAC19;&#xB2E4;</span>
+$ du -b /usr/bin           <span class="hljs-comment"># &#xC774;&#xC81C; du &#xBA85;&#xB839;&#xC758; &#xCD9C;&#xB825; &#xACB0;&#xACFC;&#xC640; &#xAC19;&#xB2E4;</span>
 <span class="hljs-number">1282479351</span>      /usr/bin
+</code></pre>
+<p>&#xC704;&#xC5D0;&#xC11C; &#xC0AC;&#xC774;&#xC988;&#xB97C; &#xAD6C;&#xD55C; &#xBC29;&#xBC95;&#xC744; du &#xBA85;&#xB839;&#xC5D0;&#xC11C;&#xB294; &#xAC89;&#xBCF4;&#xAE30; &#xC0AC;&#xC774;&#xC988;( apparent size ) &#xB77C;&#xACE0; &#xD569;&#xB2C8;&#xB2E4;.
+&#xC989; 3 bytes &#xD06C;&#xAE30;&#xC758; &#xD30C;&#xC77C;&#xC744; &#xACC4;&#xC0B0;&#xD560; &#xB54C; +3 &#xB9CC; &#xD558;&#xB294; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.
+( &#xC704;&#xC5D0;&#xC11C; du &#xBA85;&#xB839;&#xC5D0; &#xC0AC;&#xC6A9;&#xB41C; <code>-b</code> &#xC635;&#xC158;&#xC740; <code>--apparent-size --block-size=1</code> &#xC640; &#xAC19;&#xC740; &#xAC83;&#xC785;&#xB2C8;&#xB2E4; ).
+&#xD558;&#xC9C0;&#xB9CC; &#xC774;&#xAC83;&#xC740; &#xC815;&#xD655;&#xD55C; &#xB514;&#xC2A4;&#xD06C; &#xC0AC;&#xC6A9;&#xB7C9; &#xACC4;&#xC0B0;&#xC740; &#xC544;&#xB2D9;&#xB2C8;&#xB2E4;.
+&#xC65C;&#xB0D0;&#xD558;&#xBA74; &#xBB3C;&#xB9AC; &#xB514;&#xC2A4;&#xD06C;&#xAC00; &#xC4F0;&#xAE30;&#xB97C; &#xD560; &#xB54C; &#xC0AC;&#xC6A9;&#xD558;&#xB294; &#xCD5C;&#xC18C; &#xB2E8;&#xC704;&#xC778; &#xC139;&#xD130;&#xB294; &#xC0AC;&#xC774;&#xC988;&#xAC00; 512 bytes &#xC774;&#xBBC0;&#xB85C;
+3 bytes &#xD30C;&#xC77C;&#xC744; &#xC4F0;&#xB354;&#xB77C;&#xB3C4; &#xC2E4;&#xC81C; &#xB514;&#xC2A4;&#xD06C;&#xB294; 512 bytes &#xB97C; &#xCC28;&#xC9C0;&#xD558;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.
+&#xADF8;&#xB9AC;&#xACE0; &#xB9AC;&#xB205;&#xC2A4;&#xB294; &#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; 4096 &#xBE14;&#xB85D; &#xB2E8;&#xC704;&#xB85C; &#xC4F0;&#xAE30;&#xB97C; &#xD558;&#xBBC0;&#xB85C;
+stat &#xBA85;&#xB839;&#xC758; <code>%b</code> &#xC635;&#xC158;&#xC744; &#xC774;&#xC6A9;&#xD574;&#xC11C; &#xC2E4;&#xC81C; &#xC0AC;&#xC6A9;&#xB41C; &#xBE14;&#xB85D; &#xC218;&#xB97C; &#xC870;&#xD68C;&#xD574; &#xBCF4;&#xBA74; 
+8 &#xAC1C;&#xB85C; &#xB098;&#xC624;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;. ( 8 * 512 = 4096 )</p>
+<pre><code class="lang-bash">$ <span class="hljs-built_in">echo</span> -n <span class="hljs-number">111</span> &gt; threebytes
+
+$ ls <span class="hljs-operator">-l</span> threebyte 
+-rw-rw-r-- <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">3</span> <span class="hljs-number">2020</span>-<span class="hljs-number">04</span>-<span class="hljs-number">26</span> <span class="hljs-number">23</span>:<span class="hljs-number">20</span> threebytes
+
+$ <span class="hljs-built_in">stat</span> -c %b threebytes           <span class="hljs-comment"># 8 &#xAC1C;&#xC758; &#xBE14;&#xB85D;&#xC774; &#xC0AC;&#xC6A9;&#xB428; (8 * 512 = 4096)</span>
+<span class="hljs-number">8</span>
+
+$ du --block-size=<span class="hljs-number">1</span> threebytes    <span class="hljs-comment"># &#xC2E4;&#xC81C; &#xB514;&#xC2A4;&#xD06C; &#xC0AC;&#xC6A9;&#xB7C9;</span>
+<span class="hljs-number">4096</span>    threebyte
+
+$ du -b threebytes                <span class="hljs-comment"># &#xAC89;&#xBCF4;&#xAE30; &#xC0AC;&#xC774;&#xC988;</span>
+<span class="hljs-number">3</span>       threebyte
+</code></pre>
+<p>&#xB530;&#xB77C;&#xC11C; &#xC2E4;&#xC81C; &#xB514;&#xC2A4;&#xD06C;&#xAC00; &#xC0AC;&#xC6A9;&#xB41C; &#xD06C;&#xAE30;&#xB97C; &#xACC4;&#xC0B0;&#xD558;&#xB824;&#xBA74; stat &#xBA85;&#xB839;&#xC5D0;&#xC11C; <code>%s</code> &#xB300;&#xC2E0;&#xC5D0; <code>%b</code> &#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xACE0;
+du &#xBA85;&#xB839;&#xC5D0;&#xC11C;&#xB294; --apparent-size &#xC635;&#xC158;&#xC744; &#xC81C;&#xAC70;&#xD558;&#xC5EC; &#xBE14;&#xB85D; &#xB2E8;&#xC704; &#xACC4;&#xC0B0;&#xC744; &#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.
+&#xADF8;&#xB9AC;&#xACE0; &#xB9CC;&#xC57D;&#xC5D0; &#xD30C;&#xC77C; &#xC911;&#xC5D0; 100G &#xC9DC;&#xB9AC; sparse &#xD30C;&#xC77C;&#xC774; &#xC788;&#xC744; &#xACBD;&#xC6B0; --apparent-size &#xC635;&#xC158;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xBA74;
+100G &#xC0AC;&#xC774;&#xC988;&#xAC00; &#xADF8;&#xB300;&#xB85C; &#xCD94;&#xAC00;&#xB418;&#xC9C0;&#xB9CC; &#xBE14;&#xB85D; &#xB2E8;&#xC704; &#xACC4;&#xC0B0;&#xC744; &#xD558;&#xBA74; &#xC2E4;&#xC81C; &#xC0AC;&#xC6A9;&#xB41C; &#xBE14;&#xB85D; &#xD06C;&#xAE30;&#xB9CC; &#xCD94;&#xAC00;&#xB429;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ find /usr/bin -type l,f -exec <span class="hljs-built_in">stat</span> -c <span class="hljs-string">&apos;%i %b&apos;</span> {} + | awk <span class="hljs-string">&apos;!($1 in a) {a[$1]; sum+=$2} END{ print sum}&apos;</span>
+<span class="hljs-number">2546360</span>
+
+$ <span class="hljs-built_in">stat</span> -c %b /usr/bin
+<span class="hljs-number">232</span>
+
+$ bc &lt;&lt;&lt; <span class="hljs-string">&apos;( 2546360 + 232 ) * 512&apos;</span>
+<span class="hljs-number">1303855104</span>
+
+$ du -B1 /usr/bin         <span class="hljs-comment"># &apos;-B1&apos; &#xC740; --block-size=1</span>
+<span class="hljs-number">1303855104</span>      /usr/bin
 </code></pre>
 <p><img src="images/directory_entries.png" alt=""></p>
 <p>&#xB514;&#xB809;&#xD1A0;&#xB9AC; &#xC5D4;&#xD2B8;&#xB9AC;&#xB294; &#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; &#xD30C;&#xC77C;&#xC774;&#xB984; -&gt; inode &#xB9F5;&#xD551;&#xC785;&#xB2C8;&#xB2E4;.
