@@ -1667,13 +1667,13 @@ stat &#xBA85;&#xB839;&#xC758; <code>%b</code> &#xC635;&#xC158;&#xC744; &#xC774;&
 $ ls <span class="hljs-operator">-l</span> threebyte 
 -rw-rw-r-- <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">3</span> <span class="hljs-number">2020</span>-<span class="hljs-number">04</span>-<span class="hljs-number">26</span> <span class="hljs-number">23</span>:<span class="hljs-number">20</span> threebytes
 
-$ <span class="hljs-built_in">stat</span> -c %b threebytes           <span class="hljs-comment"># 8 &#xAC1C;&#xC758; &#xBE14;&#xB85D;&#xC774; &#xC0AC;&#xC6A9;&#xB428; (8 * 512 = 4096)</span>
+$ <span class="hljs-built_in">stat</span> -c %b threebytes    <span class="hljs-comment"># 8 &#xAC1C;&#xC758; &#xBE14;&#xB85D;&#xC774; &#xC0AC;&#xC6A9;&#xB428; (8 * 512 = 4096)</span>
 <span class="hljs-number">8</span>
 
-$ du -B1 threebytes               <span class="hljs-comment"># &#xC2E4;&#xC81C; &#xB514;&#xC2A4;&#xD06C; &#xC0AC;&#xC6A9;&#xB7C9; (&apos;-B1&apos; &#xB294; --block-size=1)</span>
+$ du -B1 threebytes        <span class="hljs-comment"># &#xC2E4;&#xC81C; &#xB514;&#xC2A4;&#xD06C; &#xC0AC;&#xC6A9;&#xB7C9; (&apos;-B1&apos; &#xB294; --block-size=1)</span>
 <span class="hljs-number">4096</span>    threebyte
 
-$ du -b threebytes                <span class="hljs-comment"># &#xAC89;&#xBCF4;&#xAE30; &#xC0AC;&#xC774;&#xC988;</span>
+$ du -b threebytes         <span class="hljs-comment"># &#xAC89;&#xBCF4;&#xAE30; &#xC0AC;&#xC774;&#xC988; (&apos;-b&apos; &#xB294; --apparent-size --block-size=1)</span>
 <span class="hljs-number">3</span>       threebyte
 </code></pre>
 <p>&#xB530;&#xB77C;&#xC11C; &#xC2E4;&#xC81C; &#xB514;&#xC2A4;&#xD06C;&#xAC00; &#xC0AC;&#xC6A9;&#xB41C; &#xD06C;&#xAE30;&#xB97C; &#xACC4;&#xC0B0;&#xD558;&#xB824;&#xBA74; stat &#xBA85;&#xB839;&#xC5D0;&#xC11C; <code>%s</code> &#xB300;&#xC2E0;&#xC5D0; <code>%b</code> &#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xACE0;
