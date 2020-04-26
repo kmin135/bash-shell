@@ -1670,7 +1670,7 @@ $ ls <span class="hljs-operator">-l</span> threebyte
 $ <span class="hljs-built_in">stat</span> -c %b threebytes           <span class="hljs-comment"># 8 &#xAC1C;&#xC758; &#xBE14;&#xB85D;&#xC774; &#xC0AC;&#xC6A9;&#xB428; (8 * 512 = 4096)</span>
 <span class="hljs-number">8</span>
 
-$ du --block-size=<span class="hljs-number">1</span> threebytes    <span class="hljs-comment"># &#xC2E4;&#xC81C; &#xB514;&#xC2A4;&#xD06C; &#xC0AC;&#xC6A9;&#xB7C9;</span>
+$ du -B1 threebytes               <span class="hljs-comment"># &#xC2E4;&#xC81C; &#xB514;&#xC2A4;&#xD06C; &#xC0AC;&#xC6A9;&#xB7C9; (&apos;-B1&apos; &#xB294; --block-size=1)</span>
 <span class="hljs-number">4096</span>    threebyte
 
 $ du -b threebytes                <span class="hljs-comment"># &#xAC89;&#xBCF4;&#xAE30; &#xC0AC;&#xC774;&#xC988;</span>
@@ -1689,7 +1689,7 @@ $ <span class="hljs-built_in">stat</span> -c %b /usr/bin         <span class="hl
 $ bc &lt;&lt;&lt; <span class="hljs-string">&apos;( 2546360 + 232 ) * 512&apos;</span>
 <span class="hljs-number">1303855104</span>
 
-$ du -B1 /usr/bin             <span class="hljs-comment"># &apos;-B1&apos; &#xC740; --block-size=1</span>
+$ du -B1 /usr/bin
 <span class="hljs-number">1303855104</span>      /usr/bin
 </code></pre>
 <hr>
