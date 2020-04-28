@@ -1818,8 +1818,6 @@ BEGIN {
     }
 }
 { 
-    <span class="hljs-keyword">if</span> ( <span class="hljs-variable">$F</span>[<span class="hljs-number">0</span>] eq <span class="hljs-string">&quot;start&quot;</span> ) { <span class="hljs-variable">$start</span> = <span class="hljs-variable">$F</span>[<span class="hljs-number">1</span>]; next }
-
     my (<span class="hljs-variable">$num</span>)    = <span class="hljs-variable">$F</span>[<span class="hljs-number">0</span>] =~ /(\d+)$/;
     <span class="hljs-variable">$files</span>[<span class="hljs-variable">$num</span>] = <span class="hljs-variable">$F</span>[<span class="hljs-number">1</span>] . <span class="hljs-string">&quot;=&quot;</span> . <span class="hljs-variable">$F</span>[<span class="hljs-number">2</span>];
 
