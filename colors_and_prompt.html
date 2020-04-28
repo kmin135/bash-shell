@@ -1746,7 +1746,6 @@ adjust_start
 <span class="hljs-built_in">enable</span> <span class="hljs-operator">-f</span> /usr/lib/bash/sleep sleep
 <span class="hljs-built_in">trap</span> <span class="hljs-string">&apos;printf &quot;$cursor_visible&quot;&apos;</span> EXIT
 
-
 mkfifo `mktemp -u` &amp;&amp; <span class="hljs-built_in">exec</span> {fd1}&lt;&gt; <span class="hljs-variable">$_</span>
 rm <span class="hljs-operator">-f</span> `readlink <span class="hljs-operator">-f</span> /proc/$$/fd/<span class="hljs-variable">$fd1</span>`
 
