@@ -1732,7 +1732,113 @@ adjust_start
 </video>
 
 
+<hr>
+<p>&#xD658;&#xACBD; &#xBCC0;&#xC218; &#xD65C;&#xC6A9;&#xC744; &#xD1B5;&#xD574; &#xBD88;&#xD544;&#xC694;&#xD558;&#xAC8C; &#xC0DD;&#xC131;&#xB418;&#xB294; &#xD504;&#xB85C;&#xC138;&#xC2A4; &#xC218;&#xB97C; &#xB9CE;&#xC774; &#xC904;&#xC600;&#xC9C0;&#xB9CC;
+&#xADF8;&#xB798;&#xB3C4; &#xD30C;&#xC774;&#xD504;&#xB97C; &#xD1B5;&#xD574; &#xAC12;&#xC774; &#xD558;&#xB098; &#xC785;&#xB825;&#xB420; &#xB54C;&#xB9C8;&#xB2E4; awk &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; &#xC0DD;&#xC131;&#xB418;&#xB294; &#xAD6C;&#xC870;&#xC785;&#xB2C8;&#xB2E4;.
+&#xADF8;&#xB798;&#xD504; &#xADF8;&#xB9AC;&#xB294; &#xAC83;&#xC744; &#xD558;&#xB098;&#xC758; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC5D0;&#xC11C; &#xBAA8;&#xB450; &#xCC98;&#xB9AC;&#xD558;&#xBA74; &#xC88B;&#xC740;&#xB370; 
+&#xADF8;&#xB807;&#xAC8C; &#xD558;&#xB824;&#xBA74; awk &#xAC00; &quot;WINCH&quot; &#xC2E0;&#xD638;&#xB97C; trap &#xD574;&#xC11C; &#xCC98;&#xB9AC;&#xD560; &#xC218; &#xC788;&#xC5B4;&#xC57C; &#xB429;&#xB2C8;&#xB2E4;.
+&#xD558;&#xC9C0;&#xB9CC; awk &#xB294; &#xC2E0;&#xD638; trap &#xAE30;&#xB2A5;&#xC774; &#xC5C6;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xC774;&#xB54C;&#xB294; perl &#xC744; &#xC0AC;&#xC6A9;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash"><span class="hljs-shebang">#!/bin/bash
+</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;start download? [y/n]&quot;</span>
+<span class="hljs-built_in">read</span> x
 
+<span class="hljs-built_in">enable</span> <span class="hljs-operator">-f</span> /usr/lib/bash/sleep sleep
+<span class="hljs-built_in">trap</span> <span class="hljs-string">&apos;printf &quot;$cursor_visible&quot;&apos;</span> EXIT
+
+
+mkfifo `mktemp -u` &amp;&amp; <span class="hljs-built_in">exec</span> {fd1}&lt;&gt; <span class="hljs-variable">$_</span>
+rm <span class="hljs-operator">-f</span> `readlink <span class="hljs-operator">-f</span> /proc/$$/fd/<span class="hljs-variable">$fd1</span>`
+
+<span class="hljs-built_in">export</span> progress_bar=<span class="hljs-number">30</span>
+<span class="hljs-built_in">export</span> num_of_files=<span class="hljs-number">10</span>
+<span class="hljs-built_in">export</span> move_cursor_up=`tput cuu <span class="hljs-variable">$num_of_files</span>` 
+cursor_visible=`tput cnorm` 
+cursor_invisible=`tput civis`
+
+<span class="hljs-keyword">for</span> ((i=<span class="hljs-number">1</span>; i&lt;=<span class="hljs-variable">$num_of_files</span>; i++)) <span class="hljs-keyword">do</span> 
+    <span class="hljs-built_in">export</span> file<span class="hljs-variable">$i</span>=<span class="hljs-string">&quot;`mktemp -u XXXXXXXXXX`=0&quot;</span>
+<span class="hljs-keyword">done</span>
+
+<span class="hljs-keyword">for</span> ((i=<span class="hljs-number">1</span>; i&lt;=<span class="hljs-variable">$num_of_files</span>; i++)) <span class="hljs-keyword">do</span> 
+(
+    <span class="hljs-built_in">declare</span> -i cur_pos=<span class="hljs-number">0</span> pre_pos=<span class="hljs-number">0</span>
+    fname=$(<span class="hljs-built_in">eval</span> <span class="hljs-built_in">echo</span> \<span class="hljs-variable">${file$i}</span>) fname=<span class="hljs-variable">${fname%=*}</span>  <span class="hljs-comment"># fname &#xC740; random &#xD568;&#xC218;&#xBA85;</span>
+    <span class="hljs-keyword">while</span> :; <span class="hljs-keyword">do</span>
+        cur_pos+=$(( RANDOM % <span class="hljs-number">5</span> ))
+        [ <span class="hljs-variable">$cur_pos</span> <span class="hljs-operator">-gt</span> <span class="hljs-variable">$progress_bar</span> ] &amp;&amp; cur_pos=<span class="hljs-variable">$progress_bar</span>
+        [ <span class="hljs-variable">$cur_pos</span> <span class="hljs-operator">-ne</span> <span class="hljs-variable">$pre_pos</span> ] &amp;&amp; <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;file<span class="hljs-variable">$i</span>=<span class="hljs-variable">$fname</span>=<span class="hljs-variable">$cur_pos</span>&quot;</span> &gt;&amp; <span class="hljs-string">&quot;<span class="hljs-variable">$fd1</span>&quot;</span>
+        [ <span class="hljs-variable">$cur_pos</span> <span class="hljs-operator">-eq</span> <span class="hljs-variable">$progress_bar</span> ] &amp;&amp; <span class="hljs-built_in">exit</span>
+        pre_pos=<span class="hljs-variable">$cur_pos</span>
+        sleep <span class="hljs-number">0</span>.$(( RANDOM % <span class="hljs-number">10</span> ))
+    <span class="hljs-keyword">done</span>
+) &amp;
+<span class="hljs-keyword">done</span>
+
+<span class="hljs-built_in">printf</span> <span class="hljs-string">&quot;<span class="hljs-variable">$cursor_invisible</span>&quot;</span>
+<span class="hljs-built_in">printf</span> `tput indn <span class="hljs-variable">$num_of_files</span>`
+
+perl -F<span class="hljs-string">&apos;=&apos;</span> <span class="hljs-operator">-f</span> /dev/fd/<span class="hljs-number">3</span> <span class="hljs-number">3</span>&lt;&lt;\EOF &lt;&amp; <span class="hljs-variable">$fd1</span>
+BEGIN {
+
+    <span class="hljs-variable">$num_of_files</span>   = <span class="hljs-variable">$ENV</span>{<span class="hljs-string">&quot;num_of_files&quot;</span>};
+    <span class="hljs-variable">$progress_bar</span>   = <span class="hljs-variable">$ENV</span>{<span class="hljs-string">&quot;progress_bar&quot;</span>};
+    <span class="hljs-variable">$move_cursor_up</span> = <span class="hljs-variable">$ENV</span>{<span class="hljs-string">&quot;move_cursor_up&quot;</span>};
+
+    <span class="hljs-variable">$SIG</span>{<span class="hljs-string">&apos;WINCH&apos;</span>} = <span class="hljs-string">&apos;adjust_start&apos;</span>;        <span class="hljs-comment"># &apos;WINCH&apos; &#xC2E0;&#xD638; trap &#xC124;&#xC815;</span>
+
+    sub adjust_start {
+        my <span class="hljs-variable">$lines</span> = `tput lines` || die;
+        <span class="hljs-keyword">if</span> ( <span class="hljs-variable">$lines</span> &lt;= <span class="hljs-variable">$num_of_files</span> ) {
+            <span class="hljs-variable">$start</span> = <span class="hljs-variable">$num_of_files</span> - <span class="hljs-variable">$lines</span> + <span class="hljs-number">2</span>;
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-variable">$start</span> = <span class="hljs-number">1</span>;
+        }
+    }
+
+    sub draw {
+        my ( <span class="hljs-variable">$fname</span>, <span class="hljs-variable">$cpos</span> ) = @_, <span class="hljs-variable">$str</span>, <span class="hljs-variable">$space</span>;
+
+        <span class="hljs-variable">$space</span> = <span class="hljs-variable">$progress_bar</span> - <span class="hljs-variable">$cpos</span> + <span class="hljs-number">2</span>;
+        <span class="hljs-variable">$str</span>   = sprintf <span class="hljs-string">&quot;%-8s |%s&gt;%s&quot;</span>, <span class="hljs-variable">$fname</span>, <span class="hljs-string">&quot;=&quot;</span> x <span class="hljs-variable">$cpos</span>, <span class="hljs-string">&quot; &quot;</span> x <span class="hljs-variable">$space</span>;
+        <span class="hljs-variable">$str</span>  .= sprintf <span class="hljs-string">&quot;[ %3d%% ]\n&quot;</span>, <span class="hljs-number">100</span> * (<span class="hljs-variable">$cpos</span> / <span class="hljs-variable">$progress_bar</span>);
+
+        <span class="hljs-built_in">print</span> <span class="hljs-variable">$str</span> <span class="hljs-keyword">if</span> <span class="hljs-variable">$f</span> &gt;= <span class="hljs-variable">$start</span>;
+
+        <span class="hljs-variable">$exitCount</span>{<span class="hljs-variable">$fname</span>}=<span class="hljs-number">1</span> <span class="hljs-keyword">if</span> (<span class="hljs-variable">$cpos</span> == <span class="hljs-variable">$progress_bar</span>)
+    }
+
+    adjust_start();
+
+    <span class="hljs-built_in">print</span> <span class="hljs-string">&quot;<span class="hljs-variable">$move_cursor_up</span>&quot;</span>;
+
+    <span class="hljs-keyword">for</span> ( <span class="hljs-variable">$f</span>=<span class="hljs-number">1</span>; <span class="hljs-variable">$f</span> &lt;= <span class="hljs-variable">$num_of_files</span>; <span class="hljs-variable">$f</span>++ ) {
+        my ( <span class="hljs-variable">$name</span>, <span class="hljs-variable">$cpos</span> ) = split( <span class="hljs-string">&quot;=&quot;</span>, <span class="hljs-variable">$ENV</span>{<span class="hljs-string">&quot;file&quot;</span> . <span class="hljs-variable">$f</span>} );
+        <span class="hljs-variable">$files</span>[<span class="hljs-variable">$f</span>] = <span class="hljs-variable">$name</span> . <span class="hljs-string">&quot;=&quot;</span> . <span class="hljs-variable">$cpos</span>;
+        draw( <span class="hljs-variable">$name</span>, <span class="hljs-variable">$cpos</span> );
+    }
+
+}
+{ 
+    <span class="hljs-keyword">if</span> ( <span class="hljs-variable">$F</span>[<span class="hljs-number">0</span>] eq <span class="hljs-string">&quot;start&quot;</span> ) { <span class="hljs-variable">$start</span> = <span class="hljs-variable">$F</span>[<span class="hljs-number">1</span>]; next };
+
+    my (<span class="hljs-variable">$num</span>)    = <span class="hljs-variable">$F</span>[<span class="hljs-number">0</span>] =~ /(\d+)$/;
+    <span class="hljs-variable">$files</span>[<span class="hljs-variable">$num</span>] = <span class="hljs-variable">$F</span>[<span class="hljs-number">1</span>] . <span class="hljs-string">&quot;=&quot;</span> . <span class="hljs-variable">$F</span>[<span class="hljs-number">2</span>];
+
+    <span class="hljs-built_in">print</span> <span class="hljs-string">&quot;<span class="hljs-variable">$move_cursor_up</span>&quot;</span>;
+    <span class="hljs-keyword">for</span> ( <span class="hljs-variable">$f</span> = <span class="hljs-number">1</span>; <span class="hljs-variable">$f</span> &lt;= <span class="hljs-variable">$num_of_files</span>; <span class="hljs-variable">$f</span>++ ) {
+        my ( <span class="hljs-variable">$name</span>, <span class="hljs-variable">$cpos</span> ) = split( <span class="hljs-string">&quot;=&quot;</span>, <span class="hljs-variable">$files</span>[<span class="hljs-variable">$f</span>] );
+        draw( <span class="hljs-variable">$name</span>, <span class="hljs-variable">$cpos</span> );
+    }
+
+    <span class="hljs-built_in">exit</span> <span class="hljs-keyword">if</span> ( keys (%<span class="hljs-built_in">exit</span>Count) == <span class="hljs-variable">$num_of_files</span> );
+}
+EOF
+
+<span class="hljs-built_in">printf</span> <span class="hljs-string">&quot;<span class="hljs-variable">$cursor_visible</span>&quot;</span>
+
+<span class="hljs-built_in">echo</span> Done...................
+</code></pre>
 <p><a name="prompt"></a></p>
 <h2 id="prompt-&#xC124;&#xC815;">Prompt &#xC124;&#xC815;</h2>
 <p>Interactive shell &#xC778; bash &#xB294; &#xC0AC;&#xC6A9;&#xC790; &#xD504;&#xB86C;&#xD504;&#xD2B8; &#xC124;&#xC815;&#xC744; &#xC704;&#xD55C; &#xC804;&#xC6A9; escape sequences &#xB97C; &#xC81C;&#xACF5;&#xD569;&#xB2C8;&#xB2E4;.
