@@ -1797,7 +1797,7 @@ BEGIN {
     }
 
     sub draw {
-        my ( <span class="hljs-variable">$fname</span>, <span class="hljs-variable">$cpos</span> ) = @_, my <span class="hljs-variable">$str</span>, my <span class="hljs-variable">$space</span>;
+        my ( <span class="hljs-variable">$fname</span>, <span class="hljs-variable">$cpos</span> ) = @_, my ( <span class="hljs-variable">$str</span>, <span class="hljs-variable">$space</span> );
 
         <span class="hljs-variable">$space</span> = <span class="hljs-variable">$progress_bar</span> - <span class="hljs-variable">$cpos</span> + <span class="hljs-number">2</span>;
         <span class="hljs-variable">$str</span>   = sprintf <span class="hljs-string">&quot;%-8s |%s&gt;%s&quot;</span>, <span class="hljs-variable">$fname</span>, <span class="hljs-string">&quot;=&quot;</span> x <span class="hljs-variable">$cpos</span>, <span class="hljs-string">&quot; &quot;</span> x <span class="hljs-variable">$space</span>;
