@@ -1812,9 +1812,9 @@ BEGIN {
     <span class="hljs-built_in">print</span> <span class="hljs-string">&quot;<span class="hljs-variable">$move_cursor_up</span>&quot;</span>;
 
     <span class="hljs-keyword">for</span> ( <span class="hljs-variable">$f</span>=<span class="hljs-number">1</span>; <span class="hljs-variable">$f</span> &lt;= <span class="hljs-variable">$num_of_files</span>; <span class="hljs-variable">$f</span>++ ) {
-        my ( <span class="hljs-variable">$name</span>, <span class="hljs-variable">$cpos</span> ) = split( <span class="hljs-string">&quot;=&quot;</span>, <span class="hljs-variable">$ENV</span>{<span class="hljs-string">&quot;file&quot;</span> . <span class="hljs-variable">$f</span>} );
+        my ( <span class="hljs-variable">$name</span>, <span class="hljs-variable">$cpos</span> ) = split <span class="hljs-string">&quot;=&quot;</span>, <span class="hljs-variable">$ENV</span>{<span class="hljs-string">&quot;file&quot;</span> . <span class="hljs-variable">$f</span>};
         <span class="hljs-variable">$files</span>[<span class="hljs-variable">$f</span>] = <span class="hljs-variable">$name</span> . <span class="hljs-string">&quot;=&quot;</span> . <span class="hljs-variable">$cpos</span>;
-        draw( <span class="hljs-variable">$name</span>, <span class="hljs-variable">$cpos</span> );
+        draw <span class="hljs-variable">$name</span>, <span class="hljs-variable">$cpos</span>;
     }
 }
 { 
@@ -1823,8 +1823,8 @@ BEGIN {
 
     <span class="hljs-built_in">print</span> <span class="hljs-string">&quot;<span class="hljs-variable">$move_cursor_up</span>&quot;</span>;
     <span class="hljs-keyword">for</span> ( <span class="hljs-variable">$f</span> = <span class="hljs-number">1</span>; <span class="hljs-variable">$f</span> &lt;= <span class="hljs-variable">$num_of_files</span>; <span class="hljs-variable">$f</span>++ ) {
-        my ( <span class="hljs-variable">$name</span>, <span class="hljs-variable">$cpos</span> ) = split( <span class="hljs-string">&quot;=&quot;</span>, <span class="hljs-variable">$files</span>[<span class="hljs-variable">$f</span>] );
-        draw( <span class="hljs-variable">$name</span>, <span class="hljs-variable">$cpos</span> );
+        my ( <span class="hljs-variable">$name</span>, <span class="hljs-variable">$cpos</span> ) = split <span class="hljs-string">&quot;=&quot;</span>, <span class="hljs-variable">$files</span>[<span class="hljs-variable">$f</span>];
+        draw <span class="hljs-variable">$name</span>, <span class="hljs-variable">$cpos</span>;
     }
 
     <span class="hljs-built_in">exit</span> <span class="hljs-keyword">if</span> ( keys (%<span class="hljs-built_in">exit</span>Count) == <span class="hljs-variable">$num_of_files</span> );
