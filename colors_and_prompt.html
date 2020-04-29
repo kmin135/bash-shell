@@ -1785,7 +1785,7 @@ BEGIN {
     <span class="hljs-variable">$move_cursor_up</span> = <span class="hljs-variable">$ENV</span>{<span class="hljs-string">&quot;move_cursor_up&quot;</span>};
     <span class="hljs-variable">$start</span>, @files, %<span class="hljs-built_in">exit</span>Count, <span class="hljs-variable">$f</span>;
 
-    <span class="hljs-variable">$SIG</span>{<span class="hljs-string">&apos;WINCH&apos;</span>} = <span class="hljs-string">&apos;adjust_start&apos;</span>;        <span class="hljs-comment"># &apos;WINCH&apos; &#xC2E0;&#xD638; trap &#xC124;&#xC815;</span>
+    <span class="hljs-variable">$SIG</span>{WINCH} = <span class="hljs-string">&apos;adjust_start&apos;</span>;          <span class="hljs-comment"># &apos;WINCH&apos; &#xC2E0;&#xD638; trap &#xC124;&#xC815;</span>
 
     sub adjust_start {
         my <span class="hljs-variable">$lines</span> = `tput lines` || die;
