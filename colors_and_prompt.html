@@ -1788,7 +1788,7 @@ BEGIN {
     <span class="hljs-variable">$SIG</span>{WINCH} = <span class="hljs-string">&apos;adjust_start&apos;</span>;          <span class="hljs-comment"># &apos;WINCH&apos; &#xC2E0;&#xD638; trap &#xC124;&#xC815;</span>
 
     sub adjust_start {
-        my <span class="hljs-variable">$lines</span> = `tput lines` || die;
+        my <span class="hljs-variable">$lines</span> = `tput lines` or die;
         <span class="hljs-keyword">if</span> ( <span class="hljs-variable">$lines</span> &lt;= <span class="hljs-variable">$num_of_files</span> ) {
             <span class="hljs-variable">$start</span> = <span class="hljs-variable">$num_of_files</span> - <span class="hljs-variable">$lines</span> + <span class="hljs-number">2</span>;
         } <span class="hljs-keyword">else</span> {
