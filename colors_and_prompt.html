@@ -1650,7 +1650,6 @@ export &#xD55C; &#xD658;&#xACBD; &#xBCC0;&#xC218;&#xB294; child &#xD504;&#xB85C;
 <span class="hljs-built_in">read</span> x
 
 <span class="hljs-built_in">enable</span> <span class="hljs-operator">-f</span> /usr/lib/bash/sleep sleep
-<span class="hljs-built_in">trap</span> <span class="hljs-string">&apos;printf &quot;$cursor_visible&quot;&apos;</span> EXIT
 <span class="hljs-built_in">trap</span> <span class="hljs-string">&apos;adjust_start&apos;</span> WINCH      <span class="hljs-comment">#  &#xC0AC;&#xC6A9;&#xC790;&#xAC00; &#xC2E4;&#xD589; &#xC911;&#xC5D0; &#xD130;&#xBBF8;&#xB110; &#xCC3D; &#xD06C;&#xAE30;&#xB97C; &#xBCC0;&#xACBD;&#xD588;&#xC744; &#xACBD;&#xC6B0;</span>
 
 <span class="hljs-function"><span class="hljs-title">adjust_start</span></span>() {
@@ -1668,8 +1667,6 @@ rm <span class="hljs-operator">-f</span> `readlink <span class="hljs-operator">-
 progress_bar=<span class="hljs-number">30</span>
 num_of_files=<span class="hljs-number">10</span>
 move_cursor_up=`tput cuu <span class="hljs-variable">$num_of_files</span>` 
-cursor_visible=`tput cnorm` 
-cursor_invisible=`tput civis`
 
 <span class="hljs-comment"># file1=&quot;NdhW2npQAV=12&quot;, file2=&quot;kd7SdI1Cqg=34&quot; ... &#xD615;&#xC2DD;&#xC758; &#xBCC0;&#xC218;&#xB97C; &#xC0AC;&#xC6A9;&#xD569;&#xB2C8;&#xB2E4;.</span>
 <span class="hljs-comment"># value &#xBD80;&#xBD84;&#xC5D0; random &#xD568;&#xC218;&#xBA85;&#xACFC; cur_pos &#xAC12;&#xC744; &apos;=&apos; &#xAD6C;&#xBD84;&#xC790;&#xB85C; &#xC124;&#xC815;&#xD569;&#xB2C8;&#xB2E4;.</span>
@@ -1692,7 +1689,6 @@ cursor_invisible=`tput civis`
 ) &amp;
 <span class="hljs-keyword">done</span>
 
-<span class="hljs-built_in">printf</span> <span class="hljs-string">&quot;<span class="hljs-variable">$cursor_invisible</span>&quot;</span>
 <span class="hljs-built_in">printf</span> `tput indn <span class="hljs-variable">$num_of_files</span>`
 adjust_start
 
