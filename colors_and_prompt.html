@@ -1827,7 +1827,7 @@ BEGIN {
         draw <span class="hljs-variable">$name</span>, <span class="hljs-variable">$cpos</span>;
     }
 
-    <span class="hljs-built_in">exit</span> <span class="hljs-keyword">if</span> ( keys (%<span class="hljs-built_in">exit</span>Count) == <span class="hljs-variable">$num_of_files</span> );
+    <span class="hljs-built_in">exit</span> <span class="hljs-keyword">if</span> ( %<span class="hljs-built_in">exit</span>Count == <span class="hljs-variable">$num_of_files</span> );
 }
 EOF
 
