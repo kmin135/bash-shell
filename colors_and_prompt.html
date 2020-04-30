@@ -1627,8 +1627,6 @@ cursor_invisible=`tput civis`
     <span class="hljs-keyword">fi</span>
 <span class="hljs-keyword">done</span> &lt;&amp; <span class="hljs-variable">$fd1</span>
 
-<span class="hljs-built_in">printf</span> <span class="hljs-string">&quot;<span class="hljs-variable">$cursor_visible</span>&quot;</span>
-
 <span class="hljs-built_in">echo</span> Done...................
 </code></pre>
 <video width="766" height="256" controls preload="auto">
@@ -1722,8 +1720,6 @@ adjust_start
     <span class="hljs-keyword">fi</span>
 <span class="hljs-keyword">done</span> &lt;&amp; <span class="hljs-variable">$fd1</span>
 
-<span class="hljs-built_in">printf</span> <span class="hljs-string">&quot;<span class="hljs-variable">$cursor_visible</span>&quot;</span>
-
 <span class="hljs-built_in">echo</span> Done...................
 </code></pre>
 <video width="766" height="350" controls preload="auto">
@@ -1744,7 +1740,6 @@ adjust_start
 <span class="hljs-built_in">read</span> x
 
 <span class="hljs-built_in">enable</span> <span class="hljs-operator">-f</span> /usr/lib/bash/sleep sleep
-<span class="hljs-built_in">trap</span> <span class="hljs-string">&apos;printf &quot;$cursor_visible&quot;&apos;</span> EXIT
 
 mkfifo `mktemp -u` &amp;&amp; <span class="hljs-built_in">exec</span> {fd1}&lt;&gt; <span class="hljs-variable">$_</span>
 rm <span class="hljs-operator">-f</span> `readlink <span class="hljs-operator">-f</span> /proc/$$/fd/<span class="hljs-variable">$fd1</span>`
@@ -1752,8 +1747,6 @@ rm <span class="hljs-operator">-f</span> `readlink <span class="hljs-operator">-
 <span class="hljs-built_in">export</span> progress_bar=<span class="hljs-number">30</span>
 <span class="hljs-built_in">export</span> num_of_files=<span class="hljs-number">10</span>
 <span class="hljs-built_in">export</span> move_cursor_up=`tput cuu <span class="hljs-variable">$num_of_files</span>` 
-cursor_visible=`tput cnorm` 
-cursor_invisible=`tput civis`
 
 <span class="hljs-keyword">for</span> ((i=<span class="hljs-number">1</span>; i&lt;=<span class="hljs-variable">$num_of_files</span>; i++)) <span class="hljs-keyword">do</span> 
     <span class="hljs-built_in">export</span> file<span class="hljs-variable">$i</span>=<span class="hljs-string">&quot;`mktemp -u XXXXXXXXXX`=0&quot;</span>
@@ -1774,7 +1767,6 @@ cursor_invisible=`tput civis`
 ) &amp;
 <span class="hljs-keyword">done</span>
 
-<span class="hljs-built_in">printf</span> <span class="hljs-string">&quot;<span class="hljs-variable">$cursor_invisible</span>&quot;</span>
 <span class="hljs-built_in">printf</span> `tput indn <span class="hljs-variable">$num_of_files</span>`
 
 perl -F<span class="hljs-string">&apos;=&apos;</span> <span class="hljs-operator">-f</span> /dev/fd/<span class="hljs-number">3</span> <span class="hljs-number">3</span>&lt;&lt;\EOF &lt;&amp; <span class="hljs-variable">$fd1</span>
@@ -1830,8 +1822,6 @@ BEGIN {
     <span class="hljs-built_in">exit</span> <span class="hljs-keyword">if</span> ( %<span class="hljs-built_in">exit</span>Count == <span class="hljs-variable">$num_of_files</span> );
 }
 EOF
-
-<span class="hljs-built_in">printf</span> <span class="hljs-string">&quot;<span class="hljs-variable">$cursor_visible</span>&quot;</span>
 
 <span class="hljs-built_in">echo</span> Done...................
 </code></pre>
