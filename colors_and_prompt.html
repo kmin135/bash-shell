@@ -1818,7 +1818,7 @@ BEGIN {
     }
 }
 { 
-    my (<span class="hljs-variable">$num</span>)    = <span class="hljs-variable">$F</span>[<span class="hljs-number">0</span>] =~ /(\d+)$/;
+    my (<span class="hljs-variable">$num</span>) = <span class="hljs-variable">$F</span>[<span class="hljs-number">0</span>] =~ /(\d+)$/; chomp <span class="hljs-variable">$F</span>[<span class="hljs-number">2</span>];
     <span class="hljs-variable">$files</span>[<span class="hljs-variable">$num</span>] = <span class="hljs-variable">$F</span>[<span class="hljs-number">1</span>] . <span class="hljs-string">&quot;=&quot;</span> . <span class="hljs-variable">$F</span>[<span class="hljs-number">2</span>];
 
     <span class="hljs-built_in">print</span> <span class="hljs-string">&quot;<span class="hljs-variable">$move_cursor_up</span>&quot;</span>;
