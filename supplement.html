@@ -1936,7 +1936,7 @@ ldd (Ubuntu GLIBC <span class="hljs-number">2.31</span>-<span class="hljs-number
 $ lsof -p $$ | grep libc
 bash    <span class="hljs-number">9963</span> mug896  mem ... <span class="hljs-number">7216277</span> /usr/lib/x86_64-linux-gnu/libc-<span class="hljs-number">2.31</span>.so
 
-$ $(lsof -p $$ | awk <span class="hljs-string">&apos;/libc/{print $NF&quot; --version&quot;}&apos;</span>) | head -<span class="hljs-number">1</span>
+$ $(lsof -p $$ | awk <span class="hljs-string">&apos;/libc/{print $NF}&apos;</span>) | head -<span class="hljs-number">1</span>
 GNU C Library (Ubuntu GLIBC <span class="hljs-number">2.31</span>-<span class="hljs-number">0</span>ubuntu9) stable release version <span class="hljs-number">2.31</span>.
 </code></pre>
 <h3 id="vi-&#xC5D0;&#xB514;&#xD130;-&#xC124;&#xC815;-tip">vi &#xC5D0;&#xB514;&#xD130; &#xC124;&#xC815; tip</h3>
