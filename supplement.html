@@ -1927,6 +1927,18 @@ exec &#xC2DC;&#xC2A4;&#xD15C;&#xCF5C;&#xC774; &#xC0AC;&#xC6A9;&#xB418;&#xC9C0; &
 &#xBD84;&#xB9AC;&#xD574; &#xC2E4;&#xD589;&#xD558;&#xBBC0;&#xB85C; &#xC804;&#xB2EC;&#xB418;&#xB294; &#xC778;&#xC218;&#xC758; &#xAC1C;&#xC218;&#xAC00; &#xB108;&#xBB34; &#xB9CE;&#xC9C0; &#xC54A;&#xC744;&#xAE4C; &#xAC71;&#xC815;&#xD558;&#xC9C0; &#xC54A;&#xC544;&#xB3C4; &#xB429;&#xB2C8;&#xB2E4;. 
 &#xC774;&#xB54C; limit &#xAC12;&#xC5D0;&#xB294; <code>131072</code> &#xC774; &#xC0AC;&#xC6A9;&#xB418;&#xB294;&#xB370; &#xC774; &#xAC12;&#xC744; &#xB118;&#xC5B4;&#xC124; &#xACBD;&#xC6B0; &#xC0C8;&#xB85C; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; &#xC0DD;&#xC131;&#xB418;&#xC5B4; 
 &#xC2E4;&#xD589;&#xB429;&#xB2C8;&#xB2E4;.</p>
+<h1 id="4">4.</h1>
+<p>&#xAC04;&#xD639; &#xD504;&#xB85C;&#xADF8;&#xB7A8;&#xC744; &#xC2E4;&#xD589;&#xD558;&#xAE30; &#xC704;&#xD55C; &#xD544;&#xC694;&#xC870;&#xAC74;&#xC73C;&#xB85C; &#xD2B9;&#xC815; &#xBC84;&#xC804; &#xC774;&#xC0C1;&#xC758; GLIBC &#xAC00; &#xC694;&#xAD6C;&#xB418;&#xB294; &#xACBD;&#xC6B0;&#xAC00; &#xC788;&#xB294;&#xB370;&#xC694;.
+&#xC5B4;&#xB5BB;&#xAC8C; &#xD558;&#xBA74; &#xD604;&#xC7AC; &#xC2DC;&#xC2A4;&#xD15C;&#xC5D0; &#xC124;&#xCE58;&#xB41C; &#xBC84;&#xC804;&#xC744; &#xC54C; &#xC218; &#xC788;&#xC744;&#xAE4C;&#xC694;?</p>
+<pre><code class="lang-bash">$ ldd --version | head -<span class="hljs-number">1</span>
+ldd (Ubuntu GLIBC <span class="hljs-number">2.31</span>-<span class="hljs-number">0</span>ubuntu9) <span class="hljs-number">2.31</span>
+
+$ lsof -p $$ | grep libc
+bash    <span class="hljs-number">9963</span> mug896  mem ... <span class="hljs-number">7216277</span> /usr/lib/x86_64-linux-gnu/libc-<span class="hljs-number">2.31</span>.so
+
+$ $(lsof -p $$ | awk <span class="hljs-string">&apos;/libc/{print $NF&quot; --version&quot;}&apos;</span>) | head -<span class="hljs-number">1</span>
+GNU C Library (Ubuntu GLIBC <span class="hljs-number">2.31</span>-<span class="hljs-number">0</span>ubuntu9) stable release version <span class="hljs-number">2.31</span>.
+</code></pre>
 <h3 id="vi-&#xC5D0;&#xB514;&#xD130;-&#xC124;&#xC815;-tip">vi &#xC5D0;&#xB514;&#xD130; &#xC124;&#xC815; tip</h3>
 <p>strace &#xCD9C;&#xB825;&#xC744; &#xC778;&#xC2DD;&#xD574;&#xC11C; &#xC790;&#xB3D9;&#xC73C;&#xB85C; highlight &#xD574;&#xC8FC;&#xB294; &#xC124;&#xC815;&#xC785;&#xB2C8;&#xB2E4;.<br>/usr/share/vim/vim80/scripts.vim  &#xD30C;&#xC77C;&#xC5D0;&#xC11C; &#xC544;&#xB798; &#xB77C;&#xC778;&#xC744; &#xCC3E;&#xC544;&#xC11C; &#xBCC0;&#xACBD;&#xD574; &#xC90D;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-vim">  <span class="hljs-string">&quot; Strace &#xBCC0;&#xACBD; &#xC804;
