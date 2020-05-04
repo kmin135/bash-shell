@@ -1287,7 +1287,7 @@ $ <span class="hljs-built_in">eval</span> $( <span class="hljs-built_in">echo</s
 $ $( <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;if test 1 -eq 1; then echo equal; fi&quot;</span> )
 <span class="hljs-keyword">if</span>: <span class="hljs-built_in">command</span> not found
 
-<span class="hljs-comment"># &#xC774;&#xB54C; eval &#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; &#xC815;&#xC0C1;&#xC801;&#xC73C;&#xB85C; &#xC2E4;&#xD589;&#xB41C;&#xB2E4;.</span>
+<span class="hljs-comment"># &#xC774;&#xB54C; eval &#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; &#xC815;&#xC0C1;&#xC801;&#xC73C;&#xB85C; &#xC2E4;&#xD589;&#xB429;&#xB2C8;&#xB2E4;.</span>
 $ <span class="hljs-built_in">eval</span> <span class="hljs-string">&quot;<span class="hljs-variable">$( echo &quot;if test 1 -eq 1; then echo equal; fi&quot; )</span>&quot;</span>
 equal
 ........................................................
@@ -1299,6 +1299,21 @@ AA=<span class="hljs-number">100</span>: <span class="hljs-built_in">command</sp
 $ <span class="hljs-built_in">eval</span> <span class="hljs-string">&quot;<span class="hljs-variable">$( echo &quot;AA=100&quot; )</span>&quot;</span>    <span class="hljs-comment"># eval &#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xC5EC; &#xC815;&#xC0C1;&#xC801;&#xC73C;&#xB85C; &#xC2E4;&#xD589;</span>
 $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$AA</span>
 <span class="hljs-number">100</span>
+.................................................................
+
+<span class="hljs-comment"># &#xB2E4;&#xC74C;&#xC740; &#xBA85;&#xB839; &#xCE58;&#xD658; &#xACB0;&#xACFC;&#xB85C; export &#xBA85;&#xB839;&#xBB38;&#xC774; &#xCD9C;&#xB825;&#xB418;&#xBBC0;&#xB85C; &#xBB38;&#xC81C;&#xC5C6;&#xC774; &#xC2E4;&#xD589;&#xB420;&#xAC83; &#xAC19;&#xC9C0;&#xB9CC;</span>
+<span class="hljs-comment"># &#xBA85;&#xB839;&#xBB38;&#xC5D0; quotes &#xC0AC;&#xC6A9;&#xB418;&#xC5B4; &#xBB38;&#xC81C;&#xAC00; &#xB429;&#xB2C8;&#xB2E4;. ( quotes &#xD574;&#xC11D;&#xB3C4; &#xBA85;&#xB839; &#xCE58;&#xD658; &#xC774;&#xC804;&#xC5D0; &#xC644;&#xB8CC;&#xB429;&#xB2C8;&#xB2E4;.)</span>
+$ <span class="hljs-built_in">echo</span> $( <span class="hljs-built_in">echo</span> <span class="hljs-string">&apos;export LESSCLOSE=&quot;/usr/bin/lesspipe %s %s&quot;&apos;</span> )
+<span class="hljs-built_in">export</span> LESSCLOSE=<span class="hljs-string">&quot;/usr/bin/lesspipe %s %s&quot;</span>
+
+$ $( <span class="hljs-built_in">echo</span> <span class="hljs-string">&apos;export LESSCLOSE=&quot;/usr/bin/lesspipe %s %s&quot;&apos;</span> )
+bash: <span class="hljs-built_in">export</span>: <span class="hljs-string">&apos;%s&apos;</span>: not a valid identifier
+bash: <span class="hljs-built_in">export</span>: <span class="hljs-string">&apos;%s&quot;&apos;</span>: not a valid identifier
+
+$ <span class="hljs-built_in">eval</span> $( <span class="hljs-built_in">echo</span> <span class="hljs-string">&apos;export LESSCLOSE=&quot;/usr/bin/lesspipe %s %s&quot;&apos;</span> )
+
+$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$LESSCLOSE</span> 
+/usr/bin/lesspipe %s %s
 </code></pre>
 <h3 id="eval-&#xBA85;&#xB839;&#xC758;-&#xC2E4;&#xD589;&#xB2E8;&#xACC4;">eval &#xBA85;&#xB839;&#xC758; &#xC2E4;&#xD589;&#xB2E8;&#xACC4;</h3>
 <p>eval &#xBA85;&#xB839;&#xC740; &#xC8FC;&#xC5B4;&#xC9C4; &#xC778;&#xC218;&#xB4E4;&#xC744; &#xC77D;&#xC5B4; &#xB4E4;&#xC778; &#xD6C4; &#xC2E4;&#xD589;&#xD569;&#xB2C8;&#xB2E4;. &#xC5EC;&#xAE30;&#xC11C; &#xC8FC;&#xBAA9;&#xD574;&#xC57C; &#xB420; &#xC810;&#xC740; &#xB450; &#xB2E8;&#xACC4;&#xB97C; &#xAC70;&#xCCD0;&#xC11C; &#xC2E4;&#xD589;&#xC774; &#xB41C;&#xB2E4;&#xB294; &#xC810;&#xC785;&#xB2C8;&#xB2E4;. &#xCCAB;&#xC9F8;. &#xC77D;&#xC5B4;&#xB4E4;&#xC774;&#xB294; &#xB2E8;&#xACC4; , &#xB458;&#xC9F8;. &#xC2E4;&#xD589;&#xD558;&#xB294; &#xB2E8;&#xACC4;.  &#xADF8;&#xB798;&#xC11C; &#xACB0;&#xACFC;&#xC801;&#xC73C;&#xB85C; &#xC778;&#xC218;&#xBD80;&#xBD84;&#xC5D0;&#xC11C; &#xD655;&#xC7A5;&#xACFC; &#xCE58;&#xD658;&#xC774; &#xB450;&#xBC88; &#xC77C;&#xC5B4;&#xB098;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;. &#xC77D;&#xC5B4;&#xB4E4;&#xC77C; &#xB54C; &#xD55C;&#xBC88; &#xC2E4;&#xD589;&#xD560; &#xB54C; &#xD55C;&#xBC88;.</p>
