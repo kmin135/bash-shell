@@ -1279,7 +1279,7 @@ ls: cannot access <span class="hljs-string">&apos;|&apos;</span>: No such file o
 ls: cannot access <span class="hljs-string">&apos;wc&apos;</span>: No such file or directory
 
 <span class="hljs-comment"># &#xC774;&#xB54C; eval &#xB97C; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; &#xC815;&#xC0C1;&#xC801;&#xC73C;&#xB85C; &#xC2E4;&#xD589;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
-$ <span class="hljs-built_in">eval</span> $( <span class="hljs-built_in">echo</span> <span class="hljs-string">&apos;ls -l | wc -l&apos;</span> )
+$ <span class="hljs-built_in">eval</span> <span class="hljs-string">&quot;<span class="hljs-variable">$( echo &apos;ls -l | wc -l&apos; )</span>&quot;</span>
 <span class="hljs-number">25</span>
 </code></pre>
 <p>&#xBA87; &#xAC00;&#xC9C0; &#xC608;&#xB97C; &#xB4E4;&#xC5B4;&#xBCF4;&#xBA74; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
@@ -1310,7 +1310,7 @@ $ $( <span class="hljs-built_in">echo</span> <span class="hljs-string">&apos;exp
 bash: <span class="hljs-built_in">export</span>: <span class="hljs-string">&apos;%s&apos;</span>: not a valid identifier
 bash: <span class="hljs-built_in">export</span>: <span class="hljs-string">&apos;%s&quot;&apos;</span>: not a valid identifier
 
-$ <span class="hljs-built_in">eval</span> $( <span class="hljs-built_in">echo</span> <span class="hljs-string">&apos;export LESSCLOSE=&quot;/usr/bin/lesspipe %s %s&quot;&apos;</span> )
+$ <span class="hljs-built_in">eval</span> <span class="hljs-string">&quot;<span class="hljs-variable">$( echo &apos;export LESSCLOSE=&quot;/usr/bin/lesspipe %s %s&quot;&apos; )</span>&quot;</span>
 
 $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$LESSCLOSE</span> 
 /usr/bin/lesspipe %s %s
