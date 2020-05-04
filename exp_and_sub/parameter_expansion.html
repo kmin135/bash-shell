@@ -1543,10 +1543,13 @@ $ <span class="hljs-built_in">unset</span> AA
 $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${AA:+linux}</span>       <span class="hljs-comment"># &#xBCC0;&#xC218;&#xAC00; &#xC874;&#xC7AC;&#xD558;&#xC9C0; &#xC54A;&#xC73C;&#xBBC0;&#xB85C; null &#xC744; &#xB9AC;&#xD134;&#xD55C;&#xB2E4;.</span>
 
 $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">${AA+linux}</span>
+-----------------------
 
+<span class="hljs-comment"># $debian_chroot &#xBCC0;&#xC218;&#xC5D0; &#xAC12;&#xC774; &#xC874;&#xC7AC;&#xD558;&#xBA74; &apos;( )&apos; &#xB97C; &#xBD99;&#xC5EC;&#xC11C; &#xCD9C;&#xB825;</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-variable">${debian_chroot:+($debian_chroot)}</span>
 
 <span class="hljs-comment"># &#xD568;&#xC218;&#xC774;&#xB984;&#xC744; &#xAC16;&#xB294; FUNCNAME &#xBCC0;&#xC218;&#xAC00; &#xC788;&#xC744; &#xACBD;&#xC6B0; &#xB4A4;&#xC5D0; &apos;()&apos; &#xB97C; &#xBD99;&#xC5EC;&#xC11C; &#xD504;&#xB9B0;&#xD2B8; &#xD558;&#xACE0; &#xC2F6;&#xB2E4;&#xBA74;</span>
-<span class="hljs-built_in">echo</span> <span class="hljs-variable">${FUNCNAME:+${FUNCNAME}</span>()}
+<span class="hljs-built_in">echo</span> <span class="hljs-variable">${FUNCNAME:+$FUNCNAME()}</span>
 </code></pre>
 <h3 id="display-error-if-null-or-unset">Display error if null or unset</h3>
 <blockquote>
