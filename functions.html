@@ -1747,7 +1747,7 @@ get_image_configuration <span class="hljs-string">&quot;<span class="hljs-variab
         | grep -Po <span class="hljs-string">&apos;(?&lt;=&quot;name&quot;: &quot;)[^&quot;]+&apos;</span> | sort -V \
         | sed -n <span class="hljs-string">&apos;$!{ /^latest$/{h;d} }; p; ${g; /^$/!p}&apos;</span> 
     <span class="hljs-keyword">else</span>
-        <span class="hljs-built_in">printf</span> <span class="hljs-string">&apos;\n%s\n\n&apos;</span> <span class="hljs-string">&quot;Usage: <span class="hljs-variable">${FUNCNAME[0]}</span> image_name&quot;</span> &gt;&amp;<span class="hljs-number">2</span>
+        <span class="hljs-built_in">printf</span> <span class="hljs-string">&apos;\n%s\n\n&apos;</span> <span class="hljs-string">&quot;Usage: <span class="hljs-variable">${FUNCNAME[0]}</span> image_name&quot;</span>
     <span class="hljs-keyword">fi</span>
 }
 
