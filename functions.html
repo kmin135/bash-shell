@@ -1738,6 +1738,28 @@ get_image_configuration <span class="hljs-string">&quot;<span class="hljs-variab
 . . .
 </code></pre>
 <p>&#xC18C;&#xC2A4;&#xC8FC;&#xC18C;: <a href="https://ops.tips/blog/inspecting-docker-image-without-pull/" target="_blank">https://ops.tips/blog/inspecting-docker-image-without-pull/</a></p>
+<h1 id="quiz">Quiz</h1>
+<p>docker hub &#xC5D0;&#xC11C; &#xD2B9;&#xC815; &#xC774;&#xBBF8;&#xC9C0;&#xC758; tag list &#xB97C; &#xD655;&#xC778;&#xD558;&#xB824;&#xBA74; &#xC5B4;&#xB5BB;&#xAC8C; &#xD560;&#xAE4C;&#xC694;?</p>
+<pre><code class="lang-bash">docker-<span class="hljs-function"><span class="hljs-title">taglist</span></span> () 
+{ 
+    <span class="hljs-keyword">if</span> [ -n <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span> ]; <span class="hljs-keyword">then</span>
+        curl <span class="hljs-operator">-s</span>S <span class="hljs-string">&quot;https://registry.hub.docker.com/v1/repositories/<span class="hljs-variable">$1</span>/tags&quot;</span> \
+        | grep -Po <span class="hljs-string">&apos;(?&lt;=&quot;name&quot;: &quot;)[^&quot;]+&apos;</span> \
+        | sort -V
+    <span class="hljs-keyword">else</span>
+        <span class="hljs-built_in">printf</span> <span class="hljs-string">&apos;\n%s\n\n&apos;</span> <span class="hljs-string">&quot;Usage: <span class="hljs-variable">${FUNCNAME[0]}</span> image_name&quot;</span> &gt;&amp;<span class="hljs-number">2</span>
+    <span class="hljs-keyword">fi</span>
+}
+
+$ docker-taglist alpine
+<span class="hljs-number">2.6</span>
+<span class="hljs-number">2.7</span>
+<span class="hljs-number">3</span>
+<span class="hljs-number">3.1</span>
+<span class="hljs-number">3.2</span>
+<span class="hljs-number">3.3</span>
+. . .
+</code></pre>
 
                     
                     </section>
