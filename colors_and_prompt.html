@@ -1768,9 +1768,9 @@ rm <span class="hljs-operator">-f</span> `readlink <span class="hljs-operator">-
 perl -F<span class="hljs-string">&apos;=&apos;</span> <span class="hljs-operator">-f</span> /dev/fd/<span class="hljs-number">3</span> <span class="hljs-number">3</span>&lt;&lt;\EOF &lt;&amp; <span class="hljs-variable">$fd1</span>
 BEGIN {
 
-    <span class="hljs-variable">$num_of_files</span>   = <span class="hljs-variable">$ENV</span>{<span class="hljs-string">&quot;num_of_files&quot;</span>};
-    <span class="hljs-variable">$progress_bar</span>   = <span class="hljs-variable">$ENV</span>{<span class="hljs-string">&quot;progress_bar&quot;</span>};
-    <span class="hljs-variable">$move_cursor_up</span> = <span class="hljs-variable">$ENV</span>{<span class="hljs-string">&quot;move_cursor_up&quot;</span>};
+    <span class="hljs-variable">$num_of_files</span>   = <span class="hljs-variable">$ENV</span>{num_of_files};
+    <span class="hljs-variable">$progress_bar</span>   = <span class="hljs-variable">$ENV</span>{progress_bar};
+    <span class="hljs-variable">$move_cursor_up</span> = <span class="hljs-variable">$ENV</span>{move_cursor_up};
     <span class="hljs-variable">$start</span>, @files, %<span class="hljs-built_in">exit</span>Count, <span class="hljs-variable">$f</span>;
 
     <span class="hljs-variable">$SIG</span>{WINCH} = <span class="hljs-string">&apos;adjust_start&apos;</span>;          <span class="hljs-comment"># &apos;WINCH&apos; &#xC2E0;&#xD638; trap &#xC124;&#xC815;</span>
