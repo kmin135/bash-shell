@@ -1543,7 +1543,7 @@ tput civis
     [ <span class="hljs-variable">$cur_pos</span> <span class="hljs-operator">-ne</span> <span class="hljs-number">0</span> ] &amp;&amp; <span class="hljs-keyword">for</span> ((i=<span class="hljs-number">1</span>; i&lt;=<span class="hljs-variable">$cur_pos</span>; i++)) { <span class="hljs-built_in">printf</span> = ;}; <span class="hljs-built_in">printf</span> <span class="hljs-string">&apos;&gt;&apos;</span>
     tput cuf $(( progress_bar - cur_pos + <span class="hljs-number">2</span> ))    <span class="hljs-comment"># cuf : Move cursor right #num spaces</span>
     <span class="hljs-comment"># &#xBC31;&#xBD84;&#xC728; &apos;[  80% ]&apos; &#xAC12;&#xC744; &#xCD9C;&#xB825;&#xD558;&#xACE0; &apos;\r&apos; &#xBB38;&#xC790;&#xB97C; &#xC774;&#xC6A9;&#xD574; &#xCEE4;&#xC11C;&#xB97C; &#xB77C;&#xC778; &#xCC98;&#xC74C;&#xC73C;&#xB85C; &#xC62E;&#xAE41;&#xB2C8;&#xB2E4;.</span>
-    awk <span class="hljs-string">&apos;BEGIN{ printf &quot;[ %3d%% ]\r&quot;,100*(&apos;</span><span class="hljs-variable">$cur_pos</span>/<span class="hljs-variable">$progress_bar</span><span class="hljs-string">&apos;) }&apos;</span>
+    awk <span class="hljs-string">&apos;BEGIN{ printf &quot;[ %3d%% ]\r&quot;,(&apos;</span><span class="hljs-variable">$cur_pos</span>/<span class="hljs-variable">$progress_bar</span><span class="hljs-string">&apos;) * 100 }&apos;</span>
     <span class="hljs-comment"># &#xD604;&#xC7AC; &#xD3EC;&#xC9C0;&#xC158; &#xAC12;&#xC774; $progress_bar &#xC640; &#xAC19;&#xC544;&#xC9C0;&#xBA74; &#xC885;&#xB8CC;&#xD569;&#xB2C8;&#xB2E4;.</span>
     [ <span class="hljs-variable">$cur_pos</span> -ge <span class="hljs-variable">$progress_bar</span> ] &amp;&amp; { <span class="hljs-built_in">echo</span>; <span class="hljs-built_in">break</span>; }
     check_value
@@ -1598,7 +1598,7 @@ cursor_invisible=`tput civis`
         for ( i=1; i&lt;=cpos; i++ ) printf &quot;=&quot;; printf &quot;&gt;&quot;
         space =  pbar - cpos + 2 
         for ( i=1; i&lt;=space; i++ ) printf &quot; &quot;
-        printf &quot;[ %3d%% ]\n&quot;, 100 * (cpos / pbar) 
+        printf &quot;[ %3d%% ]\n&quot;, (cpos / pbar) * 100
     }&apos;</span>
 }
 
@@ -1707,7 +1707,7 @@ adjust_start
              for ( i=1; i&lt;=cpos; i++ ) printf &quot;=&quot;; printf &quot;&gt;&quot;
              space =  pbar - cpos + 2 
              for ( i=1; i&lt;=space; i++ ) printf &quot; &quot;
-             printf &quot;[ %3d%% ]\n&quot;, 100 * (cpos / pbar) 
+             printf &quot;[ %3d%% ]\n&quot;, (cpos / pbar) * 100
          }
     }&apos;</span>
     <span class="hljs-keyword">if</span> [ <span class="hljs-variable">$cur_pos</span> <span class="hljs-operator">-eq</span> <span class="hljs-variable">$progress_bar</span> ]; <span class="hljs-keyword">then</span>
@@ -1789,7 +1789,7 @@ BEGIN {
 
         <span class="hljs-variable">$space</span>  = <span class="hljs-variable">$progress_bar</span> - <span class="hljs-variable">$cpos</span> + <span class="hljs-number">2</span>;
         <span class="hljs-variable">$arrow</span>  = sprintf <span class="hljs-string">&quot;%-8s |%s&gt;%s&quot;</span>, <span class="hljs-variable">$fname</span>, <span class="hljs-string">&quot;=&quot;</span> x <span class="hljs-variable">$cpos</span>, <span class="hljs-string">&quot; &quot;</span> x <span class="hljs-variable">$space</span>;
-        <span class="hljs-variable">$arrow</span> .= sprintf <span class="hljs-string">&quot;[ %3d%% ]\n&quot;</span>, <span class="hljs-number">100</span> * (<span class="hljs-variable">$cpos</span> / <span class="hljs-variable">$progress_bar</span>);
+        <span class="hljs-variable">$arrow</span> .= sprintf <span class="hljs-string">&quot;[ %3d%% ]\n&quot;</span>, (<span class="hljs-variable">$cpos</span> / <span class="hljs-variable">$progress_bar</span>) * <span class="hljs-number">100</span>;
 
         <span class="hljs-built_in">print</span> <span class="hljs-variable">$arrow</span> <span class="hljs-keyword">if</span> <span class="hljs-variable">$f</span> &gt;= <span class="hljs-variable">$start</span>;
 
