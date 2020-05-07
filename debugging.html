@@ -1338,9 +1338,26 @@ rm -rf ~/Workspace/<span class="hljs-variable">$Testdir</span>           <span c
 <p><code>-e</code> | <code>set -o errexit</code> &#xC635;&#xC158;&#xC744; &#xC774;&#xC6A9;&#xD558;&#xBA74; 
 &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xC2E4;&#xD589; &#xC2DC;&#xC5D0; &#xC5B4;&#xB5A4; &#xBA85;&#xB839;&#xC774; &#xC624;&#xB958;&#xB85C; &#xC885;&#xB8CC;&#xD558;&#xC600;&#xC744; &#xACBD;&#xC6B0; &#xC790;&#xB3D9;&#xC73C;&#xB85C; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB97C; &#xC885;&#xB8CC;&#xC2DC;&#xD0AC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
 &#xC624;&#xB958;&#xAC00; &#xB098;&#xB294; &#xBA85;&#xB839;&#xC774; <code>&amp;&amp;</code>, <code>||</code>, <code>if</code>, <code>while</code> ... &#xAC19;&#xC740; &#xBD84;&#xAE30;&#xBB38; &#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xB418;&#xB294; &#xACBD;&#xC6B0;&#xB294; 
-&#xC608;&#xC678;&#xB85C; &#xC885;&#xB8CC;&#xB418;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.
-&#xC774;&#xAC83;&#xC740; shell &#xD568;&#xC218; &#xC2E4;&#xD589; &#xC2DC;&#xC5D0;&#xB3C4; &#xB3D9;&#xC77C;&#xD558;&#xAC8C; &#xC801;&#xC6A9;&#xB429;&#xB2C8;&#xB2E4;.</p>
-<pre><code class="lang-bash"><span class="hljs-comment"># if &#xBB38;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xB418;&#xB294; &#xACBD;&#xC6B0; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB294; exit &#xB418;&#xC9C0; &#xC54A;&#xB294;&#xB2E4;.</span>
+&#xC608;&#xC678;&#xB85C; &#xC885;&#xB8CC;&#xB418;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash"><span class="hljs-comment">#!/bin/bash -e           # errexit &#xC635;&#xC158; &#xC124;&#xC815;</span>
+
+<span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span> -r line; <span class="hljs-keyword">do</span> 
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$line</span>&quot;</span>
+<span class="hljs-keyword">done</span> &lt; not_exist.txt     <span class="hljs-comment"># &#xC874;&#xC7AC;&#xD558;&#xC9C0; &#xC54A;&#xB294; &#xD30C;&#xC77C;</span>
+                         <span class="hljs-comment"># done &lt; not_exist.txt || exit</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;exitstatus : $?&quot;</span>
+
+<span class="hljs-built_in">echo</span> end.....
+
+<span class="hljs-comment">######  &#xC2E4;&#xD589; &#xACB0;&#xACFC; ######</span>
+
+$ ./test.sh
+./test.sh: line <span class="hljs-number">5</span>: not_exist.txt: No such file or directory
+exitstatus : <span class="hljs-number">1</span>    <span class="hljs-comment"># errexit &#xC635;&#xC158;&#xC744; &#xC124;&#xC815;&#xD558;&#xACE0; &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC774; 1 &#xC774; &#xB410;&#xC9C0;&#xB9CC;</span>
+end.....          <span class="hljs-comment"># &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xAC00; &#xC885;&#xB8CC;&#xB418;&#xC9C0; &#xC54A;&#xACE0; &#xB05D;&#xAE4C;&#xC9C0; &#xC2E4;&#xD589;&#xB41C;&#xB2E4;.</span>
+--------------------------------------------------------------
+
+<span class="hljs-comment"># if &#xBB38;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xB418;&#xB294; &#xACBD;&#xC6B0; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xB294; exit &#xB418;&#xC9C0; &#xC54A;&#xB294;&#xB2E4;.</span>
 <span class="hljs-keyword">if</span> error_<span class="hljs-built_in">command</span> ...; <span class="hljs-keyword">then</span>
     :
 <span class="hljs-keyword">else</span>
