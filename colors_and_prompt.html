@@ -1558,8 +1558,8 @@ tput cnorm
 </video>
 
 <p>&#xC774;&#xBC88;&#xC5D0;&#xB294; &#xB3D9;&#xC2DC;&#xC5D0; &#xC5EC;&#xB7EC;&#xAC1C;&#xC758; progress bar &#xB97C; &#xCD9C;&#xB825;&#xD558;&#xB294; &#xC608;&#xC785;&#xB2C8;&#xB2E4;.</p>
-<pre><code class="lang-bash"><span class="hljs-shebang">#!/bin/bash
-</span>
+<pre><code class="lang-bash"><span class="hljs-comment">#!/bin/bash -e</span>
+
 <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;start download? [y/n]&quot;</span>
 <span class="hljs-built_in">read</span> x
 
@@ -1567,7 +1567,7 @@ tput cnorm
 <span class="hljs-built_in">enable</span> <span class="hljs-operator">-f</span> /usr/lib/bash/sleep sleep
 <span class="hljs-built_in">trap</span> <span class="hljs-string">&apos;printf &quot;$cursor_visible&quot;&apos;</span> EXIT
 
-mkfifo `mktemp -u` &amp;&amp; <span class="hljs-built_in">exec</span> {fd1}&lt;&gt; <span class="hljs-variable">$_</span>
+mkfifo `mktemp -u` &amp;&amp; <span class="hljs-built_in">exec</span> {fd1}&lt;&gt; <span class="hljs-variable">$_</span> || <span class="hljs-built_in">exit</span>
 rm <span class="hljs-operator">-f</span> `readlink <span class="hljs-operator">-f</span> /proc/$$/fd/<span class="hljs-variable">$fd1</span>`
 
 progress_bar=<span class="hljs-number">30</span>
@@ -1644,8 +1644,8 @@ export &#xD55C; &#xD658;&#xACBD; &#xBCC0;&#xC218;&#xB294; child &#xD504;&#xB85C;
 <p>WINCH &#xC2E0;&#xD638;&#xC758; trap &#xC124;&#xC815;&#xC740; &#xC0AC;&#xC6A9;&#xC790;&#xAC00; &#xC2E4;&#xD589; &#xC911;&#xC5D0; &#xD130;&#xBBF8;&#xB110; &#xCC3D; &#xD06C;&#xAE30;&#xB97C; &#xBCC0;&#xACBD;&#xD588;&#xC744; &#xACBD;&#xC6B0; &#xD544;&#xC694;&#xD55C; &#xC791;&#xC5C5;&#xC744; &#xD560; &#xC218; &#xC788;&#xAC8C; &#xD574;&#xC90D;&#xB2C8;&#xB2E4;. 
 &#xC2E0;&#xD638;&#xAC00; &#xCC98;&#xB9AC;&#xB418;&#xB294; &#xBC29;&#xC2DD;&#xC740; &#xD604;&#xC7AC; bash shell &#xC774; &#xC2E4;&#xD589; &#xC911;&#xC774;&#xB77C;&#xBA74; &#xBC14;&#xB85C; trap handler &#xAC00; &#xC2E4;&#xD589;&#xB418;&#xC9C0;&#xB9CC; child &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC5D0; &#xD574;&#xB2F9;&#xD558;&#xB294; awk &#xAC00; &#xC2E4;&#xD589; &#xC911;&#xC5D0; &#xC2E0;&#xD638;&#xAC00; &#xC804;&#xB2EC;&#xB41C;&#xB2E4;&#xBA74; pending &#xC0C1;&#xD0DC;&#xAC00; &#xB418;&#xACE0; &#xC774;&#xD6C4; awk &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; &#xC885;&#xB8CC;&#xD558;&#xBA74; parent &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC778; bash shell &#xC774; resume &#xB418;&#xBA74;&#xC11C; trap handler &#xAC00; &#xC2E4;&#xD589;&#xB418;&#xAC8C; &#xB429;&#xB2C8;&#xB2E4;.</p>
 </blockquote>
-<pre><code class="lang-bash"><span class="hljs-shebang">#!/bin/bash
-</span>
+<pre><code class="lang-bash"><span class="hljs-comment">#!/bin/bash -e</span>
+
 <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;start download? [y/n]&quot;</span>
 <span class="hljs-built_in">read</span> x
 
@@ -1661,7 +1661,7 @@ export &#xD55C; &#xD658;&#xACBD; &#xBCC0;&#xC218;&#xB294; child &#xD504;&#xB85C;
     <span class="hljs-keyword">fi</span>
 }
 
-mkfifo `mktemp -u` &amp;&amp; <span class="hljs-built_in">exec</span> {fd1}&lt;&gt; <span class="hljs-variable">$_</span>
+mkfifo `mktemp -u` &amp;&amp; <span class="hljs-built_in">exec</span> {fd1}&lt;&gt; <span class="hljs-variable">$_</span> || <span class="hljs-built_in">exit</span>
 rm <span class="hljs-operator">-f</span> `readlink <span class="hljs-operator">-f</span> /proc/$$/fd/<span class="hljs-variable">$fd1</span>`
 
 progress_bar=<span class="hljs-number">30</span>
@@ -1730,14 +1730,14 @@ adjust_start
 &#xADF8;&#xB798;&#xD504; &#xADF8;&#xB9AC;&#xB294; &#xAC83;&#xC744; &#xD558;&#xB098;&#xC758; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC5D0;&#xC11C; &#xBAA8;&#xB450; &#xCC98;&#xB9AC;&#xD558;&#xBA74; &#xC88B;&#xC740;&#xB370; 
 &#xADF8;&#xB807;&#xAC8C; &#xD558;&#xB824;&#xBA74; awk &#xAC00; &quot;WINCH&quot; &#xC2E0;&#xD638;&#xB97C; trap &#xD574;&#xC11C; &#xCC98;&#xB9AC;&#xD560; &#xC218; &#xC788;&#xC5B4;&#xC57C; &#xB429;&#xB2C8;&#xB2E4;.
 &#xD558;&#xC9C0;&#xB9CC; awk &#xB294; &#xC2E0;&#xD638; trap &#xAE30;&#xB2A5;&#xC774; &#xC5C6;&#xAE30; &#xB54C;&#xBB38;&#xC5D0; &#xC774;&#xB54C;&#xB294; perl &#xC744; &#xC0AC;&#xC6A9;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</p>
-<pre><code class="lang-bash"><span class="hljs-shebang">#!/bin/bash
-</span>
+<pre><code class="lang-bash"><span class="hljs-comment">#!/bin/bash -e</span>
+
 <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;start download? [y/n]&quot;</span>
 <span class="hljs-built_in">read</span> x
 
 <span class="hljs-built_in">enable</span> <span class="hljs-operator">-f</span> /usr/lib/bash/sleep sleep
 
-mkfifo `mktemp -u` &amp;&amp; <span class="hljs-built_in">exec</span> {fd1}&lt;&gt; <span class="hljs-variable">$_</span>
+mkfifo `mktemp -u` &amp;&amp; <span class="hljs-built_in">exec</span> {fd1}&lt;&gt; <span class="hljs-variable">$_</span> || <span class="hljs-built_in">exit</span>
 rm <span class="hljs-operator">-f</span> `readlink <span class="hljs-operator">-f</span> /proc/$$/fd/<span class="hljs-variable">$fd1</span>`
 
 <span class="hljs-built_in">export</span> progress_bar=<span class="hljs-number">30</span>
