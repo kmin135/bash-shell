@@ -1440,14 +1440,14 @@ $ <span class="hljs-built_in">ulimit</span> -c
 <span class="hljs-comment">#################################################</span>
 
 $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$LANG</span>
-en_US.UTF-<span class="hljs-number">8</span>
+C.UTF-<span class="hljs-number">8</span>
 
 <span class="hljs-comment"># LANG &#xD658;&#xACBD;&#xBCC0;&#xC218; &#xAC12;&#xC744; export &#xB97C; &#xC774;&#xC6A9;&#xD574; &#xC77C;&#xC2DC;&#xC801;&#xC73C;&#xB85C; subshell &#xC774;&#xD558; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC5D0; &#xC801;&#xC6A9;</span>
 $ ( <span class="hljs-built_in">export</span> LC_ALL=C
     join -j <span class="hljs-number">1</span> <span class="hljs-operator">-a</span> <span class="hljs-number">1</span> &lt;(sort file1) &lt;(sort file2) )
 
 $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$LANG</span>
-en_US.UTF-<span class="hljs-number">8</span>
+C.UTF-<span class="hljs-number">8</span>
 </code></pre>
 <p>subshell &#xC5D0;&#xC11C; <code>cd</code> &#xD55C;&#xAC83;&#xC740; &#xC885;&#xB8CC; &#xD6C4;&#xC5D0;&#xB294; &#xC774;&#xC804; &#xC0C1;&#xD0DC;&#xB85C; &#xB3CC;&#xC544;&#xC635;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ <span class="hljs-built_in">pwd</span>
