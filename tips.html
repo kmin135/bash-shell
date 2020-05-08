@@ -1367,15 +1367,15 @@ $ <span class="hljs-built_in">echo</span> -n <span class="hljs-string">&quot;<sp
 <span class="hljs-number">0000000</span>  sp  ht  nl
 ..........................................................
 
-$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$LANG</span>
+$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$LC_CTYPE</span>
 C.UTF-<span class="hljs-number">8</span>
 
 $ grep -P <span class="hljs-string">&apos;\xC0&apos;</span> &lt;&lt;&lt; $<span class="hljs-string">&apos;Testing this: \xC0 byte&apos;</span>
 
-$ LC_ALL=C grep -P <span class="hljs-string">&apos;\xC0&apos;</span> &lt;&lt;&lt; $<span class="hljs-string">&apos;Testing this: \xC0 byte&apos;</span>
+$ LC_CTYPE=C grep -P <span class="hljs-string">&apos;\xC0&apos;</span> &lt;&lt;&lt; $<span class="hljs-string">&apos;Testing this: \xC0 byte&apos;</span>
 Testing this: &#xFFFD; byte
 
-$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$LANG</span>
+$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$LC_CTYPE</span>
 C.UTF-<span class="hljs-number">8</span>
 </code></pre>
 <h4 id="&#xB300;&#xC785;&#xD55C;-&#xAC12;&#xC740;-&#xBA85;&#xB839;&#xC774;-&#xC2E4;&#xD589;&#xB3FC;&#xC57C;-&#xC801;&#xC6A9;&#xB41C;&#xB2E4;">&#xB300;&#xC785;&#xD55C; &#xAC12;&#xC740; &#xBA85;&#xB839;&#xC774; &#xC2E4;&#xD589;&#xB3FC;&#xC57C; &#xC801;&#xC6A9;&#xB41C;&#xB2E4;.</h4>
