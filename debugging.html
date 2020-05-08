@@ -1389,7 +1389,8 @@ $ ./test.sh         <span class="hljs-comment"># errexit &#xC635;&#xC158; &#xC12
 <span class="hljs-comment">#!/bin/bash -e</span>
 
 { cat ;} &lt; not_exist.txt    <span class="hljs-comment"># redirection &#xC774; { ;} &#xD0A4;&#xC6CC;&#xB4DC;&#xC5D0; &#xC5F0;&#xACB0;&#xB41C; &#xACBD;&#xC6B0;</span>
-                            <span class="hljs-comment"># ... &lt; not_exist.txt || exit</span>
+                            <span class="hljs-comment"># { cat ;} &lt; not_exist.txt || exit</span>
+                            <span class="hljs-comment"># &#xB610;&#xB294; ( cat ) &lt; not_exist.txt</span>
 <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;exitstatus : $?&quot;</span>
 <span class="hljs-built_in">echo</span> end ....
 
