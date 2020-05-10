@@ -1270,9 +1270,14 @@
 $ AA=$(( <span class="hljs-number">1</span> + <span class="hljs-number">2</span> )); <span class="hljs-built_in">echo</span> <span class="hljs-variable">$AA</span>
 <span class="hljs-number">3</span>
 
+$ CC=$(( BB = AA += <span class="hljs-number">2</span> ))
+
+$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$AA</span> <span class="hljs-variable">$BB</span> <span class="hljs-variable">$CC</span>
+<span class="hljs-number">5</span> <span class="hljs-number">5</span> <span class="hljs-number">5</span>
+
 <span class="hljs-comment"># &#xBA85;&#xB839;&#xC758; &#xC778;&#xC218; &#xBD80;&#xBD84;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xB2E4;.</span>
 $ expr <span class="hljs-number">100</span> + $(( AA + <span class="hljs-number">2</span> ))
-<span class="hljs-number">105</span>
+<span class="hljs-number">107</span>
 
 <span class="hljs-comment"># &#xC2DD; &#xB0B4;&#xC5D0;&#xC11C;&#xB294; &#xB9E4;&#xAC1C;&#xBCC0;&#xC218; &#xD655;&#xC7A5;, &#xBA85;&#xB839; &#xCE58;&#xD658;&#xB3C4; &#xBAA8;&#xB450; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
 $ B=<span class="hljs-number">1000</span>
