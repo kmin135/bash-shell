@@ -1162,31 +1162,31 @@
             
         </li>
     
-        <li class="chapter " data-level="22" data-path="tips.html">
+        <li class="chapter " data-level="22" data-path="locale.html">
+            
+                
+                    <a href="./locale.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>22.</b>
+                        
+                        Locale
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="23" data-path="tips.html">
             
                 
                     <a href="./tips.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>22.</b>
-                        
-                        Tips
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="23" data-path="recommand_sites.html">
-            
-                
-                    <a href="./recommand_sites.html">
-                
-                        <i class="fa fa-check"></i>
-                        
                             <b>23.</b>
                         
-                        Recommand Sites
+                        Tips
                     </a>
             
             
@@ -1478,6 +1478,35 @@ $ sudo cat /dev/input/mice | od -tx1
 <p>NUL &#xBB38;&#xC790;&#xB294; <a href="http://en.cppreference.com/w/cpp/language/ascii" target="_blank">ascii table</a> &#xC0C1;&#xC5D0; \x00 &#xAC12;&#xC744; &#xAC00;&#xC9C0;&#xACE0; &#xC788;&#xB294; A (\x41), B (\x42) &#xC640; &#xAC19;&#xC740; &#xAC12;&#xC785;&#xB2C8;&#xB2E4;.
 &#xBC18;&#xBA74;&#xC5D0; &#xBCF8;&#xBB38;&#xC5D0; &#xC0AC;&#xC6A9;&#xB41C; null &#xAC12;&#xC740; empty &#xAC12;&#xC744; &#xC758;&#xBBF8;&#xD569;&#xB2C8;&#xB2E4;.</p>
 </blockquote>
+<h4 id="subshell-&#xACFC;-&#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;-&#xD30C;&#xC77C;-&#xC5D0;&#xC11C;&#xB294;-&#xD604;&#xC7AC;-shell-&#xC758;-&#xBCC0;&#xC218;&#xAC12;&#xC744;-&#xBCC0;&#xACBD;&#xD560;-&#xC218;-&#xC5C6;&#xB2E4;">Subshell &#xACFC; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xD30C;&#xC77C; &#xC5D0;&#xC11C;&#xB294; &#xD604;&#xC7AC; shell &#xC758; &#xBCC0;&#xC218;&#xAC12;&#xC744; &#xBCC0;&#xACBD;&#xD560; &#xC218; &#xC5C6;&#xB2E4;.</h4>
+<p>Subshell &#xACFC; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xD30C;&#xC77C;&#xC740; &#xD604;&#xC7AC; shell &#xACFC;&#xB294; &#xB2E4;&#xB978; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xB418;&#xBBC0;&#xB85C;
+&#xD604;&#xC7AC; shell &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC758; &#xBCC0;&#xC218;&#xAC12;&#xC744; &#xBCC0;&#xACBD;&#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<pre><code class="lang-bash">$ AA=<span class="hljs-number">100</span>
+
+$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$AA</span>                    <span class="hljs-comment"># &#xD604;&#xC7AC; shell &#xC758; &#xBCC0;&#xC218;&#xAC12;</span>
+<span class="hljs-number">100</span>
+
+$ <span class="hljs-built_in">echo</span> <span class="hljs-number">111</span> | <span class="hljs-built_in">export</span> AA=<span class="hljs-number">200</span>    <span class="hljs-comment"># pipe &#xB85C; &#xC5F0;&#xACB0;&#xB41C; &#xBA85;&#xB839;&#xB4E4;&#xC740; subshell &#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xB41C;&#xB2E4;.</span>
+
+$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$AA</span>                    <span class="hljs-comment"># &#xB530;&#xB77C;&#xC11C; &#xD604;&#xC7AC; shell &#xC758; &#xBCC0;&#xC218;&#xAC12;&#xC744; &#xBCC0;&#xACBD;&#xD560; &#xC218; &#xC5C6;&#xB2E4;.</span>
+<span class="hljs-number">100</span>
+
+$ ( <span class="hljs-built_in">export</span> AA=<span class="hljs-number">200</span> )           <span class="hljs-comment"># ( ... ) subshell</span>
+
+$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$AA</span>                    <span class="hljs-comment"># &#xBCC0;&#xACBD;&#xD560; &#xC218; &#xC5C6;&#xB2E4;.</span>
+<span class="hljs-number">100</span>
+......................................................
+
+$ cat test.sh             <span class="hljs-comment"># &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xD30C;&#xC77C;</span>
+<span class="hljs-shebang">#!/bin/bash
+</span>
+<span class="hljs-built_in">export</span> AA=<span class="hljs-number">200</span>
+
+$ ./test.sh               <span class="hljs-comment"># &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xD30C;&#xC77C;&#xB3C4; &#xBCC4;&#xB3C4;&#xC758; &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xB418;&#xBBC0;&#xB85C;</span>
+
+$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$AA</span>                <span class="hljs-comment"># &#xD604;&#xC7AC; shell &#xC758; &#xBCC0;&#xC218;&#xAC12;&#xC744; &#xBCC0;&#xACBD;&#xD560; &#xC218; &#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
+<span class="hljs-number">100</span>
+</code></pre>
 <hr>
 <h3 id="&#xC774;&#xD6C4;&#xBD80;&#xD130;&#xB294;-bash-&#xC804;&#xC6A9;">&#xC774;&#xD6C4;&#xBD80;&#xD130;&#xB294; Bash &#xC804;&#xC6A9;</h3>
 <p>&#xBCC0;&#xC218; &#xC774;&#xB984;&#xC758; indirection &#xC744; &#xC0AC;&#xC6A9;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
