@@ -1323,7 +1323,7 @@ sort, uniq, grep &#xAC19;&#xC740; &#xBA85;&#xB839;&#xB4E4;&#xC774; &#xC815;&#xC0
 <h3 id="ls-&#xBA85;&#xB839;">ls &#xBA85;&#xB839;</h3>
 <pre><code class="lang-bash"><span class="hljs-comment"># &quot;en_US.UTF-8&quot; &#xC740; &#xD55C;&#xAE00;&#xC774; &#xC81C;&#xC77C; &#xC704;&#xC5D0; &#xC624;&#xACE0; &#xB2E4;&#xC74C; &#xD2B9;&#xC218;&#xBB38;&#xC790;, &#xC54C;&#xD30C;&#xBCB3;&#xC774; &#xC635;&#xB2C8;&#xB2E4;.</span>
 <span class="hljs-comment"># &#xC54C;&#xD30C;&#xBCB3;&#xC740; &#xB300;, &#xC18C;&#xBB38;&#xC790; &#xAD6C;&#xBD84; &#xC5C6;&#xC774; &#xCD9C;&#xB825;&#xB418;&#xB294; &#xAC83;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
-$ LC_ALL=en_US.UTF-<span class="hljs-number">8</span> ls <span class="hljs-operator">-l</span>
+$ LC_ALL=en_US.UTF-<span class="hljs-number">8</span> \ls <span class="hljs-operator">-l</span>
 total <span class="hljs-number">0</span>
 -rw-rw-r-- <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">0</span> May <span class="hljs-number">10</span> <span class="hljs-number">11</span>:<span class="hljs-number">20</span> &#xB3FC;&#xC9C0;
 -rw-rw-r-- <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">0</span> May <span class="hljs-number">10</span> <span class="hljs-number">11</span>:<span class="hljs-number">20</span> &#xAC15;&#xC544;&#xC9C0;
@@ -1339,7 +1339,7 @@ total <span class="hljs-number">0</span>
 <span class="hljs-comment"># &quot;ko_KR.UTF-8&quot;, &quot;C.UTF-8&quot;, &quot;C&quot; &#xB294; &#xBAA8;&#xB450; &#xD2B9;&#xC218;&#xBB38;&#xC790;&#xAC00; &#xC81C;&#xC77C; &#xC704;&#xC5D0; &#xC624;&#xACE0; &#xC54C;&#xD30C;&#xBCB3;, &#xD55C;&#xAE00; &#xC21C;&#xC73C;&#xB85C; &#xCD9C;&#xB825;&#xB429;&#xB2C8;&#xB2E4;.</span>
 <span class="hljs-comment"># &#xC54C;&#xD30C;&#xBCB3;&#xC774; &#xCD9C;&#xB825;&#xB420; &#xB54C;&#xB294; &#xB300;&#xBB38;&#xC790;&#xAC00; &#xBA3C;&#xC800; &#xC624;&#xACE0; &#xB2E4;&#xC74C;&#xC5D0; &#xC18C;&#xBB38;&#xC790;&#xAC00; &#xC635;&#xB2C8;&#xB2E4;.</span>
 <span class="hljs-comment"># &#xC601;&#xBB38; &quot;May&quot; &#xAC00; &#xD55C;&#xAE00; &quot;5&#xC6D4;&quot; &#xB85C; &#xCD9C;&#xB825;&#xB418;&#xB294; &#xAC83;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.</span>
-$ LC_ALL=ko_KR.UTF-<span class="hljs-number">8</span> ls <span class="hljs-operator">-l</span>
+$ LC_ALL=ko_KR.UTF-<span class="hljs-number">8</span> \ls <span class="hljs-operator">-l</span>
 total <span class="hljs-number">0</span>
 -rw-rw-r-- <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">0</span>  <span class="hljs-number">5</span>&#xC6D4; <span class="hljs-number">10</span> <span class="hljs-number">11</span>:<span class="hljs-number">21</span> @@@
 -rw-rw-r-- <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">0</span>  <span class="hljs-number">5</span>&#xC6D4; <span class="hljs-number">10</span> <span class="hljs-number">11</span>:<span class="hljs-number">21</span> AAA
@@ -1353,7 +1353,7 @@ total <span class="hljs-number">0</span>
 -rw-rw-r-- <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">0</span>  <span class="hljs-number">5</span>&#xC6D4; <span class="hljs-number">10</span> <span class="hljs-number">11</span>:<span class="hljs-number">20</span> &#xCF54;&#xB07C;&#xB9AC;
 
 <span class="hljs-comment"># &#xCD9C;&#xB825; &#xC21C;&#xC11C;&#xB294; &#xC704;&#xC640; &#xB3D9;&#xC77C;&#xD558;&#xBA70; May &#xAC00; &#xC601;&#xBB38;&#xC73C;&#xB85C; &#xCD9C;&#xB825;&#xB429;&#xB2C8;&#xB2E4;.</span>
-$ LC_ALL=C.UTF-<span class="hljs-number">8</span> ls <span class="hljs-operator">-l</span>
+$ LC_ALL=C.UTF-<span class="hljs-number">8</span> \ls <span class="hljs-operator">-l</span>
 total <span class="hljs-number">0</span>
 -rw-rw-r-- <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">0</span> May <span class="hljs-number">10</span> <span class="hljs-number">11</span>:<span class="hljs-number">21</span> @@@
 -rw-rw-r-- <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">0</span> May <span class="hljs-number">10</span> <span class="hljs-number">11</span>:<span class="hljs-number">21</span> AAA
@@ -1367,7 +1367,7 @@ total <span class="hljs-number">0</span>
 -rw-rw-r-- <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">0</span> May <span class="hljs-number">10</span> <span class="hljs-number">11</span>:<span class="hljs-number">20</span> &#xCF54;&#xB07C;&#xB9AC;
 
 <span class="hljs-comment"># LC_ALL=C &#xB294; UTF-8 &#xC778;&#xCF54;&#xB529;&#xC774; &#xC801;&#xC6A9;&#xB418;&#xC9C0; &#xC54A;&#xC544; &#xD55C;&#xAE00;&#xC774; &#xAE68;&#xC838; &#xBCF4;&#xC785;&#xB2C8;&#xB2E4;.</span>
-$ LC_ALL=C ls <span class="hljs-operator">-l</span>
+$ LC_ALL=C \ls <span class="hljs-operator">-l</span>
 total <span class="hljs-number">0</span>
 -rw-rw-r-- <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">0</span> May <span class="hljs-number">10</span> <span class="hljs-number">11</span>:<span class="hljs-number">21</span>  @@@
 -rw-rw-r-- <span class="hljs-number">1</span> mug896 mug896 <span class="hljs-number">0</span> May <span class="hljs-number">10</span> <span class="hljs-number">11</span>:<span class="hljs-number">21</span>  AAA
