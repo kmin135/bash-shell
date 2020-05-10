@@ -1495,6 +1495,9 @@ abc
 $ <span class="hljs-built_in">echo</span> &#xAC00;&#xB098;&#xB2E4; | grep <span class="hljs-string">&apos;[[:alpha:]]&apos;</span>
 &#xAC00;&#xB098;&#xB2E4;
 
+$ <span class="hljs-built_in">echo</span> abc | LC_CTYPE=C grep <span class="hljs-string">&apos;[[:alpha:]]&apos;</span> 
+abc
+
 $ <span class="hljs-built_in">echo</span> &#xAC00;&#xB098;&#xB2E4; | LC_CTYPE=C grep <span class="hljs-string">&apos;[[:alpha:]]&apos;</span>    <span class="hljs-comment"># &#xB610;&#xB294; LC_ALL=C</span>
 $
 </code></pre>
