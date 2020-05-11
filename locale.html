@@ -1382,25 +1382,22 @@ total <span class="hljs-number">0</span>
 </code></pre>
 <p>&#xC704;&#xC5D0;&#xC11C; &#xCD9C;&#xB825; &#xC21C;&#xC11C;&#xB97C; &#xBCF4;&#xBA74; <code>ko_KR.UTF-8</code>, <code>C.UTF-8</code>, <code>C</code> &#xB294; &#xBAA8;&#xB450; &#xD2B9;&#xC218;&#xBB38;&#xC790;&#xAC00; &#xC81C;&#xC77C; &#xC704;&#xC5D0; &#xC624;&#xACE0;
 &#xC54C;&#xD30C;&#xBCB3;, &#xD55C;&#xAE00; &#xC21C;&#xC73C;&#xB85C; &#xCD9C;&#xB825;&#xC774; &#xB418;&#xB294;&#xB370; &#xC774;&#xAC83;&#xC740; &#xB2E8;&#xC21C;&#xD788; &#xBE44;&#xD2B8; &#xAC12;&#xC758; &#xD06C;&#xAE30;&#xC5D0; &#xB530;&#xB77C;&#xC11C; &#xCD9C;&#xB825;&#xD558;&#xAE30; &#xB54C;&#xBB38;&#xC785;&#xB2C8;&#xB2E4;.</p>
-<pre><code class="lang-bash">$ <span class="hljs-built_in">echo</span> @@@ | perl -lpe <span class="hljs-string">&apos;$_=unpack&quot;B*&quot;&apos;</span>
+<pre><code class="lang-bash">$ <span class="hljs-built_in">echo</span> <span class="hljs-operator">-e</span> <span class="hljs-string">&quot;@@@\nAAA\nBBB\naaa\nbbb\n&#xAC15;\n&#xB3FC;&quot;</span>
+@@@
+AAA
+BBB
+aaa
+bbb
+&#xAC15;
+&#xB3FC;
+
+$ <span class="hljs-built_in">echo</span> <span class="hljs-operator">-e</span> <span class="hljs-string">&quot;@@@\nAAA\nBBB\naaa\nbbb\n&#xAC15;\n&#xB3FC;&quot;</span> | perl -lpe <span class="hljs-string">&apos;$_=unpack&quot;B*&quot;&apos;</span>
 <span class="hljs-number">010000000100000001000000</span>
-
-$ <span class="hljs-built_in">echo</span> AAA | perl -lpe <span class="hljs-string">&apos;$_=unpack&quot;B*&quot;&apos;</span>   
 <span class="hljs-number">010000010100000101000001</span>
-
-$ <span class="hljs-built_in">echo</span> BBB | perl -lpe <span class="hljs-string">&apos;$_=unpack&quot;B*&quot;&apos;</span>   
 <span class="hljs-number">010000100100001001000010</span>
-
-$ <span class="hljs-built_in">echo</span> aaa | perl -lpe <span class="hljs-string">&apos;$_=unpack&quot;B*&quot;&apos;</span>   
 <span class="hljs-number">011000010110000101100001</span>
-
-$ <span class="hljs-built_in">echo</span> bbb | perl -lpe <span class="hljs-string">&apos;$_=unpack&quot;B*&quot;&apos;</span>   
 <span class="hljs-number">011000100110001001100010</span>
-
-$ <span class="hljs-built_in">echo</span> &#xAC15; | perl -lpe <span class="hljs-string">&apos;$_=unpack&quot;B*&quot;&apos;</span>   
 <span class="hljs-number">111010101011000010010101</span>
-
-$ <span class="hljs-built_in">echo</span> &#xB3FC; | perl -lpe <span class="hljs-string">&apos;$_=unpack&quot;B*&quot;&apos;</span>  
 <span class="hljs-number">111010111000111110111100</span>
 </code></pre>
 <h3 id="date-&#xBA85;&#xB839;">date &#xBA85;&#xB839;</h3>
