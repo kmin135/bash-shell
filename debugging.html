@@ -1382,15 +1382,14 @@ cat &lt; not_exist.txt              <span class="hljs-comment"># &#xC874;&#xC7AC
 
 <span class="hljs-comment">######  &#xC2E4;&#xD589; &#xACB0;&#xACFC;  ######</span>
 
-$ ./test.sh         <span class="hljs-comment"># errexit &#xC635;&#xC158; &#xC124;&#xC815;&#xC5D0; &#xC758;&#xD574; &#xC815;&#xC0C1;&#xC801;&#xC73C;&#xB85C; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xAC00; &#xC885;&#xB8CC;&#xB41C;&#xB2E4;.</span>
+$ ./test.sh         <span class="hljs-comment"># errexit &#xC635;&#xC158; &#xC124;&#xC815;&#xC5D0; &#xB530;&#xB77C; &#xC815;&#xC0C1;&#xC801;&#xC73C;&#xB85C; &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xAC00; &#xC885;&#xB8CC;&#xB41C;&#xB2E4;.</span>
 ./test.sh: line <span class="hljs-number">3</span>: not_exist.txt: No such file or directory
 ...........................................................
 
 <span class="hljs-comment">#!/bin/bash -e</span>
 
 { cat ;} &lt; not_exist.txt    <span class="hljs-comment"># redirection &#xC774; { ;} &#xD0A4;&#xC6CC;&#xB4DC;&#xC5D0; &#xC5F0;&#xACB0;&#xB41C; &#xACBD;&#xC6B0;</span>
-                            <span class="hljs-comment"># { cat ;} &lt; not_exist.txt || exit</span>
-                            <span class="hljs-comment"># &#xB610;&#xB294; ( cat ) &lt; not_exist.txt</span>
+
 <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;exitstatus : $?&quot;</span>
 <span class="hljs-built_in">echo</span> end ....
 
@@ -1400,6 +1399,8 @@ $ ./test.sh
 exitstatus : <span class="hljs-number">1</span>      <span class="hljs-comment"># errexit &#xC635;&#xC158;&#xC744; &#xC124;&#xC815;&#xD558;&#xACE0; &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xB3C4; 1 &#xC774; &#xB410;&#xC9C0;&#xB9CC;</span>
 ./test.sh: line <span class="hljs-number">3</span>: not_exist.txt: No such file or directory
 end ....            <span class="hljs-comment"># &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xAC00; &#xC885;&#xB8CC;&#xB418;&#xC9C0; &#xC54A;&#xACE0; &#xB05D;&#xAE4C;&#xC9C0; &#xC2E4;&#xD589;&#xB41C;&#xB2E4;.</span>
+                    <span class="hljs-comment"># &#xB530;&#xB77C;&#xC11C; { cat ;} &lt; not_exist.txt || exit</span>
+                    <span class="hljs-comment"># &#xB610;&#xB294;   ( cat ) &lt; not_exist.txt &#xB85C; &#xBCC0;&#xACBD; &#xD574;&#xC57C;&#xD569;&#xB2C8;&#xB2E4;.</span>
 ...........................................................
 
 <span class="hljs-comment">#!/bin/bash -e           </span>
@@ -1407,7 +1408,7 @@ end ....            <span class="hljs-comment"># &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8
 <span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span> -r line; <span class="hljs-keyword">do</span> 
     <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$line</span>&quot;</span>
 <span class="hljs-keyword">done</span> &lt; not_exist.txt     <span class="hljs-comment"># redirection &#xC774; done &#xD0A4;&#xC6CC;&#xB4DC;&#xC5D0; &#xC5F0;&#xACB0;&#xB41C; &#xACBD;&#xC6B0;</span>
-                         <span class="hljs-comment"># done &lt; not_exist.txt || exit</span>
+
 <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;exitstatus : $?&quot;</span>
 <span class="hljs-built_in">echo</span> end.....
 
@@ -1415,8 +1416,9 @@ end ....            <span class="hljs-comment"># &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8
 
 $ ./test.sh
 ./test.sh: line <span class="hljs-number">5</span>: not_exist.txt: No such file or directory
-exitstatus : <span class="hljs-number">1</span>    <span class="hljs-comment"># while &#xBB38;&#xC5D0; &#xC9C4;&#xC785;&#xD558;&#xAE30; &#xC804;&#xC5D0; redirecion &#xCC98;&#xB9AC;&#xC5D0;&#xC11C; &#xC624;&#xB958;&#xAC00; &#xB098;&#xB294; &#xC0C1;&#xD0DC;&#xB85C;</span>
+exitstatus : <span class="hljs-number">1</span>    <span class="hljs-comment"># while &#xBB38;&#xC5D0; &#xC9C4;&#xC785;&#xD558;&#xAE30; &#xC804;&#xC5D0; redirection &#xCC98;&#xB9AC;&#xC5D0;&#xC11C; &#xC624;&#xB958;&#xAC00; &#xB098;&#xB294; &#xC0C1;&#xD0DC;&#xB85C;</span>
 end.....          <span class="hljs-comment"># &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8;&#xAC00; &#xC885;&#xB8CC;&#xB418;&#xC9C0; &#xC54A;&#xACE0; &#xB05D;&#xAE4C;&#xC9C0; &#xC2E4;&#xD589;&#xB41C;&#xB2E4;.</span>
+                  <span class="hljs-comment"># &#xB530;&#xB77C;&#xC11C; done &lt; not_exist.txt || exit &#xB85C; &#xBCC0;&#xACBD;&#xD574;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</span>
 </code></pre>
 <h4 id="errexit-&#xC635;&#xC158;-&#xC0AC;&#xC6A9;&#xC2DC;-&#xC8FC;&#xC758;&#xD560;-&#xC810;">errexit &#xC635;&#xC158; &#xC0AC;&#xC6A9;&#xC2DC; &#xC8FC;&#xC758;&#xD560; &#xC810;</h4>
 <p>&#xC0B0;&#xC220;&#xC5F0;&#xC0B0; &#xC5D0;&#xC11C;&#xB294; &#xC5F0;&#xC0B0;&#xACB0;&#xACFC;&#xAC00; 0 &#xC774;&#xBA74; false &#xC774;&#xBBC0;&#xB85C; &#xC885;&#xB8CC; &#xC0C1;&#xD0DC; &#xAC12;&#xC73C;&#xB85C; 1 &#xC744; &#xB9AC;&#xD134;&#xD558;&#xAC8C; &#xB418;&#xC5B4;
