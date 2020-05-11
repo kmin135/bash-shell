@@ -1348,13 +1348,24 @@ Mon Dec <span class="hljs-number">28</span> <span class="hljs-number">13</span>:
 <p>&#xD558;&#xC9C0;&#xB9CC; subshell &#xC758; &#xACBD;&#xC6B0; &#xB0B4;&#xBD80;&#xC801;&#xC73C;&#xB85C; subshell optimization &#xC744; &#xD558;&#xAE30; &#xB54C;&#xBB38;&#xC5D0;
 &#xC544;&#xB798; &#xCCAB; &#xBC88;&#xC9F8;&#xC758; &#xACBD;&#xC6B0; exec &#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xC9C0; &#xC54A;&#xC544;&#xB3C4;
 <code>fork</code> (subshell) <code>fork</code> <code>exec</code> &#xC774; &#xC544;&#xB2CC; <code>fork</code> (subshell) <code>exec</code> &#xB9CC; &#xD558;&#xAC8C;&#xB429;&#xB2C8;&#xB2E4;.</p>
+<blockquote>
+<p>&#xC880; &#xB354; &#xC790;&#xC138;&#xD55C; &#xB0B4;&#xC6A9;&#xC740; &#xBCC4;&#xCC45;&#xBD80;&#xB85D; <a href="supplement.html#subshell">subshell</a> &#xC744; &#xCC38;&#xACE0;&#xD558;&#xC138;&#xC694;</p>
+</blockquote>
 <pre><code class="lang-bash">$ ( date )          <span class="hljs-comment"># fork (subshell)  exec </span>
 
 $ ( date; date )    <span class="hljs-comment"># fork (subshell)  fork  exec   exec</span>
                                        ^^^^^^^^^^   ^^^^
                                        &#xCCAB;&#xBC88;&#xC9F8; date   &#xB450;&#xBC88;&#xC9F8; date
 </code></pre>
-<p><strong>man page &#xC0C9;&#xC0C1; &#xB123;&#xAE30;</strong></p>
+<p>/usr/bin &#xB514;&#xB809;&#xD1A0;&#xB9AC;&#xC5D0; &#xC704;&#xCE58;&#xD55C; <code>egrep</code> &#xACFC; <code>fgrep</code> &#xBA85;&#xB839;&#xC740; shell &#xC2A4;&#xD06C;&#xB9BD;&#xD2B8; &#xD30C;&#xC77C;&#xC778;&#xB370;
+exec &#xC744; &#xD65C;&#xC6A9;&#xD558;&#xB294; &#xAC83;&#xC744; &#xBCFC; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xB9CC;&#xC57D;&#xC5D0; exec &#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xC9C0; &#xC54A;&#xB294;&#xB2E4;&#xBA74; /bin/sh &#xD504;&#xB85C;&#xC138;&#xC2A4; &#xC544;&#xB798; &#xB610; grep &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; &#xC0DD;&#xC131;&#xB3FC;&#xC11C;
+&#xC2E4;&#xD589;&#xB418;&#xACA0;&#xC8E0;</p>
+<pre><code class="lang-bash">$ cat /usr/bin/egrep                     $ cat /usr/bin/fgrep
+<span class="hljs-shebang">#!/bin/sh                                #!/bin/sh</span>
+<span class="hljs-built_in">exec</span> grep -E <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span>                        <span class="hljs-built_in">exec</span> grep -F <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span>
+</code></pre>
+<h5 id="man-page-&#xC0C9;&#xC0C1;-&#xB123;&#xAE30;">man page &#xC0C9;&#xC0C1; &#xB123;&#xAE30;</h5>
 <pre><code class="lang-bash"><span class="hljs-comment"># export &#xD55C; &#xD658;&#xACBD;&#xBCC0;&#xC218;&#xB97C; man &quot;$@&quot; &#xBA85;&#xB839;&#xC5D0;&#xB9CC; &#xC801;&#xC6A9;&#xD558;&#xAE30; &#xC704;&#xD574;</span>
 <span class="hljs-comment"># &#xD568;&#xC218;&#xB97C; &#xC815;&#xC758;&#xD560;&#xB54C; { ;} &#xB300;&#xC2E0;&#xC5D0; ( ) subshell &#xC744; &#xC0AC;&#xC6A9;</span>
 <span class="hljs-keyword">function</span> man() (
