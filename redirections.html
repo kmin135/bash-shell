@@ -1316,7 +1316,8 @@ wc: asdfgh: No such file or directory
 <p>&#xC815;&#xB9AC;&#xD558;&#xBA74; &#xC774;&#xB807;&#xC2B5;&#xB2C8;&#xB2E4;. redirection &#xAE30;&#xD638;&#xC744; &#xC911;&#xC2EC;&#xC73C;&#xB85C; &#xC67C;&#xCABD;&#xC5D0; &#xC624;&#xB294; FD &#xB294; &#xBA85;&#xB839;&#xC758; &#xC778;&#xC218;&#xB85C; &#xC778;&#xC2DD;&#xB418;&#xC9C0; &#xC54A;&#xAC8C; &#xBD99;&#xC5EC;&#xC4F0;&#xACE0;
 &#xC624;&#xB978;&#xCABD;&#xC5D0; &#xC624;&#xB294; FD &#xB294; &#xD30C;&#xC77C;&#xB85C; &#xC778;&#xC2DD;&#xB418;&#xC9C0; &#xC54A;&#xAC8C; <code>&amp;</code> &#xB97C; &#xBD99;&#xC5EC; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; &#xB429;&#xB2C8;&#xB2E4;.</p>
 <h3 id="redirection-&#xAE30;&#xD638;&#xC758;-&#xC704;&#xCE58;">Redirection &#xAE30;&#xD638;&#xC758; &#xC704;&#xCE58;</h3>
-<p>redirection &#xAE30;&#xD638;&#xC758; &#xBA85;&#xB839; &#xD589;&#xC0C1; &#xC704;&#xCE58;&#xB294; &#xC5B4;&#xB514;&#xC5D0; &#xC640;&#xB3C4; &#xC0C1;&#xAD00;&#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
+<p>redirection &#xAE30;&#xD638;&#xC758; &#xBA85;&#xB839; &#xD589;&#xC0C1; &#xC704;&#xCE58;&#xB294; &#xC5B4;&#xB514;&#xC5D0; &#xC640;&#xB3C4; &#xC0C1;&#xAD00;&#xC5C6;&#xC2B5;&#xB2C8;&#xB2E4;.
+&#xADF8;&#xB9AC;&#xACE0; redirection &#xC740; &#xBA85;&#xB839;&#xC758; &#xC778;&#xC218;&#xC5D0; &#xD3EC;&#xD568;&#xB418;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ <span class="hljs-built_in">echo</span> hello &gt; /tmp/out
 
 $ &gt; /tmp/out <span class="hljs-built_in">echo</span> hello
@@ -1338,6 +1339,12 @@ END
 $ &lt;&lt;END cat             
 hello
 END
+
+$ args.sh <span class="hljs-number">11</span> <span class="hljs-number">2</span>&gt;&amp;<span class="hljs-number">1</span> <span class="hljs-number">22</span> <span class="hljs-number">33</span>          <span class="hljs-comment"># 2&gt;&amp;1 &#xB294; &#xBA85;&#xB839;&#xC758; &#xC778;&#xC218;&#xC5D0; &#xD3EC;&#xD568;&#xB418;&#xC9C0; &#xC54A;&#xB294;&#xB2E4;.</span>
+<span class="hljs-variable">$0</span> : /home/mug896/bin/args.sh
+<span class="hljs-variable">$1</span> : <span class="hljs-number">11</span>
+<span class="hljs-variable">$2</span> : <span class="hljs-number">22</span>
+<span class="hljs-variable">$3</span> : <span class="hljs-number">33</span>
 </code></pre>
 <p><code>( ... )</code>, <code>{ ... ;}</code> &#xBA85;&#xB839;&#xADF8;&#xB8F9;,  compound commands &#xC758; &#xACBD;&#xC6B0;&#xB294; &#xB4A4;&#xC5D0; &#xC640;&#xC57C; &#xD569;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash">$ <span class="hljs-number">2</span>&gt; /dev/null ( expr a + <span class="hljs-number">2</span> ) 
