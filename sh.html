@@ -1467,7 +1467,7 @@ xargs -n20 | column -t
 
 $ random=$(shuf -n1 -i <span class="hljs-number">1</span>-<span class="hljs-number">99</span>)
 
-$ random=$(cat &lt;(seq <span class="hljs-number">10</span> <span class="hljs-number">20</span>) &lt;(seq <span class="hljs-number">80</span> <span class="hljs-number">90</span>) | shuf -n1)
+$ random=$(cat &lt;(seq <span class="hljs-number">10</span> <span class="hljs-number">20</span>) &lt;(seq <span class="hljs-number">80</span> <span class="hljs-number">90</span>) | shuf -n1)  <span class="hljs-comment"># 10~20 80~90 &#xC0AC;&#xC774; &#xC218;</span>
 
 $ random=$(shuf -n1 <span class="hljs-operator">-e</span> a b c d e)
 </code></pre>
