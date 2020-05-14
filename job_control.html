@@ -1552,6 +1552,10 @@ f2 () ( sleep <span class="hljs-number">11</span>; <span class="hljs-built_in">e
 f1 | <span class="hljs-built_in">command</span> ...
 f2 | <span class="hljs-built_in">command</span> ...
 </code></pre>
+<p><code>( ... )</code> subshell &#xC758; &#xACBD;&#xC6B0; &#xC2E4;&#xD589;&#xD560; &#xBA85;&#xB839;&#xC774; 1 &#xAC1C;&#xB9CC; &#xC874;&#xC7AC;&#xD558;&#xBA74; subshell optimization &#xC5D0;&#xC758;&#xD574;
+&#xB530;&#xB85C; subshell &#xC774; &#xC0DD;&#xC131;&#xB418;&#xC9C0; &#xC54A;&#xACE0; &#xC9C1;&#xC811; &#xD574;&#xB2F9; &#xBA85;&#xB839;&#xC774; &#xC2E4;&#xD589;&#xB429;&#xB2C8;&#xB2E4;.
+&#xD558;&#xC9C0;&#xB9CC; <code>{ ... ;}</code> &#xC758; &#xACBD;&#xC6B0;&#xB294; subshell &#xC0DD;&#xC131;&#xB429;&#xB2C8;&#xB2E4;.</p>
+<p><img src="images/job_control_subshell.png" alt=""></p>
 <h4 id="subshell-&#xC5D0;&#xC11C;-background-&#xB85C;-&#xBA85;&#xB839;&#xC744;-&#xC2E4;&#xD589;&#xD558;&#xBA74;-job-table-&#xC5D0;-&#xB4F1;&#xB85D;&#xB418;&#xC9C0;-&#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;">Subshell &#xC5D0;&#xC11C; background &#xB85C; &#xBA85;&#xB839;&#xC744; &#xC2E4;&#xD589;&#xD558;&#xBA74; job table &#xC5D0; &#xB4F1;&#xB85D;&#xB418;&#xC9C0; &#xC54A;&#xC2B5;&#xB2C8;&#xB2E4;.</h4>
 <pre><code class="lang-bash">$ { sleep <span class="hljs-number">10</span> &amp; sleep <span class="hljs-number">10</span> &amp; sleep <span class="hljs-number">10</span> &amp; }      <span class="hljs-comment"># { ... } &#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xD55C; &#xBA85;&#xB839;&#xB4E4;&#xC740;</span>
 [<span class="hljs-number">1</span>] <span class="hljs-number">11558</span>
