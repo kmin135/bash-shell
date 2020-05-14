@@ -1504,7 +1504,7 @@ i=<span class="hljs-number">0</span>
 </ul>
 <h4 id="background-job-&#xC740;-subshell-&#xC5D0;&#xC11C;-&#xC2E4;&#xD589;&#xB429;&#xB2C8;&#xB2E4;">Background job &#xC740; subshell &#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xB429;&#xB2C8;&#xB2E4;.</h4>
 <p>&#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; background job &#xC740; subshell &#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xB429;&#xB2C8;&#xB2E4;.
-&#xB530;&#xB77C;&#xC11C; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; <code>{ ;}</code> &#xB610;&#xB294; <code>( )</code> &#xB97C; &#xC774;&#xC6A9;&#xD55C; &#xBA85;&#xB839;&#xADF8;&#xB8F9;&#xC744; background &#xB85C; &#xC2E4;&#xD589; &#xC2DC;&#xD0A4;&#xBA74;
+&#xB530;&#xB77C;&#xC11C; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; <code>{ ;}</code> &#xB610;&#xB294; <code>( )</code> &#xB97C; &#xC774;&#xC6A9;&#xD55C; &#xBA85;&#xB839; &#xADF8;&#xB8F9;&#xC744; background &#xB85C; &#xC2E4;&#xD589;&#xC2DC;&#xD0A4;&#xBA74;
 &#xB458; &#xB2E4; &#xB3D9;&#xC77C;&#xD558;&#xAC8C; subshell &#xC5D0;&#xC11C; &#xC2E4;&#xD589;&#xB429;&#xB2C8;&#xB2E4;. </p>
 <pre><code class="lang-bash">$ AA=<span class="hljs-number">100</span>; <span class="hljs-built_in">echo</span> $$ <span class="hljs-variable">$BASHPID</span>;                 $ AA=<span class="hljs-number">100</span>; <span class="hljs-built_in">echo</span> $$ <span class="hljs-variable">$BASHPID</span>; 
 <span class="hljs-number">31653</span> <span class="hljs-number">31653</span>                                 <span class="hljs-number">2036</span> <span class="hljs-number">2036</span>
@@ -1515,7 +1515,7 @@ $ { AA=<span class="hljs-number">200</span>; <span class="hljs-built_in">echo</s
 $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$AA</span>                                  $ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$AA</span>
 <span class="hljs-number">100</span>                                         <span class="hljs-number">100</span>
 </code></pre>
-<p>&#xADF8;&#xB7F0;&#xB370; &#xBA85;&#xB839;&#xADF8;&#xB8F9;&#xC744; &#xD568;&#xC218;&#xB85C; &#xB9CC;&#xB4E4;&#xC5B4;&#xC11C; &#xC2E4;&#xD589;&#xD558;&#xBA74; <code>{ ;}</code> &#xC640; <code>( )</code> &#xB294; &#xCC28;&#xC774;&#xAC00; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
+<p>&#xADF8;&#xB7F0;&#xB370; &#xBA85;&#xB839; &#xADF8;&#xB8F9;&#xC744; &#xD568;&#xC218;&#xB85C; &#xB9CC;&#xB4E4;&#xC5B4;&#xC11C; &#xC2E4;&#xD589;&#xD558;&#xBA74; <code>{ ;}</code> &#xC640; <code>( )</code> &#xB294; &#xCC28;&#xC774;&#xAC00; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;.
 <code>( )</code> &#xB294; subshell &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; &#xD558;&#xB098; &#xB354; &#xC0DD;&#xC131;&#xB429;&#xB2C8;&#xB2E4;.
 <code>f1 () ( ... )</code> &#xD615;&#xC2DD;&#xC740; &#xC2E4;&#xC81C; <code>f1 () { ( ... ) ;}</code> &#xC640; &#xAC19;&#xC740; &#xAC83;&#xC785;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash"><span class="hljs-shebang">#!/bin/bash
@@ -1537,7 +1537,7 @@ f2 &amp;      <span class="hljs-comment"># &#xB530;&#xB77C;&#xC11C; f2 &#xB294; 
 <span class="hljs-built_in">wait</span>
 </code></pre>
 <p><img src="images/job_control_braces.png" alt=""></p>
-<p>&#xC774;&#xAC83;&#xC740; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xD30C;&#xC774;&#xD504;&#xB85C; &#xBA85;&#xB839;&#xADF8;&#xB8F9;&#xC774; &#xC5F0;&#xACB0;&#xB420; &#xACBD;&#xC6B0;&#xB3C4; &#xB3D9;&#xC77C;&#xD569;&#xB2C8;&#xB2E4;.</p>
+<p>&#xC774;&#xAC83;&#xC740; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; &#xD30C;&#xC774;&#xD504;&#xB85C; &#xBA85;&#xB839; &#xADF8;&#xB8F9;&#xC774; &#xC5F0;&#xACB0;&#xB420; &#xACBD;&#xC6B0;&#xB3C4; &#xB3D9;&#xC77C;&#xD569;&#xB2C8;&#xB2E4;.</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># &quot;{ ;}&quot; &#xC640; &quot;( )&quot; &#xB458; &#xB2E4; &#xB3D9;&#xC77C;&#xD558;&#xAC8C; subshell &#xD504;&#xB85C;&#xC138;&#xC2A4;&#xAC00; &#xD558;&#xB098;&#xB9CC; &#xC0DD;&#xC131;&#xB41C;&#xB2E4;.</span>
 
 { sleep <span class="hljs-number">10</span>; <span class="hljs-built_in">exit</span> <span class="hljs-number">3</span> ;} | <span class="hljs-built_in">command</span> ...
