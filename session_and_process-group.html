@@ -1467,7 +1467,7 @@ $ { timeout <span class="hljs-number">10</span> strace <span class="hljs-operato
 </code></pre>
 <p><img src="images/subshell_op2.png" alt=""></p>
 <p><code>sh</code> &#xC5D0;&#xC11C;&#xB294; &#xB2E4;&#xC74C;&#xACFC; &#xAC19;&#xC774; setsid &#xBA85;&#xB839;&#xC744; &#xC0AC;&#xC6A9;&#xD558;&#xBA74; &#xAC00;&#xB2A5;&#xD569;&#xB2C8;&#xB2E4;.</p>
-<pre><code class="lang-bash">$ <span class="hljs-number">2</span>&gt;&amp;<span class="hljs-number">1</span> setsid timeout <span class="hljs-number">10</span> strace <span class="hljs-operator">-f</span> -p <span class="hljs-number">1234</span> | vi -
+<pre><code class="lang-bash">$ setsid timeout <span class="hljs-number">10</span> strace <span class="hljs-operator">-f</span> -p <span class="hljs-number">1234</span> <span class="hljs-number">2</span>&gt;&amp;<span class="hljs-number">1</span> | vi -
 </code></pre>
 
                     
