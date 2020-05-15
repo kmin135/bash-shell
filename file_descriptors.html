@@ -1703,13 +1703,18 @@ $ bc &lt;&lt;&lt; <span class="hljs-string">&apos;( 2546360 + 232 ) * 512&apos;<
 $ du -B1 /usr/bin
 <span class="hljs-number">1303855104</span>      /usr/bin
 </code></pre>
-<blockquote>
 <p><code>du</code> &#xBA85;&#xB839;&#xC740; &#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; &#xBE14;&#xB85D; &#xB2E8;&#xC704; &#xACC4;&#xC0B0;&#xC744; &#xD558;&#xBBC0;&#xB85C;   </p>
 <ul>
 <li><code>du -h ...</code> &#xB610;&#xB294; <code>du -hs ...</code> &#xBA85;&#xB839;&#xC740; &#xBE14;&#xB85D; &#xB2E8;&#xC704; &#xACC4;&#xC0B0; &#xACB0;&#xACFC;&#xAC00; &#xB418;&#xACE0;  </li>
 <li><code>du -b -h ...</code> &#xB610;&#xB294; <code>du -b -hs ...</code> &#xBA85;&#xB839;&#xC740; apparent size &#xACC4;&#xC0B0; &#xACB0;&#xACFC; &#xAC00; &#xB429;&#xB2C8;&#xB2E4;.</li>
 </ul>
-</blockquote>
+<pre><code class="lang-bash"><span class="hljs-comment"># &#xBE14;&#xB85D; &#xB2E8;&#xC704; &#xACC4;&#xC0B0;                                 # apparent size &#xACC4;&#xC0B0;</span>
+$ du -B1 <span class="hljs-operator">-s</span> ~/.cache                          $ du -b <span class="hljs-operator">-s</span> ~/.cache
+<span class="hljs-number">2581327872</span>      /home/mug896/.cache           <span class="hljs-number">2489046940</span>      /home/mug896/.cache
+
+$ du -hs ~/.cache                             $ du -b -hs ~/.cache
+<span class="hljs-number">2.5</span>G    /home/mug896/.cache                   <span class="hljs-number">2.4</span>G    /home/mug896/.cache
+</code></pre>
 <hr>
 <p><img src="images/directory_entries.png" alt=""></p>
 <p>&#xB514;&#xB809;&#xD1A0;&#xB9AC; &#xC5D4;&#xD2B8;&#xB9AC;&#xB294; &#xAE30;&#xBCF8;&#xC801;&#xC73C;&#xB85C; &#xD30C;&#xC77C;&#xC774;&#xB984; -&gt; inode &#xB9F5;&#xD551;&#xC785;&#xB2C8;&#xB2E4;.
