@@ -1527,7 +1527,7 @@ a:b
 ARR=(<span class="hljs-number">11</span> <span class="hljs-number">22</span> <span class="hljs-number">33</span>)
 
 <span class="hljs-keyword">for</span> idx <span class="hljs-keyword">in</span> <span class="hljs-variable">${!ARR[@]}</span>; <span class="hljs-keyword">do</span>
-    <span class="hljs-built_in">echo</span> ARR index : <span class="hljs-variable">$idx</span>, value : <span class="hljs-string">&quot;<span class="hljs-variable">${ARR[$idx]}</span>&quot;</span>
+    <span class="hljs-built_in">echo</span> ARR index : <span class="hljs-variable">$idx</span>, value : <span class="hljs-string">&quot;<span class="hljs-variable">${ARR[idx]}</span>&quot;</span>      <span class="hljs-comment"># &#xB610;&#xB294; ${ARR[$idx]}</span>
 <span class="hljs-keyword">done</span>
 
 ARR index : <span class="hljs-number">0</span>, value : <span class="hljs-number">11</span>
@@ -1541,7 +1541,7 @@ ARR index : <span class="hljs-number">2</span>, value : <span class="hljs-number
 ARR=( [ab]=<span class="hljs-number">11</span> [<span class="hljs-built_in">cd</span>]=<span class="hljs-string">&quot;hello array&quot;</span> [ef]=<span class="hljs-number">22</span> )
 
 <span class="hljs-keyword">for</span> idx <span class="hljs-keyword">in</span> <span class="hljs-string">&quot;<span class="hljs-variable">${!ARR[@]}</span>&quot;</span>; <span class="hljs-keyword">do</span>
-    <span class="hljs-built_in">echo</span> ARR index : <span class="hljs-string">&quot;<span class="hljs-variable">$idx</span>&quot;</span>, value : <span class="hljs-string">&quot;<span class="hljs-variable">${ARR[$idx]}</span>&quot;</span> 
+    <span class="hljs-built_in">echo</span> ARR index : <span class="hljs-string">&quot;<span class="hljs-variable">$idx</span>&quot;</span>, value : <span class="hljs-string">&quot;<span class="hljs-variable">${ARR[idx]}</span>&quot;</span>    <span class="hljs-comment"># &#xB610;&#xB294; ${ARR[$idx]}</span>
 <span class="hljs-keyword">done</span>
 
 ARR index : ef, value : <span class="hljs-number">22</span>
